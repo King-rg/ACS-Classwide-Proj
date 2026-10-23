@@ -1,0 +1,8 @@
+{
+  "observations": 55,
+  "conditions": 11,
+  "trials_per_condition": 5,
+  "raw_json_and_arithmetic_passed": true,
+  "uncertainty": "Trial IQR, not confidence intervals",
+  "raw_sha256": "783c20d91c9bbeab64efd45daab96f1c54864c12f2fadf891343da9c121a2f37"
+}

@@ -1,0 +1,394 @@
+[
+  {
+    "compiler": "gcc",
+    "variant": "scalar",
+    "function": "0000000000000000 <evidence::axpy_scalar_f32(float, float const*, float*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": false,
+    "gather": false
+  },
+  {
+    "compiler": "gcc",
+    "variant": "scalar",
+    "function": "0000000000000060 <evidence::dot_scalar_f32(float const*, float const*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": false,
+    "gather": false
+  },
+  {
+    "compiler": "gcc",
+    "variant": "scalar",
+    "function": "00000000000000d0 <evidence::multiply_scalar_f32(float const*, float const*, float*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": false,
+    "gather": false
+  },
+  {
+    "compiler": "gcc",
+    "variant": "scalar",
+    "function": "0000000000000130 <evidence::axpy_scalar_f64(double, double const*, double*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": false,
+    "gather": false
+  },
+  {
+    "compiler": "gcc",
+    "variant": "scalar",
+    "function": "0000000000000190 <evidence::dot_scalar_f64(double const*, double const*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": false,
+    "gather": false
+  },
+  {
+    "compiler": "gcc",
+    "variant": "scalar",
+    "function": "0000000000000200 <evidence::multiply_scalar_f64(double const*, double const*, double*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": false,
+    "gather": false
+  },
+  {
+    "compiler": "gcc",
+    "variant": "auto",
+    "function": "0000000000000000 <evidence::axpy_auto_f32(float, float const*, float*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": false
+  },
+  {
+    "compiler": "gcc",
+    "variant": "auto",
+    "function": "0000000000000140 <evidence::dot_auto_f32(float const*, float const*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": false
+  },
+  {
+    "compiler": "gcc",
+    "variant": "auto",
+    "function": "0000000000000430 <evidence::multiply_auto_f32(float const*, float const*, float*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": false
+  },
+  {
+    "compiler": "gcc",
+    "variant": "auto",
+    "function": "0000000000000560 <evidence::axpy_auto_f64(double, double const*, double*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": false
+  },
+  {
+    "compiler": "gcc",
+    "variant": "auto",
+    "function": "0000000000000640 <evidence::dot_auto_f64(double const*, double const*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": false
+  },
+  {
+    "compiler": "gcc",
+    "variant": "auto",
+    "function": "00000000000007f0 <evidence::multiply_auto_f64(double const*, double const*, double*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": false
+  },
+  {
+    "compiler": "gcc",
+    "variant": "auto_strict",
+    "function": "0000000000000000 <evidence::axpy_auto_f32(float, float const*, float*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": false
+  },
+  {
+    "compiler": "gcc",
+    "variant": "auto_strict",
+    "function": "0000000000000140 <evidence::dot_auto_f32(float const*, float const*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": false
+  },
+  {
+    "compiler": "gcc",
+    "variant": "auto_strict",
+    "function": "00000000000002d0 <evidence::multiply_auto_f32(float const*, float const*, float*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": false
+  },
+  {
+    "compiler": "gcc",
+    "variant": "auto_strict",
+    "function": "0000000000000400 <evidence::axpy_auto_f64(double, double const*, double*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": false
+  },
+  {
+    "compiler": "gcc",
+    "variant": "auto_strict",
+    "function": "00000000000004e0 <evidence::dot_auto_f64(double const*, double const*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": false
+  },
+  {
+    "compiler": "gcc",
+    "variant": "auto_strict",
+    "function": "00000000000005f0 <evidence::multiply_auto_f64(double const*, double const*, double*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": false
+  },
+  {
+    "compiler": "gcc",
+    "variant": "simd",
+    "function": "0000000000000000 <evidence::axpy_simd_f32(float, float const*, float*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": true
+  },
+  {
+    "compiler": "gcc",
+    "variant": "simd",
+    "function": "0000000000000300 <evidence::dot_simd_f32(float const*, float const*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": true
+  },
+  {
+    "compiler": "gcc",
+    "variant": "simd",
+    "function": "00000000000007b0 <evidence::multiply_simd_f32(float const*, float const*, float*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": true
+  },
+  {
+    "compiler": "gcc",
+    "variant": "simd",
+    "function": "0000000000000b20 <evidence::axpy_simd_f64(double, double const*, double*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": true
+  },
+  {
+    "compiler": "gcc",
+    "variant": "simd",
+    "function": "0000000000000d60 <evidence::dot_simd_f64(double const*, double const*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": true
+  },
+  {
+    "compiler": "gcc",
+    "variant": "simd",
+    "function": "0000000000001050 <evidence::multiply_simd_f64(double const*, double const*, double*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": true
+  },
+  {
+    "compiler": "gcc",
+    "variant": "simd",
+    "function": "00000000000012b0 <evidence::stream_triad(double const*, double const*, double*, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": false
+  },
+  {
+    "compiler": "gcc",
+    "variant": "simd",
+    "function": "00000000000012f0 <evidence::cached_copy(double const*, double*, unsigned long)>:",
+    "packed_arithmetic": false,
+    "gather": false
+  },
+  {
+    "compiler": "gcc",
+    "variant": "compute",
+    "function": "0000000000000000 <evidence::compute_f32(unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": false
+  },
+  {
+    "compiler": "gcc",
+    "variant": "compute",
+    "function": "00000000000000e0 <evidence::compute_f64(unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": false
+  },
+  {
+    "compiler": "clang",
+    "variant": "scalar",
+    "function": "0000000000000000 <evidence::axpy_scalar_f32(float, float const*, float*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": false,
+    "gather": false
+  },
+  {
+    "compiler": "clang",
+    "variant": "scalar",
+    "function": "0000000000000080 <evidence::dot_scalar_f32(float const*, float const*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": false,
+    "gather": false
+  },
+  {
+    "compiler": "clang",
+    "variant": "scalar",
+    "function": "0000000000000180 <evidence::multiply_scalar_f32(float const*, float const*, float*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": false,
+    "gather": false
+  },
+  {
+    "compiler": "clang",
+    "variant": "scalar",
+    "function": "0000000000000210 <evidence::axpy_scalar_f64(double, double const*, double*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": false,
+    "gather": false
+  },
+  {
+    "compiler": "clang",
+    "variant": "scalar",
+    "function": "0000000000000290 <evidence::dot_scalar_f64(double const*, double const*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": false,
+    "gather": false
+  },
+  {
+    "compiler": "clang",
+    "variant": "scalar",
+    "function": "00000000000003a0 <evidence::multiply_scalar_f64(double const*, double const*, double*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": false,
+    "gather": false
+  },
+  {
+    "compiler": "clang",
+    "variant": "auto",
+    "function": "0000000000000000 <evidence::axpy_auto_f32(float, float const*, float*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": false
+  },
+  {
+    "compiler": "clang",
+    "variant": "auto",
+    "function": "0000000000000130 <evidence::dot_auto_f32(float const*, float const*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": false
+  },
+  {
+    "compiler": "clang",
+    "variant": "auto",
+    "function": "0000000000000300 <evidence::multiply_auto_f32(float const*, float const*, float*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": false
+  },
+  {
+    "compiler": "clang",
+    "variant": "auto",
+    "function": "0000000000000440 <evidence::axpy_auto_f64(double, double const*, double*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": false
+  },
+  {
+    "compiler": "clang",
+    "variant": "auto",
+    "function": "0000000000000570 <evidence::dot_auto_f64(double const*, double const*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": false
+  },
+  {
+    "compiler": "clang",
+    "variant": "auto",
+    "function": "0000000000000730 <evidence::multiply_auto_f64(double const*, double const*, double*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": false
+  },
+  {
+    "compiler": "clang",
+    "variant": "auto_strict",
+    "function": "0000000000000000 <evidence::axpy_auto_f32(float, float const*, float*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": false
+  },
+  {
+    "compiler": "clang",
+    "variant": "auto_strict",
+    "function": "0000000000000130 <evidence::dot_auto_f32(float const*, float const*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": false,
+    "gather": false
+  },
+  {
+    "compiler": "clang",
+    "variant": "auto_strict",
+    "function": "0000000000000230 <evidence::multiply_auto_f32(float const*, float const*, float*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": false
+  },
+  {
+    "compiler": "clang",
+    "variant": "auto_strict",
+    "function": "0000000000000370 <evidence::axpy_auto_f64(double, double const*, double*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": false
+  },
+  {
+    "compiler": "clang",
+    "variant": "auto_strict",
+    "function": "00000000000004a0 <evidence::dot_auto_f64(double const*, double const*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": false,
+    "gather": false
+  },
+  {
+    "compiler": "clang",
+    "variant": "auto_strict",
+    "function": "00000000000005b0 <evidence::multiply_auto_f64(double const*, double const*, double*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": false
+  },
+  {
+    "compiler": "clang",
+    "variant": "simd",
+    "function": "0000000000000000 <evidence::axpy_simd_f32(float, float const*, float*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": true
+  },
+  {
+    "compiler": "clang",
+    "variant": "simd",
+    "function": "00000000000002f0 <evidence::dot_simd_f32(float const*, float const*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": true
+  },
+  {
+    "compiler": "clang",
+    "variant": "simd",
+    "function": "0000000000000720 <evidence::multiply_simd_f32(float const*, float const*, float*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": true
+  },
+  {
+    "compiler": "clang",
+    "variant": "simd",
+    "function": "0000000000000a30 <evidence::axpy_simd_f64(double, double const*, double*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": true
+  },
+  {
+    "compiler": "clang",
+    "variant": "simd",
+    "function": "0000000000000cc0 <evidence::dot_simd_f64(double const*, double const*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": true
+  },
+  {
+    "compiler": "clang",
+    "variant": "simd",
+    "function": "00000000000010a0 <evidence::multiply_simd_f64(double const*, double const*, double*, unsigned long, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": true
+  },
+  {
+    "compiler": "clang",
+    "variant": "simd",
+    "function": "0000000000001350 <evidence::stream_triad(double const*, double const*, double*, unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": false
+  },
+  {
+    "compiler": "clang",
+    "variant": "simd",
+    "function": "0000000000001410 <evidence::cached_copy(double const*, double*, unsigned long)>:",
+    "packed_arithmetic": false,
+    "gather": false
+  },
+  {
+    "compiler": "clang",
+    "variant": "compute",
+    "function": "0000000000000000 <evidence::compute_f32(unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": false
+  },
+  {
+    "compiler": "clang",
+    "variant": "compute",
+    "function": "0000000000000170 <evidence::compute_f64(unsigned long)>:",
+    "packed_arithmetic": true,
+    "gather": false
+  }
+]

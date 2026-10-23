@@ -1,0 +1,629 @@
+{
+  "profile": "amat-focused",
+  "trials": 45,
+  "target_ms": 250,
+  "cpus": [
+    0
+  ],
+  "caches": [
+    {
+      "level": 1,
+      "bytes": 49152,
+      "shared": "0-1"
+    },
+    {
+      "level": 2,
+      "bytes": 1310720,
+      "shared": "0-1"
+    },
+    {
+      "level": 3,
+      "bytes": 25165824,
+      "shared": "0-19"
+    }
+  ],
+  "started": "2026-10-23T15:12:48.899851+00:00",
+  "compiler": "cc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "build_flags": "-O3 -march=native -std=c11 -Wall -Wextra -Wpedantic",
+  "kernel": "Linux desktop 6.8.0-147-generic #147-Ubuntu SMP PREEMPT_DYNAMIC Thu Sep 24 11:33:16 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux\n",
+  "lscpu": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           46 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  20\nOn-line CPU(s) list:                     0-19\nVendor ID:                               GenuineIntel\nModel name:                              13th Gen Intel(R) Core(TM) i7-13800H\nCPU family:                              6\nModel:                                   186\nThread(s) per core:                      2\nCore(s) per socket:                      14\nSocket(s):                               1\nStepping:                                2\nCPU(s) scaling MHz:                      36%\nCPU max MHz:                             5200.0000\nCPU min MHz:                             400.0000\nBogoMIPS:                                5836.80\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb intel_pt sha_ni xsaveopt xsavec xgetbv1 xsaves split_lock_detect user_shstk avx_vnni dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp hwp_pkg_req hfi vnmi umip pku ospke waitpkg gfni vaes vpclmulqdq tme rdpid movdiri movdir64b fsrm md_clear serialize pconfig arch_lbr ibt flush_l1d arch_capabilities ibpb_exit_to_user\nVirtualization:                          VT-x\nL1d cache:                               544 KiB (14 instances)\nL1i cache:                               704 KiB (14 instances)\nL2 cache:                                11.5 MiB (8 instances)\nL3 cache:                                24 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-19\nVulnerability Gather data sampling:      Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Reg file data sampling:    Mitigation; Clear Register File\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Not affected\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Enhanced / Automatic IBRS; IBPB conditional; PBRSB-eIBRS SW sequence; BHI BHI_DIS_S\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Mitigation; IBPB before exit to userspace\n",
+  "meminfo": "MemTotal:       32499448 kB\nMemFree:         9977816 kB\nMemAvailable:   19238600 kB\nBuffers:          594948 kB\nCached:          9928460 kB\nSwapCached:         7124 kB\nActive:          8551528 kB\nInactive:        9305204 kB\nActive(anon):    6774676 kB\nInactive(anon):  3338472 kB\nActive(file):    1776852 kB\nInactive(file):  5966732 kB\nUnevictable:     1131204 kB\nMlocked:           47996 kB\nSwapTotal:       8388604 kB\nSwapFree:        8322044 kB\nZswap:                 0 kB\nZswapped:              0 kB\nDirty:                92 kB\nWriteback:             0 kB\nAnonPages:       8457556 kB\nMapped:          1501912 kB\nShmem:           2768892 kB\nKReclaimable:    1983448 kB\nSlab:            2479968 kB\nSReclaimable:    1983004 kB\nSUnreclaim:       496964 kB\nKernelStack:       38132 kB\nPageTables:       123812 kB\nSecPageTables:         0 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:    24638328 kB\nCommitted_AS:   43250656 kB\nVmallocTotal:   34359738367 kB\nVmallocUsed:      133132 kB\nVmallocChunk:          0 kB\nPercpu:            35200 kB\nHardwareCorrupted:     0 kB\nAnonHugePages:         0 kB\nShmemHugePages:  2482176 kB\nShmemPmdMapped:        0 kB\nFileHugePages:         0 kB\nFilePmdMapped:         0 kB\nUnaccepted:            0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:     1366208 kB\nDirectMap2M:    23437312 kB\nDirectMap1G:     9437184 kB",
+  "governor": "powersave",
+  "smt": "1",
+  "perf_event_paranoid": "2",
+  "transparent_hugepage": "always [madvise] never",
+  "numa_maps_policy": "Anonymous mappings first-touched by each pinned worker; default NUMA policy; placement not independently measured.",
+  "cases": [],
+  "commands": [
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project2-cache-memory/build/memory_bench",
+      "latency",
+      "8388608",
+      "64",
+      "8",
+      "100",
+      "1",
+      "0",
+      "1",
+      "250",
+      "0",
+      "l3-resident",
+      "2097152"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project2-cache-memory/build/memory_bench",
+      "latency",
+      "8388608",
+      "64",
+      "8",
+      "100",
+      "1",
+      "0",
+      "1",
+      "250",
+      "0",
+      "l3-resident",
+      "2097152"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project2-cache-memory/build/memory_bench",
+      "latency",
+      "8388608",
+      "64",
+      "8",
+      "100",
+      "1",
+      "0",
+      "1",
+      "250",
+      "0",
+      "l3-resident",
+      "2097152"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project2-cache-memory/build/memory_bench",
+      "latency",
+      "8388608",
+      "64",
+      "8",
+      "100",
+      "1",
+      "0",
+      "1",
+      "250",
+      "0",
+      "l3-resident",
+      "4194304"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project2-cache-memory/build/memory_bench",
+      "latency",
+      "8388608",
+      "64",
+      "8",
+      "100",
+      "1",
+      "0",
+      "1",
+      "250",
+      "0",
+      "l3-resident",
+      "4194304"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project2-cache-memory/build/memory_bench",
+      "latency",
+      "8388608",
+      "64",
+      "8",
+      "100",
+      "1",
+      "0",
+      "1",
+      "250",
+      "0",
+      "l3-resident",
+      "4194304"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project2-cache-memory/build/memory_bench",
+      "latency",
+      "8388608",
+      "64",
+      "8",
+      "100",
+      "1",
+      "0",
+      "1",
+      "250",
+      "0",
+      "l3-resident",
+      "8388608"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project2-cache-memory/build/memory_bench",
+      "latency",
+      "8388608",
+      "64",
+      "8",
+      "100",
+      "1",
+      "0",
+      "1",
+      "250",
+      "0",
+      "l3-resident",
+      "8388608"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project2-cache-memory/build/memory_bench",
+      "latency",
+      "8388608",
+      "64",
+      "8",
+      "100",
+      "1",
+      "0",
+      "1",
+      "250",
+      "0",
+      "l3-resident",
+      "8388608"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project2-cache-memory/build/memory_bench",
+      "latency",
+      "8388608",
+      "64",
+      "8",
+      "100",
+      "1",
+      "0",
+      "1",
+      "250",
+      "0",
+      "cache-flushed"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project2-cache-memory/build/memory_bench",
+      "latency",
+      "8388608",
+      "64",
+      "8",
+      "100",
+      "1",
+      "0",
+      "1",
+      "250",
+      "0",
+      "cache-flushed"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project2-cache-memory/build/memory_bench",
+      "latency",
+      "8388608",
+      "64",
+      "8",
+      "100",
+      "1",
+      "0",
+      "1",
+      "250",
+      "0",
+      "cache-flushed"
+    ]
+  ],
+  "scope": "amat-focused",
+  "rounds": 3,
+  "trials_per_round": 15,
+  "benchmark_sha256": "1c44da04b2e199c85026bfc5e5c2c8ba118ab41eb42f1246ae78a6bb444e5385",
+  "protocol": "Prepared single traversals; >=250 ms summed traversal envelopes per trial; preparation excluded. Three rounds of fifteen paired trials. Working-set pairs use original warm protocol.",
+  "historical_report_run": "20261022T203612.685890Z",
+  "pilot_results": [
+    {
+      "eviction_bytes": 2097152,
+      "results": [
+        {
+          "trial": 0,
+          "errors": [
+            "benchmark validation failed",
+            "L3 hit residency below 95%",
+            "L3 event total differs from reads by over 5%",
+            "L2 miss total differs from reads by over 5%",
+            "one or more passes failed residency"
+          ],
+          "returncode": 4,
+          "result": {
+            "check": "fail",
+            "preparation": "l3-resident",
+            "cpu": 0,
+            "pmu_type": 4,
+            "eviction_bytes": 2097152,
+            "elapsed_ns": 258595286,
+            "preparation_ns": 342026105,
+            "passes": 61,
+            "operations": 7995392,
+            "ns_per_access": 32.3430403412,
+            "cycles": 1273789206,
+            "l3_hits": 6287807,
+            "l3_misses": 1240805,
+            "l2_misses": 7528622,
+            "counters_available": true,
+            "invalid_residency_passes": 61,
+            "envelope_ns": 3853.281,
+            "max_overhead_fraction": 0.00207903703,
+            "checksum": 399576
+          }
+        },
+        {
+          "trial": 1,
+          "errors": [
+            "benchmark validation failed",
+            "L3 hit residency below 95%",
+            "L3 event total differs from reads by over 5%",
+            "L2 miss total differs from reads by over 5%",
+            "one or more passes failed residency"
+          ],
+          "returncode": 4,
+          "result": {
+            "check": "fail",
+            "preparation": "l3-resident",
+            "cpu": 0,
+            "pmu_type": 4,
+            "eviction_bytes": 2097152,
+            "elapsed_ns": 254142792,
+            "preparation_ns": 318065472,
+            "passes": 69,
+            "operations": 9043968,
+            "ns_per_access": 28.1008061948,
+            "cycles": 1257403513,
+            "l3_hits": 7399282,
+            "l3_misses": 1135209,
+            "l2_misses": 8534505,
+            "counters_available": true,
+            "invalid_residency_passes": 69,
+            "envelope_ns": 3739.866,
+            "max_overhead_fraction": 0.00200975033,
+            "checksum": 399576
+          }
+        },
+        {
+          "trial": 2,
+          "errors": [
+            "benchmark validation failed",
+            "L3 hit residency below 95%",
+            "L3 event total differs from reads by over 5%",
+            "L2 miss total differs from reads by over 5%",
+            "one or more passes failed residency"
+          ],
+          "returncode": 4,
+          "result": {
+            "check": "fail",
+            "preparation": "l3-resident",
+            "cpu": 0,
+            "pmu_type": 4,
+            "eviction_bytes": 2097152,
+            "elapsed_ns": 252530066,
+            "preparation_ns": 283244117,
+            "passes": 64,
+            "operations": 8388608,
+            "ns_per_access": 30.1039297581,
+            "cycles": 1250303619,
+            "l3_hits": 6703198,
+            "l3_misses": 1206382,
+            "l2_misses": 7909587,
+            "counters_available": true,
+            "invalid_residency_passes": 64,
+            "envelope_ns": 3775.086,
+            "max_overhead_fraction": 0.00203526124,
+            "checksum": 399576
+          }
+        }
+      ]
+    },
+    {
+      "eviction_bytes": 4194304,
+      "results": [
+        {
+          "trial": 0,
+          "errors": [
+            "benchmark validation failed",
+            "L3 hit residency below 95%",
+            "L3 event total differs from reads by over 5%",
+            "L2 miss total differs from reads by over 5%",
+            "one or more passes failed residency"
+          ],
+          "returncode": 4,
+          "result": {
+            "check": "fail",
+            "preparation": "l3-resident",
+            "cpu": 0,
+            "pmu_type": 4,
+            "eviction_bytes": 4194304,
+            "elapsed_ns": 252887509,
+            "preparation_ns": 338659291,
+            "passes": 54,
+            "operations": 7077888,
+            "ns_per_access": 35.7292329294,
+            "cycles": 1254265598,
+            "l3_hits": 5074816,
+            "l3_misses": 1593389,
+            "l2_misses": 6668205,
+            "counters_available": true,
+            "invalid_residency_passes": 54,
+            "envelope_ns": 3720.126,
+            "max_overhead_fraction": 0.00199227644,
+            "checksum": 399576
+          }
+        },
+        {
+          "trial": 1,
+          "errors": [
+            "benchmark validation failed",
+            "L3 hit residency below 95%",
+            "L3 event total differs from reads by over 5%",
+            "L2 miss total differs from reads by over 5%",
+            "one or more passes failed residency"
+          ],
+          "returncode": 4,
+          "result": {
+            "check": "fail",
+            "preparation": "l3-resident",
+            "cpu": 0,
+            "pmu_type": 4,
+            "eviction_bytes": 4194304,
+            "elapsed_ns": 253208351,
+            "preparation_ns": 370661843,
+            "passes": 58,
+            "operations": 7602176,
+            "ns_per_access": 33.3073518687,
+            "cycles": 1255459869,
+            "l3_hits": 5722279,
+            "l3_misses": 1440343,
+            "l2_misses": 7162632,
+            "counters_available": true,
+            "invalid_residency_passes": 58,
+            "envelope_ns": 3813.066,
+            "max_overhead_fraction": 0.00201980252,
+            "checksum": 399576
+          }
+        },
+        {
+          "trial": 2,
+          "errors": [
+            "benchmark validation failed",
+            "L3 hit residency below 95%",
+            "L3 event total differs from reads by over 5%",
+            "L2 miss total differs from reads by over 5%",
+            "one or more passes failed residency"
+          ],
+          "returncode": 4,
+          "result": {
+            "check": "fail",
+            "preparation": "l3-resident",
+            "cpu": 0,
+            "pmu_type": 4,
+            "eviction_bytes": 4194304,
+            "elapsed_ns": 251719624,
+            "preparation_ns": 309078267,
+            "passes": 51,
+            "operations": 6684672,
+            "ns_per_access": 37.6562416226,
+            "cycles": 1248238386,
+            "l3_hits": 4744865,
+            "l3_misses": 1561885,
+            "l2_misses": 6306754,
+            "counters_available": true,
+            "invalid_residency_passes": 51,
+            "envelope_ns": 3739.128,
+            "max_overhead_fraction": 0.00199619567,
+            "checksum": 399576
+          }
+        }
+      ]
+    },
+    {
+      "eviction_bytes": 8388608,
+      "results": [
+        {
+          "trial": 0,
+          "errors": [
+            "benchmark validation failed",
+            "L3 hit residency below 95%",
+            "one or more passes failed residency"
+          ],
+          "returncode": 4,
+          "result": {
+            "check": "fail",
+            "preparation": "l3-resident",
+            "cpu": 0,
+            "pmu_type": 4,
+            "eviction_bytes": 8388608,
+            "elapsed_ns": 254650370,
+            "preparation_ns": 435789961,
+            "passes": 32,
+            "operations": 4194304,
+            "ns_per_access": 60.7133793831,
+            "cycles": 1264400812,
+            "l3_hits": 1939358,
+            "l3_misses": 2046717,
+            "l2_misses": 3986076,
+            "counters_available": true,
+            "invalid_residency_passes": 32,
+            "envelope_ns": 3772.852,
+            "max_overhead_fraction": 0.00153741133,
+            "checksum": 399576
+          }
+        },
+        {
+          "trial": 1,
+          "errors": [
+            "benchmark validation failed",
+            "L3 hit residency below 95%",
+            "L3 event total differs from reads by over 5%",
+            "L2 miss total differs from reads by over 5%",
+            "one or more passes failed residency"
+          ],
+          "returncode": 4,
+          "result": {
+            "check": "fail",
+            "preparation": "l3-resident",
+            "cpu": 0,
+            "pmu_type": 4,
+            "eviction_bytes": 8388608,
+            "elapsed_ns": 255166501,
+            "preparation_ns": 398800429,
+            "passes": 27,
+            "operations": 3538944,
+            "ns_per_access": 72.1024410107,
+            "cycles": 1266541291,
+            "l3_hits": 1413307,
+            "l3_misses": 1947682,
+            "l2_misses": 3360991,
+            "counters_available": true,
+            "invalid_residency_passes": 27,
+            "envelope_ns": 3785.783,
+            "max_overhead_fraction": 0.0013344666,
+            "checksum": 399576
+          }
+        },
+        {
+          "trial": 2,
+          "errors": [
+            "benchmark validation failed",
+            "L3 hit residency below 95%",
+            "L3 event total differs from reads by over 5%",
+            "L2 miss total differs from reads by over 5%",
+            "one or more passes failed residency"
+          ],
+          "returncode": 4,
+          "result": {
+            "check": "fail",
+            "preparation": "l3-resident",
+            "cpu": 0,
+            "pmu_type": 4,
+            "eviction_bytes": 8388608,
+            "elapsed_ns": 257293030,
+            "preparation_ns": 452414254,
+            "passes": 33,
+            "operations": 4325376,
+            "ns_per_access": 59.4845465458,
+            "cycles": 1277087628,
+            "l3_hits": 1948925,
+            "l3_misses": 2151076,
+            "l2_misses": 4100004,
+            "counters_available": true,
+            "invalid_residency_passes": 33,
+            "envelope_ns": 3703.775,
+            "max_overhead_fraction": 0.00145298842,
+            "checksum": 399576
+          }
+        }
+      ]
+    }
+  ],
+  "flush_pilots": [
+    {
+      "trial": 0,
+      "errors": [
+        "benchmark validation failed",
+        "L3 miss residency below 95%",
+        "L3 event total differs from reads by over 5%",
+        "L2 miss total differs from reads by over 5%",
+        "one or more passes failed residency"
+      ],
+      "returncode": 4,
+      "result": {
+        "check": "fail",
+        "preparation": "cache-flushed",
+        "cpu": 0,
+        "pmu_type": 4,
+        "eviction_bytes": 0,
+        "elapsed_ns": 256852121,
+        "preparation_ns": 75809540,
+        "passes": 25,
+        "operations": 3276800,
+        "ns_per_access": 78.3850466919,
+        "cycles": 1276259556,
+        "l3_hits": 975326,
+        "l3_misses": 2135159,
+        "l2_misses": 3110487,
+        "counters_available": true,
+        "invalid_residency_passes": 25,
+        "envelope_ns": 3712.292,
+        "max_overhead_fraction": 0.000575527018,
+        "checksum": 399576
+      }
+    },
+    {
+      "trial": 1,
+      "errors": [
+        "benchmark validation failed",
+        "L3 miss residency below 95%",
+        "L3 event total differs from reads by over 5%",
+        "L2 miss total differs from reads by over 5%",
+        "one or more passes failed residency"
+      ],
+      "returncode": 4,
+      "result": {
+        "check": "fail",
+        "preparation": "cache-flushed",
+        "cpu": 0,
+        "pmu_type": 4,
+        "eviction_bytes": 0,
+        "elapsed_ns": 258113023,
+        "preparation_ns": 83575651,
+        "passes": 27,
+        "operations": 3538944,
+        "ns_per_access": 72.9350402267,
+        "cycles": 1282021507,
+        "l3_hits": 1155570,
+        "l3_misses": 2191925,
+        "l2_misses": 3347495,
+        "counters_available": true,
+        "invalid_residency_passes": 27,
+        "envelope_ns": 3749.331,
+        "max_overhead_fraction": 0.000578027431,
+        "checksum": 399576
+      }
+    },
+    {
+      "trial": 2,
+      "errors": [
+        "benchmark validation failed",
+        "L3 miss residency below 95%",
+        "L3 event total differs from reads by over 5%",
+        "L2 miss total differs from reads by over 5%",
+        "one or more passes failed residency"
+      ],
+      "returncode": 4,
+      "result": {
+        "check": "fail",
+        "preparation": "cache-flushed",
+        "cpu": 0,
+        "pmu_type": 4,
+        "eviction_bytes": 0,
+        "elapsed_ns": 250824258,
+        "preparation_ns": 79783487,
+        "passes": 26,
+        "operations": 3407872,
+        "ns_per_access": 73.6014316265,
+        "cycles": 1244975909,
+        "l3_hits": 1103742,
+        "l3_misses": 2117442,
+        "l2_misses": 3221185,
+        "counters_available": true,
+        "invalid_residency_passes": 26,
+        "envelope_ns": 3710.424,
+        "max_overhead_fraction": 0.000572337773,
+        "checksum": 399576
+      }
+    }
+  ],
+  "selected_eviction_bytes": null,
+  "raw_sha256": null,
+  "controlled_sha256": null,
+  "attempt_sha256": {
+    "controlled-attempts.jsonl": "31d02d7f6a1fe2b219f0f256235d9f1547258f15167a4a423ad798b8ab257aa2"
+  }
+}

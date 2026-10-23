@@ -1,0 +1,17 @@
+{
+  "fit": [
+    3.226589083858348,
+    132.44049696751168
+  ],
+  "ci95": [
+    [
+      -5.380951271424582,
+      108.22295850696786
+    ],
+    [
+      12.180062771701207,
+      155.51661041612215
+    ]
+  ],
+  "status": "Intercept interval includes zero; no isolated hit-time claim is supported. All observations retained."
+}

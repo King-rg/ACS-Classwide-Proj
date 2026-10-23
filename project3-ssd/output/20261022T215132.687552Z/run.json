@@ -1,0 +1,10 @@
+{
+  "project": 3,
+  "started": "20261022T215132.687552Z",
+  "acquisition_complete": true,
+  "plots_complete": true,
+  "raw_sha256": {
+    "raw.csv": "3e42ab5b39041042deeb567fbfd8acf2eb7d9158bc8e1bc5e42ea5f82c7eff69"
+  },
+  "finished": "2026-10-22T22:21:59.438236+00:00"
+}

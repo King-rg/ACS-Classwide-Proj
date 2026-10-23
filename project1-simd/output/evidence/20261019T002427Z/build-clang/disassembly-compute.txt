@@ -1,0 +1,179 @@
+
+/home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T002427Z/build-clang/compute.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <evidence::compute_f32(unsigned long)>:
+   0:	48 85 ff             	test   %rdi,%rdi
+   3:	74 4a                	je     4f <evidence::compute_f32(unsigned long)+0x4f>
+   5:	48 83 ff 01          	cmp    $0x1,%rdi
+   9:	75 51                	jne    5c <evidence::compute_f32(unsigned long)+0x5c>
+   b:	c4 e2 7d 18 05 00 00 	vbroadcastss 0x0(%rip),%ymm0        # 14 <evidence::compute_f32(unsigned long)+0x14>
+  12:	00 00 
+  14:	c4 e2 7d 18 0d 00 00 	vbroadcastss 0x0(%rip),%ymm1        # 1d <evidence::compute_f32(unsigned long)+0x1d>
+  1b:	00 00 
+  1d:	c4 e2 7d 18 15 00 00 	vbroadcastss 0x0(%rip),%ymm2        # 26 <evidence::compute_f32(unsigned long)+0x26>
+  24:	00 00 
+  26:	c4 e2 7d 18 1d 00 00 	vbroadcastss 0x0(%rip),%ymm3        # 2f <evidence::compute_f32(unsigned long)+0x2f>
+  2d:	00 00 
+  2f:	c4 e2 7d 18 25 00 00 	vbroadcastss 0x0(%rip),%ymm4        # 38 <evidence::compute_f32(unsigned long)+0x38>
+  36:	00 00 
+  38:	c4 e2 7d 18 2d 00 00 	vbroadcastss 0x0(%rip),%ymm5        # 41 <evidence::compute_f32(unsigned long)+0x41>
+  3f:	00 00 
+  41:	c4 e2 7d 18 35 00 00 	vbroadcastss 0x0(%rip),%ymm6        # 4a <evidence::compute_f32(unsigned long)+0x4a>
+  48:	00 00 
+  4a:	e9 bd 00 00 00       	jmp    10c <evidence::compute_f32(unsigned long)+0x10c>
+  4f:	c4 e2 7d 18 05 00 00 	vbroadcastss 0x0(%rip),%ymm0        # 58 <evidence::compute_f32(unsigned long)+0x58>
+  56:	00 00 
+  58:	c5 f8 77             	vzeroupper
+  5b:	c3                   	ret
+  5c:	48 89 f8             	mov    %rdi,%rax
+  5f:	48 83 e0 fe          	and    $0xfffffffffffffffe,%rax
+  63:	c4 e2 7d 18 05 00 00 	vbroadcastss 0x0(%rip),%ymm0        # 6c <evidence::compute_f32(unsigned long)+0x6c>
+  6a:	00 00 
+  6c:	c4 e2 7d 18 0d 00 00 	vbroadcastss 0x0(%rip),%ymm1        # 75 <evidence::compute_f32(unsigned long)+0x75>
+  73:	00 00 
+  75:	c4 e2 7d 18 15 00 00 	vbroadcastss 0x0(%rip),%ymm2        # 7e <evidence::compute_f32(unsigned long)+0x7e>
+  7c:	00 00 
+  7e:	c4 e2 7d 18 1d 00 00 	vbroadcastss 0x0(%rip),%ymm3        # 87 <evidence::compute_f32(unsigned long)+0x87>
+  85:	00 00 
+  87:	c4 e2 7d 18 25 00 00 	vbroadcastss 0x0(%rip),%ymm4        # 90 <evidence::compute_f32(unsigned long)+0x90>
+  8e:	00 00 
+  90:	c4 e2 7d 18 2d 00 00 	vbroadcastss 0x0(%rip),%ymm5        # 99 <evidence::compute_f32(unsigned long)+0x99>
+  97:	00 00 
+  99:	c4 e2 7d 18 35 00 00 	vbroadcastss 0x0(%rip),%ymm6        # a2 <evidence::compute_f32(unsigned long)+0xa2>
+  a0:	00 00 
+  a2:	c4 e2 7d 18 3d 00 00 	vbroadcastss 0x0(%rip),%ymm7        # ab <evidence::compute_f32(unsigned long)+0xab>
+  a9:	00 00 
+  ab:	c4 62 7d 18 05 00 00 	vbroadcastss 0x0(%rip),%ymm8        # b4 <evidence::compute_f32(unsigned long)+0xb4>
+  b2:	00 00 
+  b4:	66 66 66 2e 0f 1f 84 	data16 data16 cs nopw 0x0(%rax,%rax,1)
+  bb:	00 00 00 00 00 
+  c0:	c4 e2 3d a8 f7       	vfmadd213ps %ymm7,%ymm8,%ymm6
+  c5:	c4 e2 3d a8 c7       	vfmadd213ps %ymm7,%ymm8,%ymm0
+  ca:	c4 e2 3d a8 cf       	vfmadd213ps %ymm7,%ymm8,%ymm1
+  cf:	c4 e2 3d a8 d7       	vfmadd213ps %ymm7,%ymm8,%ymm2
+  d4:	c4 e2 3d a8 df       	vfmadd213ps %ymm7,%ymm8,%ymm3
+  d9:	c4 e2 3d a8 e7       	vfmadd213ps %ymm7,%ymm8,%ymm4
+  de:	c4 e2 3d a8 ef       	vfmadd213ps %ymm7,%ymm8,%ymm5
+  e3:	c4 e2 3d a8 f7       	vfmadd213ps %ymm7,%ymm8,%ymm6
+  e8:	c4 e2 3d a8 c7       	vfmadd213ps %ymm7,%ymm8,%ymm0
+  ed:	c4 e2 3d a8 cf       	vfmadd213ps %ymm7,%ymm8,%ymm1
+  f2:	c4 e2 3d a8 d7       	vfmadd213ps %ymm7,%ymm8,%ymm2
+  f7:	c4 e2 3d a8 df       	vfmadd213ps %ymm7,%ymm8,%ymm3
+  fc:	c4 e2 3d a8 e7       	vfmadd213ps %ymm7,%ymm8,%ymm4
+ 101:	c4 e2 3d a8 ef       	vfmadd213ps %ymm7,%ymm8,%ymm5
+ 106:	48 83 c0 fe          	add    $0xfffffffffffffffe,%rax
+ 10a:	75 b4                	jne    c0 <evidence::compute_f32(unsigned long)+0xc0>
+ 10c:	40 f6 c7 01          	test   $0x1,%dil
+ 110:	74 35                	je     147 <evidence::compute_f32(unsigned long)+0x147>
+ 112:	c4 e2 7d 18 3d 00 00 	vbroadcastss 0x0(%rip),%ymm7        # 11b <evidence::compute_f32(unsigned long)+0x11b>
+ 119:	00 00 
+ 11b:	c4 62 7d 18 05 00 00 	vbroadcastss 0x0(%rip),%ymm8        # 124 <evidence::compute_f32(unsigned long)+0x124>
+ 122:	00 00 
+ 124:	c4 e2 3d a8 f7       	vfmadd213ps %ymm7,%ymm8,%ymm6
+ 129:	c4 e2 3d a8 c7       	vfmadd213ps %ymm7,%ymm8,%ymm0
+ 12e:	c4 e2 3d a8 cf       	vfmadd213ps %ymm7,%ymm8,%ymm1
+ 133:	c4 e2 3d a8 d7       	vfmadd213ps %ymm7,%ymm8,%ymm2
+ 138:	c4 e2 3d a8 df       	vfmadd213ps %ymm7,%ymm8,%ymm3
+ 13d:	c4 e2 3d a8 e7       	vfmadd213ps %ymm7,%ymm8,%ymm4
+ 142:	c4 e2 3d a8 ef       	vfmadd213ps %ymm7,%ymm8,%ymm5
+ 147:	c5 dc 58 e5          	vaddps %ymm5,%ymm4,%ymm4
+ 14b:	c5 dc 58 e6          	vaddps %ymm6,%ymm4,%ymm4
+ 14f:	c5 f4 58 cb          	vaddps %ymm3,%ymm1,%ymm1
+ 153:	c5 fc 58 c2          	vaddps %ymm2,%ymm0,%ymm0
+ 157:	c5 f4 58 c0          	vaddps %ymm0,%ymm1,%ymm0
+ 15b:	c5 fc 58 c4          	vaddps %ymm4,%ymm0,%ymm0
+ 15f:	c4 e2 7d 18 0d 00 00 	vbroadcastss 0x0(%rip),%ymm1        # 168 <evidence::compute_f32(unsigned long)+0x168>
+ 166:	00 00 
+ 168:	c5 fc 58 c1          	vaddps %ymm1,%ymm0,%ymm0
+ 16c:	c5 f8 77             	vzeroupper
+ 16f:	c3                   	ret
+
+0000000000000170 <evidence::compute_f64(unsigned long)>:
+ 170:	48 85 ff             	test   %rdi,%rdi
+ 173:	74 4a                	je     1bf <evidence::compute_f64(unsigned long)+0x4f>
+ 175:	48 83 ff 01          	cmp    $0x1,%rdi
+ 179:	75 51                	jne    1cc <evidence::compute_f64(unsigned long)+0x5c>
+ 17b:	c4 e2 7d 19 05 00 00 	vbroadcastsd 0x0(%rip),%ymm0        # 184 <evidence::compute_f64(unsigned long)+0x14>
+ 182:	00 00 
+ 184:	c4 e2 7d 19 0d 00 00 	vbroadcastsd 0x0(%rip),%ymm1        # 18d <evidence::compute_f64(unsigned long)+0x1d>
+ 18b:	00 00 
+ 18d:	c4 e2 7d 19 15 00 00 	vbroadcastsd 0x0(%rip),%ymm2        # 196 <evidence::compute_f64(unsigned long)+0x26>
+ 194:	00 00 
+ 196:	c4 e2 7d 19 1d 00 00 	vbroadcastsd 0x0(%rip),%ymm3        # 19f <evidence::compute_f64(unsigned long)+0x2f>
+ 19d:	00 00 
+ 19f:	c4 e2 7d 19 25 00 00 	vbroadcastsd 0x0(%rip),%ymm4        # 1a8 <evidence::compute_f64(unsigned long)+0x38>
+ 1a6:	00 00 
+ 1a8:	c4 e2 7d 19 2d 00 00 	vbroadcastsd 0x0(%rip),%ymm5        # 1b1 <evidence::compute_f64(unsigned long)+0x41>
+ 1af:	00 00 
+ 1b1:	c4 e2 7d 19 35 00 00 	vbroadcastsd 0x0(%rip),%ymm6        # 1ba <evidence::compute_f64(unsigned long)+0x4a>
+ 1b8:	00 00 
+ 1ba:	e9 bd 00 00 00       	jmp    27c <evidence::compute_f64(unsigned long)+0x10c>
+ 1bf:	c4 e2 7d 19 05 00 00 	vbroadcastsd 0x0(%rip),%ymm0        # 1c8 <evidence::compute_f64(unsigned long)+0x58>
+ 1c6:	00 00 
+ 1c8:	c5 f8 77             	vzeroupper
+ 1cb:	c3                   	ret
+ 1cc:	48 89 f8             	mov    %rdi,%rax
+ 1cf:	48 83 e0 fe          	and    $0xfffffffffffffffe,%rax
+ 1d3:	c4 e2 7d 19 05 00 00 	vbroadcastsd 0x0(%rip),%ymm0        # 1dc <evidence::compute_f64(unsigned long)+0x6c>
+ 1da:	00 00 
+ 1dc:	c4 e2 7d 19 0d 00 00 	vbroadcastsd 0x0(%rip),%ymm1        # 1e5 <evidence::compute_f64(unsigned long)+0x75>
+ 1e3:	00 00 
+ 1e5:	c4 e2 7d 19 15 00 00 	vbroadcastsd 0x0(%rip),%ymm2        # 1ee <evidence::compute_f64(unsigned long)+0x7e>
+ 1ec:	00 00 
+ 1ee:	c4 e2 7d 19 1d 00 00 	vbroadcastsd 0x0(%rip),%ymm3        # 1f7 <evidence::compute_f64(unsigned long)+0x87>
+ 1f5:	00 00 
+ 1f7:	c4 e2 7d 19 25 00 00 	vbroadcastsd 0x0(%rip),%ymm4        # 200 <evidence::compute_f64(unsigned long)+0x90>
+ 1fe:	00 00 
+ 200:	c4 e2 7d 19 2d 00 00 	vbroadcastsd 0x0(%rip),%ymm5        # 209 <evidence::compute_f64(unsigned long)+0x99>
+ 207:	00 00 
+ 209:	c4 e2 7d 19 35 00 00 	vbroadcastsd 0x0(%rip),%ymm6        # 212 <evidence::compute_f64(unsigned long)+0xa2>
+ 210:	00 00 
+ 212:	c4 e2 7d 19 3d 00 00 	vbroadcastsd 0x0(%rip),%ymm7        # 21b <evidence::compute_f64(unsigned long)+0xab>
+ 219:	00 00 
+ 21b:	c4 62 7d 19 05 00 00 	vbroadcastsd 0x0(%rip),%ymm8        # 224 <evidence::compute_f64(unsigned long)+0xb4>
+ 222:	00 00 
+ 224:	66 66 66 2e 0f 1f 84 	data16 data16 cs nopw 0x0(%rax,%rax,1)
+ 22b:	00 00 00 00 00 
+ 230:	c4 e2 bd a8 f7       	vfmadd213pd %ymm7,%ymm8,%ymm6
+ 235:	c4 e2 bd a8 c7       	vfmadd213pd %ymm7,%ymm8,%ymm0
+ 23a:	c4 e2 bd a8 cf       	vfmadd213pd %ymm7,%ymm8,%ymm1
+ 23f:	c4 e2 bd a8 d7       	vfmadd213pd %ymm7,%ymm8,%ymm2
+ 244:	c4 e2 bd a8 df       	vfmadd213pd %ymm7,%ymm8,%ymm3
+ 249:	c4 e2 bd a8 e7       	vfmadd213pd %ymm7,%ymm8,%ymm4
+ 24e:	c4 e2 bd a8 ef       	vfmadd213pd %ymm7,%ymm8,%ymm5
+ 253:	c4 e2 bd a8 f7       	vfmadd213pd %ymm7,%ymm8,%ymm6
+ 258:	c4 e2 bd a8 c7       	vfmadd213pd %ymm7,%ymm8,%ymm0
+ 25d:	c4 e2 bd a8 cf       	vfmadd213pd %ymm7,%ymm8,%ymm1
+ 262:	c4 e2 bd a8 d7       	vfmadd213pd %ymm7,%ymm8,%ymm2
+ 267:	c4 e2 bd a8 df       	vfmadd213pd %ymm7,%ymm8,%ymm3
+ 26c:	c4 e2 bd a8 e7       	vfmadd213pd %ymm7,%ymm8,%ymm4
+ 271:	c4 e2 bd a8 ef       	vfmadd213pd %ymm7,%ymm8,%ymm5
+ 276:	48 83 c0 fe          	add    $0xfffffffffffffffe,%rax
+ 27a:	75 b4                	jne    230 <evidence::compute_f64(unsigned long)+0xc0>
+ 27c:	40 f6 c7 01          	test   $0x1,%dil
+ 280:	74 35                	je     2b7 <evidence::compute_f64(unsigned long)+0x147>
+ 282:	c4 e2 7d 19 3d 00 00 	vbroadcastsd 0x0(%rip),%ymm7        # 28b <evidence::compute_f64(unsigned long)+0x11b>
+ 289:	00 00 
+ 28b:	c4 62 7d 19 05 00 00 	vbroadcastsd 0x0(%rip),%ymm8        # 294 <evidence::compute_f64(unsigned long)+0x124>
+ 292:	00 00 
+ 294:	c4 e2 bd a8 f7       	vfmadd213pd %ymm7,%ymm8,%ymm6
+ 299:	c4 e2 bd a8 c7       	vfmadd213pd %ymm7,%ymm8,%ymm0
+ 29e:	c4 e2 bd a8 cf       	vfmadd213pd %ymm7,%ymm8,%ymm1
+ 2a3:	c4 e2 bd a8 d7       	vfmadd213pd %ymm7,%ymm8,%ymm2
+ 2a8:	c4 e2 bd a8 df       	vfmadd213pd %ymm7,%ymm8,%ymm3
+ 2ad:	c4 e2 bd a8 e7       	vfmadd213pd %ymm7,%ymm8,%ymm4
+ 2b2:	c4 e2 bd a8 ef       	vfmadd213pd %ymm7,%ymm8,%ymm5
+ 2b7:	c5 dd 58 e5          	vaddpd %ymm5,%ymm4,%ymm4
+ 2bb:	c5 dd 58 e6          	vaddpd %ymm6,%ymm4,%ymm4
+ 2bf:	c5 f5 58 cb          	vaddpd %ymm3,%ymm1,%ymm1
+ 2c3:	c5 fd 58 c2          	vaddpd %ymm2,%ymm0,%ymm0
+ 2c7:	c5 f5 58 c0          	vaddpd %ymm0,%ymm1,%ymm0
+ 2cb:	c5 fd 58 c4          	vaddpd %ymm4,%ymm0,%ymm0
+ 2cf:	c4 e2 7d 19 0d 00 00 	vbroadcastsd 0x0(%rip),%ymm1        # 2d8 <evidence::compute_f64(unsigned long)+0x168>
+ 2d6:	00 00 
+ 2d8:	c5 fd 58 c1          	vaddpd %ymm1,%ymm0,%ymm0
+ 2dc:	c5 f8 77             	vzeroupper
+ 2df:	c3                   	ret

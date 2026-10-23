@@ -1,0 +1,121 @@
+{
+  "scope": "amat-focused",
+  "method": "mixed-residency-v1",
+  "parameters": {
+    "method": "mixed-residency-v1",
+    "h_ns": 3.226589083858348,
+    "P_ns": 132.44049696751168,
+    "h_ci95_ns": [
+      -5.380951271424582,
+      12.180062771701207
+    ],
+    "P_ci95_ns": [
+      108.22295850696786,
+      155.51661041612215
+    ],
+    "conditions": [
+      {
+        "preparation": "l3-resident",
+        "eviction_MiB": 2.0,
+        "median_miss_ratio": 0.21378182465175413,
+        "median_ns": 37.0835521405,
+        "L3_event_coverage": 0.9497228482874428
+      },
+      {
+        "preparation": "l3-resident",
+        "eviction_MiB": 4.0,
+        "median_miss_ratio": 0.2942438328519781,
+        "median_ns": 42.6655090332,
+        "L3_event_coverage": 0.9476064046223959
+      },
+      {
+        "preparation": "l3-resident",
+        "eviction_MiB": 8.0,
+        "median_miss_ratio": 0.628402099609375,
+        "median_ns": 79.9600919088,
+        "L3_event_coverage": 0.9545967795632102
+      },
+      {
+        "preparation": "cache-flushed",
+        "eviction_MiB": 0.0,
+        "median_miss_ratio": 0.7030324935913086,
+        "median_ns": 82.8052307765,
+        "L3_event_coverage": 0.954275711722996
+      }
+    ],
+    "leave_one_condition_out": [
+      {
+        "omitted": "('l3-resident', 2097152)",
+        "h_ns": -3.709622246179386,
+        "P_ns": 140.25025056221676
+      },
+      {
+        "omitted": "('l3-resident', 4194304)",
+        "h_ns": 3.8538698268420584,
+        "P_ns": 129.21672199593587
+      },
+      {
+        "omitted": "('l3-resident', 8388608)",
+        "h_ns": 4.8641098124406446,
+        "P_ns": 131.0421621792697
+      },
+      {
+        "omitted": "('cache-flushed', 0)",
+        "h_ns": 1.963960873925864,
+        "P_ns": 141.33235791442164
+      }
+    ],
+    "round_fits": [
+      {
+        "round": 1,
+        "h_ns": 12.14002816220498,
+        "P_ns": 110.16176079312957
+      },
+      {
+        "round": 2,
+        "h_ns": -2.2141169696592384,
+        "P_ns": 148.56609064141125
+      },
+      {
+        "round": 3,
+        "h_ns": 2.2807504495809368,
+        "P_ns": 133.87422019856658
+      }
+    ],
+    "design": {
+      "condition_miss_ratios": [
+        0.21378182465175413,
+        0.2942438328519781,
+        0.628402099609375,
+        0.7030324935913086
+      ],
+      "condition_L3_event_coverage": [
+        0.9497228482874428,
+        0.9476064046223959,
+        0.9545967795632102,
+        0.954275711722996
+      ]
+    },
+    "model": "estimated AMAT = h + m P",
+    "parameter_definition": "Effective regression intercept and additional cost per L3 miss; not pure hardware timings.",
+    "uncertainty": "95% percentile bootstrap of matched trial blocks, stratified by round; parameter sampling uncertainty only. Excludes miss-ratio uncertainty, model bias, and extrapolation error.",
+    "condition_median_miss_range": [
+      0.21378182465175413,
+      0.7030324935913086
+    ],
+    "controlled_observed_miss_range": [
+      0.1402069830125378,
+      0.9542431301540799
+    ],
+    "controlled_trials": 180,
+    "working_set_trials": 2880,
+    "cost_identification": "baseline_cost_not_reliably_identified",
+    "analysis_note": "An interval reaching zero prevents interpreting the intercept as a reliable hit cost; the curve is a descriptive AMAT estimate with parameter uncertainty."
+  },
+  "sources": {
+    "controlled.csv": "f408714a01b675724593cd19f875594297160a994bf25ba60f363a0519629f7b",
+    "raw.csv": "7184083eb74bc9ed5f653b6d739698beb56d54dc01aa1dcd059fe8a4278fd0c7"
+  },
+  "table": "tables/amat_mixed.csv",
+  "plot": "plots/amat_mixed.png"
+}

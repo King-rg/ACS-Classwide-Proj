@@ -1,0 +1,319 @@
+
+/home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T002553Z/build-clang/scalar.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <evidence::axpy_scalar_f32(float, float const*, float*, unsigned long, unsigned long)>:
+   0:	48 85 d2             	test   %rdx,%rdx
+   3:	74 71                	je     76 <evidence::axpy_scalar_f32(float, float const*, float*, unsigned long, unsigned long)+0x76>
+   5:	48 83 fa 01          	cmp    $0x1,%rdx
+   9:	75 09                	jne    14 <evidence::axpy_scalar_f32(float, float const*, float*, unsigned long, unsigned long)+0x14>
+   b:	31 c0                	xor    %eax,%eax
+   d:	f6 c2 01             	test   $0x1,%dl
+  10:	75 51                	jne    63 <evidence::axpy_scalar_f32(float, float const*, float*, unsigned long, unsigned long)+0x63>
+  12:	eb 62                	jmp    76 <evidence::axpy_scalar_f32(float, float const*, float*, unsigned long, unsigned long)+0x76>
+  14:	53                   	push   %rbx
+  15:	49 89 d0             	mov    %rdx,%r8
+  18:	49 83 e0 fe          	and    $0xfffffffffffffffe,%r8
+  1c:	4c 8d 0c 8e          	lea    (%rsi,%rcx,4),%r9
+  20:	4c 8d 14 cd 00 00 00 	lea    0x0(,%rcx,8),%r10
+  27:	00 
+  28:	4c 8d 1c 8f          	lea    (%rdi,%rcx,4),%r11
+  2c:	31 db                	xor    %ebx,%ebx
+  2e:	31 c0                	xor    %eax,%eax
+  30:	c5 fa 59 0c 1f       	vmulss (%rdi,%rbx,1),%xmm0,%xmm1
+  35:	c5 f2 58 0c 1e       	vaddss (%rsi,%rbx,1),%xmm1,%xmm1
+  3a:	c5 fa 11 0c 1e       	vmovss %xmm1,(%rsi,%rbx,1)
+  3f:	c4 c1 7a 59 0c 1b    	vmulss (%r11,%rbx,1),%xmm0,%xmm1
+  45:	c4 c1 72 58 0c 19    	vaddss (%r9,%rbx,1),%xmm1,%xmm1
+  4b:	c4 c1 7a 11 0c 19    	vmovss %xmm1,(%r9,%rbx,1)
+  51:	48 83 c0 02          	add    $0x2,%rax
+  55:	4c 01 d3             	add    %r10,%rbx
+  58:	49 39 c0             	cmp    %rax,%r8
+  5b:	75 d3                	jne    30 <evidence::axpy_scalar_f32(float, float const*, float*, unsigned long, unsigned long)+0x30>
+  5d:	5b                   	pop    %rbx
+  5e:	f6 c2 01             	test   $0x1,%dl
+  61:	74 13                	je     76 <evidence::axpy_scalar_f32(float, float const*, float*, unsigned long, unsigned long)+0x76>
+  63:	48 0f af c1          	imul   %rcx,%rax
+  67:	c5 fa 59 04 87       	vmulss (%rdi,%rax,4),%xmm0,%xmm0
+  6c:	c5 fa 58 04 86       	vaddss (%rsi,%rax,4),%xmm0,%xmm0
+  71:	c5 fa 11 04 86       	vmovss %xmm0,(%rsi,%rax,4)
+  76:	c3                   	ret
+  77:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+  7e:	00 00 
+
+0000000000000080 <evidence::dot_scalar_f32(float const*, float const*, unsigned long, unsigned long)>:
+  80:	48 85 d2             	test   %rdx,%rdx
+  83:	74 20                	je     a5 <evidence::dot_scalar_f32(float const*, float const*, unsigned long, unsigned long)+0x25>
+  85:	89 d0                	mov    %edx,%eax
+  87:	83 e0 03             	and    $0x3,%eax
+  8a:	48 83 fa 04          	cmp    $0x4,%rdx
+  8e:	73 1a                	jae    aa <evidence::dot_scalar_f32(float const*, float const*, unsigned long, unsigned long)+0x2a>
+  90:	c5 f8 57 c0          	vxorps %xmm0,%xmm0,%xmm0
+  94:	45 31 c0             	xor    %r8d,%r8d
+  97:	48 85 c0             	test   %rax,%rax
+  9a:	0f 85 aa 00 00 00    	jne    14a <evidence::dot_scalar_f32(float const*, float const*, unsigned long, unsigned long)+0xca>
+  a0:	e9 d3 00 00 00       	jmp    178 <evidence::dot_scalar_f32(float const*, float const*, unsigned long, unsigned long)+0xf8>
+  a5:	c5 f8 57 c0          	vxorps %xmm0,%xmm0,%xmm0
+  a9:	c3                   	ret
+  aa:	41 57                	push   %r15
+  ac:	41 56                	push   %r14
+  ae:	41 55                	push   %r13
+  b0:	41 54                	push   %r12
+  b2:	53                   	push   %rbx
+  b3:	48 83 e2 fc          	and    $0xfffffffffffffffc,%rdx
+  b7:	4c 8d 04 8d 00 00 00 	lea    0x0(,%rcx,4),%r8
+  be:	00 
+  bf:	4f 8d 0c 40          	lea    (%r8,%r8,2),%r9
+  c3:	4e 8d 14 0e          	lea    (%rsi,%r9,1),%r10
+  c7:	49 89 cb             	mov    %rcx,%r11
+  ca:	49 c1 e3 04          	shl    $0x4,%r11
+  ce:	49 01 f9             	add    %rdi,%r9
+  d1:	48 8d 1c ce          	lea    (%rsi,%rcx,8),%rbx
+  d5:	4c 8d 34 cf          	lea    (%rdi,%rcx,8),%r14
+  d9:	4c 8d 3c 8e          	lea    (%rsi,%rcx,4),%r15
+  dd:	4c 8d 24 8f          	lea    (%rdi,%rcx,4),%r12
+  e1:	c5 f8 57 c0          	vxorps %xmm0,%xmm0,%xmm0
+  e5:	45 31 ed             	xor    %r13d,%r13d
+  e8:	45 31 c0             	xor    %r8d,%r8d
+  eb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+  f0:	c4 a1 7a 10 0c 2e    	vmovss (%rsi,%r13,1),%xmm1
+  f6:	c4 a1 72 59 0c 2f    	vmulss (%rdi,%r13,1),%xmm1,%xmm1
+  fc:	c5 f2 58 c0          	vaddss %xmm0,%xmm1,%xmm0
+ 100:	c4 81 7a 10 0c 2f    	vmovss (%r15,%r13,1),%xmm1
+ 106:	c4 81 72 59 0c 2c    	vmulss (%r12,%r13,1),%xmm1,%xmm1
+ 10c:	c4 a1 7a 10 14 2b    	vmovss (%rbx,%r13,1),%xmm2
+ 112:	c4 81 6a 59 14 2e    	vmulss (%r14,%r13,1),%xmm2,%xmm2
+ 118:	c5 ea 58 c9          	vaddss %xmm1,%xmm2,%xmm1
+ 11c:	c5 f2 58 c0          	vaddss %xmm0,%xmm1,%xmm0
+ 120:	c4 81 7a 10 0c 2a    	vmovss (%r10,%r13,1),%xmm1
+ 126:	c4 81 72 59 0c 29    	vmulss (%r9,%r13,1),%xmm1,%xmm1
+ 12c:	c5 f2 58 c0          	vaddss %xmm0,%xmm1,%xmm0
+ 130:	49 83 c0 04          	add    $0x4,%r8
+ 134:	4d 01 dd             	add    %r11,%r13
+ 137:	4c 39 c2             	cmp    %r8,%rdx
+ 13a:	75 b4                	jne    f0 <evidence::dot_scalar_f32(float const*, float const*, unsigned long, unsigned long)+0x70>
+ 13c:	5b                   	pop    %rbx
+ 13d:	41 5c                	pop    %r12
+ 13f:	41 5d                	pop    %r13
+ 141:	41 5e                	pop    %r14
+ 143:	41 5f                	pop    %r15
+ 145:	48 85 c0             	test   %rax,%rax
+ 148:	74 2e                	je     178 <evidence::dot_scalar_f32(float const*, float const*, unsigned long, unsigned long)+0xf8>
+ 14a:	4c 0f af c1          	imul   %rcx,%r8
+ 14e:	49 c1 e0 02          	shl    $0x2,%r8
+ 152:	48 c1 e1 02          	shl    $0x2,%rcx
+ 156:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+ 15d:	00 00 00 
+ 160:	c4 a1 7a 10 0c 06    	vmovss (%rsi,%r8,1),%xmm1
+ 166:	c4 a1 72 59 0c 07    	vmulss (%rdi,%r8,1),%xmm1,%xmm1
+ 16c:	c5 f2 58 c0          	vaddss %xmm0,%xmm1,%xmm0
+ 170:	49 01 c8             	add    %rcx,%r8
+ 173:	48 ff c8             	dec    %rax
+ 176:	75 e8                	jne    160 <evidence::dot_scalar_f32(float const*, float const*, unsigned long, unsigned long)+0xe0>
+ 178:	c3                   	ret
+ 179:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+0000000000000180 <evidence::multiply_scalar_f32(float const*, float const*, float*, unsigned long, unsigned long)>:
+ 180:	48 85 c9             	test   %rcx,%rcx
+ 183:	0f 84 84 00 00 00    	je     20d <evidence::multiply_scalar_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x8d>
+ 189:	48 83 f9 01          	cmp    $0x1,%rcx
+ 18d:	75 09                	jne    198 <evidence::multiply_scalar_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x18>
+ 18f:	31 c0                	xor    %eax,%eax
+ 191:	f6 c1 01             	test   $0x1,%cl
+ 194:	75 64                	jne    1fa <evidence::multiply_scalar_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x7a>
+ 196:	eb 75                	jmp    20d <evidence::multiply_scalar_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x8d>
+ 198:	41 57                	push   %r15
+ 19a:	41 56                	push   %r14
+ 19c:	53                   	push   %rbx
+ 19d:	49 89 c9             	mov    %rcx,%r9
+ 1a0:	49 83 e1 fe          	and    $0xfffffffffffffffe,%r9
+ 1a4:	4e 8d 14 82          	lea    (%rdx,%r8,4),%r10
+ 1a8:	4e 8d 1c c5 00 00 00 	lea    0x0(,%r8,8),%r11
+ 1af:	00 
+ 1b0:	4a 8d 1c 86          	lea    (%rsi,%r8,4),%rbx
+ 1b4:	4e 8d 34 87          	lea    (%rdi,%r8,4),%r14
+ 1b8:	45 31 ff             	xor    %r15d,%r15d
+ 1bb:	31 c0                	xor    %eax,%eax
+ 1bd:	0f 1f 00             	nopl   (%rax)
+ 1c0:	c4 a1 7a 10 04 3e    	vmovss (%rsi,%r15,1),%xmm0
+ 1c6:	c4 a1 7a 59 04 3f    	vmulss (%rdi,%r15,1),%xmm0,%xmm0
+ 1cc:	c4 a1 7a 11 04 3a    	vmovss %xmm0,(%rdx,%r15,1)
+ 1d2:	c4 a1 7a 10 04 3b    	vmovss (%rbx,%r15,1),%xmm0
+ 1d8:	c4 81 7a 59 04 3e    	vmulss (%r14,%r15,1),%xmm0,%xmm0
+ 1de:	c4 81 7a 11 04 3a    	vmovss %xmm0,(%r10,%r15,1)
+ 1e4:	48 83 c0 02          	add    $0x2,%rax
+ 1e8:	4d 01 df             	add    %r11,%r15
+ 1eb:	49 39 c1             	cmp    %rax,%r9
+ 1ee:	75 d0                	jne    1c0 <evidence::multiply_scalar_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x40>
+ 1f0:	5b                   	pop    %rbx
+ 1f1:	41 5e                	pop    %r14
+ 1f3:	41 5f                	pop    %r15
+ 1f5:	f6 c1 01             	test   $0x1,%cl
+ 1f8:	74 13                	je     20d <evidence::multiply_scalar_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x8d>
+ 1fa:	49 0f af c0          	imul   %r8,%rax
+ 1fe:	c5 fa 10 04 86       	vmovss (%rsi,%rax,4),%xmm0
+ 203:	c5 fa 59 04 87       	vmulss (%rdi,%rax,4),%xmm0,%xmm0
+ 208:	c5 fa 11 04 82       	vmovss %xmm0,(%rdx,%rax,4)
+ 20d:	c3                   	ret
+ 20e:	66 90                	xchg   %ax,%ax
+
+0000000000000210 <evidence::axpy_scalar_f64(double, double const*, double*, unsigned long, unsigned long)>:
+ 210:	48 85 d2             	test   %rdx,%rdx
+ 213:	74 71                	je     286 <evidence::axpy_scalar_f64(double, double const*, double*, unsigned long, unsigned long)+0x76>
+ 215:	48 83 fa 01          	cmp    $0x1,%rdx
+ 219:	75 09                	jne    224 <evidence::axpy_scalar_f64(double, double const*, double*, unsigned long, unsigned long)+0x14>
+ 21b:	31 c0                	xor    %eax,%eax
+ 21d:	f6 c2 01             	test   $0x1,%dl
+ 220:	75 51                	jne    273 <evidence::axpy_scalar_f64(double, double const*, double*, unsigned long, unsigned long)+0x63>
+ 222:	eb 62                	jmp    286 <evidence::axpy_scalar_f64(double, double const*, double*, unsigned long, unsigned long)+0x76>
+ 224:	53                   	push   %rbx
+ 225:	49 89 d0             	mov    %rdx,%r8
+ 228:	49 83 e0 fe          	and    $0xfffffffffffffffe,%r8
+ 22c:	4c 8d 0c ce          	lea    (%rsi,%rcx,8),%r9
+ 230:	49 89 ca             	mov    %rcx,%r10
+ 233:	49 c1 e2 04          	shl    $0x4,%r10
+ 237:	4c 8d 1c cf          	lea    (%rdi,%rcx,8),%r11
+ 23b:	31 db                	xor    %ebx,%ebx
+ 23d:	31 c0                	xor    %eax,%eax
+ 23f:	90                   	nop
+ 240:	c5 fb 59 0c 1f       	vmulsd (%rdi,%rbx,1),%xmm0,%xmm1
+ 245:	c5 f3 58 0c 1e       	vaddsd (%rsi,%rbx,1),%xmm1,%xmm1
+ 24a:	c5 fb 11 0c 1e       	vmovsd %xmm1,(%rsi,%rbx,1)
+ 24f:	c4 c1 7b 59 0c 1b    	vmulsd (%r11,%rbx,1),%xmm0,%xmm1
+ 255:	c4 c1 73 58 0c 19    	vaddsd (%r9,%rbx,1),%xmm1,%xmm1
+ 25b:	c4 c1 7b 11 0c 19    	vmovsd %xmm1,(%r9,%rbx,1)
+ 261:	48 83 c0 02          	add    $0x2,%rax
+ 265:	4c 01 d3             	add    %r10,%rbx
+ 268:	49 39 c0             	cmp    %rax,%r8
+ 26b:	75 d3                	jne    240 <evidence::axpy_scalar_f64(double, double const*, double*, unsigned long, unsigned long)+0x30>
+ 26d:	5b                   	pop    %rbx
+ 26e:	f6 c2 01             	test   $0x1,%dl
+ 271:	74 13                	je     286 <evidence::axpy_scalar_f64(double, double const*, double*, unsigned long, unsigned long)+0x76>
+ 273:	48 0f af c1          	imul   %rcx,%rax
+ 277:	c5 fb 59 04 c7       	vmulsd (%rdi,%rax,8),%xmm0,%xmm0
+ 27c:	c5 fb 58 04 c6       	vaddsd (%rsi,%rax,8),%xmm0,%xmm0
+ 281:	c5 fb 11 04 c6       	vmovsd %xmm0,(%rsi,%rax,8)
+ 286:	c3                   	ret
+ 287:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+ 28e:	00 00 
+
+0000000000000290 <evidence::dot_scalar_f64(double const*, double const*, unsigned long, unsigned long)>:
+ 290:	48 85 d2             	test   %rdx,%rdx
+ 293:	74 20                	je     2b5 <evidence::dot_scalar_f64(double const*, double const*, unsigned long, unsigned long)+0x25>
+ 295:	89 d0                	mov    %edx,%eax
+ 297:	83 e0 03             	and    $0x3,%eax
+ 29a:	48 83 fa 04          	cmp    $0x4,%rdx
+ 29e:	73 1a                	jae    2ba <evidence::dot_scalar_f64(double const*, double const*, unsigned long, unsigned long)+0x2a>
+ 2a0:	c5 f9 57 c0          	vxorpd %xmm0,%xmm0,%xmm0
+ 2a4:	45 31 c0             	xor    %r8d,%r8d
+ 2a7:	48 85 c0             	test   %rax,%rax
+ 2aa:	0f 85 ba 00 00 00    	jne    36a <evidence::dot_scalar_f64(double const*, double const*, unsigned long, unsigned long)+0xda>
+ 2b0:	e9 e3 00 00 00       	jmp    398 <evidence::dot_scalar_f64(double const*, double const*, unsigned long, unsigned long)+0x108>
+ 2b5:	c5 f8 57 c0          	vxorps %xmm0,%xmm0,%xmm0
+ 2b9:	c3                   	ret
+ 2ba:	41 57                	push   %r15
+ 2bc:	41 56                	push   %r14
+ 2be:	41 55                	push   %r13
+ 2c0:	41 54                	push   %r12
+ 2c2:	53                   	push   %rbx
+ 2c3:	48 83 e2 fc          	and    $0xfffffffffffffffc,%rdx
+ 2c7:	4c 8d 04 cd 00 00 00 	lea    0x0(,%rcx,8),%r8
+ 2ce:	00 
+ 2cf:	4f 8d 0c 40          	lea    (%r8,%r8,2),%r9
+ 2d3:	4e 8d 14 0e          	lea    (%rsi,%r9,1),%r10
+ 2d7:	49 89 cb             	mov    %rcx,%r11
+ 2da:	49 c1 e3 05          	shl    $0x5,%r11
+ 2de:	49 01 f9             	add    %rdi,%r9
+ 2e1:	48 89 cb             	mov    %rcx,%rbx
+ 2e4:	48 c1 e3 04          	shl    $0x4,%rbx
+ 2e8:	4c 8d 34 1e          	lea    (%rsi,%rbx,1),%r14
+ 2ec:	48 01 fb             	add    %rdi,%rbx
+ 2ef:	4c 8d 3c ce          	lea    (%rsi,%rcx,8),%r15
+ 2f3:	4c 8d 24 cf          	lea    (%rdi,%rcx,8),%r12
+ 2f7:	c5 f9 57 c0          	vxorpd %xmm0,%xmm0,%xmm0
+ 2fb:	45 31 ed             	xor    %r13d,%r13d
+ 2fe:	45 31 c0             	xor    %r8d,%r8d
+ 301:	66 66 66 66 66 66 2e 	data16 data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+ 308:	0f 1f 84 00 00 00 00 
+ 30f:	00 
+ 310:	c4 a1 7b 10 0c 2e    	vmovsd (%rsi,%r13,1),%xmm1
+ 316:	c4 a1 73 59 0c 2f    	vmulsd (%rdi,%r13,1),%xmm1,%xmm1
+ 31c:	c5 f3 58 c0          	vaddsd %xmm0,%xmm1,%xmm0
+ 320:	c4 81 7b 10 0c 2f    	vmovsd (%r15,%r13,1),%xmm1
+ 326:	c4 81 73 59 0c 2c    	vmulsd (%r12,%r13,1),%xmm1,%xmm1
+ 32c:	c4 81 7b 10 14 2e    	vmovsd (%r14,%r13,1),%xmm2
+ 332:	c4 a1 6b 59 14 2b    	vmulsd (%rbx,%r13,1),%xmm2,%xmm2
+ 338:	c5 eb 58 c9          	vaddsd %xmm1,%xmm2,%xmm1
+ 33c:	c5 f3 58 c0          	vaddsd %xmm0,%xmm1,%xmm0
+ 340:	c4 81 7b 10 0c 2a    	vmovsd (%r10,%r13,1),%xmm1
+ 346:	c4 81 73 59 0c 29    	vmulsd (%r9,%r13,1),%xmm1,%xmm1
+ 34c:	c5 f3 58 c0          	vaddsd %xmm0,%xmm1,%xmm0
+ 350:	49 83 c0 04          	add    $0x4,%r8
+ 354:	4d 01 dd             	add    %r11,%r13
+ 357:	4c 39 c2             	cmp    %r8,%rdx
+ 35a:	75 b4                	jne    310 <evidence::dot_scalar_f64(double const*, double const*, unsigned long, unsigned long)+0x80>
+ 35c:	5b                   	pop    %rbx
+ 35d:	41 5c                	pop    %r12
+ 35f:	41 5d                	pop    %r13
+ 361:	41 5e                	pop    %r14
+ 363:	41 5f                	pop    %r15
+ 365:	48 85 c0             	test   %rax,%rax
+ 368:	74 2e                	je     398 <evidence::dot_scalar_f64(double const*, double const*, unsigned long, unsigned long)+0x108>
+ 36a:	4c 0f af c1          	imul   %rcx,%r8
+ 36e:	49 c1 e0 03          	shl    $0x3,%r8
+ 372:	48 c1 e1 03          	shl    $0x3,%rcx
+ 376:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+ 37d:	00 00 00 
+ 380:	c4 a1 7b 10 0c 06    	vmovsd (%rsi,%r8,1),%xmm1
+ 386:	c4 a1 73 59 0c 07    	vmulsd (%rdi,%r8,1),%xmm1,%xmm1
+ 38c:	c5 f3 58 c0          	vaddsd %xmm0,%xmm1,%xmm0
+ 390:	49 01 c8             	add    %rcx,%r8
+ 393:	48 ff c8             	dec    %rax
+ 396:	75 e8                	jne    380 <evidence::dot_scalar_f64(double const*, double const*, unsigned long, unsigned long)+0xf0>
+ 398:	c3                   	ret
+ 399:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+00000000000003a0 <evidence::multiply_scalar_f64(double const*, double const*, double*, unsigned long, unsigned long)>:
+ 3a0:	48 85 c9             	test   %rcx,%rcx
+ 3a3:	0f 84 84 00 00 00    	je     42d <evidence::multiply_scalar_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x8d>
+ 3a9:	48 83 f9 01          	cmp    $0x1,%rcx
+ 3ad:	75 09                	jne    3b8 <evidence::multiply_scalar_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x18>
+ 3af:	31 c0                	xor    %eax,%eax
+ 3b1:	f6 c1 01             	test   $0x1,%cl
+ 3b4:	75 64                	jne    41a <evidence::multiply_scalar_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x7a>
+ 3b6:	eb 75                	jmp    42d <evidence::multiply_scalar_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x8d>
+ 3b8:	41 57                	push   %r15
+ 3ba:	41 56                	push   %r14
+ 3bc:	53                   	push   %rbx
+ 3bd:	49 89 c9             	mov    %rcx,%r9
+ 3c0:	49 83 e1 fe          	and    $0xfffffffffffffffe,%r9
+ 3c4:	4e 8d 14 c2          	lea    (%rdx,%r8,8),%r10
+ 3c8:	4d 89 c3             	mov    %r8,%r11
+ 3cb:	49 c1 e3 04          	shl    $0x4,%r11
+ 3cf:	4a 8d 1c c6          	lea    (%rsi,%r8,8),%rbx
+ 3d3:	4e 8d 34 c7          	lea    (%rdi,%r8,8),%r14
+ 3d7:	45 31 ff             	xor    %r15d,%r15d
+ 3da:	31 c0                	xor    %eax,%eax
+ 3dc:	0f 1f 40 00          	nopl   0x0(%rax)
+ 3e0:	c4 a1 7b 10 04 3e    	vmovsd (%rsi,%r15,1),%xmm0
+ 3e6:	c4 a1 7b 59 04 3f    	vmulsd (%rdi,%r15,1),%xmm0,%xmm0
+ 3ec:	c4 a1 7b 11 04 3a    	vmovsd %xmm0,(%rdx,%r15,1)
+ 3f2:	c4 a1 7b 10 04 3b    	vmovsd (%rbx,%r15,1),%xmm0
+ 3f8:	c4 81 7b 59 04 3e    	vmulsd (%r14,%r15,1),%xmm0,%xmm0
+ 3fe:	c4 81 7b 11 04 3a    	vmovsd %xmm0,(%r10,%r15,1)
+ 404:	48 83 c0 02          	add    $0x2,%rax
+ 408:	4d 01 df             	add    %r11,%r15
+ 40b:	49 39 c1             	cmp    %rax,%r9
+ 40e:	75 d0                	jne    3e0 <evidence::multiply_scalar_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x40>
+ 410:	5b                   	pop    %rbx
+ 411:	41 5e                	pop    %r14
+ 413:	41 5f                	pop    %r15
+ 415:	f6 c1 01             	test   $0x1,%cl
+ 418:	74 13                	je     42d <evidence::multiply_scalar_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x8d>
+ 41a:	49 0f af c0          	imul   %r8,%rax
+ 41e:	c5 fb 10 04 c6       	vmovsd (%rsi,%rax,8),%xmm0
+ 423:	c5 fb 59 04 c7       	vmulsd (%rdi,%rax,8),%xmm0,%xmm0
+ 428:	c5 fb 11 04 c2       	vmovsd %xmm0,(%rdx,%rax,8)
+ 42d:	c3                   	ret

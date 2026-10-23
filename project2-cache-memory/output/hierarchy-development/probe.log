@@ -1,0 +1,2 @@
+[ perf record: Woken up 1 times to write data ]
+[ perf record: Captured and wrote 0.209 MB output/hierarchy-development/probe.data (3148 samples) ]

@@ -1,0 +1,49 @@
+0000000000000000 <evidence::axpy_scalar_f32(float, float const*, float*, unsigned long, unsigned long)>:
+  30:	c5 fa 59 0c 1f       	vmulss (%rdi,%rbx,1),%xmm0,%xmm1
+  35:	c5 f2 58 0c 1e       	vaddss (%rsi,%rbx,1),%xmm1,%xmm1
+  3f:	c4 c1 7a 59 0c 1b    	vmulss (%r11,%rbx,1),%xmm0,%xmm1
+  45:	c4 c1 72 58 0c 19    	vaddss (%r9,%rbx,1),%xmm1,%xmm1
+  67:	c5 fa 59 04 87       	vmulss (%rdi,%rax,4),%xmm0,%xmm0
+  6c:	c5 fa 58 04 86       	vaddss (%rsi,%rax,4),%xmm0,%xmm0
+
+0000000000000080 <evidence::dot_scalar_f32(float const*, float const*, unsigned long, unsigned long)>:
+  f6:	c4 a1 72 59 0c 2f    	vmulss (%rdi,%r13,1),%xmm1,%xmm1
+  fc:	c5 f2 58 c0          	vaddss %xmm0,%xmm1,%xmm0
+ 106:	c4 81 72 59 0c 2c    	vmulss (%r12,%r13,1),%xmm1,%xmm1
+ 112:	c4 81 6a 59 14 2e    	vmulss (%r14,%r13,1),%xmm2,%xmm2
+ 118:	c5 ea 58 c9          	vaddss %xmm1,%xmm2,%xmm1
+ 11c:	c5 f2 58 c0          	vaddss %xmm0,%xmm1,%xmm0
+ 126:	c4 81 72 59 0c 29    	vmulss (%r9,%r13,1),%xmm1,%xmm1
+ 12c:	c5 f2 58 c0          	vaddss %xmm0,%xmm1,%xmm0
+ 166:	c4 a1 72 59 0c 07    	vmulss (%rdi,%r8,1),%xmm1,%xmm1
+ 16c:	c5 f2 58 c0          	vaddss %xmm0,%xmm1,%xmm0
+
+0000000000000180 <evidence::multiply_scalar_f32(float const*, float const*, float*, unsigned long, unsigned long)>:
+ 1c6:	c4 a1 7a 59 04 3f    	vmulss (%rdi,%r15,1),%xmm0,%xmm0
+ 1d8:	c4 81 7a 59 04 3e    	vmulss (%r14,%r15,1),%xmm0,%xmm0
+ 203:	c5 fa 59 04 87       	vmulss (%rdi,%rax,4),%xmm0,%xmm0
+
+0000000000000210 <evidence::axpy_scalar_f64(double, double const*, double*, unsigned long, unsigned long)>:
+ 240:	c5 fb 59 0c 1f       	vmulsd (%rdi,%rbx,1),%xmm0,%xmm1
+ 245:	c5 f3 58 0c 1e       	vaddsd (%rsi,%rbx,1),%xmm1,%xmm1
+ 24f:	c4 c1 7b 59 0c 1b    	vmulsd (%r11,%rbx,1),%xmm0,%xmm1
+ 255:	c4 c1 73 58 0c 19    	vaddsd (%r9,%rbx,1),%xmm1,%xmm1
+ 277:	c5 fb 59 04 c7       	vmulsd (%rdi,%rax,8),%xmm0,%xmm0
+ 27c:	c5 fb 58 04 c6       	vaddsd (%rsi,%rax,8),%xmm0,%xmm0
+
+0000000000000290 <evidence::dot_scalar_f64(double const*, double const*, unsigned long, unsigned long)>:
+ 316:	c4 a1 73 59 0c 2f    	vmulsd (%rdi,%r13,1),%xmm1,%xmm1
+ 31c:	c5 f3 58 c0          	vaddsd %xmm0,%xmm1,%xmm0
+ 326:	c4 81 73 59 0c 2c    	vmulsd (%r12,%r13,1),%xmm1,%xmm1
+ 332:	c4 a1 6b 59 14 2b    	vmulsd (%rbx,%r13,1),%xmm2,%xmm2
+ 338:	c5 eb 58 c9          	vaddsd %xmm1,%xmm2,%xmm1
+ 33c:	c5 f3 58 c0          	vaddsd %xmm0,%xmm1,%xmm0
+ 346:	c4 81 73 59 0c 29    	vmulsd (%r9,%r13,1),%xmm1,%xmm1
+ 34c:	c5 f3 58 c0          	vaddsd %xmm0,%xmm1,%xmm0
+ 386:	c4 a1 73 59 0c 07    	vmulsd (%rdi,%r8,1),%xmm1,%xmm1
+ 38c:	c5 f3 58 c0          	vaddsd %xmm0,%xmm1,%xmm0
+
+00000000000003a0 <evidence::multiply_scalar_f64(double const*, double const*, double*, unsigned long, unsigned long)>:
+ 3e6:	c4 a1 7b 59 04 3f    	vmulsd (%rdi,%r15,1),%xmm0,%xmm0
+ 3f8:	c4 81 7b 59 04 3e    	vmulsd (%r14,%r15,1),%xmm0,%xmm0
+ 423:	c5 fb 59 04 c7       	vmulsd (%rdi,%rax,8),%xmm0,%xmm0

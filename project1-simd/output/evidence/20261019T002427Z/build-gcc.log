@@ -1,0 +1,17 @@
++ g++ -std=c++17 -Wall -Wextra -Wpedantic -O3 -mavx2 -ffast-math -ffp-contract=off -fno-tree-vectorize -fno-tree-slp-vectorize -DVARIANT=scalar -c experiments/ordinary.cpp -o /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T002427Z/build-gcc/scalar.o
++ g++ -std=c++17 -Wall -Wextra -Wpedantic -O3 -mavx2 -ffast-math -ffp-contract=off -fopt-info-vec-all -DVARIANT=auto -c experiments/ordinary.cpp -o /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T002427Z/build-gcc/auto.o
++ g++ -std=c++17 -Wall -Wextra -Wpedantic -O3 -mavx2 -ffast-math -ffp-contract=off -fno-fast-math -fopt-info-vec-all -DVARIANT=auto -c experiments/ordinary.cpp -o /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T002427Z/build-gcc/auto_strict.o
++ g++ -std=c++17 -Wall -Wextra -Wpedantic -O3 -mavx2 -ffast-math -ffp-contract=off -c experiments/intrinsics.cpp -o /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T002427Z/build-gcc/simd.o
++ g++ -std=c++17 -Wall -Wextra -Wpedantic -O3 -mavx2 -ffast-math -ffp-contract=off -mfma -c experiments/compute.cpp -o /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T002427Z/build-gcc/compute.o
++ g++ -std=c++17 -Wall -Wextra -Wpedantic -O3 -mavx2 -ffp-contract=off -c experiments/run.cpp -o /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T002427Z/build-gcc/run.o
++ g++ /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T002427Z/build-gcc/run.o /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T002427Z/build-gcc/scalar.o /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T002427Z/build-gcc/auto.o /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T002427Z/build-gcc/simd.o /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T002427Z/build-gcc/compute.o -o /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T002427Z/build-gcc/runner
++ for object in scalar auto auto_strict simd compute
++ objdump -d -C /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T002427Z/build-gcc/scalar.o
++ for object in scalar auto auto_strict simd compute
++ objdump -d -C /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T002427Z/build-gcc/auto.o
++ for object in scalar auto auto_strict simd compute
++ objdump -d -C /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T002427Z/build-gcc/auto_strict.o
++ for object in scalar auto auto_strict simd compute
++ objdump -d -C /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T002427Z/build-gcc/simd.o
++ for object in scalar auto auto_strict simd compute
++ objdump -d -C /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T002427Z/build-gcc/compute.o

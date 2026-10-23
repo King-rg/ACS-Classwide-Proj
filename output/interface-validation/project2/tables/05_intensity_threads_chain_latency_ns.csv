@@ -1,0 +1,7 @@
+series,x,y,y_q25,y_q75
+"Physical cores, one chain per core",1,112.57606,110.773087,115.914323
+"Physical cores, one chain per core",2,113.152318,110.488091,129.596778
+"Physical cores, one chain per core",3,117.497767,111.402736,130.842954
+"Physical cores, one chain per core",4,113.064869,111.590681,132.199429
+"Physical cores, one chain per core",5,114.875889,111.869996,122.138386
+"Physical cores, one chain per core",6,119.323846,113.01442,134.117503

@@ -1,0 +1,32 @@
+
+cache:
+  mem_load_retired.fb_hit
+       [Number of completed demand load requests that missed the L1, but hit
+        the FB(fill buffer), because a preceding miss to the same cacheline
+        initiated the line to be brought into L1, but data is not yet ready in
+        L1 Supports address when precise (Precise event). Unit: cpu_core]
+        cpu_core/event=0xd1,period=0x186a7,umask=0x40/
+  mem_load_retired.l1_hit
+       [Retired load instructions with L1 cache hits as data sources Supports
+        address when precise (Precise event). Unit: cpu_core]
+        cpu_core/event=0xd1,period=0xf4243,umask=0x1/
+  mem_load_retired.l1_miss
+       [Retired load instructions missed L1 cache as data sources Supports
+        address when precise (Precise event). Unit: cpu_core]
+        cpu_core/event=0xd1,period=0x30d43,umask=0x8/
+  mem_load_retired.l2_hit
+       [Retired load instructions with L2 cache hits as data sources Supports
+        address when precise (Precise event). Unit: cpu_core]
+        cpu_core/event=0xd1,period=0x30d43,umask=0x2/
+  mem_load_retired.l2_miss
+       [Retired load instructions missed L2 cache as data sources Supports
+        address when precise (Precise event). Unit: cpu_core]
+        cpu_core/event=0xd1,period=0x186b5,umask=0x10/
+  mem_load_retired.l3_hit
+       [Retired load instructions with L3 cache hits as data sources Supports
+        address when precise (Precise event). Unit: cpu_core]
+        cpu_core/event=0xd1,period=0x186b5,umask=0x4/
+  mem_load_retired.l3_miss
+       [Retired load instructions missed L3 cache as data sources Supports
+        address when precise (Precise event). Unit: cpu_core]
+        cpu_core/event=0xd1,period=0xc365,umask=0x20/

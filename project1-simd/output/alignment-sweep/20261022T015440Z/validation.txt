@@ -1,0 +1,1 @@
+8640 main + 840 independent confirmation observations passed kernel result/input/guard checks. Main cases contain 15 trials per kernel/type/condition/build. Both plot files visually inspected; Google Doc insertion exported and inspected.

@@ -1,0 +1,10 @@
+{
+  "independently_checked_markers": {
+    "runtime_ns": 612,
+    "speedup": 408
+  },
+  "raw_rows": 9180,
+  "validation": "PASS",
+  "counter_status": "All rows pass correctness; CPU0 tags stable; no counter multiplexing",
+  "source": "All three NEW raw files only; no historical results or interpolated samples"
+}

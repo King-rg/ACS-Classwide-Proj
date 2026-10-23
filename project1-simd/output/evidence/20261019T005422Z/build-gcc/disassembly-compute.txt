@@ -1,0 +1,110 @@
+
+/home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T005422Z/build-gcc/compute.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <evidence::compute_f32(unsigned long)>:
+   0:	f3 0f 1e fa          	endbr64
+   4:	48 85 ff             	test   %rdi,%rdi
+   7:	0f 84 bb 00 00 00    	je     c8 <evidence::compute_f32(unsigned long)+0xc8>
+   d:	c4 e2 7d 18 1d 00 00 	vbroadcastss 0x0(%rip),%ymm3        # 16 <evidence::compute_f32(unsigned long)+0x16>
+  14:	00 00 
+  16:	31 c0                	xor    %eax,%eax
+  18:	c4 e2 7d 18 35 00 00 	vbroadcastss 0x0(%rip),%ymm6        # 21 <evidence::compute_f32(unsigned long)+0x21>
+  1f:	00 00 
+  21:	c4 e2 7d 18 25 00 00 	vbroadcastss 0x0(%rip),%ymm4        # 2a <evidence::compute_f32(unsigned long)+0x2a>
+  28:	00 00 
+  2a:	c4 e2 7d 18 3d 00 00 	vbroadcastss 0x0(%rip),%ymm7        # 33 <evidence::compute_f32(unsigned long)+0x33>
+  31:	00 00 
+  33:	c4 e2 7d 18 2d 00 00 	vbroadcastss 0x0(%rip),%ymm5        # 3c <evidence::compute_f32(unsigned long)+0x3c>
+  3a:	00 00 
+  3c:	c4 62 7d 18 05 00 00 	vbroadcastss 0x0(%rip),%ymm8        # 45 <evidence::compute_f32(unsigned long)+0x45>
+  43:	00 00 
+  45:	c4 e2 7d 18 15 00 00 	vbroadcastss 0x0(%rip),%ymm2        # 4e <evidence::compute_f32(unsigned long)+0x4e>
+  4c:	00 00 
+  4e:	c4 62 7d 18 0d 00 00 	vbroadcastss 0x0(%rip),%ymm9        # 57 <evidence::compute_f32(unsigned long)+0x57>
+  55:	00 00 
+  57:	c4 e2 7d 18 0d 00 00 	vbroadcastss 0x0(%rip),%ymm1        # 60 <evidence::compute_f32(unsigned long)+0x60>
+  5e:	00 00 
+  60:	c4 e2 7d 18 05 00 00 	vbroadcastss 0x0(%rip),%ymm0        # 69 <evidence::compute_f32(unsigned long)+0x69>
+  67:	00 00 
+  69:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+  70:	c4 62 7d 98 c9       	vfmadd132ps %ymm1,%ymm0,%ymm9
+  75:	c4 e2 7d 98 d1       	vfmadd132ps %ymm1,%ymm0,%ymm2
+  7a:	48 83 c0 01          	add    $0x1,%rax
+  7e:	c4 62 7d 98 c1       	vfmadd132ps %ymm1,%ymm0,%ymm8
+  83:	c4 e2 7d 98 e9       	vfmadd132ps %ymm1,%ymm0,%ymm5
+  88:	c4 e2 7d 98 f9       	vfmadd132ps %ymm1,%ymm0,%ymm7
+  8d:	c4 e2 7d 98 e1       	vfmadd132ps %ymm1,%ymm0,%ymm4
+  92:	c4 e2 7d 98 f1       	vfmadd132ps %ymm1,%ymm0,%ymm6
+  97:	c4 e2 7d 98 d9       	vfmadd132ps %ymm1,%ymm0,%ymm3
+  9c:	48 39 c7             	cmp    %rax,%rdi
+  9f:	75 cf                	jne    70 <evidence::compute_f32(unsigned long)+0x70>
+  a1:	c4 c1 6c 58 c1       	vaddps %ymm9,%ymm2,%ymm0
+  a6:	c4 c1 54 58 e8       	vaddps %ymm8,%ymm5,%ymm5
+  ab:	c5 dc 58 e7          	vaddps %ymm7,%ymm4,%ymm4
+  af:	c5 e4 58 de          	vaddps %ymm6,%ymm3,%ymm3
+  b3:	c5 fc 58 c5          	vaddps %ymm5,%ymm0,%ymm0
+  b7:	c5 fc 58 c4          	vaddps %ymm4,%ymm0,%ymm0
+  bb:	c5 fc 58 c3          	vaddps %ymm3,%ymm0,%ymm0
+  bf:	c5 f8 77             	vzeroupper
+  c2:	c3                   	ret
+  c3:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+  c8:	c5 fa 10 05 00 00 00 	vmovss 0x0(%rip),%xmm0        # d0 <evidence::compute_f32(unsigned long)+0xd0>
+  cf:	00 
+  d0:	c3                   	ret
+  d1:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+  d8:	00 00 00 00 
+  dc:	0f 1f 40 00          	nopl   0x0(%rax)
+
+00000000000000e0 <evidence::compute_f64(unsigned long)>:
+  e0:	f3 0f 1e fa          	endbr64
+  e4:	48 85 ff             	test   %rdi,%rdi
+  e7:	0f 84 bb 00 00 00    	je     1a8 <evidence::compute_f64(unsigned long)+0xc8>
+  ed:	c4 e2 7d 19 1d 00 00 	vbroadcastsd 0x0(%rip),%ymm3        # f6 <evidence::compute_f64(unsigned long)+0x16>
+  f4:	00 00 
+  f6:	31 c0                	xor    %eax,%eax
+  f8:	c4 e2 7d 19 35 00 00 	vbroadcastsd 0x0(%rip),%ymm6        # 101 <evidence::compute_f64(unsigned long)+0x21>
+  ff:	00 00 
+ 101:	c4 e2 7d 19 25 00 00 	vbroadcastsd 0x0(%rip),%ymm4        # 10a <evidence::compute_f64(unsigned long)+0x2a>
+ 108:	00 00 
+ 10a:	c4 e2 7d 19 3d 00 00 	vbroadcastsd 0x0(%rip),%ymm7        # 113 <evidence::compute_f64(unsigned long)+0x33>
+ 111:	00 00 
+ 113:	c4 e2 7d 19 2d 00 00 	vbroadcastsd 0x0(%rip),%ymm5        # 11c <evidence::compute_f64(unsigned long)+0x3c>
+ 11a:	00 00 
+ 11c:	c4 62 7d 19 05 00 00 	vbroadcastsd 0x0(%rip),%ymm8        # 125 <evidence::compute_f64(unsigned long)+0x45>
+ 123:	00 00 
+ 125:	c4 e2 7d 19 15 00 00 	vbroadcastsd 0x0(%rip),%ymm2        # 12e <evidence::compute_f64(unsigned long)+0x4e>
+ 12c:	00 00 
+ 12e:	c4 62 7d 19 0d 00 00 	vbroadcastsd 0x0(%rip),%ymm9        # 137 <evidence::compute_f64(unsigned long)+0x57>
+ 135:	00 00 
+ 137:	c4 e2 7d 19 0d 00 00 	vbroadcastsd 0x0(%rip),%ymm1        # 140 <evidence::compute_f64(unsigned long)+0x60>
+ 13e:	00 00 
+ 140:	c4 e2 7d 19 05 00 00 	vbroadcastsd 0x0(%rip),%ymm0        # 149 <evidence::compute_f64(unsigned long)+0x69>
+ 147:	00 00 
+ 149:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+ 150:	c4 62 fd 98 c9       	vfmadd132pd %ymm1,%ymm0,%ymm9
+ 155:	c4 e2 fd 98 d1       	vfmadd132pd %ymm1,%ymm0,%ymm2
+ 15a:	48 83 c0 01          	add    $0x1,%rax
+ 15e:	c4 62 fd 98 c1       	vfmadd132pd %ymm1,%ymm0,%ymm8
+ 163:	c4 e2 fd 98 e9       	vfmadd132pd %ymm1,%ymm0,%ymm5
+ 168:	c4 e2 fd 98 f9       	vfmadd132pd %ymm1,%ymm0,%ymm7
+ 16d:	c4 e2 fd 98 e1       	vfmadd132pd %ymm1,%ymm0,%ymm4
+ 172:	c4 e2 fd 98 f1       	vfmadd132pd %ymm1,%ymm0,%ymm6
+ 177:	c4 e2 fd 98 d9       	vfmadd132pd %ymm1,%ymm0,%ymm3
+ 17c:	48 39 c7             	cmp    %rax,%rdi
+ 17f:	75 cf                	jne    150 <evidence::compute_f64(unsigned long)+0x70>
+ 181:	c4 c1 6d 58 c1       	vaddpd %ymm9,%ymm2,%ymm0
+ 186:	c4 c1 55 58 e8       	vaddpd %ymm8,%ymm5,%ymm5
+ 18b:	c5 dd 58 e7          	vaddpd %ymm7,%ymm4,%ymm4
+ 18f:	c5 e5 58 de          	vaddpd %ymm6,%ymm3,%ymm3
+ 193:	c5 fd 58 c5          	vaddpd %ymm5,%ymm0,%ymm0
+ 197:	c5 fd 58 c4          	vaddpd %ymm4,%ymm0,%ymm0
+ 19b:	c5 fd 58 c3          	vaddpd %ymm3,%ymm0,%ymm0
+ 19f:	c5 f8 77             	vzeroupper
+ 1a2:	c3                   	ret
+ 1a3:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+ 1a8:	c5 fb 10 05 00 00 00 	vmovsd 0x0(%rip),%xmm0        # 1b0 <evidence::compute_f64(unsigned long)+0xd0>
+ 1af:	00 
+ 1b0:	c3                   	ret

@@ -1,0 +1,50 @@
+{
+  "levels": {
+    "L1": {
+      "n": 54,
+      "weight": 5454,
+      "weighted_cycles": 27270,
+      "minimum": 5,
+      "maximum": 5
+    },
+    "L2": {
+      "n": 30951,
+      "weight": 3126051,
+      "weighted_cycles": 46893593,
+      "minimum": 15,
+      "maximum": 19
+    },
+    "L3": {
+      "n": 0,
+      "weight": 0,
+      "weighted_cycles": 0,
+      "minimum": null,
+      "maximum": null
+    },
+    "DRAM": {
+      "n": 1,
+      "weight": 101,
+      "weighted_cycles": 57166,
+      "minimum": 566,
+      "maximum": 566
+    },
+    "FB": {
+      "n": 0,
+      "weight": 0,
+      "weighted_cycles": 0,
+      "minimum": null,
+      "maximum": null
+    },
+    "unknown": {
+      "n": 0,
+      "weight": 0,
+      "weighted_cycles": 0,
+      "minimum": null,
+      "maximum": null
+    }
+  },
+  "decoded_samples": 31032,
+  "excluded_samples": 26,
+  "retained_samples": 31006,
+  "decode_returncode": 0
+}

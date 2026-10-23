@@ -1,0 +1,9 @@
+series,x,y,y_q25,y_q75
+QD 8 (mid-range),0,49.408,49.408,49.92
+QD 8 (mid-range),1,64.768,64.768,65.28
+QD 8 (mid-range),2,79.36,78.336,80.384
+QD 8 (mid-range),3,132.096,130.56,164.864
+QD 32 (near-knee estimate),0,80.384,71.168,89.6
+QD 32 (near-knee estimate),1,119.296,97.792,130.56
+QD 32 (near-knee estimate),2,142.336,118.272,162.816
+QD 32 (near-knee estimate),3,197.632,154.624,234.496

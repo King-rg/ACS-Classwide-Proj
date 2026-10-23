@@ -1,0 +1,5 @@
+{
+  "cpu-cycles": "event=0x3c",
+  "instructions": "event=0xc0",
+  "cache-misses": "event=0x2e,umask=0x41"
+}

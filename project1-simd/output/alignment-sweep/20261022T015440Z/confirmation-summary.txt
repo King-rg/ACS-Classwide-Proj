@@ -1,0 +1,24 @@
+
+## Independent confirmation
+
+840 additional validated observations.
+axpy double, N=32768, tail=0, shift=1: +9.8% auto time/element versus confirmation baseline.
+axpy double, N=32768, tail=7, shift=0: +5.8% auto time/element versus confirmation baseline.
+axpy double, N=32768, tail=7, shift=1: +6.8% auto time/element versus confirmation baseline.
+axpy double, N=4194304, tail=7, shift=0: -18.6% auto time/element versus confirmation baseline.
+axpy float, N=32768, tail=0, shift=1: +27.6% auto time/element versus confirmation baseline.
+axpy float, N=32768, tail=7, shift=0: +0.2% auto time/element versus confirmation baseline.
+axpy float, N=32768, tail=7, shift=1: +28.9% auto time/element versus confirmation baseline.
+axpy float, N=4194304, tail=7, shift=0: -10.5% auto time/element versus confirmation baseline.
+dot double, N=16777216, tail=0, shift=1: -26.7% auto time/element versus confirmation baseline.
+dot double, N=16777216, tail=7, shift=0: -0.1% auto time/element versus confirmation baseline.
+dot double, N=16777216, tail=7, shift=1: -26.8% auto time/element versus confirmation baseline.
+dot float, N=16777216, tail=0, shift=1: +7.9% auto time/element versus confirmation baseline.
+dot float, N=16777216, tail=7, shift=0: +1.7% auto time/element versus confirmation baseline.
+dot float, N=16777216, tail=7, shift=1: -7.5% auto time/element versus confirmation baseline.
+multiply double, N=8388608, tail=0, shift=1: +14.7% auto time/element versus confirmation baseline.
+multiply double, N=8388608, tail=7, shift=0: +14.0% auto time/element versus confirmation baseline.
+multiply double, N=8388608, tail=7, shift=1: +1.9% auto time/element versus confirmation baseline.
+multiply float, N=8388608, tail=0, shift=1: +4.2% auto time/element versus confirmation baseline.
+multiply float, N=8388608, tail=7, shift=0: +19.0% auto time/element versus confirmation baseline.
+multiply float, N=8388608, tail=7, shift=1: +33.6% auto time/element versus confirmation baseline.

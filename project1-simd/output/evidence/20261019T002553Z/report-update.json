@@ -1,0 +1,361 @@
+{
+  "text": "9. Pinned follow-up experiments and completed evidence\nThis section supersedes the original exploratory gap checklist. The historical tables/figures above remain as an explicitly separate, uncontrolled single-call sample; they are not pooled with the follow-up. New evidence run: 20261019T002553Z (October 18, 2026 in America/New_York). Three new processes each ran 162 configurations × three implementations × five trials, producing 7,290 validated rows. Prospective hypotheses were saved in experiments/PLAN.md before these measurements.\n9.1 Controls, semantics, and actual counters\nEvery process pinned itself to allowed P-core CPU 0; CPUID core type is 64 (Intel P-core). Its topology reports 48 KiB L1D, 1.25 MiB L2 shared with SMT sibling CPU 1, and 24 MiB LLC. Working sets span 12 KiB–96 MiB total active kernel-array footprint. Base pointers are 64-byte aligned; offsets 0/1 and N=4096+0/1/3/7 isolate alignment/tail configurations. Stride 1/2/4/8 runs hold physical footprint near 256 KiB or 96 MiB, so logical N decreases with stride. Explicit strided SIMD uses AVX2 gathers and scalar scatter, not a fictitious packed scatter instruction.\nAll numerical variants share -O3 -mavx2 -ffast-math -ffp-contract=off; scalar alone disables loop/SLP auto-vectorization. The finite-input relaxed semantics explicitly permit dot reassociation. Separate strict-FP GCC and Clang builds and measurements show the default reduction constraint. The validation harness remains strict FP; the original strict-FP demo kernels were not changed. No main-kernel FMA contraction is used. Main GCC/Clang auto objects contain packed arithmetic in all six functions; scalar objects contain no packed arithmetic. Concise per-function excerpts and full compiler reports/disassembly are saved, including strict controls.\nA pilot chooses one shared call count for scalar/auto/intrinsics within a case/process, targeting approximately 2 ms scalar work with a 65,536-call cap. Each variant has two warmup batches before each of five timed batches, with order rotated. AXPY resets y before each batch, then intentionally applies a=1.25 repeatedly to the same output within the batch. Its independent mathematical recurrence and rounding error are validated; this is not the old independent-output-per-call policy. Calls remain explicit and may differ between process repeats. Allocation, input generation, reset, validation and CSV output are outside timing; batch/call overhead remains inside.\nAfter the user enabled perf_event_paranoid=2, grouped cpu_core user-space core cycles, instructions and LLC-miss events were counted around each kernel-call batch. All regions stayed on CPU 0, RDTSCP tags did not change, and perf enabled/running times were equal throughout group lifetimes: no multiplexing was observed. These are real core cycles/element, not wall time multiplied by an advertised frequency. Counts exclude kernel/hypervisor and full-process setup, but include the small clock/batch wrapper. TSC ticks are separately labeled: CPUID gives 2.9184 GHz invariant TSC, cross-checked by three wall calibrations per process; that is not the operating core frequency.\nAffinity is controlled, not core isolation: SMT remains active, sibling/application activity is not disabled, and the governor is powersave. Recorded scaling-frequency samples vary, rather than establishing a fixed frequency. Metadata, source hashes/snapshots, exact commands/flags, PMU aliases, per-process before/after snapshots, migration tags and raw counters accompany this run. The earlier TSC-only attempt was stopped when permissions changed and is marked incomplete; it is excluded.\n9.2 Results: cache-capacity sweep and real cycles\nTable 3. Compiler-auto speedup compresses with footprint. Entries are median [range] of three per-process scalar/auto median ratios; each process contributes five raw trials. Core-cycle costs are medians of the three process medians. Capacity labels do not certify residency.\n\nFor float AXPY, auto speedup decreases from 7.494× at 12 KiB to 1.630× at 96 MiB, while auto core cycles/element rise from 0.187 to 3.091. Auto LLC-miss events increase from a median zero to 113.51 per 1,000 elements. Float dot changes from 9.846× to 1.518× auto speedup; the explicit intrinsic version reaches a median 2.580× at 96 MiB. These observations, large footprints and measured streaming reference support a memory-traffic interpretation; uncontrolled DVFS/scheduling and differing read/write mixes remain material alternatives, not hidden anomalies.\nTable 4. The 96 MiB case, all three implementations. Speedups are matched per process using identical call counts, then summarized across three processes. LLC values are generic cpu_core LLC-miss events, not measured DRAM bytes. N differs by type and the kernel’s two/three-array footprint.\n\n\nFigure 3. AXPY hardware user-space core cycles/element across working sets, scalar/auto/intrinsics and float/double. Whiskers are ranges of three process medians, not confidence intervals; each process has five trials. Dotted capacities are topology references. All 22 follow-up plots, including runtime, LLC events, alignment/tails and stride for each kernel, are preserved locally with exact summary CSVs.\n9.3 Alignment, tails, and strided access\nAll kernels/types/implementations were checked at actual 64-byte aligned and one-element shifted starts, with vector multiples and remainders 1/3/7 beyond 4096. At N=4096, shifting compiler-auto pointers by one element increases median time by 1.505× for float AXPY (process ratio range 1.499–1.545), 2.090× for float multiply (2.040–2.258), and 1.425× for double dot (1.416–1.449). Float dot is approximately unchanged (1.001×). Alignment effects therefore depend on kernel/type; they cannot be inferred from an arbitrary vector allocation. The plots retain each offset and tail rather than pooling them. For double, a 7-element extension includes a full 4-lane vector and a 3-element tail. Correctness also covers empty/short inputs and strides, including hand-computed fixtures; Clang ASan/UBSan passes.\nAt fixed 96 MiB physical footprint, compiler-auto float-dot useful algorithmic bandwidth decreases across strides 1,2,4,8: 26.488, 11.293, 2.899, and 2.128 GB/s (medians of process medians). This is useful bytes for touched elements, not actual cache-line or DRAM-controller traffic; logical N changes intentionally. The result supports poor cache-line utilization and access-efficiency hypotheses. Gather/scatter overhead and fewer useful values per fetched line both matter; a separate fixed-N sweep would answer a different question.\n\nFigure 4. Dot stride sweep at approximately 256 KiB and 96 MiB physical footprints, with all three implementations and types. These are useful-byte rates, with ranges of process medians; they are not a claim that DRAM bandwidth itself drops by the same factor.\n9.4 Independent bandwidth and roofline references\nIndependent calibration, 21 trials per reference across the three processes: 96 MiB two-read/one-write non-temporal triad = 24.322 logical GB/s (process-median range 21.168–24.416); 64 MiB cached copy = 16.875 logical GB/s (16.598–16.926). The triad includes sfence and avoids output read-for-ownership; cached copy can incur additional RFO/writeback beyond its two logical streams. These sustained stream rates are measured, while physical DRAM-controller bytes are not.\nIndependent register-FMA loops with eight accumulation chains measure 146.908 GFLOP/s float (145.593–147.973) and 73.220 double (71.992–73.883). They are empirical compute references, not main-kernel measurements or proof of silicon maximum. An architectural/max-turbo upper estimate is 2 vector FMA units × 8 float lanes × 2 operations × 5.2 GHz = 166.4 GFLOP/s per P-core, or 83.2 for double. Intel’s official SKU page provides the 5.2 GHz advertised P-core maximum and AVX2 support; its optimization manual Table 2-4, printed page 2-14, describes two 256-bit vector multiply/FMA units for the Golden Cove-class core. This is an upper estimate, not measured sustained frequency, whole-socket peak, or the attainable ceiling of separate multiply/add kernels.\nUsing useful-byte traffic, float arithmetic intensities are AXPY 2/12=1/6, dot 2/8=1/4, and multiply 1/12 FLOP/byte; doubles halve those intensities. The roofline-style curves use min(measured stream GB/s × intensity, compute reference GFLOP/s). Some points can exceed a particular empirical stream curve because read-only dot, in-place AXPY, cached output stores, NT triad, frequency and measurement windows differ. These curves are interpretable reference models, not asserted hard DRAM roofs. Counters and useful-byte estimates do not establish full memory-controller traffic or an exact bottleneck.\n\nFigure 5. Roofline-style reference interpretation for compiler-auto kernels at about 96 MiB. Solid curves combine the independent NT-triad and measured FMA reference; dashed curves use the architectural/max-turbo estimate. Error bars retain between-process variation. Cached-store/read-only traffic differs from the NT-triad calibration; points are not evidence of violating a physical bound.\n9.5 Verified failure case and remaining scope\nThe verified negative case is strict floating-point reduction in Clang: its report states that it cannot prove reordering safe, and the strict float/double dot functions contain no packed arithmetic in disassembly. The same ordinary loops vectorize with relaxed FP permissions. The actual strict Clang supplemental dot auto/scalar speedups at N=4096 are 1.014× float and 0.976× double; relaxed Clang measures 13.296× and 3.883× in a separate supplemental process. Those supplemental timings are illustrative five-trial process results, not a confidence-tested comparison across machine states. The compilation/disassembly proof, rather than the noisy original double-AXPY slowdown, establishes the required failure mechanism.\nAll nine evidence categories now have concrete local artifacts: scalar/auto/intrinsics; L1/L2/LLC/beyond-LLC size sweep; controlled alignment/tails; strides; compiler evidence; independent bandwidth and compute references; true user-space core cycles; recorded affinity/environment/repeats; and a verified FP-semantics negative case. Remaining limitations are bounded and explicit: frequency and SMT sibling activity are not locked/isolated; measured logical stream traffic is not DRAM-controller traffic; cache capacities are references rather than exact residency proof; relaxed-FP semantics and repeated-update AXPY batches differ from the old sample. Student review, explanations and final repository/report presentation remain the student’s responsibility.\nReproduce with experiments/run_evidence.py, experiments/analyze_evidence.py, check_supplemental.sh and write_status.py. Full raw evidence: output/evidence/20261019T002553Z/repeat-{0,1,2}/raw.csv; metadata/source snapshot/build logs are adjacent. analysis/per_repeat_summary.csv and per_repeat_speedups.csv retain configurations and process identity. EVIDENCE_STATUS.md ties each requirement to artifacts and limits. Historical output/timings.csv and output/analysis were preserved; analysis-v1 preserves an earlier rendering revision of this new run. These are project-relative file references, not Drive links.\nNew source identifier: 431c04832035081f26ff7e6f39e90177cd81da2fd77d4b3bbe016b9bb690ba3a\nAI-use continuation: Codex generated the additional strided/auto experiment implementations, prospective plan, grouped-counter runner, bounded sweeps, calibration functions, postprocessing, tests, status ledger and this evidence-backed report continuation. It ran the measurements and reviewed output/correctness/rendering. The user enabled perf permission; the scripts did not change global settings. Independent student review and interpretation must still be documented.\nIntel i7-13800H specifications\nIntel Optimization Reference Manual, Table 2-4\nLLVM vectorization and floating-point reductions\n",
+  "spans": [
+    {
+      "text": "9. Pinned follow-up experiments and completed evidence",
+      "style": "HEADING_1",
+      "kind": null,
+      "start": 0,
+      "end": 55
+    },
+    {
+      "text": "This section supersedes the original exploratory gap checklist. The historical tables/figures above remain as an explicitly separate, uncontrolled single-call sample; they are not pooled with the follow-up. New evidence run: 20261019T002553Z (October 18, 2026 in America/New_York). Three new processes each ran 162 configurations × three implementations × five trials, producing 7,290 validated rows. Prospective hypotheses were saved in experiments/PLAN.md before these measurements.",
+      "style": "NORMAL_TEXT",
+      "kind": null,
+      "start": 55,
+      "end": 540
+    },
+    {
+      "text": "9.1 Controls, semantics, and actual counters",
+      "style": "HEADING_2",
+      "kind": null,
+      "start": 540,
+      "end": 585
+    },
+    {
+      "text": "Every process pinned itself to allowed P-core CPU 0; CPUID core type is 64 (Intel P-core). Its topology reports 48 KiB L1D, 1.25 MiB L2 shared with SMT sibling CPU 1, and 24 MiB LLC. Working sets span 12 KiB–96 MiB total active kernel-array footprint. Base pointers are 64-byte aligned; offsets 0/1 and N=4096+0/1/3/7 isolate alignment/tail configurations. Stride 1/2/4/8 runs hold physical footprint near 256 KiB or 96 MiB, so logical N decreases with stride. Explicit strided SIMD uses AVX2 gathers and scalar scatter, not a fictitious packed scatter instruction.",
+      "style": "NORMAL_TEXT",
+      "kind": null,
+      "start": 585,
+      "end": 1151
+    },
+    {
+      "text": "All numerical variants share -O3 -mavx2 -ffast-math -ffp-contract=off; scalar alone disables loop/SLP auto-vectorization. The finite-input relaxed semantics explicitly permit dot reassociation. Separate strict-FP GCC and Clang builds and measurements show the default reduction constraint. The validation harness remains strict FP; the original strict-FP demo kernels were not changed. No main-kernel FMA contraction is used. Main GCC/Clang auto objects contain packed arithmetic in all six functions; scalar objects contain no packed arithmetic. Concise per-function excerpts and full compiler reports/disassembly are saved, including strict controls.",
+      "style": "NORMAL_TEXT",
+      "kind": null,
+      "start": 1151,
+      "end": 1804
+    },
+    {
+      "text": "A pilot chooses one shared call count for scalar/auto/intrinsics within a case/process, targeting approximately 2 ms scalar work with a 65,536-call cap. Each variant has two warmup batches before each of five timed batches, with order rotated. AXPY resets y before each batch, then intentionally applies a=1.25 repeatedly to the same output within the batch. Its independent mathematical recurrence and rounding error are validated; this is not the old independent-output-per-call policy. Calls remain explicit and may differ between process repeats. Allocation, input generation, reset, validation and CSV output are outside timing; batch/call overhead remains inside.",
+      "style": "NORMAL_TEXT",
+      "kind": null,
+      "start": 1804,
+      "end": 2474
+    },
+    {
+      "text": "After the user enabled perf_event_paranoid=2, grouped cpu_core user-space core cycles, instructions and LLC-miss events were counted around each kernel-call batch. All regions stayed on CPU 0, RDTSCP tags did not change, and perf enabled/running times were equal throughout group lifetimes: no multiplexing was observed. These are real core cycles/element, not wall time multiplied by an advertised frequency. Counts exclude kernel/hypervisor and full-process setup, but include the small clock/batch wrapper. TSC ticks are separately labeled: CPUID gives 2.9184 GHz invariant TSC, cross-checked by three wall calibrations per process; that is not the operating core frequency.",
+      "style": "NORMAL_TEXT",
+      "kind": null,
+      "start": 2474,
+      "end": 3152
+    },
+    {
+      "text": "Affinity is controlled, not core isolation: SMT remains active, sibling/application activity is not disabled, and the governor is powersave. Recorded scaling-frequency samples vary, rather than establishing a fixed frequency. Metadata, source hashes/snapshots, exact commands/flags, PMU aliases, per-process before/after snapshots, migration tags and raw counters accompany this run. The earlier TSC-only attempt was stopped when permissions changed and is marked incomplete; it is excluded.",
+      "style": "NORMAL_TEXT",
+      "kind": null,
+      "start": 3152,
+      "end": 3644
+    },
+    {
+      "text": "9.2 Results: cache-capacity sweep and real cycles",
+      "style": "HEADING_2",
+      "kind": null,
+      "start": 3644,
+      "end": 3694
+    },
+    {
+      "text": "Table 3. Compiler-auto speedup compresses with footprint. Entries are median [range] of three per-process scalar/auto median ratios; each process contributes five raw trials. Core-cycle costs are medians of the three process medians. Capacity labels do not certify residency.",
+      "style": "NORMAL_TEXT",
+      "kind": null,
+      "start": 3694,
+      "end": 3970
+    },
+    {
+      "text": "",
+      "style": "NORMAL_TEXT",
+      "kind": "compression_table",
+      "start": 3970,
+      "end": 3971
+    },
+    {
+      "text": "For float AXPY, auto speedup decreases from 7.494× at 12 KiB to 1.630× at 96 MiB, while auto core cycles/element rise from 0.187 to 3.091. Auto LLC-miss events increase from a median zero to 113.51 per 1,000 elements. Float dot changes from 9.846× to 1.518× auto speedup; the explicit intrinsic version reaches a median 2.580× at 96 MiB. These observations, large footprints and measured streaming reference support a memory-traffic interpretation; uncontrolled DVFS/scheduling and differing read/write mixes remain material alternatives, not hidden anomalies.",
+      "style": "NORMAL_TEXT",
+      "kind": null,
+      "start": 3971,
+      "end": 4532
+    },
+    {
+      "text": "Table 4. The 96 MiB case, all three implementations. Speedups are matched per process using identical call counts, then summarized across three processes. LLC values are generic cpu_core LLC-miss events, not measured DRAM bytes. N differs by type and the kernel’s two/three-array footprint.",
+      "style": "NORMAL_TEXT",
+      "kind": null,
+      "start": 4532,
+      "end": 4823
+    },
+    {
+      "text": "",
+      "style": "NORMAL_TEXT",
+      "kind": "large_table",
+      "start": 4823,
+      "end": 4824
+    },
+    {
+      "text": "",
+      "style": "NORMAL_TEXT",
+      "kind": "figure3",
+      "start": 4824,
+      "end": 4825
+    },
+    {
+      "text": "Figure 3. AXPY hardware user-space core cycles/element across working sets, scalar/auto/intrinsics and float/double. Whiskers are ranges of three process medians, not confidence intervals; each process has five trials. Dotted capacities are topology references. All 22 follow-up plots, including runtime, LLC events, alignment/tails and stride for each kernel, are preserved locally with exact summary CSVs.",
+      "style": "NORMAL_TEXT",
+      "kind": null,
+      "start": 4825,
+      "end": 5233
+    },
+    {
+      "text": "9.3 Alignment, tails, and strided access",
+      "style": "HEADING_2",
+      "kind": null,
+      "start": 5233,
+      "end": 5274
+    },
+    {
+      "text": "All kernels/types/implementations were checked at actual 64-byte aligned and one-element shifted starts, with vector multiples and remainders 1/3/7 beyond 4096. At N=4096, shifting compiler-auto pointers by one element increases median time by 1.505× for float AXPY (process ratio range 1.499–1.545), 2.090× for float multiply (2.040–2.258), and 1.425× for double dot (1.416–1.449). Float dot is approximately unchanged (1.001×). Alignment effects therefore depend on kernel/type; they cannot be inferred from an arbitrary vector allocation. The plots retain each offset and tail rather than pooling them. For double, a 7-element extension includes a full 4-lane vector and a 3-element tail. Correctness also covers empty/short inputs and strides, including hand-computed fixtures; Clang ASan/UBSan passes.",
+      "style": "NORMAL_TEXT",
+      "kind": null,
+      "start": 5274,
+      "end": 6081
+    },
+    {
+      "text": "At fixed 96 MiB physical footprint, compiler-auto float-dot useful algorithmic bandwidth decreases across strides 1,2,4,8: 26.488, 11.293, 2.899, and 2.128 GB/s (medians of process medians). This is useful bytes for touched elements, not actual cache-line or DRAM-controller traffic; logical N changes intentionally. The result supports poor cache-line utilization and access-efficiency hypotheses. Gather/scatter overhead and fewer useful values per fetched line both matter; a separate fixed-N sweep would answer a different question.",
+      "style": "NORMAL_TEXT",
+      "kind": null,
+      "start": 6081,
+      "end": 6618
+    },
+    {
+      "text": "",
+      "style": "NORMAL_TEXT",
+      "kind": "figure4",
+      "start": 6618,
+      "end": 6619
+    },
+    {
+      "text": "Figure 4. Dot stride sweep at approximately 256 KiB and 96 MiB physical footprints, with all three implementations and types. These are useful-byte rates, with ranges of process medians; they are not a claim that DRAM bandwidth itself drops by the same factor.",
+      "style": "NORMAL_TEXT",
+      "kind": null,
+      "start": 6619,
+      "end": 6880
+    },
+    {
+      "text": "9.4 Independent bandwidth and roofline references",
+      "style": "HEADING_2",
+      "kind": null,
+      "start": 6880,
+      "end": 6930
+    },
+    {
+      "text": "Independent calibration, 21 trials per reference across the three processes: 96 MiB two-read/one-write non-temporal triad = 24.322 logical GB/s (process-median range 21.168–24.416); 64 MiB cached copy = 16.875 logical GB/s (16.598–16.926). The triad includes sfence and avoids output read-for-ownership; cached copy can incur additional RFO/writeback beyond its two logical streams. These sustained stream rates are measured, while physical DRAM-controller bytes are not.",
+      "style": "NORMAL_TEXT",
+      "kind": null,
+      "start": 6930,
+      "end": 7402
+    },
+    {
+      "text": "Independent register-FMA loops with eight accumulation chains measure 146.908 GFLOP/s float (145.593–147.973) and 73.220 double (71.992–73.883). They are empirical compute references, not main-kernel measurements or proof of silicon maximum. An architectural/max-turbo upper estimate is 2 vector FMA units × 8 float lanes × 2 operations × 5.2 GHz = 166.4 GFLOP/s per P-core, or 83.2 for double. Intel’s official SKU page provides the 5.2 GHz advertised P-core maximum and AVX2 support; its optimization manual Table 2-4, printed page 2-14, describes two 256-bit vector multiply/FMA units for the Golden Cove-class core. This is an upper estimate, not measured sustained frequency, whole-socket peak, or the attainable ceiling of separate multiply/add kernels.",
+      "style": "NORMAL_TEXT",
+      "kind": null,
+      "start": 7402,
+      "end": 8162
+    },
+    {
+      "text": "Using useful-byte traffic, float arithmetic intensities are AXPY 2/12=1/6, dot 2/8=1/4, and multiply 1/12 FLOP/byte; doubles halve those intensities. The roofline-style curves use min(measured stream GB/s × intensity, compute reference GFLOP/s). Some points can exceed a particular empirical stream curve because read-only dot, in-place AXPY, cached output stores, NT triad, frequency and measurement windows differ. These curves are interpretable reference models, not asserted hard DRAM roofs. Counters and useful-byte estimates do not establish full memory-controller traffic or an exact bottleneck.",
+      "style": "NORMAL_TEXT",
+      "kind": null,
+      "start": 8162,
+      "end": 8765
+    },
+    {
+      "text": "",
+      "style": "NORMAL_TEXT",
+      "kind": "figure5",
+      "start": 8765,
+      "end": 8766
+    },
+    {
+      "text": "Figure 5. Roofline-style reference interpretation for compiler-auto kernels at about 96 MiB. Solid curves combine the independent NT-triad and measured FMA reference; dashed curves use the architectural/max-turbo estimate. Error bars retain between-process variation. Cached-store/read-only traffic differs from the NT-triad calibration; points are not evidence of violating a physical bound.",
+      "style": "NORMAL_TEXT",
+      "kind": null,
+      "start": 8766,
+      "end": 9159
+    },
+    {
+      "text": "9.5 Verified failure case and remaining scope",
+      "style": "HEADING_2",
+      "kind": null,
+      "start": 9159,
+      "end": 9205
+    },
+    {
+      "text": "The verified negative case is strict floating-point reduction in Clang: its report states that it cannot prove reordering safe, and the strict float/double dot functions contain no packed arithmetic in disassembly. The same ordinary loops vectorize with relaxed FP permissions. The actual strict Clang supplemental dot auto/scalar speedups at N=4096 are 1.014× float and 0.976× double; relaxed Clang measures 13.296× and 3.883× in a separate supplemental process. Those supplemental timings are illustrative five-trial process results, not a confidence-tested comparison across machine states. The compilation/disassembly proof, rather than the noisy original double-AXPY slowdown, establishes the required failure mechanism.",
+      "style": "NORMAL_TEXT",
+      "kind": null,
+      "start": 9205,
+      "end": 9931
+    },
+    {
+      "text": "All nine evidence categories now have concrete local artifacts: scalar/auto/intrinsics; L1/L2/LLC/beyond-LLC size sweep; controlled alignment/tails; strides; compiler evidence; independent bandwidth and compute references; true user-space core cycles; recorded affinity/environment/repeats; and a verified FP-semantics negative case. Remaining limitations are bounded and explicit: frequency and SMT sibling activity are not locked/isolated; measured logical stream traffic is not DRAM-controller traffic; cache capacities are references rather than exact residency proof; relaxed-FP semantics and repeated-update AXPY batches differ from the old sample. Student review, explanations and final repository/report presentation remain the student’s responsibility.",
+      "style": "NORMAL_TEXT",
+      "kind": null,
+      "start": 9931,
+      "end": 10693
+    },
+    {
+      "text": "Reproduce with experiments/run_evidence.py, experiments/analyze_evidence.py, check_supplemental.sh and write_status.py. Full raw evidence: output/evidence/20261019T002553Z/repeat-{0,1,2}/raw.csv; metadata/source snapshot/build logs are adjacent. analysis/per_repeat_summary.csv and per_repeat_speedups.csv retain configurations and process identity. EVIDENCE_STATUS.md ties each requirement to artifacts and limits. Historical output/timings.csv and output/analysis were preserved; analysis-v1 preserves an earlier rendering revision of this new run. These are project-relative file references, not Drive links.",
+      "style": "NORMAL_TEXT",
+      "kind": null,
+      "start": 10693,
+      "end": 11305
+    },
+    {
+      "text": "New source identifier: 431c04832035081f26ff7e6f39e90177cd81da2fd77d4b3bbe016b9bb690ba3a",
+      "style": "NORMAL_TEXT",
+      "kind": null,
+      "start": 11305,
+      "end": 11393
+    },
+    {
+      "text": "AI-use continuation: Codex generated the additional strided/auto experiment implementations, prospective plan, grouped-counter runner, bounded sweeps, calibration functions, postprocessing, tests, status ledger and this evidence-backed report continuation. It ran the measurements and reviewed output/correctness/rendering. The user enabled perf permission; the scripts did not change global settings. Independent student review and interpretation must still be documented.",
+      "style": "NORMAL_TEXT",
+      "kind": null,
+      "start": 11393,
+      "end": 11867
+    },
+    {
+      "text": "Intel i7-13800H specifications",
+      "style": "NORMAL_TEXT",
+      "kind": null,
+      "start": 11867,
+      "end": 11898
+    },
+    {
+      "text": "Intel Optimization Reference Manual, Table 2-4",
+      "style": "NORMAL_TEXT",
+      "kind": null,
+      "start": 11898,
+      "end": 11945
+    },
+    {
+      "text": "LLVM vectorization and floating-point reductions",
+      "style": "NORMAL_TEXT",
+      "kind": null,
+      "start": 11945,
+      "end": 11994
+    }
+  ],
+  "tables": [
+    [
+      [
+        "Kernel/type",
+        "12 KiB auto × [range]",
+        "96 MiB auto × [range]",
+        "12 KiB auto cycles/el",
+        "96 MiB auto cycles/el"
+      ],
+      [
+        "axpy / float",
+        "7.494 [7.483–7.635]",
+        "1.630 [1.202–1.717]",
+        "0.187",
+        "3.091"
+      ],
+      [
+        "axpy / double",
+        "3.596 [3.587–3.633]",
+        "1.008 [1.007–1.649]",
+        "0.387",
+        "3.950"
+      ],
+      [
+        "dot / float",
+        "9.846 [9.830–9.921]",
+        "1.518 [1.083–2.602]",
+        "0.202",
+        "2.736"
+      ],
+      [
+        "dot / double",
+        "4.721 [4.668–4.786]",
+        "1.247 [1.065–1.256]",
+        "0.402",
+        "4.971"
+      ],
+      [
+        "multiply / float",
+        "6.209 [6.188–6.251]",
+        "1.079 [0.721–1.179]",
+        "0.172",
+        "4.726"
+      ],
+      [
+        "multiply / double",
+        "3.235 [3.216–3.395]",
+        "0.728 [0.587–1.068]",
+        "0.346",
+        "8.358"
+      ]
+    ],
+    [
+      [
+        "Kernel/type",
+        "Auto speedup × [range]",
+        "Intrinsics speedup × [range]",
+        "Auto core cycles/element",
+        "Auto LLC misses/1000"
+      ],
+      [
+        "axpy / float",
+        "1.630 [1.202–1.717]",
+        "1.417 [1.044–1.669]",
+        "3.091",
+        "113.51"
+      ],
+      [
+        "axpy / double",
+        "1.008 [1.007–1.649]",
+        "1.023 [1.000–1.077]",
+        "3.950",
+        "221.87"
+      ],
+      [
+        "dot / float",
+        "1.518 [1.083–2.602]",
+        "2.580 [1.491–2.830]",
+        "2.736",
+        "115.36"
+      ],
+      [
+        "dot / double",
+        "1.247 [1.065–1.256]",
+        "1.218 [1.192–1.402]",
+        "4.971",
+        "228.90"
+      ],
+      [
+        "multiply / float",
+        "1.079 [0.721–1.179]",
+        "0.908 [0.884–1.741]",
+        "4.726",
+        "135.83"
+      ],
+      [
+        "multiply / double",
+        "0.728 [0.587–1.068]",
+        "0.971 [0.578–1.064]",
+        "8.358",
+        "275.25"
+      ]
+    ]
+  ]
+}

@@ -1,0 +1,622 @@
+{
+  "complete": true,
+  "figure_count": 9,
+  "report": {
+    "project": 1,
+    "document_id": "15frD8Ea_BH0owxiVxac5UcHPGtT3J-xpKDmQwwo7b38",
+    "revision": "AHj4eMRlQCAuw55dYJezxthy2hMiMunXBJB1SXr0aScXuNmImHDEBpb8FgFTXQUZHhzxansbIXA_-S3vPqjNvLLCCHouhdkM_r2pwxa4xJZH",
+    "title": "ACS - Class Wide Project 1 - SIMD Advantage Profiling",
+    "figures": [
+      {
+        "id": "1",
+        "caption": "Fig. 1. SIMD speedup (scalar time / auto-vectorized time) across working-set sizes. Higher is faster; 1\u00d7 means equal performance. Bands show the interquartile range, and cache markers indicate nominal capacities.",
+        "renderer": "simd",
+        "datasets": [
+          "working-set"
+        ]
+      },
+      {
+        "id": "2",
+        "caption": "Fig. 2. Scalar and auto-vectorized throughput across working-set sizes. GFLOP/s measures billions of floating-point operations per second; higher is faster. Bands show the interquartile range.",
+        "renderer": "simd",
+        "datasets": [
+          "working-set"
+        ]
+      },
+      {
+        "id": "3",
+        "caption": "Fig. 3. Geometric-mean scalar-to-auto speedup across the three kernels for aligned and shifted arrays. Higher is faster; 1\u00d7 means equal performance.",
+        "renderer": "simd",
+        "datasets": [
+          "alignment"
+        ]
+      },
+      {
+        "id": "4",
+        "caption": "Fig. 4. Geometric-mean scalar-to-auto speedup across the three kernels at an original array length of 32,768 elements, comparing aligned, shifted, tail-only, and combined conditions.",
+        "renderer": "simd",
+        "datasets": [
+          "alignment"
+        ]
+      },
+      {
+        "id": "5",
+        "caption": "Fig. 5. AXPY scalar-to-auto speedup by stride; dashed line: equal performance (1\u00d7); bands: interquartile range.",
+        "renderer": "simd",
+        "datasets": [
+          "supplemental"
+        ]
+      },
+      {
+        "id": "6",
+        "caption": "Fig. 6. Useful bandwidth by stride for arrays that fit in L2 cache (top) and arrays requiring main-memory access (bottom). Higher is faster. Bands show the interquartile range.",
+        "renderer": "simd",
+        "datasets": [
+          "supplemental"
+        ]
+      },
+      {
+        "id": "7",
+        "caption": "Fig. 7. Dot-product time per element with strict and relaxed floating-point summation. Lower is faster. Error bars show the interquartile range.",
+        "renderer": "simd",
+        "datasets": [
+          "supplemental"
+        ]
+      },
+      {
+        "id": "8",
+        "caption": "Fig. 8. Scalar and auto-vectorized SAXPY throughput compared with the estimated memory-bandwidth limit. Bars show medians, error bars show interquartile ranges, and shading shows the interquartile range of the estimated limit.",
+        "renderer": "simd",
+        "datasets": [
+          "supplemental"
+        ]
+      },
+      {
+        "id": "9",
+        "caption": "Fig. 9. Core cycles per element. Lower is better. Bands show the interquartile range. K = 1,024 and M = 1,048,576 elements.",
+        "renderer": "simd",
+        "datasets": [
+          "cycles"
+        ]
+      }
+    ],
+    "sources": {
+      "working-set": "output/auto-aligned/20261022T024622Z",
+      "alignment": "output/alignment-sweep/20261022T015440Z",
+      "supplemental": "output/supplemental-c/20261021T232708Z",
+      "cycles": "output/cycles/20261022T031800Z"
+    },
+    "source_hashes": {
+      "working-set": {
+        "axpy.csv": "965a684132d8633831a246f2130ca17b1befd4490d6ef82f6f2cc2e78bba8227",
+        "dot.csv": "6419417a249c91e2c9b2ce72aef98dfe73ec1bdfc68403905e3c62c0b2b43d71",
+        "metadata.json": "cf74f5f09c30f212fdb68cbc5b094e9fed752f2d78beacf6ad335c6c476f998e",
+        "run.log": "3fb37a1c1378734077b1fac3d91d878ffdbfe34053ae76e8a3d8c332c7f1d94a",
+        "summary.csv": "c62159185d1bb743a080c012ddaf41c1071682d1eb6f21802d7cee99650e4d48",
+        "multiply.csv": "d7d127dfc96aa392bc739f01483f652a5946ef5bba66b0318bd51d62157d7623",
+        "cache_metadata.json": "1f9298625ab73d80497c0fac6ad82a2d9bc710842281c296f11096585f50a76a"
+      },
+      "alignment": {
+        "raw.csv": "b97cc8e4301182315408f4770d34e8a7ed140f1dab57775058ed65ae57f94f6a",
+        "metadata.json": "3937d2ff8cd865d4b0c9a367a2d48b513d30bda679b4215537a9188928e9ad27",
+        "summary.csv": "9f964d555d2d949eb7e034c688d8a99f56f9d44522015a03350084b474b1efa4",
+        "average_speedup.csv": "d0af161d8cdae03d126744f2f2e9f76ceb09a416dd549ac28112bfb25423576c",
+        "confirmation/axpy-4194304-0-0.csv": "db953c67ffc2ff3f08917b4d0dcd50d8f9db4ddedef951d7aae2d8a074ebfc18",
+        "confirmation/multiply-8388608-7-0.csv": "1839a4467ad13e9fb72b334f78c152bb5a4eabeddb97a636dac7fbae23acd436",
+        "confirmation/multiply-8388608-7-1.csv": "0bca9d3ecd9a674f7363a311126cf52858032dd2558229149ee9d152449d6f36",
+        "confirmation/spike-commands.json": "a7577faf61f7446223315b92b35cace5eb9180261dac504243b3623c6fcd1bb4",
+        "confirmation/multiply-8388608-0-1.csv": "4812b37d87f2a217df5561f6343d0f9e6a542526509d43b4fe39c51302ba4b2b",
+        "confirmation/axpy-32768-0-0.csv": "507f13035c0bd40f536cea9dfe07c769e90ceeb389c6b8fbdec658f02f8181e9",
+        "confirmation/axpy-32768-0-1.csv": "36c0800bd18e1fbd6a357ff74e311ef86f609f0927a8db2e0f2b1daacf900f39",
+        "confirmation/dot-16777216-7-0.csv": "1c3362a7bf4de1ddbe6572d71bf5654d2995377cf30c3df8e7134f972bf7ec15",
+        "confirmation/dot-16777216-0-0.csv": "29c1ff5a417a1618311966619f4011ef1f977f7fcd38da92f4c61ac099eaaec5",
+        "confirmation/axpy-4194304-7-0.csv": "8e8b1031813d48b962051509ea9190a471f9de93612af2954049c224a499ead7",
+        "confirmation/commands.json": "e2498f3a9e41ea4b3a51ff85cecbabeec6dbd0c0ba8f1efa18a833d574b8f4db",
+        "confirmation/dot-16777216-7-1.csv": "08110b029618c0b3d6f369add0c500d399cf38cda60964a79cbc03005c500a8a",
+        "confirmation/multiply-8388608-0-0.csv": "5d6d8def16ac5e49bb093128c738114d8c2349fd1694f511f7808c60049a7abb",
+        "confirmation/dot-16777216-0-1.csv": "0e5ea3c2433c865d74d31e51863ed2d42f471cf7e531e9e31c4c40b466ebecf2",
+        "confirmation/axpy-32768-7-1.csv": "c4b17a13e75175842e99f6682f0915da900d63b9101e238c4a6440e09785df64",
+        "confirmation/axpy-32768-7-0.csv": "a390c827a31a8cb64bd62c8ea1f4960f6df6afa1a5c45a8f9ee1c9a69cde5fe0",
+        "historical/axpy.csv": "bc3fe0514dd266778a2ac45924b9c6a173c2489bb0393f055d34eeca90c955de",
+        "historical/dot.csv": "f847ec0e186f4ce1ff59a8ca198d6671c5551974a6c7be4ae120851557592bf0",
+        "historical/metadata.json": "67d6bab74915d50937d540963a32377223b9ad21348f787efd76de3e08bdc70c",
+        "historical/multiply.csv": "7d00941a23d5a84db1e4ff43775ec0a2e70e2f4fab7ffbe41a0a336c5f4d8762",
+        "historical/cache_metadata.json": "50cd3fe02cc71aae9bc933c829e333f4bd8e40651f60719b0c3e5c66948d1947",
+        "raw/axpy-4194304-0-0.csv": "03c98983c9e95e68114efc8681651fd9bfe9171c2e3c3fd08b9a00b20688aa07",
+        "raw/dot-131072-7-1.csv": "102c3ff8a33e31df197128844cf047152eb4fe8a1ed2aed91261aa102cdde57b",
+        "raw/multiply-32768-0-0.csv": "ebd644ed43e88cc1950b5b3bff3504958f429eb894c5a8f134e31ee24a079d03",
+        "raw/multiply-512-0-0.csv": "2bde5876e603bbeb5fe89d901269953966b73e4ce6e3fdc3f04261ff942c571f",
+        "raw/axpy-8192-0-1.csv": "66700bea7c0391ab2390ba2b162a3310f66ccab7c36640d3b49ed10d17f50a6a",
+        "raw/multiply-8388608-7-0.csv": "e6eaccc54a44bf8ec4b921b25b694fd4cf199d43dcfc0f7d65b9abfeaa4f1467",
+        "raw/axpy-8388608-0-0.csv": "49b533ef8619977bee7eb1fcb76d879a04f529319db26c7c36b089f3a690fcdc",
+        "raw/dot-131072-7-0.csv": "23ce09bcba763b7d3d86e997ce495b92420846a5a186432cf48a939e5cb7a7f1",
+        "raw/axpy-8192-0-0.csv": "683e6a5dd6def06e563959f48e64a9c8a9f77e41c3bca7cf7956a1cbbfdbba63",
+        "raw/multiply-128-0-0.csv": "f47948dfb1cf5287a487c5b15bc2e0894cca2b9b6b611a3229252f5a81267527",
+        "raw/multiply-8192-7-0.csv": "d4c662eb680659a55ad28b91812dbccea745106c62c4314a780cd68303a4c5d0",
+        "raw/multiply-8388608-7-1.csv": "17a02fef61a9324cd5a46036cb23cc4176cd9bc66da8dd54d158e7d59adf6a7f",
+        "raw/dot-32-7-0.csv": "66c0a599447e775a005ff1145fa15352e238fe33323da5a3b5971267b6e55b9d",
+        "raw/multiply-128-7-0.csv": "5636ee9bab53b71c0a46f291b27079c435fa46dc46a966935710d6eadc9707de",
+        "raw/axpy-512-7-0.csv": "3fa822ebdd320c3373a725201939a49145ff0a39a1fb10146d01b6de5a9a53a7",
+        "raw/dot-2097152-0-1.csv": "5a300fb79b8abce44b4769ba290011fdb82081171548ebe71023d8c240350930",
+        "raw/axpy-2097152-7-1.csv": "1a47220956a9ebb589d245ba5d80e5caef53438287f30fac303b7b5ca2c1792f",
+        "raw/dot-131072-0-0.csv": "6bcb665a81ec26fc10e904736910740680196a6701e1972f368d6af391dce128",
+        "raw/dot-524288-7-0.csv": "f9dafab245431c6fca60959f713ee63107b126af7d2a4a3800c318d1de588194",
+        "raw/dot-2048-0-0.csv": "fcf962f5211993c3f696938b606a2ee2218d252106e60e077bffaa459f501ab5",
+        "raw/dot-512-0-1.csv": "2924731467c43d5064be88d0b350c55b304861b066428b8604b0558b7d17c59c",
+        "raw/axpy-2048-0-1.csv": "44f7c4372bec23a7ade43ec3dca5ff02fd99d2d7d7d4c3417fa17560f453bbb9",
+        "raw/axpy-2048-0-0.csv": "e085a635c5bfb8cc1ab0788b98b2fd05a0c50ad2993dfbe1ad3ca042326187cc",
+        "raw/multiply-16777216-7-1.csv": "cb2ab7f710c4bd98c048cf66da8fa60355482896ebe21969843f78c3305800ca",
+        "raw/axpy-128-0-0.csv": "69bd476a37f81b4d27e218168e34b32480a98685e89d2a560a267cad6f639981",
+        "raw/multiply-512-7-0.csv": "a3e724be4944c08db4906bb2209583ca7972120b113db06f10cce9f09c8fc7b7",
+        "raw/multiply-131072-7-0.csv": "f085374643b6151305d1b95b11be3836de1c0478387812d8026f761b20c32e20",
+        "raw/multiply-8192-0-0.csv": "6ddd91ad59fd87a7cc895e186c07867ae65ae692edaab21efa988f5bba4249f0",
+        "raw/multiply-16777216-0-0.csv": "bed861aed061a5e8ec5d361f12fbbe65dd1cc946780d2de3f03028750d994f14",
+        "raw/dot-2048-7-0.csv": "1190633e7cc73c68b340c9fa1203dc212840c26623e81af1597e984d9b3adb8d",
+        "raw/dot-32768-7-0.csv": "752d69d8bcc48b82fc574d6f2fdc6d273dadfd0c87f037ee349b31379b55395a",
+        "raw/dot-128-0-0.csv": "719a68b738558a7373d997eed26691a7c42bcff45d389fe98c60230f4dd35de0",
+        "raw/multiply-524288-7-1.csv": "8f7157b1a7b115f8ee7b24f8fc91b37bcbbb935204c9139599ff40aa106b6e42",
+        "raw/multiply-8388608-0-1.csv": "ddff50587f905e4f248a1c39525c10b21702c1dc1791de6f3367001203fe998c",
+        "raw/dot-32768-0-1.csv": "15f888b1d10b4b21b5786048b093424b6acb9b29732f5efb0543ba10b66a088f",
+        "raw/dot-4194304-0-1.csv": "1d5357671c637722c34ccb6552525424148cbe6940b3656c9db8596284ba80ba",
+        "raw/dot-8388608-7-1.csv": "2fcc78ba6cb6ef2147f103312ae65124769537a0345d519dd290f60ae6ff9fbe",
+        "raw/multiply-524288-7-0.csv": "05f62972bff4ab3e7114adc021d23de65ca36a2a798a79b732063613d55b1b72",
+        "raw/axpy-16777216-0-1.csv": "d2cc6b9291d89c8e18ebe5594a5f608fa528feafb3ec649aede7a21eea7857ba",
+        "raw/axpy-8192-7-1.csv": "c63abe6a326575c60494adfb5d1ab732840a585d73cd5bab41789fdab66270f7",
+        "raw/dot-8388608-7-0.csv": "c66d06aee49aa2e5f7d25ad17cdee7a8221779a7e24246728a38b902b81c7d0b",
+        "raw/axpy-32768-0-0.csv": "a42bbf305965f47ccc46badf20aebc536acdc4f7a5624bc944129929847ff54c",
+        "raw/axpy-8388608-7-1.csv": "63d23682deca865ffe4de0f2e16a8c2495770dc230769e5b4bfd9188e350d1cb",
+        "raw/axpy-2097152-0-0.csv": "ea2c8bf77cf1284c302b7e884f9e8436c4ad95452ba218b2ba94eb0cb46b98eb",
+        "raw/dot-2097152-7-1.csv": "288c618f3c835aa2c2431fee58b7aa2ffcd7d6f7b4174378aba363ce979f1644",
+        "raw/axpy-16777216-7-0.csv": "16ab8b971e127e946e11a2b58e36ff921195ef0e613aa966bab14a70fe1f38f0",
+        "raw/axpy-2097152-7-0.csv": "f16614f941fec5b98cad98262de29a707fd866e221ddae1289725cf9676b5b24",
+        "raw/axpy-8192-7-0.csv": "8bfe0a34e536d845198ffe4b7c764f45815b2dc7c05619f0da6d11d0d44f202e",
+        "raw/axpy-4194304-0-1.csv": "5c3247af32c86a1eb2f6cabb4cf5fbaea6e10107bc104962c1487b2878137dcf",
+        "raw/multiply-32768-7-0.csv": "aefa14c19d1c693f928cef670e130ff0ac9b4e785f272fe0aced502ced609ffc",
+        "raw/dot-512-7-0.csv": "47d666eba302977521e1f21ad81d00257550bb20ecfddaf3abff375e008cbfc1",
+        "raw/multiply-4194304-7-0.csv": "305dd900ddd1e1eca8bbf13ed83b445a8a4933739e4d3d4f099b81b255b85b49",
+        "raw/dot-524288-0-1.csv": "6240d4c94a3a6584b86d17c57666774df019374d2dff2441186025ae2f5df30a",
+        "raw/axpy-128-7-0.csv": "fac705127407037efe2ebb143991c7f0d8e58b5b7592337435df12b030605075",
+        "raw/axpy-2048-7-1.csv": "e7bfbb44c1200519e97c05a8e85efc568fdb758fcfff84e473cf486e4610ead3",
+        "raw/axpy-32768-0-1.csv": "ed0f3e476c72838444095d3cb8f15465a677a3d825c85d7266c0f49e6782a3fe",
+        "raw/axpy-32-7-0.csv": "97ebee783e38d0719bbcdb67ff17253a102ebaa6922eb7f845879b1ce8f0b959",
+        "raw/dot-16777216-7-0.csv": "2aa1722026caa7859ea0e2dedb27395d67374959e3e7afc69ca1ade0dade0b2d",
+        "raw/multiply-8192-7-1.csv": "f275b161a9119303467bdce819f815b6ed269ef36814327e0724d4392d2b730c",
+        "raw/axpy-512-7-1.csv": "7d9983b222b63cdb3202b0917b37f86df2dd4f7a24286e96fec404cfca784323",
+        "raw/dot-2097152-7-0.csv": "c7a136417a61a97348c47bd0814faeea7b78d81d63a4e6dc09108ec353732fa7",
+        "raw/axpy-512-0-0.csv": "06bafc5345fcaf34ae7fefd157c2f03d3aa44cead9a01336e7aee3f6258f701c",
+        "raw/axpy-32-0-0.csv": "b6662aa8c62947cb0e6a948864cd55c3c989f11ae9b0faf253b9afa2173c4598",
+        "raw/dot-8192-0-1.csv": "ba7c2c66865518564a29de96cb52510ef09cdeaa969425fd1ef49f6ed85decfe",
+        "raw/multiply-128-7-1.csv": "da7114d4665cdbe719e65cd2a0b982f1ef6071923a9df6db84c5e86ebfb98505",
+        "raw/axpy-131072-7-0.csv": "f22593538bee0e1a949c1a8e70cca6d6b96ea74430b7b959a51edc199f92a547",
+        "raw/dot-32-0-1.csv": "90123013e64f959d8a87a2d52148c3c146026f9072c04d7ab75f71c81dea2e40",
+        "raw/multiply-2048-7-0.csv": "285fbeb4b2b31efcf0ba2dc6d16a2060d92794ebdc70c2144eacffd3ff22d794",
+        "raw/axpy-8388608-0-1.csv": "3c47cb86a35c03dc7ad8215f625d6565f7a56bcbedce5825645b58b0e7a1f06d",
+        "raw/dot-16777216-0-0.csv": "8728c65a2bedd54eb372540cb85b5c71469eecea901510650bcee8e554d8f84d",
+        "raw/axpy-128-7-1.csv": "d05fc9376a1c80e2cc15499414ca5734a2098076d87ac91dbeab222fb1585d18",
+        "raw/dot-524288-0-0.csv": "272cd258ec52081c8f02836f7ead605cbe5a12b2f91e98f358c4f3a25947edbb",
+        "raw/dot-524288-7-1.csv": "606ed64ddaf513c9e72598b232034ba19f9f5c6f6e8b52435a0466c8b83a44e3",
+        "raw/axpy-4194304-7-1.csv": "e8e3009997ddad0b61652bb808fb3e5a8bd9b481f6ec42c41ff1fa3d332163b5",
+        "raw/dot-32768-7-1.csv": "536438303e7982621a12fa7db1db3c1a6cd9f489cdc5ad81824d1146abc3310d",
+        "raw/axpy-4194304-7-0.csv": "882296712eebbc63e302df2d65e04074f0b86a180b40943ac7456ceccde2c1ca",
+        "raw/dot-32-0-0.csv": "2d4397769feb1b3a4e4577e7c93c963352c4275ff8c740102bc1840d7d467b5e",
+        "raw/axpy-8388608-7-0.csv": "9a008316ec8ef65cd51ea743e7b578da0780369c0491781739598dbe7ed4edbf",
+        "raw/dot-4194304-7-1.csv": "89880ad07786d0a451c0b7c8cefc04fa01898d9d5da432b4c6822e94ca8d4e82",
+        "raw/dot-32-7-1.csv": "b130e501c502ef063c3f936facf5e05188c8ccc6c8dd017bac52783d3c92e030",
+        "raw/multiply-524288-0-0.csv": "de8e7dbd37526b15622f0df293b07963dea829d8dd55985f86b9d57d570c6668",
+        "raw/axpy-524288-7-1.csv": "ebc63eb0017e42bd5cce971316464c165ee862317217a56d318be1c384bf5674",
+        "raw/dot-32768-0-0.csv": "ad359de8968ecb09cb9abeac145db3538a9a2a568103389e1922ddf5aa42a59c",
+        "raw/axpy-131072-0-1.csv": "9c78d8c3c6d2a9800dc77fa99d142c8ed9b63894ee6eb79f87cf7803d7adc89d",
+        "raw/multiply-131072-0-1.csv": "861587d8fc0a69b88e85e569a5c998ab2f15270f179c7194a001a15a6ff58005",
+        "raw/multiply-128-0-1.csv": "3077df9cab95f035dc4bca4a2f6f48c49481677289d7fc11b95f45810b00d34f",
+        "raw/multiply-2097152-7-1.csv": "33afcdd10ffac08a77ef53778b8d41f05d129fe433dfd2f1a2e25a321341b6a0",
+        "raw/multiply-16777216-0-1.csv": "528b3d5fc56f950a60dc18c9a6dd678f8cf638a118edef2d85dd105861218547",
+        "raw/multiply-512-0-1.csv": "81bcfe18dcd37ade19aab4a4d5bd5255c177677b6282ea5f55dfd398c343113e",
+        "raw/dot-16777216-7-1.csv": "4aebb489b2ce32d2e6088fc1b041cf477b3ac755005d6f5f72ff2d3048b66e9e",
+        "raw/multiply-8388608-0-0.csv": "9ab603f446f6e1f4f249143fe09c69457badf64ff622deab2a660b725c331696",
+        "raw/multiply-131072-7-1.csv": "2cdd5ee9380c8d1a62138f5f3e254489021d9b19b8154802ab154ae3d5de9df2",
+        "raw/dot-8388608-0-1.csv": "35472023c72a7e40e38834a66823dd606eec947422051f5ec344d857bc5ced4c",
+        "raw/axpy-32-7-1.csv": "9bf3494078cfdd5300b4245ccbf46db01bc810e8ea966a481415ac18e151d2dd",
+        "raw/multiply-32-0-1.csv": "cdaed54a720d173d814ecef5d99a1eafa891c56510604cf0a84c348a68cf6609",
+        "raw/multiply-2048-7-1.csv": "d8583cac5bc2781356fff5ed04b6f701dda7158a69a5f4875389b11b0ed1805d",
+        "raw/axpy-16777216-0-0.csv": "9feda5854f22d9a03edd8c87bfc7df2bf9d7e02887449d70674a06348e529575",
+        "raw/axpy-512-0-1.csv": "00b1721252243be7a468054020fb9d93f042dc2be01473cf7095d4bba80ec76d",
+        "raw/multiply-16777216-7-0.csv": "9d686bcf3180dc6e1080d31e7ba0daf794d7573d6bb6481733c6f7d2848c9323",
+        "raw/axpy-524288-7-0.csv": "ec9b05196ae52b1e0a10be733ced66a4c74e4680cb555be4f2b3c1dade2ce0ed",
+        "raw/multiply-131072-0-0.csv": "6215902de852d7d297ff67d8a3c50634d2898f778dfbe3139f0f8f26b9519b2f",
+        "raw/axpy-128-0-1.csv": "0bb5dc55cd67bf0e554cadb098cfd53b76e663cfb7efe4b48ddd03759d66749f",
+        "raw/multiply-32768-0-1.csv": "4d28202ce9f531c09aaceb10579527106bed9f1f85c942538e9de673d01e770d",
+        "raw/axpy-131072-7-1.csv": "b2eb8e21dd3417071f24d725fcb702ef966e1bb057702ef39cf61b321abc4ff1",
+        "raw/dot-8388608-0-0.csv": "e9f69dfb0e00ea617baa06454ef086b2476c44c2c8eb73cd43f71b1f8e68790f",
+        "raw/multiply-32-7-1.csv": "7b099ad6c2d062184d3134bdab181fcc675b07e6dff46de5f526f8c9caa2c7be",
+        "raw/multiply-8192-0-1.csv": "8a7ee4459030661f219be1fa05dcf6a21b58ae193f57c37cdace7704590592f2",
+        "raw/dot-16777216-0-1.csv": "d0a0152d4a040b14a15b738cdcaeb2fe041bd34bb0e6fc13a1315aec71308a8c",
+        "raw/multiply-2097152-0-0.csv": "782c018b0a273a6f06fdd63866415d090258aef34969504141fff51de3f40656",
+        "raw/dot-8192-0-0.csv": "cf98c01f219b2526c23c29dffa4ac09f848043c5e6886abc0086ddd59b735872",
+        "raw/axpy-16777216-7-1.csv": "cfb893d282749d9463feab514f7ec8bc0c718a909428e5ca4e465e4bb7f2e3f1",
+        "raw/axpy-32-0-1.csv": "c3ee96c1f6539aa1a2d0913b607356c574d636856b0b93c911138ebb56ba65f7",
+        "raw/multiply-32-7-0.csv": "633c14907a784e931127fb6dec530742453b893888947cc68416ad771e78ed9e",
+        "raw/axpy-131072-0-0.csv": "129b284bbf9b7a62f262e775bf61756d3de5a09196f3381f2b1a4e890837decf",
+        "raw/multiply-512-7-1.csv": "895db1ba99a04ede35f19f52fc0657b384b1a076cff6554853a2d2617fa03fcb",
+        "raw/multiply-2048-0-1.csv": "c04cec793c2cd0168a6907a7314762139504307214288af1aa3d643a24bdd5e9",
+        "raw/axpy-32768-7-1.csv": "fc14d811d854e771127d15a2b4d53e441e4c6fea5bb1a242589d95823ce95fa3",
+        "raw/multiply-2097152-0-1.csv": "228588b2d4bce987f211fa81f13bc4ca963a6b72172c05aa64f22d59e864686f",
+        "raw/dot-2048-0-1.csv": "045e8882add5086f7fa0ccd8e04ed35d8cf4cbe37dfbb6abdbef1ac8c90f4f62",
+        "raw/dot-512-0-0.csv": "78b487198a5adac41d2487357b78c48282e2a63af54dd4019dede6385ee5820b",
+        "raw/dot-131072-0-1.csv": "4eec78a8fea6002225505a55990e6b2bca309ba084dfac62aedab28c8e3c01c5",
+        "raw/axpy-32768-7-0.csv": "df944c3c11c47b1caf32929877a51f08a99500e7b24c8af2ce027ccd1f93337b",
+        "raw/dot-128-0-1.csv": "3edcc45dae5dc36dd6cbd6436406b96f8ea4015636c352b1ea641679088f6e6a",
+        "raw/multiply-2097152-7-0.csv": "f6fcddb44bcf07e12b080229f01104448bb13bf0a3a3a79c63ef285c42eb3b92",
+        "raw/multiply-4194304-7-1.csv": "3ac36ad4bd71cd7461767b95d37919fc2fe54b84ac2cc87b0038ad5712a36319",
+        "raw/dot-8192-7-0.csv": "40af8721370543c5e76a9d5ebce998f1e353947576042059295cf7c773e83e87",
+        "raw/dot-128-7-1.csv": "b0bd8aa34c12f997a17cd1c59be48f3e1968f696ce35ce5b33dab08dca8c0dc7",
+        "raw/multiply-2048-0-0.csv": "69e8ff4a9106a3603e481d7de2231aefa7dc35f43a9c126d9bfece11ec35925c",
+        "raw/axpy-524288-0-1.csv": "581520947ce4dc0b5845ad37bc27a9232d18c92fab476df55b3d7634dcf6bbe9",
+        "raw/dot-128-7-0.csv": "4422d92e6dd2342c77727e63043e0af35e1614ed115ef914c4b8560d8f25be8f",
+        "raw/dot-4194304-0-0.csv": "00634fb39561bf532ecabd337815219b021e9857ed9b5b7172441a80dc6500ab",
+        "raw/multiply-4194304-0-0.csv": "c92341118e3f09cfce3a949f2cecaeb9955bbd9911cd27e208e7a4ddb5fdae0b",
+        "raw/multiply-32768-7-1.csv": "275a6e4dfb07603be04001e99ce8c74bd632fbb156dae08d312973777c28657c",
+        "raw/axpy-2097152-0-1.csv": "43ac38c610bb9bd32fa273d36bfb6a38ed7a6c6fa2b3ef73b64340608728b555",
+        "raw/dot-8192-7-1.csv": "8984034088394e5928470049cce55e4cea987040d17844282cd113c9e174a1fe",
+        "raw/axpy-2048-7-0.csv": "215b622d979a794b4743b29fdb31b1dff077a8e5664ddaa2c2929cd3d85191f7",
+        "raw/dot-4194304-7-0.csv": "dbb791615c6569d6e82d2fde30c31255dd7cbc91733d52e87f95284aa25bc7c3",
+        "raw/multiply-524288-0-1.csv": "1d7d5b23b94742a76ac1acc1e1a3b5a77826b3d9d7f2a0570ca47e5bd950d432",
+        "raw/dot-2097152-0-0.csv": "d6cb1e98e4a4c89f24f4360ce9fd22880b975706da23f14d4b744e95ef3761d4",
+        "raw/dot-512-7-1.csv": "2d3950a9f7ebd98c4acc39a56e13da55f6111920bf23e895fadec73ff1d79922",
+        "raw/dot-2048-7-1.csv": "53229b063c2f6035a3b167f668716fbfb26b5c0d939b470b7e924562c13a038c",
+        "raw/axpy-524288-0-0.csv": "b225a13727682a8ea68f998161df5da89de70c3f5c4718c8cdff0c62efec8870",
+        "raw/multiply-32-0-0.csv": "53082961c64da64145090cea88c57a3405061dd2b5830ac2f6bb205d27e3779c",
+        "raw/multiply-4194304-0-1.csv": "173ce506ad091f2e43c977f420b9583d9068db7d8c40e5fe8240f99e88a8ffc6"
+      },
+      "supplemental": {
+        "raw.csv": "92d68e15652321fa689cb87a729abcb912c5a39bf06abd0bde54da2ba7dae38d",
+        "analysis.log": "581e3f35e70f00012180206236185555427ab22c46acb57254736640e6be3976",
+        "findings.json": "82e05de047a56871449fb4cc6b19f24be973bff91971631ef31a9f3bbe956741",
+        "metadata.json": "d81abeafa315fd21b2d7f169c54fa9aae4d8891c5bbfd626c8b073cd1afcbc8e",
+        "summary.csv": "d5bee6a877f604392ad47510b337bad3528b19c2095bb39f741293e0e098b57c",
+        "stride_speedup.csv": "f4b142854090450ef1b9870b032c56f2ab8ae5eccf7dd89079a1d0535c4f6266",
+        "alignment_confirmation.csv": "93c4ab887015e51bff83d620ac2f0268abaeadc5053f6942ba4d2416bd2ed427"
+      },
+      "cycles": {
+        "axpy.csv": "a17adba8bfb63d1a47ec486c3c3d911f7033b77fdfa3bd90f7c73baaa8418616",
+        "dot.csv": "a0abd3503d4fd75a1a93d198d76680cfd63b37a987d7c849d6503300c242cfe3",
+        "dot-cycles.csv": "4a7356df7d5c722dd7a0ebd645800b18236030566802f60e60a7e1ccec32003b",
+        "axpy-cycles.csv": "0249cb5d89c69e7ba449d95edaa48197820b161dcfc47cf168042a8bf782987c",
+        "metadata.json": "60385ffce26552345ca1da282f944c158342252c06bb8b30732d224c3a5d3469",
+        "multiply-cycles.csv": "603938481f70996966f3904f7013f06a5ea9a0e00874c8715c3babf17415c672",
+        "summary.csv": "359de6578679e2fd0408d5ec5e3b14d33046f5dfa07a45e9354d270f06f9968d",
+        "multiply.csv": "8c4480b8e19586f8ddc1f6610f5d3f70e7f0d509f037b5cd6f5e058873e7327f"
+      }
+    }
+  },
+  "figures": [
+    {
+      "id": "1",
+      "caption": "Fig. 1. SIMD speedup (scalar time / auto-vectorized time) across working-set sizes. Higher is faster; 1\u00d7 means equal performance. Bands show the interquartile range, and cache markers indicate nominal capacities.",
+      "renderer": "simd",
+      "datasets": [
+        "working-set"
+      ],
+      "files": {
+        "png": "figures/figure-1.png",
+        "svg": "figures/figure-1.svg"
+      },
+      "plotted_values": [
+        "figures/plotted-values/figure-1-panel-1.csv",
+        "figures/plotted-values/figure-1-panel-2.csv",
+        "figures/plotted-values/figure-1-panel-3.csv"
+      ]
+    },
+    {
+      "id": "2",
+      "caption": "Fig. 2. Scalar and auto-vectorized throughput across working-set sizes. GFLOP/s measures billions of floating-point operations per second; higher is faster. Bands show the interquartile range.",
+      "renderer": "simd",
+      "datasets": [
+        "working-set"
+      ],
+      "files": {
+        "png": "figures/figure-2.png",
+        "svg": "figures/figure-2.svg"
+      },
+      "plotted_values": [
+        "figures/plotted-values/figure-2-panel-2.csv",
+        "figures/plotted-values/figure-2-panel-3.csv",
+        "figures/plotted-values/figure-2-panel-5.csv",
+        "figures/plotted-values/figure-2-panel-4.csv",
+        "figures/plotted-values/figure-2-panel-6.csv",
+        "figures/plotted-values/figure-2-panel-1.csv"
+      ]
+    },
+    {
+      "id": "3",
+      "caption": "Fig. 3. Geometric-mean scalar-to-auto speedup across the three kernels for aligned and shifted arrays. Higher is faster; 1\u00d7 means equal performance.",
+      "renderer": "simd",
+      "datasets": [
+        "alignment"
+      ],
+      "files": {
+        "png": "figures/figure-3.png",
+        "svg": "figures/figure-3.svg"
+      },
+      "plotted_values": [
+        "figures/plotted-values/figure-3-panel-1.csv",
+        "figures/plotted-values/figure-3-panel-2.csv"
+      ]
+    },
+    {
+      "id": "4",
+      "caption": "Fig. 4. Geometric-mean scalar-to-auto speedup across the three kernels at an original array length of 32,768 elements, comparing aligned, shifted, tail-only, and combined conditions.",
+      "renderer": "simd",
+      "datasets": [
+        "alignment"
+      ],
+      "files": {
+        "png": "figures/figure-4.png",
+        "svg": "figures/figure-4.svg"
+      },
+      "plotted_values": [
+        "figures/plotted-values/figure-4-panel-1.csv"
+      ]
+    },
+    {
+      "id": "5",
+      "caption": "Fig. 5. AXPY scalar-to-auto speedup by stride; dashed line: equal performance (1\u00d7); bands: interquartile range.",
+      "renderer": "simd",
+      "datasets": [
+        "supplemental"
+      ],
+      "files": {
+        "png": "figures/figure-5.png",
+        "svg": "figures/figure-5.svg"
+      },
+      "plotted_values": [
+        "figures/plotted-values/figure-5-panel-2.csv",
+        "figures/plotted-values/figure-5-panel-1.csv"
+      ]
+    },
+    {
+      "id": "6",
+      "caption": "Fig. 6. Useful bandwidth by stride for arrays that fit in L2 cache (top) and arrays requiring main-memory access (bottom). Higher is faster. Bands show the interquartile range.",
+      "renderer": "simd",
+      "datasets": [
+        "supplemental"
+      ],
+      "files": {
+        "png": "figures/figure-6.png",
+        "svg": "figures/figure-6.svg"
+      },
+      "plotted_values": [
+        "figures/plotted-values/figure-6-panel-1.csv",
+        "figures/plotted-values/figure-6-panel-4.csv",
+        "figures/plotted-values/figure-6-panel-3.csv",
+        "figures/plotted-values/figure-6-panel-2.csv"
+      ]
+    },
+    {
+      "id": "7",
+      "caption": "Fig. 7. Dot-product time per element with strict and relaxed floating-point summation. Lower is faster. Error bars show the interquartile range.",
+      "renderer": "simd",
+      "datasets": [
+        "supplemental"
+      ],
+      "files": {
+        "png": "figures/figure-7.png",
+        "svg": "figures/figure-7.svg"
+      },
+      "plotted_values": [
+        "figures/plotted-values/figure-7-panel-2.csv",
+        "figures/plotted-values/figure-7-panel-1.csv"
+      ]
+    },
+    {
+      "id": "8",
+      "caption": "Fig. 8. Scalar and auto-vectorized SAXPY throughput compared with the estimated memory-bandwidth limit. Bars show medians, error bars show interquartile ranges, and shading shows the interquartile range of the estimated limit.",
+      "renderer": "simd",
+      "datasets": [
+        "supplemental"
+      ],
+      "files": {
+        "png": "figures/figure-8.png",
+        "svg": "figures/figure-8.svg"
+      },
+      "plotted_values": [
+        "figures/plotted-values/figure-8-panel-1.csv"
+      ]
+    },
+    {
+      "id": "9",
+      "caption": "Fig. 9. Core cycles per element. Lower is better. Bands show the interquartile range. K = 1,024 and M = 1,048,576 elements.",
+      "renderer": "simd",
+      "datasets": [
+        "cycles"
+      ],
+      "files": {
+        "png": "figures/figure-9.png",
+        "svg": "figures/figure-9.svg"
+      },
+      "plotted_values": [
+        "figures/plotted-values/figure-9-panel-1.csv",
+        "figures/plotted-values/figure-9-panel-2.csv",
+        "figures/plotted-values/figure-9-panel-4.csv",
+        "figures/plotted-values/figure-9-panel-6.csv",
+        "figures/plotted-values/figure-9-panel-3.csv",
+        "figures/plotted-values/figure-9-panel-5.csv"
+      ]
+    }
+  ],
+  "source_hashes": {
+    "working-set": {
+      "axpy.csv": "ed45ed79a6c03e702e7e9e91c8b39d67bb0d05f288619e9a3ee82b4748edb792",
+      "dot.csv": "47a7aedccbb0bb2a92e942f8cd040146fbc0327cff47f9595add0bd0cb0a18c1",
+      "metadata.json": "44c2aee3f7344324ce9953c6debb3e7f0a10a48458d8311f0fcb4eda54d65766",
+      "multiply.csv": "ac25d368d688b49454ca5bbb0254eec1b4f7ca2deb8f5bb66fe3ee871377edd1",
+      "cache_metadata.json": "1f9298625ab73d80497c0fac6ad82a2d9bc710842281c296f11096585f50a76a"
+    },
+    "alignment": {
+      "raw.csv": "208965f1bbaded58f3830f3d64c231d07b0fd351f1b69d378757b11f111a0cf2",
+      "metadata.json": "db6737fc78fc55054486aaf4d87fe7d74db82364b1a53ac090e73659d9fae848",
+      "raw/axpy-4194304-0-0.csv": "39bb10705d10ba59af45a4f58cda587ad51ee3b609dc540887c359a421edcd59",
+      "raw/dot-131072-7-1.csv": "0e1d2719e0dbbaedea9cc9bfe12931eeade3eab60887a1363f1f6ee573d628fb",
+      "raw/multiply-32768-0-0.csv": "86ef9471c3fa248493bfef730227e38614e22d4cdabace3820d2650ea1d4fd95",
+      "raw/multiply-512-0-0.csv": "2d0d372299bccce7c0eb444613efac18a3758d267fb894d69be3fb2f204c821d",
+      "raw/axpy-8192-0-1.csv": "8fe2c9a305cc8350fc821939121540034f19292078a77f80c225232077640237",
+      "raw/multiply-8388608-7-0.csv": "c8342d15c8f7527d9ad44a4ec4aac5c9eb781d101d1d051e5fc68cdbb63e7381",
+      "raw/axpy-8388608-0-0.csv": "85d38094c9767f2bb9001b4e23baff45fd77f4e0fcdd7cf5e5f7d19c87f6ad28",
+      "raw/dot-131072-7-0.csv": "bf1ea52746d67cfd6df878d33da622500108564924e46491723bc583f21914bc",
+      "raw/axpy-8192-0-0.csv": "3ef38bffe6df9d8c8b04fc20c697260bb199d53113d19934d086e02c8fbd3b62",
+      "raw/multiply-128-0-0.csv": "9ea97dba6fae4d74217b8e1ec188924e10fdf87b021acf2c5424e157828ac35c",
+      "raw/multiply-8192-7-0.csv": "75b7dac3dba77cdd28a1e96bcfd844cb39def0b2c46053e58a8a71a4a3eac8e5",
+      "raw/multiply-8388608-7-1.csv": "88e1fe4a9926ca49c5de679fdcde9a207373457065a96d0b23fe81874233b38d",
+      "raw/dot-32-7-0.csv": "84ec3b2232df860a1e67eec4b7fa5879f2842995e00ef89c3a6a13e772cb3da5",
+      "raw/multiply-128-7-0.csv": "2e432a11d0091be57624f837b103afdd2edf3fb0caed05c66a0b4861e51d27c9",
+      "raw/axpy-512-7-0.csv": "4bad534787acdfb7782d61eed8d8941c3447e25e1f84a80e14146683900a0b5b",
+      "raw/dot-2097152-0-1.csv": "73ce238a6e21fee136a739a556430908020806e2bfe8904f3a764d371d99c574",
+      "raw/axpy-2097152-7-1.csv": "01873a874b36cb4d2d85dd31015061112d01a504e01e4af0c3ab1c88fe5a146e",
+      "raw/dot-131072-0-0.csv": "510b21da0ac0fd2a01c2260763ce7d7483a2fbc6800c9d8e9c2bbff897bbf4ff",
+      "raw/dot-524288-7-0.csv": "d24a5f1d9d1f8e8327df2532390512f28642e120fffa54418656b9642ee9acdc",
+      "raw/dot-2048-0-0.csv": "3ab33eb8f67ba3be65a5e20770513f335e4150835941dce20a0d3b621b23cb5a",
+      "raw/dot-512-0-1.csv": "3848ddcaac8484d38fabf37e7e047e26cfceaa023fbad69d70134b30a779beb4",
+      "raw/axpy-2048-0-1.csv": "657e29e135ad41b1ddc9b167a684fafcaf91ee9d23b561165524ed5c7416644a",
+      "raw/axpy-2048-0-0.csv": "6b65340a77e9aaffebdb0cd72fcf73ee7fe93df3d90716b9de50e5c03b982f87",
+      "raw/multiply-16777216-7-1.csv": "19e639159146095e8056b5b913cfcf1ef36d64e217ee74a26816d2acb9b9e708",
+      "raw/axpy-128-0-0.csv": "6919a8c3a4e1c125553533ad2e7d093685546b5560cb1b27a0de0458effaae76",
+      "raw/multiply-512-7-0.csv": "4a4e99375eb371711ee6ca169f4545947756fdb91368d5c419277b8a55f235b6",
+      "raw/multiply-131072-7-0.csv": "1453a8322c0eb9a694ad2c0999ad379614b109a0da5ff667081dc1b3eac0a48f",
+      "raw/multiply-8192-0-0.csv": "73281b2dc039cd4ec6eafeeaccf68923343cf3ad12acb2aefbbe31dd02942e22",
+      "raw/multiply-16777216-0-0.csv": "005de1e3165316f36d95d7ca623ac2b842dc024954525fe3e87117800815094c",
+      "raw/dot-2048-7-0.csv": "d9659258000008b3068d5dd61ad83a5c6a07f01eadf979c7f09de4632055ddc6",
+      "raw/dot-32768-7-0.csv": "95390d874f4ce273db1652e8e1660d02f97049be8ebb51c7baa67f5ca6add79a",
+      "raw/dot-128-0-0.csv": "42f10a822175ab994969fe164eb670472e01a81fcdd4452af423a050e920eed7",
+      "raw/multiply-524288-7-1.csv": "9bffbd7941624ac0a8e6036f9942e3a6ad5e5f8036d4245ba3e1f74165f9b33f",
+      "raw/multiply-8388608-0-1.csv": "76694d4ea08fb756453564f84a0554609be0e1f38e703fc8944b3c2f4ed64f3f",
+      "raw/dot-32768-0-1.csv": "9cf2c9ecacde7f6e072a300eb5e34953ea2ca7b8832f96b6e2101fccf8524112",
+      "raw/dot-4194304-0-1.csv": "1fa1addc8cc82415e540f1a088ffd794dbc62cfc199f5a81bbd360a92bc697d0",
+      "raw/dot-8388608-7-1.csv": "251f7dfd75ee3f92c0b311cc2dc95caa772feeda0cbf0b5229894c345c5e565a",
+      "raw/multiply-524288-7-0.csv": "01322f6891d0039c0cc293faddcbdb07bd4f9e392b946f89825522b7b8c1503b",
+      "raw/axpy-16777216-0-1.csv": "d62c1d1a218db9b843cdee40850a964e0b3c8b76375a9c166e56931373e1d650",
+      "raw/axpy-8192-7-1.csv": "73680d18165dabcc02334bc1f1cd95233e1ae687f1bd31ff0453c0bd81a60956",
+      "raw/dot-8388608-7-0.csv": "49e3fd7850cef77e80c0d70c25aadba1a57e798aae760adf23a0477ab2305035",
+      "raw/axpy-32768-0-0.csv": "dae9b60931e816db29395188b98cd48f7b5131a9b54818e57fa66118a7b06fe6",
+      "raw/axpy-8388608-7-1.csv": "cbd38ef5c68d54970ce51d7467135cf1d5b6354d3f83491646c55b7b51b9c992",
+      "raw/axpy-2097152-0-0.csv": "0d919a331ff0d3bfca0a660d969a4a490cd449643bf8b44782851d058c693e71",
+      "raw/dot-2097152-7-1.csv": "fcc05b50f04a71eceb8e30c8ded052f208f619cb58040251c280bacd6f987aa0",
+      "raw/axpy-16777216-7-0.csv": "e0d3fb8ac39981402ea5df1843ad807c7b1a0e75a8b22507b88c2349450027a9",
+      "raw/axpy-2097152-7-0.csv": "227a4af4c215a683d79824b4d1fddbc1ada6a98d2b74c199b44c1b647141651e",
+      "raw/axpy-8192-7-0.csv": "dfef943238eeb4aa862eeb83b7004c7fd113ba3cb2b3b514122f5b0ea75eaf4d",
+      "raw/axpy-4194304-0-1.csv": "3ed144886668625a77234eed51e89dc6953d27f1ee70b6ea71180925b6107fb9",
+      "raw/multiply-32768-7-0.csv": "60a88349a4a6f0ad989eafcf84a3f726f2b8193a6ef9bbbaa30c4314e12009df",
+      "raw/dot-512-7-0.csv": "f047e61567a7b0569ee0a71a372e209055050c1ebc8cde5df05615ae99ae2de6",
+      "raw/multiply-4194304-7-0.csv": "73f1a4cc0f30ad048081b5b724d285f401c7428e25288043942fbffc096212b0",
+      "raw/dot-524288-0-1.csv": "606f06e9fca8ed9466e30d627a918411ff912185f2dc76907cd6a9128b61134f",
+      "raw/axpy-128-7-0.csv": "a9805ef14fb2e1e74ef8e95329c4f75e9159da38682e65365c4debefa7d8abbd",
+      "raw/axpy-2048-7-1.csv": "55112b19dbfe431c24f29ffb0ffa56768aecc12f4999a38153f60cf6f0a6534e",
+      "raw/axpy-32768-0-1.csv": "ac6c5598d7e81fb93e2b8a4e7092d111e4035fc3f2365bbf0a728c731a67acc7",
+      "raw/axpy-32-7-0.csv": "fe3fde346ff1c327ca20b29e093418cd7b59752059bc7448bc8c0fee649d7f64",
+      "raw/dot-16777216-7-0.csv": "927f0d1475efdbbe40e4b0f3014609d15c1ead69c785edd58c939dbcef2ce7ed",
+      "raw/multiply-8192-7-1.csv": "b8228049cbfafc2636d76d15ab4f1b9d4e55f7cff28e249fe374eead65db14ae",
+      "raw/axpy-512-7-1.csv": "5107fcaaeae8e39167ca3f76e4ad6258e1a8832ec7e082af542e76222a65e59e",
+      "raw/dot-2097152-7-0.csv": "2c21041c4ca5a15139d86b9dc56ec4cfcfcc345a1e029f02df6210a3f4c595e9",
+      "raw/axpy-512-0-0.csv": "b02b869d1d5f24d9b34c55957c3738b01768717264ba7c4b290ba7e9a0e9e368",
+      "raw/axpy-32-0-0.csv": "c6c307a268311b66964b4454ecd9e8becfbf9baa2d5c905e87e2e2db509ca808",
+      "raw/dot-8192-0-1.csv": "3991742bed3c5f8de1900fec2758f1019f44514e76a1667385dcf81c7e382825",
+      "raw/multiply-128-7-1.csv": "9c2a7747a8d8ebf2455c84d5edcee43c2f6e32d17bad90ad54b242aa8004a254",
+      "raw/axpy-131072-7-0.csv": "ab3be91400e256fbe209e18d28607ade11ce0f11e293407309b9f02d67878643",
+      "raw/dot-32-0-1.csv": "4a3a0c9f6950b4948dcf0dd279ad5aa2c7eb72c5a03aa2ef0cd3dd463ccd225a",
+      "raw/multiply-2048-7-0.csv": "ebb200900ae1d5ad8c3b53b6262685caab38a38b2c925ec40733b75981d2d4f7",
+      "raw/axpy-8388608-0-1.csv": "4b63a607685fde77132ae8b72732cee361a1f642364c74458f3f4de5006cef7d",
+      "raw/dot-16777216-0-0.csv": "b03006eeaaff53aeb089c77967e90c69d4b21dac712dce7d694eb725ae16ca08",
+      "raw/axpy-128-7-1.csv": "1e4ef17a46721c4de967a1bdfb8390f8294e102146d9c97cab1160163b6740a6",
+      "raw/dot-524288-0-0.csv": "bc1be00d09b7361bde09de3cbf290197298c00f33086722018d343c5e83792b6",
+      "raw/dot-524288-7-1.csv": "6638c65e2ea758bbeeb836cefc28a5c3ceb56e3f5b1abbc22369e653d42ed1e4",
+      "raw/axpy-4194304-7-1.csv": "893190fe21b68837998023f6db2267c97ce2a7f9ece1db4fa6676fe13945ba15",
+      "raw/dot-32768-7-1.csv": "fad66c8168b0c940770c8e5fb01371a3443f61800515652c1c6a2c91815121a4",
+      "raw/axpy-4194304-7-0.csv": "66a22885cd35f5c79b7ca8f8099f48411271f71461e57c4ffa987fe54a4bfaac",
+      "raw/dot-32-0-0.csv": "97c82c9600d79cc579c3d814fc0348eacf8c85098ce762adc5255aa7b821ca71",
+      "raw/axpy-8388608-7-0.csv": "881efe2961d5258ef6b3e6df2f7ef01cda041ce6714041cf4ed512fdf583ad53",
+      "raw/dot-4194304-7-1.csv": "e7bd7b9e12a2970a13db2c7689d61ce156df5ecafc7db8a72fb0a87d001131a9",
+      "raw/dot-32-7-1.csv": "4f86cfac985605e15c70752a29cf968f70c6296a3e1bb812d8e97e9959288612",
+      "raw/multiply-524288-0-0.csv": "edaa85a9c8dedcaf17e8cb0cdae6d798b1ec48e748462cbded5934925300054a",
+      "raw/axpy-524288-7-1.csv": "0c502bd1b5af23c16e70aac698539dec695c2e4e51ef8f789e440485ad6d2005",
+      "raw/dot-32768-0-0.csv": "e837ef82f411fbf4c2fe77825a2b758632c906e9b32e07004a0685691230390b",
+      "raw/axpy-131072-0-1.csv": "27c5f222165b2cec661bd8d5308e9dc7e03783685bd3072b3e59c3d83be5fcec",
+      "raw/multiply-131072-0-1.csv": "1bd426ceba0c2514d4a8eabf6122d08c7896efaae2f03296c8d8d47baa8b96a2",
+      "raw/multiply-128-0-1.csv": "8b395e93a41cd65f20f9d18f9fd03b5f686593eac43c86410b881ffd6ac2066d",
+      "raw/multiply-2097152-7-1.csv": "c525e87ffc4b1a81ee57dec85cffafaab99ca0879c5978f777c50ef54c4f8fb9",
+      "raw/multiply-16777216-0-1.csv": "4ee5b92a3a9a5ec2ffbd14ec71bbe7118e9c01fb7cb4c9412dd3f0077b41665d",
+      "raw/multiply-512-0-1.csv": "72d4ea5630d82d67774556a46e7af021b339ab51236d2fd8e6d8b3a8d9f55ee0",
+      "raw/dot-16777216-7-1.csv": "948973e45665570dd1d295f1937325b7a2003678cbdd752ff7023715108f2ff8",
+      "raw/multiply-8388608-0-0.csv": "409d42b02f8ef6c44946717299a4e8bac469436b7c16be7f4538ef3e8f1816c3",
+      "raw/multiply-131072-7-1.csv": "2b19afc033dde09a3d1b8eba6c36342bf77e1b39f6875a272d91060a651fda49",
+      "raw/dot-8388608-0-1.csv": "60811be17123eaf1f547d7da0f4146d37b3d6ba3e7963929000454fb3e81cc95",
+      "raw/axpy-32-7-1.csv": "e4cd5f220bc02822811bb2fca6da6668b6265a36a9f097ba73471bf4e1a65441",
+      "raw/multiply-32-0-1.csv": "c2025fb54a9bd8e766416cc88ccdc0494e723db125271f36ee1768c325a6a1b3",
+      "raw/multiply-2048-7-1.csv": "5646881fbc411abd38885c701541b4ed4f52b4e65612dacbefb298d11d4cb1bf",
+      "raw/axpy-16777216-0-0.csv": "0d0a487e541be87792147b7f8c737de4d49dd214bda2f75c664d5d1511e289b0",
+      "raw/axpy-512-0-1.csv": "30b1c5315708dc71a54952e04d7ee4c7b86bc9ee877113a58b0e9ded27209a65",
+      "raw/multiply-16777216-7-0.csv": "399d38f0b98da46ab1ffa10e35338f2baa3c6a400108cb0e350687aaa20ec1a7",
+      "raw/axpy-524288-7-0.csv": "2fec6f183935651af02f90384f5a86ceb77165ba6ce1c3497b9267ad25d41225",
+      "raw/multiply-131072-0-0.csv": "88051c1e1d25f38fad06663e6dde5dee141fe44c7063f8d0f858f2f577a4320f",
+      "raw/axpy-128-0-1.csv": "6529ba5c84657ed8797f7f7433d36a7824446729143128a1971a5f2501c791ae",
+      "raw/multiply-32768-0-1.csv": "4ec3a96e9f2cf45c007c3d0a86ce37e28a6fdad360179a99a278d9c34969ba9a",
+      "raw/axpy-131072-7-1.csv": "5603dadc4e225b7cda7986667bbf0a7d32420948c8dbdda9cd6cd21506b1cf09",
+      "raw/dot-8388608-0-0.csv": "11712e00b7215470f425ed227c1e458285872c2d0d453fff647a385741ebe3fd",
+      "raw/multiply-32-7-1.csv": "7990c3f6e4601e11043dee7384f32ded32bc1fb9dd8fac1a79324a7312c0ad9b",
+      "raw/multiply-8192-0-1.csv": "b14fd7ea3ce923173c368e603fc5231792af5f43fb00a1282edef07a6260817f",
+      "raw/dot-16777216-0-1.csv": "35a116c7cb484e3e2724683c0dc65219d3ff6a62c77eb77df02bf18441fb06d9",
+      "raw/multiply-2097152-0-0.csv": "b83a616364e6d2eb8fcd6afe08072d36842461c43e6f2d84afc54ec7581beb17",
+      "raw/dot-8192-0-0.csv": "90276fb56fbd139b8ca3d4b4076e0721e154e55a7f85b49f63ca2a310013d5bc",
+      "raw/axpy-16777216-7-1.csv": "5fe715358bb7b6508836c0ce374675bf8ffcb6d0867d6f48b53bdc428e21bd3b",
+      "raw/axpy-32-0-1.csv": "cb846d44379116a8af254ccf682c4d8e2879c4af0d2ecfb6f0cdca7261dff989",
+      "raw/multiply-32-7-0.csv": "faf3262f7b8719b3e560d5c88f47daf2d66219200529671b174211483637ec8e",
+      "raw/axpy-131072-0-0.csv": "17b5393166766135a739432815c909d0fb1b4e7d914f3ad1fb70dccc317a46d7",
+      "raw/multiply-512-7-1.csv": "f4592ad741e051f356844780986c23cc281c039616d99e51d76e53430e656211",
+      "raw/multiply-2048-0-1.csv": "3e4840340ad3081edc5e28322b7c1af9bd1b5524696ab7f647a53dc62f150e87",
+      "raw/axpy-32768-7-1.csv": "e84d8ba3db4d1060d2ea65ccf9776b683a5052d462bdab44840433fa2f85150c",
+      "raw/multiply-2097152-0-1.csv": "2bd220b3f8b4427e042e8b3df6c439bfa4084ead71e8fc2935b38dd931a77a83",
+      "raw/dot-2048-0-1.csv": "5e6a19efdbd936ef5664d029d5e9caacece4718e969f408abe70df9243a14777",
+      "raw/dot-512-0-0.csv": "c4e5b2334dde9c42d92e6d76502c6e1aef9a5a80dd62a6f04bd0d20e94b4c317",
+      "raw/dot-131072-0-1.csv": "9b99cfac6d6c4cc1c4bd830fd21752946ce2c20204d4d4d9c90bcc8255cf89af",
+      "raw/axpy-32768-7-0.csv": "52632ac0d35f590afcc456c7093bca4a5a8e962411ef1a6ba776d4355e773b7c",
+      "raw/dot-128-0-1.csv": "bdebefbd9d2e8289ad0fd202271c5bc30035a96ed4a1f6960f8344605b540647",
+      "raw/multiply-2097152-7-0.csv": "48a5a0fc0c73f56ad79d25de11e3caef136db5d02576057e441e86f1e71ea893",
+      "raw/multiply-4194304-7-1.csv": "8320094d9f9da0618b05dcd170d6b157ad1a9eeceb26641559ff9cdcf069f94d",
+      "raw/dot-8192-7-0.csv": "36736bab006f11bce2dafa6e6ccd72e88c119480fa88cdc8eda82b9135397d7e",
+      "raw/dot-128-7-1.csv": "9446fcf4e8cae6cbab2230cefe26c03fcb90f08ad0e9b9d57d39ab16c12f451c",
+      "raw/multiply-2048-0-0.csv": "934734afaa72877c559ae9c1bc6db482e1ff24650111abbb2232d1a6e33f0716",
+      "raw/axpy-524288-0-1.csv": "c181a18db0977e6afd579cacdbbcc24a144dc3a86897e0134a48d262b5bcc00b",
+      "raw/dot-128-7-0.csv": "1c6e5dfb9a56fef1f33f76232a6be20f47ae9a4ea3f10a4463d3d402dfa8b45d",
+      "raw/dot-4194304-0-0.csv": "a2751cc8fb917658b78963f98d43406e5c36f3fdb0728aa1ee357912764981f6",
+      "raw/multiply-4194304-0-0.csv": "6b289f7e2ca5f6587ddbbf9d422aab2e0338b611b71723bba267b612e53bb5ee",
+      "raw/multiply-32768-7-1.csv": "e80ebbe10f22a69aca43477313e4228c24047c06a916f33f3b56c74a3ec20e4d",
+      "raw/axpy-2097152-0-1.csv": "aca75e7e51e010feec2d0888b0690d6b7639b6ff0ed6e04bb6635745e605e13b",
+      "raw/dot-8192-7-1.csv": "da7f64a0a3726be073f2c6ef897bc679751e46ec939d6b414a1bfa48111ac8ff",
+      "raw/axpy-2048-7-0.csv": "18b29b218623e48a0fb263b3c66ec805c15a918c38252f2cb41b965691c371b3",
+      "raw/dot-4194304-7-0.csv": "e4973f445cc03b424a4299123a81264a4fa91f93094ae357e8abcb6c9280b0bb",
+      "raw/multiply-524288-0-1.csv": "6224b629da783e0976f7ab5ab3f4cd9db09ae3d4328a1379eab0d025b142d425",
+      "raw/dot-2097152-0-0.csv": "b536971a802f624f3bdefaf977a97e36a3602bf6e2d593d5049a3670392e1449",
+      "raw/dot-512-7-1.csv": "8f1e2a236533e386b402acfd60a09fd91dcf03ea95add7c7fd217f65516de050",
+      "raw/dot-2048-7-1.csv": "04f59a6119b53e384d265e8d5f24a6f8164ce1b3802cf04072e906dc4b936333",
+      "raw/axpy-524288-0-0.csv": "d291fbf6848c788dd39eb0ed0402c1e9633415089935c25107ea973a05a883ae",
+      "raw/multiply-32-0-0.csv": "ae207644bc95f4fccb588a54b64e4f32ae97e7634ab368b40d6cbb4c19ff8e9f",
+      "raw/multiply-4194304-0-1.csv": "3f4d004ddbaf0a8148a604ee062973d63554691819404571f625feaf8f0bff4e"
+    },
+    "supplemental": {
+      "raw.csv": "6efae7346992bee1b12f135836d124d0bcf3970004b4d332577df8b1c724d2f8",
+      "metadata.json": "5e8e7b269c26519566675f0e2a234ced962480b63632b63b59ba17e3c0899549"
+    },
+    "cycles": {
+      "axpy.csv": "6803f91c1343bc9e8976c2d55d5ad7fc2d50faa60e19fe750ae09bbcc9cc4f97",
+      "dot.csv": "40118d44c9e74b8844ee16b1a6149508a3d1cea84d718338f6964c71effb9db8",
+      "dot-cycles.csv": "f6c297b9d772be8b3a92b82431d56dfe0cdd6b8d12fafd4fd02338ade97f3f44",
+      "axpy-cycles.csv": "24b2a6f55f8455ad6f67d448bc952bb2c013b1a353ff22c8dfedb94f1e10bab1",
+      "metadata.json": "f2b5435f46d883d02ea755a84347f5c4cf5aec6d5c9bbd04a716ce058d084695",
+      "multiply-cycles.csv": "a4bedbea5c6a170fd8ade7f0dfb6635cb57958f17a210aff78b6a5cbf2d4e965",
+      "multiply.csv": "d85701d33fc12ccd3ed88c57ed6e93878b90a08b7671103e88c9b6cd289116ee"
+    }
+  },
+  "sources": {
+    "working-set": "/home/dandisk/ACS-Classwide-Proj/project1-simd/output/20261023T212916.695391Z/studies/working-set",
+    "alignment": "/home/dandisk/ACS-Classwide-Proj/project1-simd/output/20261023T212916.695391Z/studies/alignment",
+    "supplemental": "/home/dandisk/ACS-Classwide-Proj/project1-simd/output/20261023T212916.695391Z/studies/supplemental",
+    "cycles": "/home/dandisk/ACS-Classwide-Proj/project1-simd/output/20261023T212916.695391Z/studies/cycles"
+  }
+}

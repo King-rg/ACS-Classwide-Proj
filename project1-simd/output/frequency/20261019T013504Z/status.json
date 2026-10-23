@@ -1,0 +1,7 @@
+{
+  "state": "stopped",
+  "reason": "thermal throttle counter advanced",
+  "exception": "RuntimeError",
+  "elapsed_s": 8.22201891199802,
+  "restoration_verified": true
+}

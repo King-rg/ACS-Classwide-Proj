@@ -1,0 +1,9 @@
+kernel,implementation,datatype,n,stride,offset_elements,x_mod32,y_mod32,output_mod32,coefficient,trial,warmups,calls,elapsed_ns,checksum,correct,seed,build_mode,compiler,study,ns_per_call
+dot,scalar,float,19,1,0,0,0,,,0,2,1,72,0.939857125282287597656,pass,4320,"avx","13.3.0",working_set,72
+dot,simd,float,19,1,0,0,0,,,0,2,1,36,0.939857125282287597656,pass,4320,"avx","13.3.0",working_set,36
+dot,scalar,double,19,1,0,0,0,,,0,2,1,38,0.939856999999999942474,pass,4320,"avx","13.3.0",working_set,38
+dot,simd,double,19,1,0,0,0,,,0,2,1,39,0.939857000000000164519,pass,4320,"avx","13.3.0",working_set,39
+dot,scalar,float,32,1,0,0,0,,,0,2,1,33,-1.047725677490234375,pass,4320,"avx","13.3.0",working_set,33
+dot,simd,float,32,1,0,0,0,,,0,2,1,36,-1.047725677490234375,pass,4320,"avx","13.3.0",working_set,36
+dot,scalar,double,32,1,0,0,0,,,0,2,1,28,-1.04772599999999993514,pass,4320,"avx","13.3.0",working_set,28
+dot,simd,double,32,1,0,0,0,,,0,2,1,39,-1.04772599999999993514,pass,4320,"avx","13.3.0",working_set,39

@@ -1,0 +1,322 @@
+{
+  "sources": [
+    {
+      "path": "raw.csv",
+      "sha256": "9a98342b245edc2ada31bbd59d19ecce6b22cc1dd69ec82ddd8dee8fadaa34c5"
+    },
+    {
+      "path": "metadata.json",
+      "sha256": "dab04310508a2ba769c60afabcd0884660a6e9a1be587eaa527546f7c8fbbb77"
+    }
+  ],
+  "figures": [
+    {
+      "name": "01_baseline",
+      "png": "plots/01_baseline.png",
+      "svg": "plots/01_baseline.svg",
+      "csv": "tables/01_baseline.csv",
+      "caption": "Unloaded random pointer-chain baseline; nominal L1/L2/LLC/DRAM-sized spans.",
+      "settings": {
+        "source_metadata": [
+          "metadata.json"
+        ]
+      },
+      "x_label": "",
+      "y_label": "Dependent-load latency (ns)"
+    },
+    {
+      "name": "02_pattern_latency",
+      "png": "plots/02_pattern_latency.png",
+      "svg": "plots/02_pattern_latency.svg",
+      "csv": "tables/02_pattern_latency.csv",
+      "caption": "02 pattern latency",
+      "settings": {
+        "source_metadata": [
+          "metadata.json"
+        ],
+        "span_MiB": 96
+      },
+      "x_label": "Pointer spacing (bytes)",
+      "y_label": "Dependent-load latency (ns)"
+    },
+    {
+      "name": "03_granularity_bandwidth",
+      "png": "plots/03_granularity_bandwidth.png",
+      "svg": "plots/03_granularity_bandwidth.svg",
+      "csv": "tables/03_granularity_bandwidth.csv",
+      "caption": "Sequential/random transfers across a fixed 96 MiB span.",
+      "settings": {
+        "source_metadata": [
+          "metadata.json"
+        ]
+      },
+      "x_label": "Useful bytes per transfer",
+      "y_label": "Useful bandwidth (GiB/s)"
+    },
+    {
+      "name": "04_mix_gib_s",
+      "png": "plots/04_mix_gib_s.png",
+      "svg": "plots/04_mix_gib_s.svg",
+      "csv": "tables/04_mix_gib_s.csv",
+      "caption": "96 MiB span; 1 KiB blocks. Block processing time is throughput-derived, not isolated load latency.",
+      "settings": {
+        "source_metadata": [
+          "metadata.json"
+        ]
+      },
+      "x_label": "Writes (%)",
+      "y_label": "Useful bandwidth (GiB/s)"
+    },
+    {
+      "name": "04_mix_ns_per_access",
+      "png": "plots/04_mix_ns_per_access.png",
+      "svg": "plots/04_mix_ns_per_access.svg",
+      "csv": "tables/04_mix_ns_per_access.csv",
+      "caption": "96 MiB span; 1 KiB blocks. Block processing time is throughput-derived, not isolated load latency.",
+      "settings": {
+        "source_metadata": [
+          "metadata.json"
+        ]
+      },
+      "x_label": "Writes (%)",
+      "y_label": "Average block processing time (ns)"
+    },
+    {
+      "name": "05_intensity_streams_million_accesses_s",
+      "png": "plots/05_intensity_streams_million_accesses_s.png",
+      "svg": "plots/05_intensity_streams_million_accesses_s.svg",
+      "csv": "tables/05_intensity_streams_million_accesses_s.csv",
+      "caption": "05 intensity streams million accesses s",
+      "settings": {
+        "source_metadata": [
+          "metadata.json"
+        ],
+        "span_MiB_per_worker": 96
+      },
+      "x_label": "Independent chains",
+      "y_label": "Completed dependent loads (million/s)"
+    },
+    {
+      "name": "05_intensity_streams_chain_latency_ns",
+      "png": "plots/05_intensity_streams_chain_latency_ns.png",
+      "svg": "plots/05_intensity_streams_chain_latency_ns.svg",
+      "csv": "tables/05_intensity_streams_chain_latency_ns.csv",
+      "caption": "05 intensity streams chain latency ns",
+      "settings": {
+        "source_metadata": [
+          "metadata.json"
+        ],
+        "span_MiB_per_worker": 96
+      },
+      "x_label": "Independent chains",
+      "y_label": "Mean chain round-trip time (ns)"
+    },
+    {
+      "name": "05_intensity_threads_million_accesses_s",
+      "png": "plots/05_intensity_threads_million_accesses_s.png",
+      "svg": "plots/05_intensity_threads_million_accesses_s.svg",
+      "csv": "tables/05_intensity_threads_million_accesses_s.csv",
+      "caption": "05 intensity threads million accesses s",
+      "settings": {
+        "source_metadata": [
+          "metadata.json"
+        ],
+        "span_MiB_per_worker": 96
+      },
+      "x_label": "Physical cores",
+      "y_label": "Completed dependent loads (million/s)"
+    },
+    {
+      "name": "05_intensity_threads_chain_latency_ns",
+      "png": "plots/05_intensity_threads_chain_latency_ns.png",
+      "svg": "plots/05_intensity_threads_chain_latency_ns.svg",
+      "csv": "tables/05_intensity_threads_chain_latency_ns.csv",
+      "caption": "05 intensity threads chain latency ns",
+      "settings": {
+        "source_metadata": [
+          "metadata.json"
+        ],
+        "span_MiB_per_worker": 96
+      },
+      "x_label": "Physical cores",
+      "y_label": "Mean chain round-trip time (ns)"
+    },
+    {
+      "name": "06_throughput_latency",
+      "png": "plots/06_throughput_latency.png",
+      "svg": "plots/06_throughput_latency.svg",
+      "csv": "tables/06_throughput_latency.csv",
+      "caption": "Concurrency sweep. Chain round-trip time includes interleaved software work; it is not isolated hardware latency.",
+      "settings": {
+        "source_metadata": [
+          "metadata.json"
+        ]
+      },
+      "x_label": "Mean chain round-trip time (ns)",
+      "y_label": "Completed dependent loads (million/s)"
+    },
+    {
+      "name": "07_working_set_ns_per_access",
+      "png": "plots/07_working_set_ns_per_access.png",
+      "svg": "plots/07_working_set_ns_per_access.svg",
+      "csv": "tables/07_working_set_ns_per_access.csv",
+      "caption": "07 working set ns per access",
+      "settings": {
+        "source_metadata": [
+          "metadata.json"
+        ]
+      },
+      "x_label": "Mapped working-set span (bytes)",
+      "y_label": "Dependent-load latency (ns)"
+    },
+    {
+      "name": "07_working_set_million_accesses_s",
+      "png": "plots/07_working_set_million_accesses_s.png",
+      "svg": "plots/07_working_set_million_accesses_s.svg",
+      "csv": "tables/07_working_set_million_accesses_s.csv",
+      "caption": "07 working set million accesses s",
+      "settings": {
+        "source_metadata": [
+          "metadata.json"
+        ]
+      },
+      "x_label": "Mapped working-set span (bytes)",
+      "y_label": "Completed dependent loads (million/s)"
+    },
+    {
+      "name": "08_cache_ns_per_access",
+      "png": "plots/08_cache_ns_per_access.png",
+      "svg": "plots/08_cache_ns_per_access.svg",
+      "csv": "tables/08_cache_ns_per_access.csv",
+      "caption": "08 cache ns per access",
+      "settings": {
+        "source_metadata": [
+          "metadata.json"
+        ]
+      },
+      "x_label": "Mapped working-set span (bytes)",
+      "y_label": "Dependent-load latency (ns)"
+    },
+    {
+      "name": "08_cache_llc_misses_per_1000",
+      "png": "plots/08_cache_llc_misses_per_1000.png",
+      "svg": "plots/08_cache_llc_misses_per_1000.svg",
+      "csv": "tables/08_cache_llc_misses_per_1000.csv",
+      "caption": "08 cache llc misses per 1000",
+      "settings": {
+        "source_metadata": [
+          "metadata.json"
+        ]
+      },
+      "x_label": "Mapped working-set span (bytes)",
+      "y_label": "LLC read misses per 1,000 loads"
+    },
+    {
+      "name": "09_tlb_0_ns_per_access",
+      "png": "plots/09_tlb_0_ns_per_access.png",
+      "svg": "plots/09_tlb_0_ns_per_access.svg",
+      "csv": "tables/09_tlb_0_ns_per_access.csv",
+      "caption": "Sequential page order; one access per 4 KiB.",
+      "settings": {
+        "source_metadata": [
+          "metadata.json"
+        ]
+      },
+      "x_label": "Sequential page access: span (MiB)",
+      "y_label": "Dependent-load latency (ns)"
+    },
+    {
+      "name": "09_tlb_0_dtlb_misses_per_1000",
+      "png": "plots/09_tlb_0_dtlb_misses_per_1000.png",
+      "svg": "plots/09_tlb_0_dtlb_misses_per_1000.svg",
+      "csv": "tables/09_tlb_0_dtlb_misses_per_1000.csv",
+      "caption": "Sequential page order; one access per 4 KiB.",
+      "settings": {
+        "source_metadata": [
+          "metadata.json"
+        ]
+      },
+      "x_label": "Sequential page access: span (MiB)",
+      "y_label": "dTLB read misses per 1,000 loads"
+    },
+    {
+      "name": "09_tlb_1_ns_per_access",
+      "png": "plots/09_tlb_1_ns_per_access.png",
+      "svg": "plots/09_tlb_1_ns_per_access.svg",
+      "csv": "tables/09_tlb_1_ns_per_access.csv",
+      "caption": "Random page order; one access per 4 KiB.",
+      "settings": {
+        "source_metadata": [
+          "metadata.json"
+        ]
+      },
+      "x_label": "Random page access: span (MiB)",
+      "y_label": "Dependent-load latency (ns)"
+    },
+    {
+      "name": "09_tlb_1_dtlb_misses_per_1000",
+      "png": "plots/09_tlb_1_dtlb_misses_per_1000.png",
+      "svg": "plots/09_tlb_1_dtlb_misses_per_1000.svg",
+      "csv": "tables/09_tlb_1_dtlb_misses_per_1000.csv",
+      "caption": "Random page order; one access per 4 KiB.",
+      "settings": {
+        "source_metadata": [
+          "metadata.json"
+        ]
+      },
+      "x_label": "Random page access: span (MiB)",
+      "y_label": "dTLB read misses per 1,000 loads"
+    },
+    {
+      "name": "10_cache_reuse",
+      "png": "plots/10_cache_reuse.png",
+      "svg": "plots/10_cache_reuse.svg",
+      "csv": "tables/10_cache_reuse.csv",
+      "caption": "Same sequential 1 KiB read kernel; the cache-sized buffer does not measure DRAM bandwidth.",
+      "settings": {
+        "source_metadata": [
+          "metadata.json"
+        ]
+      },
+      "x_label": "",
+      "y_label": "Useful read bandwidth (GiB/s)"
+    },
+    {
+      "name": "11_paired_bandwidth_ratio",
+      "png": "plots/11_paired_bandwidth_ratio.png",
+      "svg": "plots/11_paired_bandwidth_ratio.svg",
+      "csv": "tables/11_paired_bandwidth_ratio.csv",
+      "caption": "Ratios paired by trial; pooled median and IQR, with per-round medians slightly offset horizontally for readability.",
+      "settings": {
+        "source_metadata": [
+          "metadata.json"
+        ]
+      },
+      "x_label": "Useful bytes per transfer (four-times spacing)",
+      "y_label": "Random / sequential useful bandwidth (\u00d7)"
+    }
+  ],
+  "tables": [
+    "tables/01_baseline.csv",
+    "tables/02_pattern_latency.csv",
+    "tables/03_granularity_bandwidth.csv",
+    "tables/04_mix_gib_s.csv",
+    "tables/04_mix_ns_per_access.csv",
+    "tables/05_intensity_streams_chain_latency_ns.csv",
+    "tables/05_intensity_streams_million_accesses_s.csv",
+    "tables/05_intensity_threads_chain_latency_ns.csv",
+    "tables/05_intensity_threads_million_accesses_s.csv",
+    "tables/06_throughput_latency.csv",
+    "tables/07_working_set_million_accesses_s.csv",
+    "tables/07_working_set_ns_per_access.csv",
+    "tables/08_cache_llc_misses_per_1000.csv",
+    "tables/08_cache_ns_per_access.csv",
+    "tables/09_tlb_0_dtlb_misses_per_1000.csv",
+    "tables/09_tlb_0_ns_per_access.csv",
+    "tables/09_tlb_1_dtlb_misses_per_1000.csv",
+    "tables/09_tlb_1_ns_per_access.csv",
+    "tables/10_cache_reuse.csv",
+    "tables/11_paired_bandwidth_ratio.csv"
+  ],
+  "uncertainty": "Median and interquartile range across trials unless caption states otherwise."
+}

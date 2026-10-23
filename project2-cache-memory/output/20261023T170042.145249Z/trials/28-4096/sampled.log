@@ -1,0 +1,2 @@
+[ perf record: Woken up 8 times to write data ]
+[ perf record: Captured and wrote 2.007 MB /home/dandisk/ACS-Classwide-Proj/project2-cache-memory/output/20261023T170042.145249Z/trials/28-4096/sampled.data (31024 samples) ]

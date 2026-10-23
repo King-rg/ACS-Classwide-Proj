@@ -1,0 +1,6 @@
+{
+  "observations": 900,
+  "correctness": "all pass",
+  "trials_per_case": 15,
+  "counter": "pinned, time_running equals time_enabled"
+}

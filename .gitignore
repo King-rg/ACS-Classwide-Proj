@@ -1,0 +1,29 @@
+**/build/
+/.venv-analysis/
+__pycache__/
+
+# Local environments, temporary files, and compiled artifacts.
+.env
+.env.*
+!.env.example
+*.o
+/tmp/
+/*-verify.state
+
+# Reproduction outputs duplicate the retained source datasets.
+**/output/reproduce-*/
+**/output/plots-*/
+
+# Saved compiled binaries; sources remain tracked.
+/project1-simd/output/evidence/20261019T002427Z/build-clang/runner
+/project1-simd/output/evidence/20261019T002427Z/build-gcc/runner
+/project1-simd/output/evidence/20261019T002553Z/build-clang/runner
+/project1-simd/output/evidence/20261019T002553Z/build-gcc/runner
+/project1-simd/output/evidence/20261019T002553Z/sanitize/runner
+/project1-simd/output/evidence/20261019T002553Z/strict-clang/runner
+/project1-simd/output/evidence/20261019T002553Z/strict-gcc/runner
+/project1-simd/output/evidence/20261019T005422Z/build-clang/runner
+/project1-simd/output/evidence/20261019T005422Z/build-gcc/runner
+/project1-simd/output/supplemental-c/20261021T232708Z/sanitizer/double
+/project1-simd/output/supplemental-c/20261021T232708Z/sanitizer/float
+/project2-cache-memory/output/20261023T170042.145249Z/source/memory_bench

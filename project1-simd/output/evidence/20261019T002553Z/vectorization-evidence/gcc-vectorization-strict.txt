@@ -1,0 +1,24 @@
+experiments/ordinary.cpp:16:22: optimized: loop vectorized using 32 byte vectors
+experiments/ordinary.cpp:16:22: optimized: loop vectorized using 16 byte vectors
+experiments/ordinary.cpp:16:22: missed: not vectorized: no vectype for stmt: _3 = *_2;
+experiments/ordinary.cpp:16:22: note: vectorized 1 loops in function.
+experiments/ordinary.cpp:16:22: optimized: loop vectorized using 32 byte vectors
+experiments/ordinary.cpp:16:22: optimized: loop vectorized using 16 byte vectors
+experiments/ordinary.cpp:16:22: missed: not vectorized: no vectype for stmt: _3 = *_2;
+experiments/ordinary.cpp:16:22: note: vectorized 1 loops in function.
+experiments/ordinary.cpp:16:22: optimized: loop vectorized using 32 byte vectors
+experiments/ordinary.cpp:16:22: optimized: loop vectorized using 16 byte vectors
+experiments/ordinary.cpp:16:22: missed: not vectorized: no vectype for stmt: _3 = *_2;
+experiments/ordinary.cpp:16:22: note: vectorized 1 loops in function.
+experiments/ordinary.cpp:16:40: optimized: loop vectorized using 32 byte vectors
+experiments/ordinary.cpp:16:40: optimized: loop vectorized using 16 byte vectors
+experiments/ordinary.cpp:16:40: missed: not vectorized: no vectype for stmt: _3 = *_2;
+experiments/ordinary.cpp:16:40: note: vectorized 1 loops in function.
+experiments/ordinary.cpp:16:40: optimized: loop vectorized using 32 byte vectors
+experiments/ordinary.cpp:16:40: optimized: loop vectorized using 16 byte vectors
+experiments/ordinary.cpp:16:40: missed: not vectorized: no vectype for stmt: _3 = *_2;
+experiments/ordinary.cpp:16:40: note: vectorized 1 loops in function.
+experiments/ordinary.cpp:16:40: optimized: loop vectorized using 32 byte vectors
+experiments/ordinary.cpp:16:40: optimized: loop vectorized using 16 byte vectors
+experiments/ordinary.cpp:16:40: missed: not vectorized: no vectype for stmt: _3 = *_2;
+experiments/ordinary.cpp:16:40: note: vectorized 1 loops in function.

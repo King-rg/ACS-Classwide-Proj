@@ -1,0 +1,7 @@
+{
+  "state": "stopped",
+  "reason": "frequency request readback mismatch",
+  "exception": "RuntimeError",
+  "elapsed_s": 0.006687799999781419,
+  "restoration_verified": true
+}

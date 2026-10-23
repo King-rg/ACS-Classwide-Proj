@@ -1,0 +1,7 @@
+{
+  "source": "output/axpy_timings.csv",
+  "sha256": "c14d4e33e939be22222a7e6b394b395798feac09f728bf7a76d0e12e2818c3d0",
+  "rows": 112,
+  "method": "Speedup: median and IQR of seven paired trial ratios. Cost: median/IQR of elapsed_ns / n. Variability: all raw trials at largest N. IQR is observed spread, not a confidence interval. No exclusions.",
+  "limitations": "Only AXPY in latest saved data. Four sizes do not locate cache transitions. Single-call timing includes harness overhead. Timing alone does not identify the cause of variability."
+}

@@ -1,0 +1,77 @@
+{
+  "run_id": "20261019T005422Z",
+  "raw_rows": 9180,
+  "independently_checked_points": 612,
+  "series": 18,
+  "measured_sizes_per_series": 34,
+  "observations_per_variant_point": 15,
+  "axes": [
+    {
+      "x": "linear",
+      "y": "linear",
+      "xmin": 0.0,
+      "ymin": 0.0
+    },
+    {
+      "x": "linear",
+      "y": "linear",
+      "xmin": 0.0,
+      "ymin": 0.0
+    },
+    {
+      "x": "linear",
+      "y": "linear",
+      "xmin": 0.0,
+      "ymin": 0.0
+    },
+    {
+      "x": "linear",
+      "y": "linear",
+      "xmin": 0.0,
+      "ymin": 0.0
+    },
+    {
+      "x": "linear",
+      "y": "linear",
+      "xmin": 0.0,
+      "ymin": 0.0
+    },
+    {
+      "x": "linear",
+      "y": "linear",
+      "xmin": 0.0,
+      "ymin": 0.0
+    },
+    {
+      "x": "linear",
+      "y": "linear",
+      "xmin": 0.0,
+      "ymin": 0.0
+    },
+    {
+      "x": "linear",
+      "y": "linear",
+      "xmin": 0.0,
+      "ymin": 0.0
+    },
+    {
+      "x": "linear",
+      "y": "linear",
+      "xmin": 0.0,
+      "ymin": 0.0
+    }
+  ],
+  "png_dimensions": [
+    5400,
+    4050
+  ],
+  "dpi": 300,
+  "matching": "Same nominal footprint, kernel, implementation, stride, offset/alignment, seed and FP policy; N differs by precision and is normalized explicitly.",
+  "maximum_actual_byte_footprint_difference": 96,
+  "interpretation": "Per-element elapsed cost at matched footprint; NOT equal-N total-runtime precision speedup.",
+  "source_csv_sha256": {
+    "repeat-0/raw.csv": "225aa28d3074d9c464de7230cef02a03b40e23a215ed4da4a572c23010f4bff9",
+    "repeat-1/raw.csv": "c9bbd55756b2cbca8ccb0effd1a5f11b718bfa50f94a0f5a90eef7de1dbf42be",
+    "repeat-2/raw.csv": "397d7152c7ba2de4facbd3f49c809f507654fc653db7e28fca8112fae99b4b14"
+  }
+}

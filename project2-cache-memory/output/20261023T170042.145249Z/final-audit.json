@@ -1,0 +1,12 @@
+{
+  "pairs_recomputed": 960,
+  "amat_arithmetic_checked": 644,
+  "filtered_samples_rechecked": 68458,
+  "missing_amat_trials": 316,
+  "missing_amat_sizes": [
+    4.0,
+    8.0,
+    48.0
+  ],
+  "quality_flagged_pairs": 98
+}

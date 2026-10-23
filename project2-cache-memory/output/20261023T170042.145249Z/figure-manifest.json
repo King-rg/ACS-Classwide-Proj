@@ -1,0 +1,11 @@
+{
+  "scope": "amat-hierarchy",
+  "raw_sha256": "6b4d3922c5e57ca2ffe04cfc77c778a14a1e369df923a88ffef68c3620ba2822",
+  "summary_sha256": "dae59c935caa474b43d92754bee1c94ec1ba8ebf068b16ed4a259d9f9011c63a",
+  "figures": [
+    "plots/fig6a-parameters.png",
+    "plots/fig6b-amat.png"
+  ],
+  "status": "review drafts; no Google Doc changes",
+  "missing_policy": "No fitting, constants, or interpolation; exploratory measured values retained with flags."
+}

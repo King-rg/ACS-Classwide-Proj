@@ -1,0 +1,19 @@
+{
+  "checked_intervals": 8,
+  "summary_points": 2,
+  "restoration_verified": true,
+  "state": {
+    "state": "stopped",
+    "reason": "thermal throttle counter advanced",
+    "exception": "RuntimeError",
+    "elapsed_s": 8.22201891199802,
+    "restoration_verified": true
+  },
+  "source_hashes": {
+    "1500000-compute.jsonl": "cf458a97c955c64998e744e21b16fdca9a9bcaad3bfdbbf54b787e1216d1b406",
+    "telemetry.jsonl": "ab7a5fd872da94d98d674bfc04ce949a9326276544d31d10f63bb83bd14d90af",
+    "measurements.jsonl": "2544e9103538370c79b86fdb25db17a5222cf702c398c0de0fc31d3d808a18da",
+    "1500000-dot.jsonl": "9a1df043f10e08ba89314ba70b38b5251f31e1623a0d50a76fce636ae8079c60",
+    "control_requests.jsonl": "c095bf229345a54a55135359af8a1511523c792845c6f16982da8ea16f74844d"
+  }
+}

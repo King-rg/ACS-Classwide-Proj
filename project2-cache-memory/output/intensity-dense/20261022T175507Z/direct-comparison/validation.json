@@ -1,0 +1,8 @@
+{
+  "source": "/home/dandisk/ACS-Classwide-Proj/project2-cache-memory/output/intensity-dense/20261022T175507Z",
+  "raw_sha256": "de5bee543b1b420bc1468f9a129cde4d52c338fb2b216223383c8b8f19e81d92",
+  "trials": 1035,
+  "configurations": 23,
+  "summary_matches_raw": true,
+  "metric": "software chain round-trip time, not isolated hardware request latency"
+}

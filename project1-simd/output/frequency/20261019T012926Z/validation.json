@@ -1,0 +1,16 @@
+{
+  "checked_intervals": 0,
+  "summary_points": 0,
+  "restoration_verified": true,
+  "state": {
+    "state": "stopped",
+    "reason": "frequency request readback mismatch",
+    "exception": "RuntimeError",
+    "elapsed_s": 0.006687799999781419,
+    "restoration_verified": true
+  },
+  "source_hashes": {
+    "telemetry.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "measurements.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

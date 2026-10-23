@@ -1,0 +1,16 @@
+{
+  "baseline_trials": 180,
+  "new_trials": 90,
+  "all_checks_passed": true,
+  "min_new_trial_ms": 250.0,
+  "paired_ratio_median": 10.869750370826644,
+  "paired_ratio_q25": 8.82615223706814,
+  "paired_ratio_q75": 13.31456820810369,
+  "per_round_ratio_medians": [
+    11.095512442317677,
+    10.755202704648118,
+    9.067805038959653
+  ],
+  "baseline_source": "/home/dandisk/ACS-Classwide-Proj/project2-cache-memory/output/counter-studies/20261022T183157Z",
+  "limitations": "Uncontrolled frequency/background activity. Baseline includes translation and loop overhead; cache-size labels do not prove individual-load residency. Error bars are observation spread, not confidence intervals. Useful payload bandwidth is not controller traffic."
+}

@@ -1,0 +1,34 @@
+[
+  [
+    "taskset",
+    "-c",
+    "0",
+    "build/gcc/avx-auto/axpy",
+    "--sizes",
+    "4194304",
+    "--offset",
+    "0",
+    "--trials",
+    "15",
+    "--warmups",
+    "5",
+    "--csv",
+    "output/alignment-sweep/20261022T015440Z/confirmation/axpy-4194304-0-0.csv"
+  ],
+  [
+    "taskset",
+    "-c",
+    "0",
+    "build/gcc/avx-auto/axpy",
+    "--sizes",
+    "4194311",
+    "--offset",
+    "0",
+    "--trials",
+    "15",
+    "--warmups",
+    "5",
+    "--csv",
+    "output/alignment-sweep/20261022T015440Z/confirmation/axpy-4194304-7-0.csv"
+  ]
+]

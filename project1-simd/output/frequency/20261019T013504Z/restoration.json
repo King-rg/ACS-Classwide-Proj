@@ -1,0 +1,107 @@
+{
+  "verified": true,
+  "errors": [],
+  "readback": {
+    "verified": true,
+    "expected": {
+      "/sys/devices/system/cpu/cpufreq/policy0": {
+        "scaling_min_freq": "400000",
+        "scaling_max_freq": "5000000",
+        "scaling_governor": "powersave",
+        "energy_performance_preference": "performance"
+      },
+      "/sys/devices/system/cpu/cpufreq/policy1": {
+        "scaling_min_freq": "400000",
+        "scaling_max_freq": "5000000",
+        "scaling_governor": "powersave",
+        "energy_performance_preference": "performance"
+      }
+    },
+    "observed": {
+      "/sys/devices/system/cpu/cpufreq/policy0": {
+        "scaling_min_freq": "400000",
+        "scaling_max_freq": "5000000",
+        "scaling_governor": "powersave",
+        "energy_performance_preference": "performance"
+      },
+      "/sys/devices/system/cpu/cpufreq/policy1": {
+        "scaling_min_freq": "400000",
+        "scaling_max_freq": "5000000",
+        "scaling_governor": "powersave",
+        "energy_performance_preference": "performance"
+      }
+    },
+    "elapsed_s": 0.06239443799859146,
+    "history": [
+      {
+        "elapsed_s": 0.00024078400019789115,
+        "observed": {
+          "/sys/devices/system/cpu/cpufreq/policy0": {
+            "scaling_min_freq": "400000",
+            "scaling_max_freq": "1500000",
+            "scaling_governor": "powersave",
+            "energy_performance_preference": "performance"
+          },
+          "/sys/devices/system/cpu/cpufreq/policy1": {
+            "scaling_min_freq": "400000",
+            "scaling_max_freq": "1500000",
+            "scaling_governor": "powersave",
+            "energy_performance_preference": "performance"
+          }
+        }
+      },
+      {
+        "elapsed_s": 0.021285941002133768,
+        "observed": {
+          "/sys/devices/system/cpu/cpufreq/policy0": {
+            "scaling_min_freq": "400000",
+            "scaling_max_freq": "5000000",
+            "scaling_governor": "powersave",
+            "energy_performance_preference": "performance"
+          },
+          "/sys/devices/system/cpu/cpufreq/policy1": {
+            "scaling_min_freq": "400000",
+            "scaling_max_freq": "5000000",
+            "scaling_governor": "powersave",
+            "energy_performance_preference": "performance"
+          }
+        }
+      },
+      {
+        "elapsed_s": 0.041881461002049036,
+        "observed": {
+          "/sys/devices/system/cpu/cpufreq/policy0": {
+            "scaling_min_freq": "400000",
+            "scaling_max_freq": "5000000",
+            "scaling_governor": "powersave",
+            "energy_performance_preference": "performance"
+          },
+          "/sys/devices/system/cpu/cpufreq/policy1": {
+            "scaling_min_freq": "400000",
+            "scaling_max_freq": "5000000",
+            "scaling_governor": "powersave",
+            "energy_performance_preference": "performance"
+          }
+        }
+      },
+      {
+        "elapsed_s": 0.06239443799859146,
+        "observed": {
+          "/sys/devices/system/cpu/cpufreq/policy0": {
+            "scaling_min_freq": "400000",
+            "scaling_max_freq": "5000000",
+            "scaling_governor": "powersave",
+            "energy_performance_preference": "performance"
+          },
+          "/sys/devices/system/cpu/cpufreq/policy1": {
+            "scaling_min_freq": "400000",
+            "scaling_max_freq": "5000000",
+            "scaling_governor": "powersave",
+            "energy_performance_preference": "performance"
+          }
+        }
+      }
+    ]
+  },
+  "utc": "2026-10-19T01:35:13.156842+00:00"
+}

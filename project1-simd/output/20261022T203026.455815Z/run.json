@@ -1,0 +1,7 @@
+{
+  "project": 1,
+  "started": "20261022T203026.455815Z",
+  "acquisition_complete": false,
+  "plots_complete": false,
+  "error": "Required core-cycle counter unavailable: perf_event_open: Permission denied"
+}

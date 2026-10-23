@@ -1,0 +1,11 @@
+{
+  "profile": "report-full",
+  "studies": [
+    "working-set",
+    "alignment",
+    "supplemental",
+    "native",
+    "cycles"
+  ],
+  "cpu": 0
+}

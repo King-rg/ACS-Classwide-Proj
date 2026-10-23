@@ -1,0 +1,14 @@
+bottom,kind,label,part,series,x,y
+,line,Measured-bandwidth prediction,,0,0.0,3.842829781547376
+,line,Measured-bandwidth prediction,,0,1.0,3.842829781547376
+,line,_nolegend_,,1,0.0,2.998363606452453
+,line,_nolegend_,,2,0.0,3.3894435415618487
+,line,_nolegend_,,3,1.0,4.355899749303865
+,line,_nolegend_,,4,1.0,5.466619525547534
+,collection,_nolegend_,0,0,0.0,2.998363606452453
+,collection,_nolegend_,0,0,0.0,3.3894435415618487
+,collection,_nolegend_,0,1,1.0,4.355899749303865
+,collection,_nolegend_,0,1,1.0,5.466619525547534
+3.5226880676379033,bar,,,0,0.5,1.6713526398690237
+0.0,bar,,,1,0.0,3.2751922558848063
+0.0,bar,,,2,1.0,5.0681094144123735

@@ -1,0 +1,8 @@
+{
+  "title": "Advanced Computer Systems — SIMD Advantage Profiling (Draft)",
+  "url": "https://docs.google.com/document/d/15frD8Ea_BH0owxiVxac5UcHPGtT3J-xpKDmQwwo7b38/edit?usp=drivesdk",
+  "revision": "AHj4eMR5E_Th0doACuIP2OA4S6VP6fQ48Htb3qipfkxcYX0h38vH0_b6G5vEzITOfOr-YkNUaGuqPJdfBeFAWy5f7rXuj03TlwdngY20cNGb",
+  "tables": 4,
+  "figures": 5,
+  "status": "Updated with measured follow-up; DVFS/SMT not isolated; IMC traffic counting blocked"
+}

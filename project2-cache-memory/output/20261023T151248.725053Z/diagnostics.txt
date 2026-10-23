@@ -1,0 +1,18 @@
+Controlled random-access preparation: experimental validation failed.
+
+No experimental AMAT parameters were published; Google Doc and existing model remain unchanged.
+
+Median counter percentages across three pilots per condition:
+l3-resident, eviction 2 MiB: L3 hits 79.91%; L3 misses 14.38%.
+l3-resident, eviction 4 MiB: L3 hits 71.70%; L3 misses 22.51%.
+l3-resident, eviction 8 MiB: L3 hits 45.06%; L3 misses 49.73%.
+cache-flushed, eviction 0 MiB: L3 hits 32.39%; L3 misses 62.13%.
+
+Required: >=95% L3 hits for L3-resident passes, or >=95% L3 misses for flushed passes.
+All candidate conditions failed. Counter access worked; no permission changes were needed.
+Increasing eviction-buffer size did not isolate L3 hits. A flush before traversal did not ensure that 95% of timed retired loads were classified as L3 misses. These observations do not isolate the reason for the mixed access sources.
+
+The full 45-pair acquisition and working-set rerun were intentionally not started after pilot rejection.
+Existing 30 correctness cases, explicit warm-mode compatibility, 14 invalid preparation cases, and 23 pipeline/analysis tests passed.
+The disassembly shows one dependent data load per traversal iteration. Measurement-envelope overhead was below 1% in these pilots.
+The parameter estimation and plotting path is implemented and unit-tested, but cannot be validated end-to-end against accepted experimental data until a preparation protocol meets the admission criteria.

@@ -1,0 +1,7 @@
+{
+  "near_knee_qd": 32,
+  "criterion": "first QD reaching 90% of observed peak median IOPS",
+  "peak_iops": 377984.0016,
+  "endpoint_improving": true,
+  "interpretation": "Endpoint throughput is still improving; saturation is not established."
+}

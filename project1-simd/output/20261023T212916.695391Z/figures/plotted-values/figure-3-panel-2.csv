@@ -1,0 +1,27 @@
+kind,label,series,x,y
+line,Aligned baseline,0,32.0,1.4321899608174293
+line,Aligned baseline,0,128.0,2.511453618552473
+line,Aligned baseline,0,512.0,2.8179218417339698
+line,Aligned baseline,0,2048.0,3.318491675289428
+line,Aligned baseline,0,8192.0,2.6792846339343512
+line,Aligned baseline,0,32768.0,2.859871638644493
+line,Aligned baseline,0,131072.0,1.237928495940451
+line,Aligned baseline,0,524288.0,1.4126118875611477
+line,Aligned baseline,0,2097152.0,1.180629903160418
+line,Aligned baseline,0,4194304.0,0.9591091293893351
+line,Aligned baseline,0,8388608.0,1.011313862557006
+line,Aligned baseline,0,16777216.0,1.1862787911845993
+line,Shifted one element,1,32.0,1.3850697193057768
+line,Shifted one element,1,128.0,1.817515524829553
+line,Shifted one element,1,512.0,2.4741808411011195
+line,Shifted one element,1,2048.0,2.364248709226983
+line,Shifted one element,1,8192.0,1.9505039773997297
+line,Shifted one element,1,32768.0,1.9137864969523601
+line,Shifted one element,1,131072.0,1.2806015092156704
+line,Shifted one element,1,524288.0,1.1925534072556572
+line,Shifted one element,1,2097152.0,1.2047775748001603
+line,Shifted one element,1,4194304.0,1.0881730484753038
+line,Shifted one element,1,8388608.0,1.2682509780114533
+line,Shifted one element,1,16777216.0,1.0650539842646018
+line,_child2,2,0.0,1.0
+line,_child2,2,1.0,1.0

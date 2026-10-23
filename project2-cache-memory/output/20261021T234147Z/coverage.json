@@ -1,0 +1,13 @@
+{
+  "profile": "quick",
+  "trials": 255,
+  "configurations": 85,
+  "correctness": "all passed",
+  "hardware_counters": false,
+  "huge_pages_verified": true,
+  "missing_required_evidence": [
+    "Cache-miss/runtime correlation",
+    "TLB-miss/runtime correlation",
+    "Core cycles per access"
+  ]
+}

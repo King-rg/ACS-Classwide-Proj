@@ -1,0 +1,32 @@
+[
+  {
+    "source": "/home/dandisk/ACS-Classwide-Proj/project2-cache-memory/output/pattern-dense/20261022T170051Z",
+    "rows": 4230,
+    "raw_sha256": "a8f22c2c93e670b8ca6abe6a78f7fd95573629dc4bb6a27c7e51967e4f2a1918"
+  },
+  {
+    "source": "/home/dandisk/ACS-Classwide-Proj/project2-cache-memory/output/mix-dense/20261022T174538Z",
+    "rows": 990,
+    "raw_sha256": "a447ae64ac265af58a44c97b675bc8a63c13fbf86d380de671acdc05d3bd10ba"
+  },
+  {
+    "source": "/home/dandisk/ACS-Classwide-Proj/project2-cache-memory/output/intensity-dense/20261022T175507Z",
+    "rows": 1035,
+    "raw_sha256": "de5bee543b1b420bc1468f9a129cde4d52c338fb2b216223383c8b8f19e81d92"
+  },
+  {
+    "source": "/home/dandisk/ACS-Classwide-Proj/project2-cache-memory/output/working-set-dense/20261022T181117Z",
+    "rows": 2880,
+    "raw_sha256": "edafccc1eb5ba7f67512dc3a291db92cea73b769758a6999199041d4a62c2bf6"
+  },
+  {
+    "source": "/home/dandisk/ACS-Classwide-Proj/project2-cache-memory/output/counter-studies/20261022T183157Z",
+    "rows": 3420,
+    "raw_sha256": "d42c2e3d1b35b29bfe7e25225275094861e9c22d2f94e58be602611dfb0208e3"
+  },
+  {
+    "source": "/home/dandisk/ACS-Classwide-Proj/project2-cache-memory/output/report-gaps-long/20261022T191224Z",
+    "rows": 90,
+    "raw_sha256": "2d66e9dd5c219d8e9d9ebfcb09cf89818c1c3226a3cf9abe1c59d5f2ea65926c"
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "uname": [
+    "Linux",
+    "desktop",
+    "6.8.0-147-generic",
+    "#147-Ubuntu SMP PREEMPT_DYNAMIC Thu Sep 24 11:33:16 UTC 2026",
+    "x86_64"
+  ],
+  "cpu_model": "model name\t: 13th Gen Intel(R) Core(TM) i7-13800H",
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "sha256": {
+    "build/frequency/worker": "3dfcf4fc247d62c8566fc4cdb52e837a872d861ff89c6d586f6f6673b263a524",
+    "experiments/frequency_sweep.py": "33ed753f99a521c41d0155aa9d62a70346aa39a3810e7fc1a15035b9811a7ddf",
+    "experiments/frequency_worker.cpp": "7f62c686e04c82b89efecea051db277df8ee7b65c9bd6ff302daf6eef27fc676",
+    "experiments/compute.cpp": "5425b66fdce4d4120387395ca275d231b59bf3dfa260d7d5d9f0e3d07bd1e205",
+    "experiments/intrinsics.cpp": "36efe5938dc778304670411b83a78a6f799952adccc853df544e7cf59ee34995"
+  }
+}

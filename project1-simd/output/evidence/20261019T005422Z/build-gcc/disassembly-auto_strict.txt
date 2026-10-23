@@ -1,0 +1,467 @@
+
+/home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T005422Z/build-gcc/auto_strict.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <evidence::axpy_auto_f32(float, float const*, float*, unsigned long, unsigned long)>:
+   0:	f3 0f 1e fa          	endbr64
+   4:	48 85 d2             	test   %rdx,%rdx
+   7:	0f 84 ea 00 00 00    	je     f7 <evidence::axpy_auto_f32(float, float const*, float*, unsigned long, unsigned long)+0xf7>
+   d:	48 83 f9 01          	cmp    $0x1,%rcx
+  11:	0f 85 e9 00 00 00    	jne    100 <evidence::axpy_auto_f32(float, float const*, float*, unsigned long, unsigned long)+0x100>
+  17:	48 8d 42 ff          	lea    -0x1(%rdx),%rax
+  1b:	48 83 f8 06          	cmp    $0x6,%rax
+  1f:	0f 86 0b 01 00 00    	jbe    130 <evidence::axpy_auto_f32(float, float const*, float*, unsigned long, unsigned long)+0x130>
+  25:	48 89 d1             	mov    %rdx,%rcx
+  28:	c4 e2 7d 18 d0       	vbroadcastss %xmm0,%ymm2
+  2d:	31 c0                	xor    %eax,%eax
+  2f:	48 c1 e9 03          	shr    $0x3,%rcx
+  33:	48 c1 e1 05          	shl    $0x5,%rcx
+  37:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+  3e:	00 00 
+  40:	c5 ec 59 0c 07       	vmulps (%rdi,%rax,1),%ymm2,%ymm1
+  45:	c5 f4 58 0c 06       	vaddps (%rsi,%rax,1),%ymm1,%ymm1
+  4a:	c5 fc 11 0c 06       	vmovups %ymm1,(%rsi,%rax,1)
+  4f:	48 83 c0 20          	add    $0x20,%rax
+  53:	48 39 c8             	cmp    %rcx,%rax
+  56:	75 e8                	jne    40 <evidence::axpy_auto_f32(float, float const*, float*, unsigned long, unsigned long)+0x40>
+  58:	48 89 d0             	mov    %rdx,%rax
+  5b:	48 83 e0 f8          	and    $0xfffffffffffffff8,%rax
+  5f:	f6 c2 07             	test   $0x7,%dl
+  62:	0f 84 c4 00 00 00    	je     12c <evidence::axpy_auto_f32(float, float const*, float*, unsigned long, unsigned long)+0x12c>
+  68:	c5 f8 77             	vzeroupper
+  6b:	48 89 d1             	mov    %rdx,%rcx
+  6e:	48 29 c1             	sub    %rax,%rcx
+  71:	4c 8d 41 ff          	lea    -0x1(%rcx),%r8
+  75:	49 83 f8 02          	cmp    $0x2,%r8
+  79:	76 27                	jbe    a2 <evidence::axpy_auto_f32(float, float const*, float*, unsigned long, unsigned long)+0xa2>
+  7b:	4c 8d 04 86          	lea    (%rsi,%rax,4),%r8
+  7f:	c5 f8 c6 c8 00       	vshufps $0x0,%xmm0,%xmm0,%xmm1
+  84:	c5 f0 59 0c 87       	vmulps (%rdi,%rax,4),%xmm1,%xmm1
+  89:	c4 c1 70 58 08       	vaddps (%r8),%xmm1,%xmm1
+  8e:	c4 c1 78 11 08       	vmovups %xmm1,(%r8)
+  93:	49 89 c8             	mov    %rcx,%r8
+  96:	49 83 e0 fc          	and    $0xfffffffffffffffc,%r8
+  9a:	4c 01 c0             	add    %r8,%rax
+  9d:	83 e1 03             	and    $0x3,%ecx
+  a0:	74 55                	je     f7 <evidence::axpy_auto_f32(float, float const*, float*, unsigned long, unsigned long)+0xf7>
+  a2:	48 8d 0c 85 00 00 00 	lea    0x0(,%rax,4),%rcx
+  a9:	00 
+  aa:	c5 fa 59 0c 87       	vmulss (%rdi,%rax,4),%xmm0,%xmm1
+  af:	4c 8d 04 0e          	lea    (%rsi,%rcx,1),%r8
+  b3:	c4 c1 72 58 08       	vaddss (%r8),%xmm1,%xmm1
+  b8:	c4 c1 7a 11 08       	vmovss %xmm1,(%r8)
+  bd:	4c 8d 40 01          	lea    0x1(%rax),%r8
+  c1:	49 39 d0             	cmp    %rdx,%r8
+  c4:	73 31                	jae    f7 <evidence::axpy_auto_f32(float, float const*, float*, unsigned long, unsigned long)+0xf7>
+  c6:	4c 8d 44 0e 04       	lea    0x4(%rsi,%rcx,1),%r8
+  cb:	c5 fa 59 4c 0f 04    	vmulss 0x4(%rdi,%rcx,1),%xmm0,%xmm1
+  d1:	48 83 c0 02          	add    $0x2,%rax
+  d5:	c4 c1 72 58 08       	vaddss (%r8),%xmm1,%xmm1
+  da:	c4 c1 7a 11 08       	vmovss %xmm1,(%r8)
+  df:	48 39 d0             	cmp    %rdx,%rax
+  e2:	73 13                	jae    f7 <evidence::axpy_auto_f32(float, float const*, float*, unsigned long, unsigned long)+0xf7>
+  e4:	48 8d 44 0e 08       	lea    0x8(%rsi,%rcx,1),%rax
+  e9:	c5 fa 59 44 0f 08    	vmulss 0x8(%rdi,%rcx,1),%xmm0,%xmm0
+  ef:	c5 fa 58 00          	vaddss (%rax),%xmm0,%xmm0
+  f3:	c5 fa 11 00          	vmovss %xmm0,(%rax)
+  f7:	c3                   	ret
+  f8:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+  ff:	00 
+ 100:	48 c1 e1 02          	shl    $0x2,%rcx
+ 104:	31 c0                	xor    %eax,%eax
+ 106:	45 31 c0             	xor    %r8d,%r8d
+ 109:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+ 110:	c5 fa 59 0c 07       	vmulss (%rdi,%rax,1),%xmm0,%xmm1
+ 115:	49 83 c0 01          	add    $0x1,%r8
+ 119:	c5 f2 58 0c 06       	vaddss (%rsi,%rax,1),%xmm1,%xmm1
+ 11e:	c5 fa 11 0c 06       	vmovss %xmm1,(%rsi,%rax,1)
+ 123:	48 01 c8             	add    %rcx,%rax
+ 126:	4c 39 c2             	cmp    %r8,%rdx
+ 129:	75 e5                	jne    110 <evidence::axpy_auto_f32(float, float const*, float*, unsigned long, unsigned long)+0x110>
+ 12b:	c3                   	ret
+ 12c:	c5 f8 77             	vzeroupper
+ 12f:	c3                   	ret
+ 130:	31 c0                	xor    %eax,%eax
+ 132:	e9 34 ff ff ff       	jmp    6b <evidence::axpy_auto_f32(float, float const*, float*, unsigned long, unsigned long)+0x6b>
+ 137:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+ 13e:	00 00 
+
+0000000000000140 <evidence::dot_auto_f32(float const*, float const*, unsigned long, unsigned long)>:
+ 140:	f3 0f 1e fa          	endbr64
+ 144:	48 85 d2             	test   %rdx,%rdx
+ 147:	0f 84 33 01 00 00    	je     280 <evidence::dot_auto_f32(float const*, float const*, unsigned long, unsigned long)+0x140>
+ 14d:	48 83 f9 01          	cmp    $0x1,%rcx
+ 151:	0f 85 31 01 00 00    	jne    288 <evidence::dot_auto_f32(float const*, float const*, unsigned long, unsigned long)+0x148>
+ 157:	48 8d 42 ff          	lea    -0x1(%rdx),%rax
+ 15b:	48 83 f8 06          	cmp    $0x6,%rax
+ 15f:	0f 86 52 01 00 00    	jbe    2b7 <evidence::dot_auto_f32(float const*, float const*, unsigned long, unsigned long)+0x177>
+ 165:	48 89 d1             	mov    %rdx,%rcx
+ 168:	31 c0                	xor    %eax,%eax
+ 16a:	c5 f8 57 c0          	vxorps %xmm0,%xmm0,%xmm0
+ 16e:	48 c1 e9 03          	shr    $0x3,%rcx
+ 172:	48 c1 e1 05          	shl    $0x5,%rcx
+ 176:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+ 17d:	00 00 00 
+ 180:	c5 fc 10 24 07       	vmovups (%rdi,%rax,1),%ymm4
+ 185:	c5 dc 59 0c 06       	vmulps (%rsi,%rax,1),%ymm4,%ymm1
+ 18a:	48 83 c0 20          	add    $0x20,%rax
+ 18e:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+ 192:	c5 f0 c6 d9 55       	vshufps $0x55,%xmm1,%xmm1,%xmm3
+ 197:	c5 f0 c6 d1 ff       	vshufps $0xff,%xmm1,%xmm1,%xmm2
+ 19c:	c5 fa 58 c3          	vaddss %xmm3,%xmm0,%xmm0
+ 1a0:	c5 f0 15 d9          	vunpckhps %xmm1,%xmm1,%xmm3
+ 1a4:	c4 e3 7d 19 c9 01    	vextractf128 $0x1,%ymm1,%xmm1
+ 1aa:	c5 fa 58 c3          	vaddss %xmm3,%xmm0,%xmm0
+ 1ae:	c5 fa 58 c2          	vaddss %xmm2,%xmm0,%xmm0
+ 1b2:	c5 f0 c6 d1 55       	vshufps $0x55,%xmm1,%xmm1,%xmm2
+ 1b7:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+ 1bb:	c5 fa 58 c2          	vaddss %xmm2,%xmm0,%xmm0
+ 1bf:	c5 f0 15 d1          	vunpckhps %xmm1,%xmm1,%xmm2
+ 1c3:	c5 f0 c6 c9 ff       	vshufps $0xff,%xmm1,%xmm1,%xmm1
+ 1c8:	c5 fa 58 c2          	vaddss %xmm2,%xmm0,%xmm0
+ 1cc:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+ 1d0:	48 39 c1             	cmp    %rax,%rcx
+ 1d3:	75 ab                	jne    180 <evidence::dot_auto_f32(float const*, float const*, unsigned long, unsigned long)+0x40>
+ 1d5:	48 89 d0             	mov    %rdx,%rax
+ 1d8:	48 83 e0 f8          	and    $0xfffffffffffffff8,%rax
+ 1dc:	f6 c2 07             	test   $0x7,%dl
+ 1df:	0f 84 ce 00 00 00    	je     2b3 <evidence::dot_auto_f32(float const*, float const*, unsigned long, unsigned long)+0x173>
+ 1e5:	c5 f8 77             	vzeroupper
+ 1e8:	48 89 d1             	mov    %rdx,%rcx
+ 1eb:	48 29 c1             	sub    %rax,%rcx
+ 1ee:	4c 8d 41 ff          	lea    -0x1(%rcx),%r8
+ 1f2:	49 83 f8 02          	cmp    $0x2,%r8
+ 1f6:	76 37                	jbe    22f <evidence::dot_auto_f32(float const*, float const*, unsigned long, unsigned long)+0xef>
+ 1f8:	c5 f8 10 2c 87       	vmovups (%rdi,%rax,4),%xmm5
+ 1fd:	c5 d0 59 0c 86       	vmulps (%rsi,%rax,4),%xmm5,%xmm1
+ 202:	49 89 c8             	mov    %rcx,%r8
+ 205:	49 83 e0 fc          	and    $0xfffffffffffffffc,%r8
+ 209:	4c 01 c0             	add    %r8,%rax
+ 20c:	83 e1 03             	and    $0x3,%ecx
+ 20f:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+ 213:	c5 f0 c6 d1 55       	vshufps $0x55,%xmm1,%xmm1,%xmm2
+ 218:	c5 fa 58 c2          	vaddss %xmm2,%xmm0,%xmm0
+ 21c:	c5 f0 15 d1          	vunpckhps %xmm1,%xmm1,%xmm2
+ 220:	c5 f0 c6 c9 ff       	vshufps $0xff,%xmm1,%xmm1,%xmm1
+ 225:	c5 fa 58 c2          	vaddss %xmm2,%xmm0,%xmm0
+ 229:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+ 22d:	74 55                	je     284 <evidence::dot_auto_f32(float const*, float const*, unsigned long, unsigned long)+0x144>
+ 22f:	c5 fa 10 0c 86       	vmovss (%rsi,%rax,4),%xmm1
+ 234:	c5 f2 59 0c 87       	vmulss (%rdi,%rax,4),%xmm1,%xmm1
+ 239:	4c 8d 40 01          	lea    0x1(%rax),%r8
+ 23d:	48 8d 0c 85 00 00 00 	lea    0x0(,%rax,4),%rcx
+ 244:	00 
+ 245:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+ 249:	49 39 d0             	cmp    %rdx,%r8
+ 24c:	73 36                	jae    284 <evidence::dot_auto_f32(float const*, float const*, unsigned long, unsigned long)+0x144>
+ 24e:	c5 fa 10 4c 0f 04    	vmovss 0x4(%rdi,%rcx,1),%xmm1
+ 254:	c5 f2 59 4c 0e 04    	vmulss 0x4(%rsi,%rcx,1),%xmm1,%xmm1
+ 25a:	48 83 c0 02          	add    $0x2,%rax
+ 25e:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+ 262:	48 39 d0             	cmp    %rdx,%rax
+ 265:	73 1d                	jae    284 <evidence::dot_auto_f32(float const*, float const*, unsigned long, unsigned long)+0x144>
+ 267:	c5 fa 10 4c 0f 08    	vmovss 0x8(%rdi,%rcx,1),%xmm1
+ 26d:	c5 f2 59 4c 0e 08    	vmulss 0x8(%rsi,%rcx,1),%xmm1,%xmm1
+ 273:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+ 277:	c3                   	ret
+ 278:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+ 27f:	00 
+ 280:	c5 f8 57 c0          	vxorps %xmm0,%xmm0,%xmm0
+ 284:	c3                   	ret
+ 285:	0f 1f 00             	nopl   (%rax)
+ 288:	48 c1 e1 02          	shl    $0x2,%rcx
+ 28c:	31 c0                	xor    %eax,%eax
+ 28e:	c5 f8 57 c0          	vxorps %xmm0,%xmm0,%xmm0
+ 292:	45 31 c0             	xor    %r8d,%r8d
+ 295:	0f 1f 00             	nopl   (%rax)
+ 298:	c5 fa 10 0c 07       	vmovss (%rdi,%rax,1),%xmm1
+ 29d:	c5 f2 59 0c 06       	vmulss (%rsi,%rax,1),%xmm1,%xmm1
+ 2a2:	49 83 c0 01          	add    $0x1,%r8
+ 2a6:	48 01 c8             	add    %rcx,%rax
+ 2a9:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+ 2ad:	4c 39 c2             	cmp    %r8,%rdx
+ 2b0:	75 e6                	jne    298 <evidence::dot_auto_f32(float const*, float const*, unsigned long, unsigned long)+0x158>
+ 2b2:	c3                   	ret
+ 2b3:	c5 f8 77             	vzeroupper
+ 2b6:	c3                   	ret
+ 2b7:	31 c0                	xor    %eax,%eax
+ 2b9:	c5 f8 57 c0          	vxorps %xmm0,%xmm0,%xmm0
+ 2bd:	e9 26 ff ff ff       	jmp    1e8 <evidence::dot_auto_f32(float const*, float const*, unsigned long, unsigned long)+0xa8>
+ 2c2:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+ 2c9:	00 00 00 00 
+ 2cd:	0f 1f 00             	nopl   (%rax)
+
+00000000000002d0 <evidence::multiply_auto_f32(float const*, float const*, float*, unsigned long, unsigned long)>:
+ 2d0:	f3 0f 1e fa          	endbr64
+ 2d4:	48 85 c9             	test   %rcx,%rcx
+ 2d7:	0f 84 d8 00 00 00    	je     3b5 <evidence::multiply_auto_f32(float const*, float const*, float*, unsigned long, unsigned long)+0xe5>
+ 2dd:	49 83 f8 01          	cmp    $0x1,%r8
+ 2e1:	0f 85 d9 00 00 00    	jne    3c0 <evidence::multiply_auto_f32(float const*, float const*, float*, unsigned long, unsigned long)+0xf0>
+ 2e7:	48 8d 41 ff          	lea    -0x1(%rcx),%rax
+ 2eb:	48 83 f8 06          	cmp    $0x6,%rax
+ 2ef:	0f 86 fb 00 00 00    	jbe    3f0 <evidence::multiply_auto_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x120>
+ 2f5:	49 89 c8             	mov    %rcx,%r8
+ 2f8:	31 c0                	xor    %eax,%eax
+ 2fa:	49 c1 e8 03          	shr    $0x3,%r8
+ 2fe:	49 c1 e0 05          	shl    $0x5,%r8
+ 302:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+ 308:	c5 fc 10 0c 07       	vmovups (%rdi,%rax,1),%ymm1
+ 30d:	c5 f4 59 04 06       	vmulps (%rsi,%rax,1),%ymm1,%ymm0
+ 312:	c5 fc 11 04 02       	vmovups %ymm0,(%rdx,%rax,1)
+ 317:	48 83 c0 20          	add    $0x20,%rax
+ 31b:	4c 39 c0             	cmp    %r8,%rax
+ 31e:	75 e8                	jne    308 <evidence::multiply_auto_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x38>
+ 320:	48 89 c8             	mov    %rcx,%rax
+ 323:	48 83 e0 f8          	and    $0xfffffffffffffff8,%rax
+ 327:	f6 c1 07             	test   $0x7,%cl
+ 32a:	0f 84 bc 00 00 00    	je     3ec <evidence::multiply_auto_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x11c>
+ 330:	c5 f8 77             	vzeroupper
+ 333:	49 89 c8             	mov    %rcx,%r8
+ 336:	49 29 c0             	sub    %rax,%r8
+ 339:	4d 8d 48 ff          	lea    -0x1(%r8),%r9
+ 33d:	49 83 f9 02          	cmp    $0x2,%r9
+ 341:	76 1f                	jbe    362 <evidence::multiply_auto_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x92>
+ 343:	c5 f8 10 14 87       	vmovups (%rdi,%rax,4),%xmm2
+ 348:	c5 e8 59 04 86       	vmulps (%rsi,%rax,4),%xmm2,%xmm0
+ 34d:	4d 89 c1             	mov    %r8,%r9
+ 350:	49 83 e1 fc          	and    $0xfffffffffffffffc,%r9
+ 354:	c5 f8 11 04 82       	vmovups %xmm0,(%rdx,%rax,4)
+ 359:	4c 01 c8             	add    %r9,%rax
+ 35c:	41 83 e0 03          	and    $0x3,%r8d
+ 360:	74 53                	je     3b5 <evidence::multiply_auto_f32(float const*, float const*, float*, unsigned long, unsigned long)+0xe5>
+ 362:	c5 fa 10 04 86       	vmovss (%rsi,%rax,4),%xmm0
+ 367:	c5 fa 59 04 87       	vmulss (%rdi,%rax,4),%xmm0,%xmm0
+ 36c:	4c 8d 48 01          	lea    0x1(%rax),%r9
+ 370:	4c 8d 04 85 00 00 00 	lea    0x0(,%rax,4),%r8
+ 377:	00 
+ 378:	c5 fa 11 04 82       	vmovss %xmm0,(%rdx,%rax,4)
+ 37d:	49 39 c9             	cmp    %rcx,%r9
+ 380:	73 33                	jae    3b5 <evidence::multiply_auto_f32(float const*, float const*, float*, unsigned long, unsigned long)+0xe5>
+ 382:	c4 a1 7a 10 44 07 04 	vmovss 0x4(%rdi,%r8,1),%xmm0
+ 389:	c4 a1 7a 59 44 06 04 	vmulss 0x4(%rsi,%r8,1),%xmm0,%xmm0
+ 390:	48 83 c0 02          	add    $0x2,%rax
+ 394:	c4 a1 7a 11 44 02 04 	vmovss %xmm0,0x4(%rdx,%r8,1)
+ 39b:	48 39 c8             	cmp    %rcx,%rax
+ 39e:	73 15                	jae    3b5 <evidence::multiply_auto_f32(float const*, float const*, float*, unsigned long, unsigned long)+0xe5>
+ 3a0:	c4 a1 7a 10 44 07 08 	vmovss 0x8(%rdi,%r8,1),%xmm0
+ 3a7:	c4 a1 7a 59 44 06 08 	vmulss 0x8(%rsi,%r8,1),%xmm0,%xmm0
+ 3ae:	c4 a1 7a 11 44 02 08 	vmovss %xmm0,0x8(%rdx,%r8,1)
+ 3b5:	c3                   	ret
+ 3b6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+ 3bd:	00 00 00 
+ 3c0:	49 c1 e0 02          	shl    $0x2,%r8
+ 3c4:	31 c0                	xor    %eax,%eax
+ 3c6:	45 31 c9             	xor    %r9d,%r9d
+ 3c9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+ 3d0:	c5 fa 10 04 07       	vmovss (%rdi,%rax,1),%xmm0
+ 3d5:	c5 fa 59 04 06       	vmulss (%rsi,%rax,1),%xmm0,%xmm0
+ 3da:	49 83 c1 01          	add    $0x1,%r9
+ 3de:	c5 fa 11 04 02       	vmovss %xmm0,(%rdx,%rax,1)
+ 3e3:	4c 01 c0             	add    %r8,%rax
+ 3e6:	4c 39 c9             	cmp    %r9,%rcx
+ 3e9:	75 e5                	jne    3d0 <evidence::multiply_auto_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x100>
+ 3eb:	c3                   	ret
+ 3ec:	c5 f8 77             	vzeroupper
+ 3ef:	c3                   	ret
+ 3f0:	31 c0                	xor    %eax,%eax
+ 3f2:	e9 3c ff ff ff       	jmp    333 <evidence::multiply_auto_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x63>
+ 3f7:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+ 3fe:	00 00 
+
+0000000000000400 <evidence::axpy_auto_f64(double, double const*, double*, unsigned long, unsigned long)>:
+ 400:	f3 0f 1e fa          	endbr64
+ 404:	48 85 d2             	test   %rdx,%rdx
+ 407:	0f 84 95 00 00 00    	je     4a2 <evidence::axpy_auto_f64(double, double const*, double*, unsigned long, unsigned long)+0xa2>
+ 40d:	48 83 f9 01          	cmp    $0x1,%rcx
+ 411:	0f 85 99 00 00 00    	jne    4b0 <evidence::axpy_auto_f64(double, double const*, double*, unsigned long, unsigned long)+0xb0>
+ 417:	48 8d 42 ff          	lea    -0x1(%rdx),%rax
+ 41b:	48 83 f8 02          	cmp    $0x2,%rax
+ 41f:	0f 86 b7 00 00 00    	jbe    4dc <evidence::axpy_auto_f64(double, double const*, double*, unsigned long, unsigned long)+0xdc>
+ 425:	48 89 d1             	mov    %rdx,%rcx
+ 428:	c4 e2 7d 19 d0       	vbroadcastsd %xmm0,%ymm2
+ 42d:	31 c0                	xor    %eax,%eax
+ 42f:	48 c1 e9 02          	shr    $0x2,%rcx
+ 433:	48 c1 e1 05          	shl    $0x5,%rcx
+ 437:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+ 43e:	00 00 
+ 440:	c5 ed 59 0c 07       	vmulpd (%rdi,%rax,1),%ymm2,%ymm1
+ 445:	c5 f5 58 0c 06       	vaddpd (%rsi,%rax,1),%ymm1,%ymm1
+ 44a:	c5 fd 11 0c 06       	vmovupd %ymm1,(%rsi,%rax,1)
+ 44f:	48 83 c0 20          	add    $0x20,%rax
+ 453:	48 39 c8             	cmp    %rcx,%rax
+ 456:	75 e8                	jne    440 <evidence::axpy_auto_f64(double, double const*, double*, unsigned long, unsigned long)+0x40>
+ 458:	48 89 d0             	mov    %rdx,%rax
+ 45b:	48 83 e0 fc          	and    $0xfffffffffffffffc,%rax
+ 45f:	f6 c2 03             	test   $0x3,%dl
+ 462:	74 44                	je     4a8 <evidence::axpy_auto_f64(double, double const*, double*, unsigned long, unsigned long)+0xa8>
+ 464:	c5 f8 77             	vzeroupper
+ 467:	48 29 c2             	sub    %rax,%rdx
+ 46a:	48 83 fa 01          	cmp    $0x1,%rdx
+ 46e:	74 21                	je     491 <evidence::axpy_auto_f64(double, double const*, double*, unsigned long, unsigned long)+0x91>
+ 470:	48 8d 0c c6          	lea    (%rsi,%rax,8),%rcx
+ 474:	c5 fb 12 c8          	vmovddup %xmm0,%xmm1
+ 478:	c5 f1 59 0c c7       	vmulpd (%rdi,%rax,8),%xmm1,%xmm1
+ 47d:	c5 f1 58 09          	vaddpd (%rcx),%xmm1,%xmm1
+ 481:	c5 f9 11 09          	vmovupd %xmm1,(%rcx)
+ 485:	f6 c2 01             	test   $0x1,%dl
+ 488:	74 18                	je     4a2 <evidence::axpy_auto_f64(double, double const*, double*, unsigned long, unsigned long)+0xa2>
+ 48a:	48 83 e2 fe          	and    $0xfffffffffffffffe,%rdx
+ 48e:	48 01 d0             	add    %rdx,%rax
+ 491:	48 8d 14 c6          	lea    (%rsi,%rax,8),%rdx
+ 495:	c5 fb 59 04 c7       	vmulsd (%rdi,%rax,8),%xmm0,%xmm0
+ 49a:	c5 fb 58 02          	vaddsd (%rdx),%xmm0,%xmm0
+ 49e:	c5 fb 11 02          	vmovsd %xmm0,(%rdx)
+ 4a2:	c3                   	ret
+ 4a3:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+ 4a8:	c5 f8 77             	vzeroupper
+ 4ab:	c3                   	ret
+ 4ac:	0f 1f 40 00          	nopl   0x0(%rax)
+ 4b0:	48 c1 e1 03          	shl    $0x3,%rcx
+ 4b4:	31 c0                	xor    %eax,%eax
+ 4b6:	45 31 c0             	xor    %r8d,%r8d
+ 4b9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+ 4c0:	c5 fb 59 0c 07       	vmulsd (%rdi,%rax,1),%xmm0,%xmm1
+ 4c5:	49 83 c0 01          	add    $0x1,%r8
+ 4c9:	c5 f3 58 0c 06       	vaddsd (%rsi,%rax,1),%xmm1,%xmm1
+ 4ce:	c5 fb 11 0c 06       	vmovsd %xmm1,(%rsi,%rax,1)
+ 4d3:	48 01 c8             	add    %rcx,%rax
+ 4d6:	4c 39 c2             	cmp    %r8,%rdx
+ 4d9:	75 e5                	jne    4c0 <evidence::axpy_auto_f64(double, double const*, double*, unsigned long, unsigned long)+0xc0>
+ 4db:	c3                   	ret
+ 4dc:	31 c0                	xor    %eax,%eax
+ 4de:	eb 87                	jmp    467 <evidence::axpy_auto_f64(double, double const*, double*, unsigned long, unsigned long)+0x67>
+
+00000000000004e0 <evidence::dot_auto_f64(double const*, double const*, unsigned long, unsigned long)>:
+ 4e0:	f3 0f 1e fa          	endbr64
+ 4e4:	48 85 d2             	test   %rdx,%rdx
+ 4e7:	0f 84 b3 00 00 00    	je     5a0 <evidence::dot_auto_f64(double const*, double const*, unsigned long, unsigned long)+0xc0>
+ 4ed:	48 83 f9 01          	cmp    $0x1,%rcx
+ 4f1:	0f 85 b9 00 00 00    	jne    5b0 <evidence::dot_auto_f64(double const*, double const*, unsigned long, unsigned long)+0xd0>
+ 4f7:	48 8d 42 ff          	lea    -0x1(%rdx),%rax
+ 4fb:	48 83 f8 02          	cmp    $0x2,%rax
+ 4ff:	0f 86 d6 00 00 00    	jbe    5db <evidence::dot_auto_f64(double const*, double const*, unsigned long, unsigned long)+0xfb>
+ 505:	48 89 d1             	mov    %rdx,%rcx
+ 508:	31 c0                	xor    %eax,%eax
+ 50a:	c5 f9 57 c0          	vxorpd %xmm0,%xmm0,%xmm0
+ 50e:	48 c1 e9 02          	shr    $0x2,%rcx
+ 512:	48 c1 e1 05          	shl    $0x5,%rcx
+ 516:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+ 51d:	00 00 00 
+ 520:	c5 fd 10 24 07       	vmovupd (%rdi,%rax,1),%ymm4
+ 525:	c5 dd 59 0c 06       	vmulpd (%rsi,%rax,1),%ymm4,%ymm1
+ 52a:	48 83 c0 20          	add    $0x20,%rax
+ 52e:	c5 fb 58 c1          	vaddsd %xmm1,%xmm0,%xmm0
+ 532:	c5 f1 15 d1          	vunpckhpd %xmm1,%xmm1,%xmm2
+ 536:	c4 e3 7d 19 c9 01    	vextractf128 $0x1,%ymm1,%xmm1
+ 53c:	c5 fb 58 c2          	vaddsd %xmm2,%xmm0,%xmm0
+ 540:	c5 fb 58 c1          	vaddsd %xmm1,%xmm0,%xmm0
+ 544:	c5 f1 15 c9          	vunpckhpd %xmm1,%xmm1,%xmm1
+ 548:	c5 fb 58 c1          	vaddsd %xmm1,%xmm0,%xmm0
+ 54c:	48 39 c1             	cmp    %rax,%rcx
+ 54f:	75 cf                	jne    520 <evidence::dot_auto_f64(double const*, double const*, unsigned long, unsigned long)+0x40>
+ 551:	48 89 d0             	mov    %rdx,%rax
+ 554:	48 83 e0 fc          	and    $0xfffffffffffffffc,%rax
+ 558:	f6 c2 03             	test   $0x3,%dl
+ 55b:	74 4b                	je     5a8 <evidence::dot_auto_f64(double const*, double const*, unsigned long, unsigned long)+0xc8>
+ 55d:	c5 f8 77             	vzeroupper
+ 560:	48 29 c2             	sub    %rax,%rdx
+ 563:	48 83 fa 01          	cmp    $0x1,%rdx
+ 567:	74 22                	je     58b <evidence::dot_auto_f64(double const*, double const*, unsigned long, unsigned long)+0xab>
+ 569:	c5 f9 10 2c c7       	vmovupd (%rdi,%rax,8),%xmm5
+ 56e:	c5 d1 59 0c c6       	vmulpd (%rsi,%rax,8),%xmm5,%xmm1
+ 573:	c5 fb 58 c1          	vaddsd %xmm1,%xmm0,%xmm0
+ 577:	c5 f1 15 c9          	vunpckhpd %xmm1,%xmm1,%xmm1
+ 57b:	c5 f3 58 c0          	vaddsd %xmm0,%xmm1,%xmm0
+ 57f:	f6 c2 01             	test   $0x1,%dl
+ 582:	74 20                	je     5a4 <evidence::dot_auto_f64(double const*, double const*, unsigned long, unsigned long)+0xc4>
+ 584:	48 83 e2 fe          	and    $0xfffffffffffffffe,%rdx
+ 588:	48 01 d0             	add    %rdx,%rax
+ 58b:	c5 fb 10 0c c7       	vmovsd (%rdi,%rax,8),%xmm1
+ 590:	c5 f3 59 0c c6       	vmulsd (%rsi,%rax,8),%xmm1,%xmm1
+ 595:	c5 fb 58 c1          	vaddsd %xmm1,%xmm0,%xmm0
+ 599:	c3                   	ret
+ 59a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+ 5a0:	c5 f9 57 c0          	vxorpd %xmm0,%xmm0,%xmm0
+ 5a4:	c3                   	ret
+ 5a5:	0f 1f 00             	nopl   (%rax)
+ 5a8:	c5 f8 77             	vzeroupper
+ 5ab:	c3                   	ret
+ 5ac:	0f 1f 40 00          	nopl   0x0(%rax)
+ 5b0:	48 c1 e1 03          	shl    $0x3,%rcx
+ 5b4:	31 c0                	xor    %eax,%eax
+ 5b6:	c5 f9 57 c0          	vxorpd %xmm0,%xmm0,%xmm0
+ 5ba:	45 31 c0             	xor    %r8d,%r8d
+ 5bd:	0f 1f 00             	nopl   (%rax)
+ 5c0:	c5 fb 10 0c 07       	vmovsd (%rdi,%rax,1),%xmm1
+ 5c5:	c5 f3 59 0c 06       	vmulsd (%rsi,%rax,1),%xmm1,%xmm1
+ 5ca:	49 83 c0 01          	add    $0x1,%r8
+ 5ce:	48 01 c8             	add    %rcx,%rax
+ 5d1:	c5 fb 58 c1          	vaddsd %xmm1,%xmm0,%xmm0
+ 5d5:	4c 39 c2             	cmp    %r8,%rdx
+ 5d8:	75 e6                	jne    5c0 <evidence::dot_auto_f64(double const*, double const*, unsigned long, unsigned long)+0xe0>
+ 5da:	c3                   	ret
+ 5db:	31 c0                	xor    %eax,%eax
+ 5dd:	c5 f9 57 c0          	vxorpd %xmm0,%xmm0,%xmm0
+ 5e1:	e9 7a ff ff ff       	jmp    560 <evidence::dot_auto_f64(double const*, double const*, unsigned long, unsigned long)+0x80>
+ 5e6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+ 5ed:	00 00 00 
+
+00000000000005f0 <evidence::multiply_auto_f64(double const*, double const*, double*, unsigned long, unsigned long)>:
+ 5f0:	f3 0f 1e fa          	endbr64
+ 5f4:	48 85 c9             	test   %rcx,%rcx
+ 5f7:	0f 84 85 00 00 00    	je     682 <evidence::multiply_auto_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x92>
+ 5fd:	49 83 f8 01          	cmp    $0x1,%r8
+ 601:	0f 85 89 00 00 00    	jne    690 <evidence::multiply_auto_f64(double const*, double const*, double*, unsigned long, unsigned long)+0xa0>
+ 607:	48 8d 41 ff          	lea    -0x1(%rcx),%rax
+ 60b:	48 83 f8 02          	cmp    $0x2,%rax
+ 60f:	0f 86 a7 00 00 00    	jbe    6bc <evidence::multiply_auto_f64(double const*, double const*, double*, unsigned long, unsigned long)+0xcc>
+ 615:	49 89 c8             	mov    %rcx,%r8
+ 618:	31 c0                	xor    %eax,%eax
+ 61a:	49 c1 e8 02          	shr    $0x2,%r8
+ 61e:	49 c1 e0 05          	shl    $0x5,%r8
+ 622:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+ 628:	c5 fd 10 0c 07       	vmovupd (%rdi,%rax,1),%ymm1
+ 62d:	c5 f5 59 04 06       	vmulpd (%rsi,%rax,1),%ymm1,%ymm0
+ 632:	c5 fd 11 04 02       	vmovupd %ymm0,(%rdx,%rax,1)
+ 637:	48 83 c0 20          	add    $0x20,%rax
+ 63b:	4c 39 c0             	cmp    %r8,%rax
+ 63e:	75 e8                	jne    628 <evidence::multiply_auto_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x38>
+ 640:	48 89 c8             	mov    %rcx,%rax
+ 643:	48 83 e0 fc          	and    $0xfffffffffffffffc,%rax
+ 647:	f6 c1 03             	test   $0x3,%cl
+ 64a:	74 3c                	je     688 <evidence::multiply_auto_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x98>
+ 64c:	c5 f8 77             	vzeroupper
+ 64f:	48 29 c1             	sub    %rax,%rcx
+ 652:	48 83 f9 01          	cmp    $0x1,%rcx
+ 656:	74 1b                	je     673 <evidence::multiply_auto_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x83>
+ 658:	c5 f9 10 14 c7       	vmovupd (%rdi,%rax,8),%xmm2
+ 65d:	c5 e9 59 04 c6       	vmulpd (%rsi,%rax,8),%xmm2,%xmm0
+ 662:	c5 f9 11 04 c2       	vmovupd %xmm0,(%rdx,%rax,8)
+ 667:	f6 c1 01             	test   $0x1,%cl
+ 66a:	74 16                	je     682 <evidence::multiply_auto_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x92>
+ 66c:	48 83 e1 fe          	and    $0xfffffffffffffffe,%rcx
+ 670:	48 01 c8             	add    %rcx,%rax
+ 673:	c5 fb 10 04 c7       	vmovsd (%rdi,%rax,8),%xmm0
+ 678:	c5 fb 59 04 c6       	vmulsd (%rsi,%rax,8),%xmm0,%xmm0
+ 67d:	c5 fb 11 04 c2       	vmovsd %xmm0,(%rdx,%rax,8)
+ 682:	c3                   	ret
+ 683:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+ 688:	c5 f8 77             	vzeroupper
+ 68b:	c3                   	ret
+ 68c:	0f 1f 40 00          	nopl   0x0(%rax)
+ 690:	49 c1 e0 03          	shl    $0x3,%r8
+ 694:	31 c0                	xor    %eax,%eax
+ 696:	45 31 c9             	xor    %r9d,%r9d
+ 699:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+ 6a0:	c5 fb 10 04 07       	vmovsd (%rdi,%rax,1),%xmm0
+ 6a5:	c5 fb 59 04 06       	vmulsd (%rsi,%rax,1),%xmm0,%xmm0
+ 6aa:	49 83 c1 01          	add    $0x1,%r9
+ 6ae:	c5 fb 11 04 02       	vmovsd %xmm0,(%rdx,%rax,1)
+ 6b3:	4c 01 c0             	add    %r8,%rax
+ 6b6:	4c 39 c9             	cmp    %r9,%rcx
+ 6b9:	75 e5                	jne    6a0 <evidence::multiply_auto_f64(double const*, double const*, double*, unsigned long, unsigned long)+0xb0>
+ 6bb:	c3                   	ret
+ 6bc:	31 c0                	xor    %eax,%eax
+ 6be:	eb 8f                	jmp    64f <evidence::multiply_auto_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x5f>

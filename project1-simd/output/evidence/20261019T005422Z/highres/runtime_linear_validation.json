@@ -1,0 +1,80 @@
+{
+  "axes": [
+    {
+      "xscale": "linear",
+      "yscale": "linear",
+      "xlim": [
+        0.0,
+        100.0
+      ],
+      "ylim": [
+        0.0,
+        11.60507412
+      ]
+    },
+    {
+      "xscale": "linear",
+      "yscale": "linear",
+      "xlim": [
+        0.0,
+        100.0
+      ],
+      "ylim": [
+        0.0,
+        11.60507412
+      ]
+    },
+    {
+      "xscale": "linear",
+      "yscale": "linear",
+      "xlim": [
+        0.0,
+        100.0
+      ],
+      "ylim": [
+        0.0,
+        10.41710868
+      ]
+    },
+    {
+      "xscale": "linear",
+      "yscale": "linear",
+      "xlim": [
+        0.0,
+        100.0
+      ],
+      "ylim": [
+        0.0,
+        10.41710868
+      ]
+    },
+    {
+      "xscale": "linear",
+      "yscale": "linear",
+      "xlim": [
+        0.0,
+        100.0
+      ],
+      "ylim": [
+        0.0,
+        9.31147056
+      ]
+    },
+    {
+      "xscale": "linear",
+      "yscale": "linear",
+      "xlim": [
+        0.0,
+        100.0
+      ],
+      "ylim": [
+        0.0,
+        9.31147056
+      ]
+    }
+  ],
+  "points": 612,
+  "x_unit": "MiB",
+  "y_unit": "ms per call",
+  "source": "Same validated dense measurements; no new experiments"
+}

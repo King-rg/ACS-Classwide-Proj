@@ -1,0 +1,34 @@
+[
+  {
+    "path": "/home/dandisk/ACS-Classwide-Proj/project1-simd/output/20261023T212916.695391Z/analysis-inputs/working-set/axpy.csv",
+    "sha256": "ed45ed79a6c03e702e7e9e91c8b39d67bb0d05f288619e9a3ee82b4748edb792"
+  },
+  {
+    "path": "/home/dandisk/ACS-Classwide-Proj/project1-simd/output/20261023T212916.695391Z/analysis-inputs/working-set/dot.csv",
+    "sha256": "47a7aedccbb0bb2a92e942f8cd040146fbc0327cff47f9595add0bd0cb0a18c1"
+  },
+  {
+    "path": "/home/dandisk/ACS-Classwide-Proj/project1-simd/output/20261023T212916.695391Z/analysis-inputs/working-set/multiply.csv",
+    "sha256": "ac25d368d688b49454ca5bbb0254eec1b4f7ca2deb8f5bb66fe3ee871377edd1"
+  },
+  {
+    "path": "/home/dandisk/ACS-Classwide-Proj/project1-simd/output/20261023T212916.695391Z/analysis-inputs/alignment/average_speedup.csv",
+    "sha256": "7d6c9d2422a22004eb0d895f910d26d87fc7c865a7e3d035516564cece7c1170"
+  },
+  {
+    "path": "/home/dandisk/ACS-Classwide-Proj/project1-simd/output/20261023T212916.695391Z/analysis-inputs/supplemental/raw.csv",
+    "sha256": "6efae7346992bee1b12f135836d124d0bcf3970004b4d332577df8b1c724d2f8"
+  },
+  {
+    "path": "/home/dandisk/ACS-Classwide-Proj/project1-simd/output/20261023T212916.695391Z/analysis-inputs/cycles/axpy-cycles.csv",
+    "sha256": "24b2a6f55f8455ad6f67d448bc952bb2c013b1a353ff22c8dfedb94f1e10bab1"
+  },
+  {
+    "path": "/home/dandisk/ACS-Classwide-Proj/project1-simd/output/20261023T212916.695391Z/analysis-inputs/cycles/dot-cycles.csv",
+    "sha256": "f6c297b9d772be8b3a92b82431d56dfe0cdd6b8d12fafd4fd02338ade97f3f44"
+  },
+  {
+    "path": "/home/dandisk/ACS-Classwide-Proj/project1-simd/output/20261023T212916.695391Z/analysis-inputs/cycles/multiply-cycles.csv",
+    "sha256": "a4bedbea5c6a170fd8ade7f0dfb6635cb57958f17a210aff78b6a5cbf2d4e965"
+  }
+]

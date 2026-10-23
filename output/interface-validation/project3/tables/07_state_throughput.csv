@@ -1,0 +1,6 @@
+series,x,y,window_ms,annotation
+Sequential write burst,1.0,3350.5,1000.0,
+Sequential write burst,2.0,4084.25,1000.0,
+Sequential write burst,3.0,3886.0,1000.0,
+Sequential write burst,4.0,4111.625,1000.0,
+Sequential write burst,5.0,3428.5,1000.0,

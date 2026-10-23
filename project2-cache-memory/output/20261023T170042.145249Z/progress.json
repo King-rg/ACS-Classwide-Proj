@@ -1,0 +1,9 @@
+{
+  "completed_pairs": 960,
+  "total_pairs": 960,
+  "trial": 29,
+  "last_size": 25165824,
+  "elapsed_seconds": 2243.041335582733,
+  "quality_flagged_pairs": 98,
+  "status": "complete: 30 repetitions per size as requested"
+}

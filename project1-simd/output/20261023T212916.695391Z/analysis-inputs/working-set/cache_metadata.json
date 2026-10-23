@@ -1,0 +1,24 @@
+{
+  "cpu": 0,
+  "caches": [
+    {
+      "level": "L1D",
+      "capacity_kib": 48,
+      "label": "L1D\n48 KiB",
+      "shared_cpus": "0-1"
+    },
+    {
+      "level": "L2",
+      "capacity_kib": 1280,
+      "label": "L2\n1.25 MiB",
+      "shared_cpus": "0-1"
+    },
+    {
+      "level": "L3",
+      "capacity_kib": 24576,
+      "label": "L3\n24 MiB",
+      "shared_cpus": "0-19"
+    }
+  ],
+  "note": "Nominal capacities, not measured transition boundaries."
+}

@@ -1,0 +1,9 @@
+{
+  "observations": 140,
+  "conditions": 28,
+  "all_raw_json_and_arithmetic_checks_passed": true,
+  "trials_per_condition": 5,
+  "selection": "First complete trials, selected at user request",
+  "uncertainty": "Median and interquartile range of 5 trials; not confidence intervals",
+  "raw_sha256": "e3b166f6e6b278e3ec82cc8685a6866d3fee4c094efc3925076dd7d77969ab26"
+}

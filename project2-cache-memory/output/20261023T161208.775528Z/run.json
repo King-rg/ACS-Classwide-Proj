@@ -1,0 +1,11 @@
+{
+  "project": 2,
+  "started": "20261023T161208.775528Z",
+  "acquisition_complete": true,
+  "plots_complete": true,
+  "raw_sha256": {
+    "raw.csv": "7184083eb74bc9ed5f653b6d739698beb56d54dc01aa1dcd059fe8a4278fd0c7",
+    "controlled.csv": "f408714a01b675724593cd19f875594297160a994bf25ba60f363a0519629f7b",
+    "mixed-pilots.csv": "c15e5bdeb4ff39738cd69fb1074f9e65a84f20eb0803d19ae36af4c7c6b1c528"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "identical_regenerated_tables_and_png": true,
+  "svg_equal_except_generated_ids": true,
+  "sha256": {
+    "tables/hierarchy-trials.csv": "6b4d3922c5e57ca2ffe04cfc77c778a14a1e369df923a88ffef68c3620ba2822",
+    "tables/hierarchy-summary.csv": "dae59c935caa474b43d92754bee1c94ec1ba8ebf068b16ed4a259d9f9011c63a",
+    "plots/fig6b-amat.png": "688480b28f8c259a1e9fea5cf7c6ae1164369be0d2209688ea74dc102d7870f6",
+    "plots/fig6a-parameters.png": "8cc60ab50338d208fae83f7097046bc99d2c7cea0c45bab6911499be47252bab"
+  },
+  "vector_note": "Vector clip identifiers and backend serialization can vary; figures and tables regenerate from identical data."
+}

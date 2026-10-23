@@ -1,0 +1,66 @@
+{
+  "source": "/home/dandisk/ACS-Classwide-Proj/output/timings.csv",
+  "sha256": "7b0a6901d6666a7e6ef3d29bc8c263dbdc9c30b4774980e5ce600e0a4db8ba7d",
+  "raw_rows": 336,
+  "summary_groups": 48,
+  "matched_comparisons": 24,
+  "grouping_columns": [
+    "kernel",
+    "implementation",
+    "datatype",
+    "n",
+    "stride",
+    "offset_elements",
+    "x_mod32",
+    "y_mod32",
+    "output_mod32",
+    "coefficient",
+    "warmups",
+    "calls",
+    "seed",
+    "build_mode",
+    "compiler"
+  ],
+  "plot_configurations": {
+    "axpy_01": {
+      "stride": 1,
+      "offset_elements": 0,
+      "coefficient": "1.25",
+      "warmups": 2,
+      "calls": 1,
+      "seed": 4320,
+      "build_mode": "avx",
+      "compiler": "13.3.0"
+    },
+    "dot_02": {
+      "stride": 1,
+      "offset_elements": 0,
+      "coefficient": "",
+      "warmups": 2,
+      "calls": 1,
+      "seed": 4320,
+      "build_mode": "avx",
+      "compiler": "13.3.0"
+    },
+    "multiply_03": {
+      "stride": 1,
+      "offset_elements": 0,
+      "coefficient": "",
+      "warmups": 2,
+      "calls": 1,
+      "seed": 4320,
+      "build_mode": "avx",
+      "compiler": "13.3.0"
+    }
+  },
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "matplotlib": "3.11.2",
+  "numpy": "2.5.4",
+  "caveats": [
+    "Uncontrolled warm-buffer sample; small N includes substantial timer overhead.",
+    "Pointer alignment is retained per group; no interpolation between sizes.",
+    "Observed ranges are not confidence intervals; no pairing assumed.",
+    "CPU/OS/full flags/run identity absent; do not concatenate runs without a run_id column.",
+    "No measured bandwidth, cache transitions, roofline, or population speedup claim."
+  ]
+}

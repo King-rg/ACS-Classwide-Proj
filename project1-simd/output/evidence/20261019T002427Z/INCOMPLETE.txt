@@ -1,0 +1,3 @@
+Superseded before completion: perf permission changed from 4 to 2 during execution.
+Preserved as incomplete raw evidence; do not analyze as a completed run. A fresh
+source snapshot and repeat set with kernel-region hardware counters follows.

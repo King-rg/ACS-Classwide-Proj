@@ -1,0 +1,27 @@
+0000000000000000 <evidence::compute_f32(unsigned long)>:
+  70:	c4 62 7d 98 c9       	vfmadd132ps %ymm1,%ymm0,%ymm9
+  75:	c4 e2 7d 98 d1       	vfmadd132ps %ymm1,%ymm0,%ymm2
+  7e:	c4 62 7d 98 c1       	vfmadd132ps %ymm1,%ymm0,%ymm8
+  83:	c4 e2 7d 98 e9       	vfmadd132ps %ymm1,%ymm0,%ymm5
+  88:	c4 e2 7d 98 f9       	vfmadd132ps %ymm1,%ymm0,%ymm7
+  8d:	c4 e2 7d 98 e1       	vfmadd132ps %ymm1,%ymm0,%ymm4
+  92:	c4 e2 7d 98 f1       	vfmadd132ps %ymm1,%ymm0,%ymm6
+  97:	c4 e2 7d 98 d9       	vfmadd132ps %ymm1,%ymm0,%ymm3
+  a1:	c4 c1 6c 58 c1       	vaddps %ymm9,%ymm2,%ymm0
+  a6:	c4 c1 54 58 e8       	vaddps %ymm8,%ymm5,%ymm5
+  ab:	c5 dc 58 e7          	vaddps %ymm7,%ymm4,%ymm4
+  af:	c5 e4 58 de          	vaddps %ymm6,%ymm3,%ymm3
+
+00000000000000e0 <evidence::compute_f64(unsigned long)>:
+ 150:	c4 62 fd 98 c9       	vfmadd132pd %ymm1,%ymm0,%ymm9
+ 155:	c4 e2 fd 98 d1       	vfmadd132pd %ymm1,%ymm0,%ymm2
+ 15e:	c4 62 fd 98 c1       	vfmadd132pd %ymm1,%ymm0,%ymm8
+ 163:	c4 e2 fd 98 e9       	vfmadd132pd %ymm1,%ymm0,%ymm5
+ 168:	c4 e2 fd 98 f9       	vfmadd132pd %ymm1,%ymm0,%ymm7
+ 16d:	c4 e2 fd 98 e1       	vfmadd132pd %ymm1,%ymm0,%ymm4
+ 172:	c4 e2 fd 98 f1       	vfmadd132pd %ymm1,%ymm0,%ymm6
+ 177:	c4 e2 fd 98 d9       	vfmadd132pd %ymm1,%ymm0,%ymm3
+ 181:	c4 c1 6d 58 c1       	vaddpd %ymm9,%ymm2,%ymm0
+ 186:	c4 c1 55 58 e8       	vaddpd %ymm8,%ymm5,%ymm5
+ 18b:	c5 dd 58 e7          	vaddpd %ymm7,%ymm4,%ymm4
+ 18f:	c5 e5 58 de          	vaddpd %ymm6,%ymm3,%ymm3

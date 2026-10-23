@@ -1,0 +1,633 @@
+{
+  "complete": true,
+  "trials": 8,
+  "runtime_s": 6,
+  "ramp_s": 2,
+  "ranges_mib": [
+    16,
+    32,
+    64,
+    128,
+    256,
+    512,
+    1024,
+    2048,
+    4096,
+    8192,
+    16384
+  ],
+  "file_bytes": 17179869184,
+  "cpu": 0,
+  "fio": "fio-3.36",
+  "os": "Linux desktop 6.8.0-147-generic #147-Ubuntu SMP PREEMPT_DYNAMIC Thu Sep 24 11:33:16 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux\n",
+  "cpu_info": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           46 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  20\nOn-line CPU(s) list:                     0-19\nVendor ID:                               GenuineIntel\nModel name:                              13th Gen Intel(R) Core(TM) i7-13800H\nCPU family:                              6\nModel:                                   186\nThread(s) per core:                      2\nCore(s) per socket:                      14\nSocket(s):                               1\nStepping:                                2\nCPU(s) scaling MHz:                      29%\nCPU max MHz:                             5200.0000\nCPU min MHz:                             400.0000\nBogoMIPS:                                5836.80\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb intel_pt sha_ni xsaveopt xsavec xgetbv1 xsaves split_lock_detect user_shstk avx_vnni dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp hwp_pkg_req hfi vnmi umip pku ospke waitpkg gfni vaes vpclmulqdq tme rdpid movdiri movdir64b fsrm md_clear serialize pconfig arch_lbr ibt flush_l1d arch_capabilities ibpb_exit_to_user\nVirtualization:                          VT-x\nL1d cache:                               544 KiB (14 instances)\nL1i cache:                               704 KiB (14 instances)\nL2 cache:                                11.5 MiB (8 instances)\nL3 cache:                                24 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-19\nVulnerability Gather data sampling:      Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Reg file data sampling:    Mitigation; Clear Register File\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Not affected\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Enhanced / Automatic IBRS; IBPB conditional; PBRSB-eIBRS SW sequence; BHI BHI_DIS_S\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Mitigation; IBPB before exit to userspace\n",
+  "storage": "NAME                 MODEL                    SIZE TRAN   ROTA FSTYPE      MOUNTPOINTS\nloop0                                           4K           0 squashfs    /snap/bare/5\nloop1                                          74M           0 squashfs    /snap/core22/2437\nloop2                                          74M           0 squashfs    /snap/core22/2955\nloop3                                        66.8M           0 squashfs    /snap/core24/1643\nloop4                                        66.8M           0 squashfs    /snap/core24/2124\nloop5                                       262.3M           0 squashfs    /snap/firefox/9036\nloop6                                       283.8M           0 squashfs    /snap/firefox/9057\nloop7                                       531.4M           0 squashfs    /snap/gnome-42-2204/247\nloop8                                       531.5M           0 squashfs    /snap/gnome-42-2204/263\nloop9                                       615.3M           0 squashfs    /snap/gnome-46-2404/168\nloop10                                      606.1M           0 squashfs    /snap/gnome-46-2404/153\nloop11                                       91.7M           0 squashfs    /snap/gtk-common-themes/1535\nloop12                                        402M           0 squashfs    /snap/mesa-2404/1839\nloop13                                      137.5M           0 squashfs    /snap/remmina/7392\nloop14                                       50.3M           0 squashfs    /snap/snapd/27738\nloop15                                       44.7M           0 squashfs    /snap/snapd/28254\nloop17                                      222.1M           0 squashfs    /snap/thunderbird/1274\nloop18                                      222.9M           0 squashfs    /snap/thunderbird/1299\nnvme0n1              KXG8AZNV1T02 LA KIOXIA 953.9G nvme      0             \n\u251c\u2500nvme0n1p1                                   260M nvme      0 vfat        /boot/efi\n\u251c\u2500nvme0n1p2                                 535.9G nvme      0 LVM2_member \n\u2502 \u2514\u2500laptop_data-data                        573.4G           0 ext4        /mnt/data\n\u251c\u2500nvme0n1p3                                  37.5G nvme      0 LVM2_member \n\u2502 \u2514\u2500laptop_data-data                        573.4G           0 ext4        /mnt/data\n\u2514\u2500nvme0n1p4                                 380.2G nvme      0 ext4        /\n",
+  "filesystem": "TARGET SOURCE         FSTYPE OPTIONS\n/      /dev/nvme0n1p4 ext4   rw,relatime\n",
+  "governor": "powersave",
+  "smt": "1",
+  "temperature_start": {
+    "/sys/class/hwmon/hwmon8/temp26_input": "61000",
+    "/sys/class/hwmon/hwmon8/temp6_input": "57000",
+    "/sys/class/hwmon/hwmon8/temp33_input": "61000",
+    "/sys/class/hwmon/hwmon8/temp27_input": "62000",
+    "/sys/class/hwmon/hwmon8/temp10_input": "58000",
+    "/sys/class/hwmon/hwmon8/temp30_input": "61000",
+    "/sys/class/hwmon/hwmon8/temp14_input": "63000",
+    "/sys/class/hwmon/hwmon8/temp18_input": "62000",
+    "/sys/class/hwmon/hwmon8/temp28_input": "62000",
+    "/sys/class/hwmon/hwmon8/temp31_input": "61000",
+    "/sys/class/hwmon/hwmon8/temp1_input": "64000",
+    "/sys/class/hwmon/hwmon8/temp29_input": "62000",
+    "/sys/class/hwmon/hwmon8/temp22_input": "59000",
+    "/sys/class/hwmon/hwmon8/temp32_input": "61000",
+    "/sys/class/hwmon/hwmon8/temp2_input": "59000",
+    "/sys/class/hwmon/hwmon6/temp6_input": "44000",
+    "/sys/class/hwmon/hwmon6/temp3_input": "55000",
+    "/sys/class/hwmon/hwmon6/temp7_input": "48000",
+    "/sys/class/hwmon/hwmon6/temp4_input": "38000",
+    "/sys/class/hwmon/hwmon6/temp8_input": null,
+    "/sys/class/hwmon/hwmon6/temp1_input": "60000",
+    "/sys/class/hwmon/hwmon6/temp5_input": null,
+    "/sys/class/hwmon/hwmon6/temp2_input": null,
+    "/sys/class/hwmon/hwmon7/temp1_input": "35000",
+    "/sys/class/hwmon/hwmon3/temp1_input": "37850",
+    "/sys/class/hwmon/hwmon3/temp2_input": "37850",
+    "/sys/class/hwmon/hwmon1/temp1_input": "60000"
+  },
+  "commands": [
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/initialize.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/initialize.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/verify.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/verify.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/000_0_512.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/000_0_512.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/001_0_16.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/001_0_16.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/002_0_2048.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/002_0_2048.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/003_0_128.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/003_0_128.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/004_0_256.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/004_0_256.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/005_0_64.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/005_0_64.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/006_0_4096.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/006_0_4096.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/007_0_16384.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/007_0_16384.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/008_0_32.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/008_0_32.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/009_0_1024.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/009_0_1024.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/010_0_8192.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/010_0_8192.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/011_1_256.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/011_1_256.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/012_1_8192.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/012_1_8192.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/013_1_128.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/013_1_128.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/014_1_16384.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/014_1_16384.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/015_1_4096.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/015_1_4096.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/016_1_2048.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/016_1_2048.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/017_1_1024.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/017_1_1024.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/018_1_64.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/018_1_64.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/019_1_512.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/019_1_512.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/020_1_16.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/020_1_16.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/021_1_32.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/021_1_32.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/022_2_128.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/022_2_128.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/023_2_2048.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/023_2_2048.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/024_2_1024.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/024_2_1024.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/025_2_64.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/025_2_64.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/026_2_32.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/026_2_32.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/027_2_512.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/027_2_512.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/028_2_16384.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/028_2_16384.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/029_2_4096.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/029_2_4096.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/030_2_256.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/030_2_256.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/031_2_8192.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/031_2_8192.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/032_2_16.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/032_2_16.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/033_3_16384.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/033_3_16384.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/034_3_2048.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/034_3_2048.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/035_3_1024.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/035_3_1024.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/036_3_128.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/036_3_128.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/037_3_32.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/037_3_32.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/038_3_16.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/038_3_16.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/039_3_8192.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/039_3_8192.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/040_3_512.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/040_3_512.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/041_3_64.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/041_3_64.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/042_3_256.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/042_3_256.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/043_3_4096.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/043_3_4096.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/044_4_16.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/044_4_16.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/045_4_32.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/045_4_32.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/046_4_256.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/046_4_256.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/047_4_512.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/047_4_512.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/048_4_2048.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/048_4_2048.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/049_4_4096.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/049_4_4096.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/050_4_1024.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/050_4_1024.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/051_4_64.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/051_4_64.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/052_4_128.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/052_4_128.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/053_4_16384.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/053_4_16384.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/054_4_8192.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/054_4_8192.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/055_5_16.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/055_5_16.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/056_5_64.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/056_5_64.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/057_5_256.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/057_5_256.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/058_5_512.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/058_5_512.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/059_5_128.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/059_5_128.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/060_5_2048.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/060_5_2048.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/061_5_32.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/061_5_32.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/062_5_16384.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/062_5_16384.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/063_5_4096.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/063_5_4096.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/064_5_1024.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/064_5_1024.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/065_5_8192.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/065_5_8192.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/066_6_128.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/066_6_128.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/067_6_2048.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/067_6_2048.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/068_6_64.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/068_6_64.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/069_6_16.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/069_6_16.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/070_6_32.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/070_6_32.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/071_6_1024.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/071_6_1024.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/072_6_8192.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/072_6_8192.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/073_6_256.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/073_6_256.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/074_6_512.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/074_6_512.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/075_6_16384.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/075_6_16384.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/076_6_4096.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/076_6_4096.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/077_7_4096.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/077_7_4096.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/078_7_256.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/078_7_256.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/079_7_1024.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/079_7_1024.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/080_7_2048.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/080_7_2048.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/081_7_16.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/081_7_16.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/082_7_32.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/082_7_32.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/083_7_8192.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/083_7_8192.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/084_7_64.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/084_7_64.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/085_7_128.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/085_7_128.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/086_7_512.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/086_7_512.json"
+    ],
+    [
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/tools/local/usr/bin/fio",
+      "/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/configs/087_7_16384.fio",
+      "--output-format=json",
+      "--output=/home/dandisk/ACS-Classwide-Proj/project3-ssd/output/range-repeat/20261023T202133.572742Z/raw/087_7_16384.json"
+    ]
+  ],
+  "prior_run": "20261022T215132.687552Z",
+  "prior_runtime_s": 10,
+  "observations": 88,
+  "temperature_end": {
+    "/sys/class/hwmon/hwmon8/temp26_input": "71000",
+    "/sys/class/hwmon/hwmon8/temp6_input": "70000",
+    "/sys/class/hwmon/hwmon8/temp33_input": "75000",
+    "/sys/class/hwmon/hwmon8/temp27_input": "71000",
+    "/sys/class/hwmon/hwmon8/temp10_input": "72000",
+    "/sys/class/hwmon/hwmon8/temp30_input": "75000",
+    "/sys/class/hwmon/hwmon8/temp14_input": "71000",
+    "/sys/class/hwmon/hwmon8/temp18_input": "73000",
+    "/sys/class/hwmon/hwmon8/temp28_input": "71000",
+    "/sys/class/hwmon/hwmon8/temp31_input": "75000",
+    "/sys/class/hwmon/hwmon8/temp1_input": "75000",
+    "/sys/class/hwmon/hwmon8/temp29_input": "71000",
+    "/sys/class/hwmon/hwmon8/temp22_input": "68000",
+    "/sys/class/hwmon/hwmon8/temp32_input": "75000",
+    "/sys/class/hwmon/hwmon8/temp2_input": "73000",
+    "/sys/class/hwmon/hwmon6/temp6_input": "57000",
+    "/sys/class/hwmon/hwmon6/temp3_input": "68000",
+    "/sys/class/hwmon/hwmon6/temp7_input": "62000",
+    "/sys/class/hwmon/hwmon6/temp4_input": "49000",
+    "/sys/class/hwmon/hwmon6/temp8_input": null,
+    "/sys/class/hwmon/hwmon6/temp1_input": "87000",
+    "/sys/class/hwmon/hwmon6/temp5_input": null,
+    "/sys/class/hwmon/hwmon6/temp2_input": null,
+    "/sys/class/hwmon/hwmon7/temp1_input": "37000",
+    "/sys/class/hwmon/hwmon3/temp1_input": "58850",
+    "/sys/class/hwmon/hwmon3/temp2_input": "58850",
+    "/sys/class/hwmon/hwmon1/temp1_input": "87000"
+  },
+  "elapsed_s": 739.7835117159993,
+  "raw_sha256": "c797a2531cefbb94b04d24bcf2d5a6163afbaa74d8dec8fe307115655f8b3e9e"
+}

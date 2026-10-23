@@ -1,0 +1,80 @@
+experiments/ordinary.cpp:16:22: optimized: loop vectorized using 32 byte vectors
+experiments/ordinary.cpp:16:22: optimized: loop vectorized using 16 byte vectors
+experiments/ordinary.cpp:16:22: missed: couldn't vectorize loop
+experiments/ordinary.cpp:16:22: missed: not vectorized: no vectype for stmt: _3 = *_2;
+ scalar_type: const float
+experiments/ordinary.cpp:16:22: note: vectorized 1 loops in function.
+experiments/ordinary.cpp:16:22: note: ***** Analysis failed with vector mode V8SF
+experiments/ordinary.cpp:16:22: note: ***** The result for vector mode V32QI would be the same
+experiments/ordinary.cpp:16:22: note: ***** Re-trying analysis with vector mode V16QI
+experiments/ordinary.cpp:16:22: note: ***** Analysis failed with vector mode V16QI
+experiments/ordinary.cpp:16:22: note: ***** Re-trying analysis with vector mode V8QI
+experiments/ordinary.cpp:16:22: note: ***** Analysis failed with vector mode V8QI
+experiments/ordinary.cpp:16:22: note: ***** Re-trying analysis with vector mode V4QI
+experiments/ordinary.cpp:16:22: note: ***** Analysis failed with vector mode V4QI
+experiments/ordinary.cpp:16:22: optimized: loop vectorized using 32 byte vectors
+experiments/ordinary.cpp:16:22: optimized: loop vectorized using 16 byte vectors
+experiments/ordinary.cpp:16:22: optimized: loop vectorized using 8 byte vectors
+experiments/ordinary.cpp:16:22: note: vectorized 2 loops in function.
+experiments/ordinary.cpp:16:22: note: ***** Analysis failed with vector mode V8SF
+experiments/ordinary.cpp:16:22: note: ***** The result for vector mode V32QI would be the same
+experiments/ordinary.cpp:16:22: note: ***** Re-trying analysis with vector mode V16QI
+experiments/ordinary.cpp:16:22: note: ***** Analysis failed with vector mode V16QI
+experiments/ordinary.cpp:16:22: note: ***** Re-trying analysis with vector mode V8QI
+experiments/ordinary.cpp:16:22: note: ***** Analysis failed with vector mode V8QI
+experiments/ordinary.cpp:16:22: note: ***** Re-trying analysis with vector mode V4QI
+experiments/ordinary.cpp:16:22: note: ***** Analysis failed with vector mode V4QI
+experiments/ordinary.cpp:16:22: optimized: loop vectorized using 32 byte vectors
+experiments/ordinary.cpp:16:22: optimized: loop vectorized using 16 byte vectors
+experiments/ordinary.cpp:16:22: missed: couldn't vectorize loop
+experiments/ordinary.cpp:16:22: missed: not vectorized: no vectype for stmt: _3 = *_2;
+ scalar_type: const float
+experiments/ordinary.cpp:16:22: note: vectorized 1 loops in function.
+experiments/ordinary.cpp:16:22: note: ***** Analysis failed with vector mode V8SF
+experiments/ordinary.cpp:16:22: note: ***** The result for vector mode V32QI would be the same
+experiments/ordinary.cpp:16:22: note: ***** Re-trying analysis with vector mode V16QI
+experiments/ordinary.cpp:16:22: note: ***** Analysis failed with vector mode V16QI
+experiments/ordinary.cpp:16:22: note: ***** Re-trying analysis with vector mode V8QI
+experiments/ordinary.cpp:16:22: note: ***** Analysis failed with vector mode V8QI
+experiments/ordinary.cpp:16:22: note: ***** Re-trying analysis with vector mode V4QI
+experiments/ordinary.cpp:16:22: note: ***** Analysis failed with vector mode V4QI
+experiments/ordinary.cpp:16:40: optimized: loop vectorized using 32 byte vectors
+experiments/ordinary.cpp:16:40: optimized: loop vectorized using 16 byte vectors
+experiments/ordinary.cpp:16:40: missed: couldn't vectorize loop
+experiments/ordinary.cpp:16:40: missed: not vectorized: no vectype for stmt: _3 = *_2;
+ scalar_type: const double
+experiments/ordinary.cpp:16:40: note: vectorized 1 loops in function.
+experiments/ordinary.cpp:16:40: note: ***** Analysis failed with vector mode V4DF
+experiments/ordinary.cpp:16:40: note: ***** The result for vector mode V32QI would be the same
+experiments/ordinary.cpp:16:40: note: ***** Re-trying analysis with vector mode V16QI
+experiments/ordinary.cpp:16:40: note: ***** Analysis failed with vector mode V16QI
+experiments/ordinary.cpp:16:40: note: ***** Re-trying analysis with vector mode V8QI
+experiments/ordinary.cpp:16:40: note: ***** Analysis failed with vector mode V8QI
+experiments/ordinary.cpp:16:40: note: ***** Re-trying analysis with vector mode V4QI
+experiments/ordinary.cpp:16:40: note: ***** Analysis failed with vector mode V4QI
+experiments/ordinary.cpp:16:40: optimized: loop vectorized using 32 byte vectors
+experiments/ordinary.cpp:16:40: optimized: loop vectorized using 16 byte vectors
+experiments/ordinary.cpp:16:40: optimized: loop vectorized using 16 byte vectors
+experiments/ordinary.cpp:16:40: note: vectorized 2 loops in function.
+experiments/ordinary.cpp:16:40: note: ***** Analysis failed with vector mode V4DF
+experiments/ordinary.cpp:16:40: note: ***** The result for vector mode V32QI would be the same
+experiments/ordinary.cpp:16:40: note: ***** Re-trying analysis with vector mode V16QI
+experiments/ordinary.cpp:16:40: note: ***** Analysis failed with vector mode V16QI
+experiments/ordinary.cpp:16:40: note: ***** Re-trying analysis with vector mode V8QI
+experiments/ordinary.cpp:16:40: note: ***** Analysis failed with vector mode V8QI
+experiments/ordinary.cpp:16:40: note: ***** Re-trying analysis with vector mode V4QI
+experiments/ordinary.cpp:16:40: note: ***** Analysis failed with vector mode V4QI
+experiments/ordinary.cpp:16:40: optimized: loop vectorized using 32 byte vectors
+experiments/ordinary.cpp:16:40: optimized: loop vectorized using 16 byte vectors
+experiments/ordinary.cpp:16:40: missed: couldn't vectorize loop
+experiments/ordinary.cpp:16:40: missed: not vectorized: no vectype for stmt: _3 = *_2;
+ scalar_type: const double
+experiments/ordinary.cpp:16:40: note: vectorized 1 loops in function.
+experiments/ordinary.cpp:16:40: note: ***** Analysis failed with vector mode V4DF
+experiments/ordinary.cpp:16:40: note: ***** The result for vector mode V32QI would be the same
+experiments/ordinary.cpp:16:40: note: ***** Re-trying analysis with vector mode V16QI
+experiments/ordinary.cpp:16:40: note: ***** Analysis failed with vector mode V16QI
+experiments/ordinary.cpp:16:40: note: ***** Re-trying analysis with vector mode V8QI
+experiments/ordinary.cpp:16:40: note: ***** Analysis failed with vector mode V8QI
+experiments/ordinary.cpp:16:40: note: ***** Re-trying analysis with vector mode V4QI
+experiments/ordinary.cpp:16:40: note: ***** Analysis failed with vector mode V4QI

@@ -1,0 +1,4 @@
+Pilot: 255 observations, all internal pointer-ring/write/checksum checks passed.
+30 explicit correctness cases and invalid-input rejection passed.
+ASan/UBSan: independent-chain, mixed random-block, and two-thread huge-page smoke cases passed.
+The final source raises the full-profile chain limit to 64; pilot acquisition used at most 16. The original acquisition source is preserved in source/.

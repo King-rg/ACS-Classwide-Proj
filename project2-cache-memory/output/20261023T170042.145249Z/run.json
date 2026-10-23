@@ -1,0 +1,13 @@
+{
+  "project": 2,
+  "started": "20261023T170042.145249Z",
+  "acquisition_complete": true,
+  "plots_complete": true,
+  "requested_trials": 30,
+  "raw_sha256": {
+    "raw.csv": "6b4d3922c5e57ca2ffe04cfc77c778a14a1e369df923a88ffef68c3620ba2822",
+    "pilots.csv": "1ea0f4e62e1d8a0e72c605d6df3c87c8fb49c068480e05149623cc7e7c3e7151"
+  },
+  "protocol_revision": "protocol-revision.json",
+  "finished": "2026-10-23T17:38:22.171631+00:00"
+}

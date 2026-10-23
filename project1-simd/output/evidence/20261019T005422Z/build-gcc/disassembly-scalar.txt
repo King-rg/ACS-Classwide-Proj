@@ -1,0 +1,192 @@
+
+/home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T005422Z/build-gcc/scalar.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <evidence::axpy_scalar_f32(float, float const*, float*, unsigned long, unsigned long)>:
+   0:	f3 0f 1e fa          	endbr64
+   4:	48 85 d2             	test   %rdx,%rdx
+   7:	74 27                	je     30 <evidence::axpy_scalar_f32(float, float const*, float*, unsigned long, unsigned long)+0x30>
+   9:	31 c0                	xor    %eax,%eax
+   b:	48 83 f9 01          	cmp    $0x1,%rcx
+   f:	75 27                	jne    38 <evidence::axpy_scalar_f32(float, float const*, float*, unsigned long, unsigned long)+0x38>
+  11:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+  18:	c5 fa 59 0c 87       	vmulss (%rdi,%rax,4),%xmm0,%xmm1
+  1d:	c5 f2 58 0c 86       	vaddss (%rsi,%rax,4),%xmm1,%xmm1
+  22:	c5 fa 11 0c 86       	vmovss %xmm1,(%rsi,%rax,4)
+  27:	48 83 c0 01          	add    $0x1,%rax
+  2b:	48 39 c2             	cmp    %rax,%rdx
+  2e:	75 e8                	jne    18 <evidence::axpy_scalar_f32(float, float const*, float*, unsigned long, unsigned long)+0x18>
+  30:	c3                   	ret
+  31:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+  38:	48 c1 e1 02          	shl    $0x2,%rcx
+  3c:	45 31 c0             	xor    %r8d,%r8d
+  3f:	90                   	nop
+  40:	c5 fa 59 0c 07       	vmulss (%rdi,%rax,1),%xmm0,%xmm1
+  45:	49 83 c0 01          	add    $0x1,%r8
+  49:	c5 f2 58 0c 06       	vaddss (%rsi,%rax,1),%xmm1,%xmm1
+  4e:	c5 fa 11 0c 06       	vmovss %xmm1,(%rsi,%rax,1)
+  53:	48 01 c8             	add    %rcx,%rax
+  56:	4c 39 c2             	cmp    %r8,%rdx
+  59:	75 e5                	jne    40 <evidence::axpy_scalar_f32(float, float const*, float*, unsigned long, unsigned long)+0x40>
+  5b:	c3                   	ret
+  5c:	0f 1f 40 00          	nopl   0x0(%rax)
+
+0000000000000060 <evidence::dot_scalar_f32(float const*, float const*, unsigned long, unsigned long)>:
+  60:	f3 0f 1e fa          	endbr64
+  64:	48 85 d2             	test   %rdx,%rdx
+  67:	74 57                	je     c0 <evidence::dot_scalar_f32(float const*, float const*, unsigned long, unsigned long)+0x60>
+  69:	31 c0                	xor    %eax,%eax
+  6b:	c5 f0 57 c9          	vxorps %xmm1,%xmm1,%xmm1
+  6f:	48 83 f9 01          	cmp    $0x1,%rcx
+  73:	75 23                	jne    98 <evidence::dot_scalar_f32(float const*, float const*, unsigned long, unsigned long)+0x38>
+  75:	0f 1f 00             	nopl   (%rax)
+  78:	c5 fa 10 04 86       	vmovss (%rsi,%rax,4),%xmm0
+  7d:	c5 fa 59 04 87       	vmulss (%rdi,%rax,4),%xmm0,%xmm0
+  82:	48 83 c0 01          	add    $0x1,%rax
+  86:	c5 f2 58 c8          	vaddss %xmm0,%xmm1,%xmm1
+  8a:	48 39 c2             	cmp    %rax,%rdx
+  8d:	75 e9                	jne    78 <evidence::dot_scalar_f32(float const*, float const*, unsigned long, unsigned long)+0x18>
+  8f:	c5 f8 28 c1          	vmovaps %xmm1,%xmm0
+  93:	c3                   	ret
+  94:	0f 1f 40 00          	nopl   0x0(%rax)
+  98:	48 c1 e1 02          	shl    $0x2,%rcx
+  9c:	45 31 c0             	xor    %r8d,%r8d
+  9f:	90                   	nop
+  a0:	c5 fa 10 04 07       	vmovss (%rdi,%rax,1),%xmm0
+  a5:	c5 fa 59 04 06       	vmulss (%rsi,%rax,1),%xmm0,%xmm0
+  aa:	49 83 c0 01          	add    $0x1,%r8
+  ae:	48 01 c8             	add    %rcx,%rax
+  b1:	c5 f2 58 c8          	vaddss %xmm0,%xmm1,%xmm1
+  b5:	4c 39 c2             	cmp    %r8,%rdx
+  b8:	75 e6                	jne    a0 <evidence::dot_scalar_f32(float const*, float const*, unsigned long, unsigned long)+0x40>
+  ba:	c5 f8 28 c1          	vmovaps %xmm1,%xmm0
+  be:	c3                   	ret
+  bf:	90                   	nop
+  c0:	c5 f0 57 c9          	vxorps %xmm1,%xmm1,%xmm1
+  c4:	c5 f8 28 c1          	vmovaps %xmm1,%xmm0
+  c8:	c3                   	ret
+  c9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+00000000000000d0 <evidence::multiply_scalar_f32(float const*, float const*, float*, unsigned long, unsigned long)>:
+  d0:	f3 0f 1e fa          	endbr64
+  d4:	48 85 c9             	test   %rcx,%rcx
+  d7:	74 27                	je     100 <evidence::multiply_scalar_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x30>
+  d9:	31 c0                	xor    %eax,%eax
+  db:	49 83 f8 01          	cmp    $0x1,%r8
+  df:	75 27                	jne    108 <evidence::multiply_scalar_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x38>
+  e1:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+  e8:	c5 fa 10 04 86       	vmovss (%rsi,%rax,4),%xmm0
+  ed:	c5 fa 59 04 87       	vmulss (%rdi,%rax,4),%xmm0,%xmm0
+  f2:	c5 fa 11 04 82       	vmovss %xmm0,(%rdx,%rax,4)
+  f7:	48 83 c0 01          	add    $0x1,%rax
+  fb:	48 39 c1             	cmp    %rax,%rcx
+  fe:	75 e8                	jne    e8 <evidence::multiply_scalar_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x18>
+ 100:	c3                   	ret
+ 101:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+ 108:	49 c1 e0 02          	shl    $0x2,%r8
+ 10c:	45 31 c9             	xor    %r9d,%r9d
+ 10f:	90                   	nop
+ 110:	c5 fa 10 04 07       	vmovss (%rdi,%rax,1),%xmm0
+ 115:	c5 fa 59 04 06       	vmulss (%rsi,%rax,1),%xmm0,%xmm0
+ 11a:	49 83 c1 01          	add    $0x1,%r9
+ 11e:	c5 fa 11 04 02       	vmovss %xmm0,(%rdx,%rax,1)
+ 123:	4c 01 c0             	add    %r8,%rax
+ 126:	4c 39 c9             	cmp    %r9,%rcx
+ 129:	75 e5                	jne    110 <evidence::multiply_scalar_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x40>
+ 12b:	c3                   	ret
+ 12c:	0f 1f 40 00          	nopl   0x0(%rax)
+
+0000000000000130 <evidence::axpy_scalar_f64(double, double const*, double*, unsigned long, unsigned long)>:
+ 130:	f3 0f 1e fa          	endbr64
+ 134:	48 85 d2             	test   %rdx,%rdx
+ 137:	74 27                	je     160 <evidence::axpy_scalar_f64(double, double const*, double*, unsigned long, unsigned long)+0x30>
+ 139:	31 c0                	xor    %eax,%eax
+ 13b:	48 83 f9 01          	cmp    $0x1,%rcx
+ 13f:	75 27                	jne    168 <evidence::axpy_scalar_f64(double, double const*, double*, unsigned long, unsigned long)+0x38>
+ 141:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+ 148:	c5 fb 59 0c c7       	vmulsd (%rdi,%rax,8),%xmm0,%xmm1
+ 14d:	c5 f3 58 0c c6       	vaddsd (%rsi,%rax,8),%xmm1,%xmm1
+ 152:	c5 fb 11 0c c6       	vmovsd %xmm1,(%rsi,%rax,8)
+ 157:	48 83 c0 01          	add    $0x1,%rax
+ 15b:	48 39 c2             	cmp    %rax,%rdx
+ 15e:	75 e8                	jne    148 <evidence::axpy_scalar_f64(double, double const*, double*, unsigned long, unsigned long)+0x18>
+ 160:	c3                   	ret
+ 161:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+ 168:	48 c1 e1 03          	shl    $0x3,%rcx
+ 16c:	45 31 c0             	xor    %r8d,%r8d
+ 16f:	90                   	nop
+ 170:	c5 fb 59 0c 07       	vmulsd (%rdi,%rax,1),%xmm0,%xmm1
+ 175:	49 83 c0 01          	add    $0x1,%r8
+ 179:	c5 f3 58 0c 06       	vaddsd (%rsi,%rax,1),%xmm1,%xmm1
+ 17e:	c5 fb 11 0c 06       	vmovsd %xmm1,(%rsi,%rax,1)
+ 183:	48 01 c8             	add    %rcx,%rax
+ 186:	4c 39 c2             	cmp    %r8,%rdx
+ 189:	75 e5                	jne    170 <evidence::axpy_scalar_f64(double, double const*, double*, unsigned long, unsigned long)+0x40>
+ 18b:	c3                   	ret
+ 18c:	0f 1f 40 00          	nopl   0x0(%rax)
+
+0000000000000190 <evidence::dot_scalar_f64(double const*, double const*, unsigned long, unsigned long)>:
+ 190:	f3 0f 1e fa          	endbr64
+ 194:	48 85 d2             	test   %rdx,%rdx
+ 197:	74 57                	je     1f0 <evidence::dot_scalar_f64(double const*, double const*, unsigned long, unsigned long)+0x60>
+ 199:	31 c0                	xor    %eax,%eax
+ 19b:	c5 f1 57 c9          	vxorpd %xmm1,%xmm1,%xmm1
+ 19f:	48 83 f9 01          	cmp    $0x1,%rcx
+ 1a3:	75 23                	jne    1c8 <evidence::dot_scalar_f64(double const*, double const*, unsigned long, unsigned long)+0x38>
+ 1a5:	0f 1f 00             	nopl   (%rax)
+ 1a8:	c5 fb 10 04 c6       	vmovsd (%rsi,%rax,8),%xmm0
+ 1ad:	c5 fb 59 04 c7       	vmulsd (%rdi,%rax,8),%xmm0,%xmm0
+ 1b2:	48 83 c0 01          	add    $0x1,%rax
+ 1b6:	c5 f3 58 c8          	vaddsd %xmm0,%xmm1,%xmm1
+ 1ba:	48 39 c2             	cmp    %rax,%rdx
+ 1bd:	75 e9                	jne    1a8 <evidence::dot_scalar_f64(double const*, double const*, unsigned long, unsigned long)+0x18>
+ 1bf:	c5 f3 10 c1          	vmovsd %xmm1,%xmm1,%xmm0
+ 1c3:	c3                   	ret
+ 1c4:	0f 1f 40 00          	nopl   0x0(%rax)
+ 1c8:	48 c1 e1 03          	shl    $0x3,%rcx
+ 1cc:	45 31 c0             	xor    %r8d,%r8d
+ 1cf:	90                   	nop
+ 1d0:	c5 fb 10 04 07       	vmovsd (%rdi,%rax,1),%xmm0
+ 1d5:	c5 fb 59 04 06       	vmulsd (%rsi,%rax,1),%xmm0,%xmm0
+ 1da:	49 83 c0 01          	add    $0x1,%r8
+ 1de:	48 01 c8             	add    %rcx,%rax
+ 1e1:	c5 f3 58 c8          	vaddsd %xmm0,%xmm1,%xmm1
+ 1e5:	4c 39 c2             	cmp    %r8,%rdx
+ 1e8:	75 e6                	jne    1d0 <evidence::dot_scalar_f64(double const*, double const*, unsigned long, unsigned long)+0x40>
+ 1ea:	c5 f3 10 c1          	vmovsd %xmm1,%xmm1,%xmm0
+ 1ee:	c3                   	ret
+ 1ef:	90                   	nop
+ 1f0:	c5 f1 57 c9          	vxorpd %xmm1,%xmm1,%xmm1
+ 1f4:	c5 f3 10 c1          	vmovsd %xmm1,%xmm1,%xmm0
+ 1f8:	c3                   	ret
+ 1f9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+0000000000000200 <evidence::multiply_scalar_f64(double const*, double const*, double*, unsigned long, unsigned long)>:
+ 200:	f3 0f 1e fa          	endbr64
+ 204:	48 85 c9             	test   %rcx,%rcx
+ 207:	74 27                	je     230 <evidence::multiply_scalar_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x30>
+ 209:	31 c0                	xor    %eax,%eax
+ 20b:	49 83 f8 01          	cmp    $0x1,%r8
+ 20f:	75 27                	jne    238 <evidence::multiply_scalar_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x38>
+ 211:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+ 218:	c5 fb 10 04 c6       	vmovsd (%rsi,%rax,8),%xmm0
+ 21d:	c5 fb 59 04 c7       	vmulsd (%rdi,%rax,8),%xmm0,%xmm0
+ 222:	c5 fb 11 04 c2       	vmovsd %xmm0,(%rdx,%rax,8)
+ 227:	48 83 c0 01          	add    $0x1,%rax
+ 22b:	48 39 c1             	cmp    %rax,%rcx
+ 22e:	75 e8                	jne    218 <evidence::multiply_scalar_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x18>
+ 230:	c3                   	ret
+ 231:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+ 238:	49 c1 e0 03          	shl    $0x3,%r8
+ 23c:	45 31 c9             	xor    %r9d,%r9d
+ 23f:	90                   	nop
+ 240:	c5 fb 10 04 07       	vmovsd (%rdi,%rax,1),%xmm0
+ 245:	c5 fb 59 04 06       	vmulsd (%rsi,%rax,1),%xmm0,%xmm0
+ 24a:	49 83 c1 01          	add    $0x1,%r9
+ 24e:	c5 fb 11 04 02       	vmovsd %xmm0,(%rdx,%rax,1)
+ 253:	4c 01 c0             	add    %r8,%rax
+ 256:	4c 39 c9             	cmp    %r9,%rcx
+ 259:	75 e5                	jne    240 <evidence::multiply_scalar_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x40>
+ 25b:	c3                   	ret

@@ -1,0 +1,73 @@
+0000000000000000 <evidence::axpy_auto_f32(float, float const*, float*, unsigned long, unsigned long)>:
+  30:	c4 a1 74 59 14 87    	vmulps (%rdi,%r8,4),%ymm1,%ymm2
+  36:	c4 a1 74 59 5c 87 20 	vmulps 0x20(%rdi,%r8,4),%ymm1,%ymm3
+  3d:	c4 a1 74 59 64 87 40 	vmulps 0x40(%rdi,%r8,4),%ymm1,%ymm4
+  44:	c4 a1 74 59 6c 87 60 	vmulps 0x60(%rdi,%r8,4),%ymm1,%ymm5
+  4b:	c4 a1 6c 58 14 86    	vaddps (%rsi,%r8,4),%ymm2,%ymm2
+  51:	c4 a1 64 58 5c 86 20 	vaddps 0x20(%rsi,%r8,4),%ymm3,%ymm3
+  58:	c4 a1 5c 58 64 86 40 	vaddps 0x40(%rsi,%r8,4),%ymm4,%ymm4
+  5f:	c4 a1 54 58 6c 86 60 	vaddps 0x60(%rsi,%r8,4),%ymm5,%ymm5
+  a2:	c4 a1 7a 59 0c 87    	vmulss (%rdi,%r8,4),%xmm0,%xmm1
+  a8:	c4 a1 72 58 0c 86    	vaddss (%rsi,%r8,4),%xmm1,%xmm1
+  f0:	c4 a1 7a 59 0c 0f    	vmulss (%rdi,%r9,1),%xmm0,%xmm1
+  f6:	c4 a1 72 58 0c 0e    	vaddss (%rsi,%r9,1),%xmm1,%xmm1
+
+0000000000000130 <evidence::dot_auto_f32(float const*, float const*, unsigned long, unsigned long)>:
+ 18b:	c4 a1 5c 59 24 87    	vmulps (%rdi,%r8,4),%ymm4,%ymm4
+ 191:	c5 dc 58 c0          	vaddps %ymm0,%ymm4,%ymm0
+ 195:	c4 a1 54 59 64 87 20 	vmulps 0x20(%rdi,%r8,4),%ymm5,%ymm4
+ 19c:	c5 dc 58 c9          	vaddps %ymm1,%ymm4,%ymm1
+ 1a0:	c4 a1 4c 59 64 87 40 	vmulps 0x40(%rdi,%r8,4),%ymm6,%ymm4
+ 1a7:	c4 a1 44 59 6c 87 60 	vmulps 0x60(%rdi,%r8,4),%ymm7,%ymm5
+ 1ae:	c5 dc 58 d2          	vaddps %ymm2,%ymm4,%ymm2
+ 1b2:	c5 d4 58 db          	vaddps %ymm3,%ymm5,%ymm3
+ 1bf:	c5 f4 58 c0          	vaddps %ymm0,%ymm1,%ymm0
+ 1c3:	c5 ec 58 c0          	vaddps %ymm0,%ymm2,%ymm0
+ 1c7:	c5 e4 58 c0          	vaddps %ymm0,%ymm3,%ymm0
+ 1d1:	c5 f8 58 c1          	vaddps %xmm1,%xmm0,%xmm0
+
+0000000000000300 <evidence::multiply_auto_f32(float const*, float const*, float*, unsigned long, unsigned long)>:
+ 34b:	c4 a1 7c 59 04 8f    	vmulps (%rdi,%r9,4),%ymm0,%ymm0
+ 351:	c4 a1 74 59 4c 8f 20 	vmulps 0x20(%rdi,%r9,4),%ymm1,%ymm1
+ 358:	c4 a1 6c 59 54 8f 40 	vmulps 0x40(%rdi,%r9,4),%ymm2,%ymm2
+ 35f:	c4 a1 64 59 5c 8f 60 	vmulps 0x60(%rdi,%r9,4),%ymm3,%ymm3
+ 3a8:	c4 a1 7a 59 04 8f    	vmulss (%rdi,%r9,4),%xmm0,%xmm0
+ 406:	c4 a1 7a 59 04 1f    	vmulss (%rdi,%r11,1),%xmm0,%xmm0
+ 412:	c4 81 72 59 0c 1a    	vmulss (%r10,%r11,1),%xmm1,%xmm1
+
+0000000000000440 <evidence::axpy_auto_f64(double, double const*, double*, unsigned long, unsigned long)>:
+ 470:	c4 a1 75 59 14 c7    	vmulpd (%rdi,%r8,8),%ymm1,%ymm2
+ 476:	c4 a1 75 59 5c c7 20 	vmulpd 0x20(%rdi,%r8,8),%ymm1,%ymm3
+ 47d:	c4 a1 75 59 64 c7 40 	vmulpd 0x40(%rdi,%r8,8),%ymm1,%ymm4
+ 484:	c4 a1 75 59 6c c7 60 	vmulpd 0x60(%rdi,%r8,8),%ymm1,%ymm5
+ 48b:	c4 a1 6d 58 14 c6    	vaddpd (%rsi,%r8,8),%ymm2,%ymm2
+ 491:	c4 a1 65 58 5c c6 20 	vaddpd 0x20(%rsi,%r8,8),%ymm3,%ymm3
+ 498:	c4 a1 5d 58 64 c6 40 	vaddpd 0x40(%rsi,%r8,8),%ymm4,%ymm4
+ 49f:	c4 a1 55 58 6c c6 60 	vaddpd 0x60(%rsi,%r8,8),%ymm5,%ymm5
+ 4e2:	c4 a1 7b 59 0c c7    	vmulsd (%rdi,%r8,8),%xmm0,%xmm1
+ 4e8:	c4 a1 73 58 0c c6    	vaddsd (%rsi,%r8,8),%xmm1,%xmm1
+ 530:	c4 a1 7b 59 0c 0f    	vmulsd (%rdi,%r9,1),%xmm0,%xmm1
+ 536:	c4 a1 73 58 0c 0e    	vaddsd (%rsi,%r9,1),%xmm1,%xmm1
+
+0000000000000570 <evidence::dot_auto_f64(double const*, double const*, unsigned long, unsigned long)>:
+ 5cb:	c4 a1 5d 59 24 c7    	vmulpd (%rdi,%r8,8),%ymm4,%ymm4
+ 5d1:	c5 dd 58 c0          	vaddpd %ymm0,%ymm4,%ymm0
+ 5d5:	c4 a1 55 59 64 c7 20 	vmulpd 0x20(%rdi,%r8,8),%ymm5,%ymm4
+ 5dc:	c5 dd 58 c9          	vaddpd %ymm1,%ymm4,%ymm1
+ 5e0:	c4 a1 4d 59 64 c7 40 	vmulpd 0x40(%rdi,%r8,8),%ymm6,%ymm4
+ 5e7:	c4 a1 45 59 6c c7 60 	vmulpd 0x60(%rdi,%r8,8),%ymm7,%ymm5
+ 5ee:	c5 dd 58 d2          	vaddpd %ymm2,%ymm4,%ymm2
+ 5f2:	c5 d5 58 db          	vaddpd %ymm3,%ymm5,%ymm3
+ 5ff:	c5 f5 58 c0          	vaddpd %ymm0,%ymm1,%ymm0
+ 603:	c5 ed 58 c0          	vaddpd %ymm0,%ymm2,%ymm0
+ 607:	c5 e5 58 c0          	vaddpd %ymm0,%ymm3,%ymm0
+ 611:	c5 f9 58 c1          	vaddpd %xmm1,%xmm0,%xmm0
+
+0000000000000730 <evidence::multiply_auto_f64(double const*, double const*, double*, unsigned long, unsigned long)>:
+ 77b:	c4 a1 7d 59 04 cf    	vmulpd (%rdi,%r9,8),%ymm0,%ymm0
+ 781:	c4 a1 75 59 4c cf 20 	vmulpd 0x20(%rdi,%r9,8),%ymm1,%ymm1
+ 788:	c4 a1 6d 59 54 cf 40 	vmulpd 0x40(%rdi,%r9,8),%ymm2,%ymm2
+ 78f:	c4 a1 65 59 5c cf 60 	vmulpd 0x60(%rdi,%r9,8),%ymm3,%ymm3
+ 7d8:	c4 a1 7b 59 04 cf    	vmulsd (%rdi,%r9,8),%xmm0,%xmm0
+ 836:	c4 a1 7b 59 04 1f    	vmulsd (%rdi,%r11,1),%xmm0,%xmm0
+ 842:	c4 81 73 59 0c 1a    	vmulsd (%r10,%r11,1),%xmm1,%xmm1

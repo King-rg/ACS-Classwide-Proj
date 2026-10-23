@@ -1,0 +1,31 @@
+0000000000000000 <evidence::axpy_scalar_f32(float, float const*, float*, unsigned long, unsigned long)>:
+  18:	c5 fa 59 0c 87       	vmulss (%rdi,%rax,4),%xmm0,%xmm1
+  1d:	c5 f2 58 0c 86       	vaddss (%rsi,%rax,4),%xmm1,%xmm1
+  40:	c5 fa 59 0c 07       	vmulss (%rdi,%rax,1),%xmm0,%xmm1
+  49:	c5 f2 58 0c 06       	vaddss (%rsi,%rax,1),%xmm1,%xmm1
+
+0000000000000060 <evidence::dot_scalar_f32(float const*, float const*, unsigned long, unsigned long)>:
+  7d:	c5 fa 59 04 87       	vmulss (%rdi,%rax,4),%xmm0,%xmm0
+  86:	c5 f2 58 c8          	vaddss %xmm0,%xmm1,%xmm1
+  a5:	c5 fa 59 04 06       	vmulss (%rsi,%rax,1),%xmm0,%xmm0
+  b1:	c5 f2 58 c8          	vaddss %xmm0,%xmm1,%xmm1
+
+00000000000000d0 <evidence::multiply_scalar_f32(float const*, float const*, float*, unsigned long, unsigned long)>:
+  ed:	c5 fa 59 04 87       	vmulss (%rdi,%rax,4),%xmm0,%xmm0
+ 115:	c5 fa 59 04 06       	vmulss (%rsi,%rax,1),%xmm0,%xmm0
+
+0000000000000130 <evidence::axpy_scalar_f64(double, double const*, double*, unsigned long, unsigned long)>:
+ 148:	c5 fb 59 0c c7       	vmulsd (%rdi,%rax,8),%xmm0,%xmm1
+ 14d:	c5 f3 58 0c c6       	vaddsd (%rsi,%rax,8),%xmm1,%xmm1
+ 170:	c5 fb 59 0c 07       	vmulsd (%rdi,%rax,1),%xmm0,%xmm1
+ 179:	c5 f3 58 0c 06       	vaddsd (%rsi,%rax,1),%xmm1,%xmm1
+
+0000000000000190 <evidence::dot_scalar_f64(double const*, double const*, unsigned long, unsigned long)>:
+ 1ad:	c5 fb 59 04 c7       	vmulsd (%rdi,%rax,8),%xmm0,%xmm0
+ 1b6:	c5 f3 58 c8          	vaddsd %xmm0,%xmm1,%xmm1
+ 1d5:	c5 fb 59 04 06       	vmulsd (%rsi,%rax,1),%xmm0,%xmm0
+ 1e1:	c5 f3 58 c8          	vaddsd %xmm0,%xmm1,%xmm1
+
+0000000000000200 <evidence::multiply_scalar_f64(double const*, double const*, double*, unsigned long, unsigned long)>:
+ 21d:	c5 fb 59 04 c7       	vmulsd (%rdi,%rax,8),%xmm0,%xmm0
+ 245:	c5 fb 59 04 06       	vmulsd (%rsi,%rax,1),%xmm0,%xmm0

@@ -1,0 +1,65 @@
+0000000000000000 <evidence::axpy_auto_f32(float, float const*, float*, unsigned long, unsigned long)>:
+  40:	c5 ec 59 0c 07       	vmulps (%rdi,%rax,1),%ymm2,%ymm1
+  45:	c5 f4 58 0c 06       	vaddps (%rsi,%rax,1),%ymm1,%ymm1
+  84:	c5 f0 59 0c 87       	vmulps (%rdi,%rax,4),%xmm1,%xmm1
+  89:	c4 c1 70 58 08       	vaddps (%r8),%xmm1,%xmm1
+  aa:	c5 fa 59 0c 87       	vmulss (%rdi,%rax,4),%xmm0,%xmm1
+  b3:	c4 c1 72 58 08       	vaddss (%r8),%xmm1,%xmm1
+  cb:	c5 fa 59 4c 0f 04    	vmulss 0x4(%rdi,%rcx,1),%xmm0,%xmm1
+  d5:	c4 c1 72 58 08       	vaddss (%r8),%xmm1,%xmm1
+  e9:	c5 fa 59 44 0f 08    	vmulss 0x8(%rdi,%rcx,1),%xmm0,%xmm0
+  ef:	c5 fa 58 00          	vaddss (%rax),%xmm0,%xmm0
+ 110:	c5 fa 59 0c 07       	vmulss (%rdi,%rax,1),%xmm0,%xmm1
+ 119:	c5 f2 58 0c 06       	vaddss (%rsi,%rax,1),%xmm1,%xmm1
+
+0000000000000140 <evidence::dot_auto_f32(float const*, float const*, unsigned long, unsigned long)>:
+ 185:	c5 dc 59 0c 06       	vmulps (%rsi,%rax,1),%ymm4,%ymm1
+ 18e:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+ 19c:	c5 fa 58 c3          	vaddss %xmm3,%xmm0,%xmm0
+ 1aa:	c5 fa 58 c3          	vaddss %xmm3,%xmm0,%xmm0
+ 1ae:	c5 fa 58 c2          	vaddss %xmm2,%xmm0,%xmm0
+ 1b7:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+ 1bb:	c5 fa 58 c2          	vaddss %xmm2,%xmm0,%xmm0
+ 1c8:	c5 fa 58 c2          	vaddss %xmm2,%xmm0,%xmm0
+ 1cc:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+ 1fd:	c5 d0 59 0c 86       	vmulps (%rsi,%rax,4),%xmm5,%xmm1
+ 20f:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+ 218:	c5 fa 58 c2          	vaddss %xmm2,%xmm0,%xmm0
+
+00000000000002d0 <evidence::multiply_auto_f32(float const*, float const*, float*, unsigned long, unsigned long)>:
+ 30d:	c5 f4 59 04 06       	vmulps (%rsi,%rax,1),%ymm1,%ymm0
+ 348:	c5 e8 59 04 86       	vmulps (%rsi,%rax,4),%xmm2,%xmm0
+ 367:	c5 fa 59 04 87       	vmulss (%rdi,%rax,4),%xmm0,%xmm0
+ 389:	c4 a1 7a 59 44 06 04 	vmulss 0x4(%rsi,%r8,1),%xmm0,%xmm0
+ 3a7:	c4 a1 7a 59 44 06 08 	vmulss 0x8(%rsi,%r8,1),%xmm0,%xmm0
+ 3d5:	c5 fa 59 04 06       	vmulss (%rsi,%rax,1),%xmm0,%xmm0
+
+0000000000000400 <evidence::axpy_auto_f64(double, double const*, double*, unsigned long, unsigned long)>:
+ 440:	c5 ed 59 0c 07       	vmulpd (%rdi,%rax,1),%ymm2,%ymm1
+ 445:	c5 f5 58 0c 06       	vaddpd (%rsi,%rax,1),%ymm1,%ymm1
+ 478:	c5 f1 59 0c c7       	vmulpd (%rdi,%rax,8),%xmm1,%xmm1
+ 47d:	c5 f1 58 09          	vaddpd (%rcx),%xmm1,%xmm1
+ 495:	c5 fb 59 04 c7       	vmulsd (%rdi,%rax,8),%xmm0,%xmm0
+ 49a:	c5 fb 58 02          	vaddsd (%rdx),%xmm0,%xmm0
+ 4c0:	c5 fb 59 0c 07       	vmulsd (%rdi,%rax,1),%xmm0,%xmm1
+ 4c9:	c5 f3 58 0c 06       	vaddsd (%rsi,%rax,1),%xmm1,%xmm1
+
+00000000000004e0 <evidence::dot_auto_f64(double const*, double const*, unsigned long, unsigned long)>:
+ 525:	c5 dd 59 0c 06       	vmulpd (%rsi,%rax,1),%ymm4,%ymm1
+ 52e:	c5 fb 58 c1          	vaddsd %xmm1,%xmm0,%xmm0
+ 53c:	c5 fb 58 c2          	vaddsd %xmm2,%xmm0,%xmm0
+ 540:	c5 fb 58 c1          	vaddsd %xmm1,%xmm0,%xmm0
+ 548:	c5 fb 58 c1          	vaddsd %xmm1,%xmm0,%xmm0
+ 56e:	c5 d1 59 0c c6       	vmulpd (%rsi,%rax,8),%xmm5,%xmm1
+ 573:	c5 fb 58 c1          	vaddsd %xmm1,%xmm0,%xmm0
+ 57b:	c5 f3 58 c0          	vaddsd %xmm0,%xmm1,%xmm0
+ 590:	c5 f3 59 0c c6       	vmulsd (%rsi,%rax,8),%xmm1,%xmm1
+ 595:	c5 fb 58 c1          	vaddsd %xmm1,%xmm0,%xmm0
+ 5c5:	c5 f3 59 0c 06       	vmulsd (%rsi,%rax,1),%xmm1,%xmm1
+ 5d1:	c5 fb 58 c1          	vaddsd %xmm1,%xmm0,%xmm0
+
+00000000000005f0 <evidence::multiply_auto_f64(double const*, double const*, double*, unsigned long, unsigned long)>:
+ 62d:	c5 f5 59 04 06       	vmulpd (%rsi,%rax,1),%ymm1,%ymm0
+ 65d:	c5 e9 59 04 c6       	vmulpd (%rsi,%rax,8),%xmm2,%xmm0
+ 678:	c5 fb 59 04 c6       	vmulsd (%rsi,%rax,8),%xmm0,%xmm0
+ 6a5:	c5 fb 59 04 06       	vmulsd (%rsi,%rax,1),%xmm0,%xmm0

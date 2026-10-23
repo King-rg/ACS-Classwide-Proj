@@ -1,0 +1,1313 @@
+
+/home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T002553Z/build-clang/simd.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <evidence::axpy_simd_f32(float, float const*, float*, unsigned long, unsigned long)>:
+       0:	55                   	push   %rbp
+       1:	41 57                	push   %r15
+       3:	41 56                	push   %r14
+       5:	53                   	push   %rbx
+       6:	c4 e2 7d 18 c8       	vbroadcastss %xmm0,%ymm1
+       b:	48 83 fa 08          	cmp    $0x8,%rdx
+       f:	72 1b                	jb     2c <evidence::axpy_simd_f32(float, float const*, float*, unsigned long, unsigned long)+0x2c>
+      11:	48 83 f9 01          	cmp    $0x1,%rcx
+      15:	75 1c                	jne    33 <evidence::axpy_simd_f32(float, float const*, float*, unsigned long, unsigned long)+0x33>
+      17:	4c 8d 42 f8          	lea    -0x8(%rdx),%r8
+      1b:	49 83 f8 08          	cmp    $0x8,%r8
+      1f:	0f 83 1b 01 00 00    	jae    140 <evidence::axpy_simd_f32(float, float const*, float*, unsigned long, unsigned long)+0x140>
+      25:	31 c0                	xor    %eax,%eax
+      27:	e9 4f 01 00 00       	jmp    17b <evidence::axpy_simd_f32(float, float const*, float*, unsigned long, unsigned long)+0x17b>
+      2c:	31 c0                	xor    %eax,%eax
+      2e:	e9 61 01 00 00       	jmp    194 <evidence::axpy_simd_f32(float, float const*, float*, unsigned long, unsigned long)+0x194>
+      33:	8d 04 09             	lea    (%rcx,%rcx,1),%eax
+      36:	44 8d 0c 8d 00 00 00 	lea    0x0(,%rcx,4),%r9d
+      3d:	00 
+      3e:	44 8d 14 cd 00 00 00 	lea    0x0(,%rcx,8),%r10d
+      45:	00 
+      46:	41 29 ca             	sub    %ecx,%r10d
+      49:	4c 8d 04 8d 00 00 00 	lea    0x0(,%rcx,4),%r8
+      50:	00 
+      51:	44 8d 1c 49          	lea    (%rcx,%rcx,2),%r11d
+      55:	8d 1c 89             	lea    (%rcx,%rcx,4),%ebx
+      58:	8d 2c 40             	lea    (%rax,%rax,2),%ebp
+      5b:	c4 c1 79 6e d1       	vmovd  %r9d,%xmm2
+      60:	c4 e3 69 22 d3 01    	vpinsrd $0x1,%ebx,%xmm2,%xmm2
+      66:	c4 e3 69 22 d5 02    	vpinsrd $0x2,%ebp,%xmm2,%xmm2
+      6c:	c4 c3 69 22 d2 03    	vpinsrd $0x3,%r10d,%xmm2,%xmm2
+      72:	c4 c1 79 6e db       	vmovd  %r11d,%xmm3
+      77:	c5 f9 6e e0          	vmovd  %eax,%xmm4
+      7b:	c5 d9 62 db          	vpunpckldq %xmm3,%xmm4,%xmm3
+      7f:	c5 f9 6e e1          	vmovd  %ecx,%xmm4
+      83:	c5 d8 c6 db 41       	vshufps $0x41,%xmm3,%xmm4,%xmm3
+      88:	c4 e3 65 18 d2 01    	vinsertf128 $0x1,%xmm2,%ymm3,%ymm2
+      8e:	49 89 c9             	mov    %rcx,%r9
+      91:	49 c1 e1 05          	shl    $0x5,%r9
+      95:	31 c0                	xor    %eax,%eax
+      97:	4f 8d 14 00          	lea    (%r8,%r8,1),%r10
+      9b:	49 89 fb             	mov    %rdi,%r11
+      9e:	48 89 f3             	mov    %rsi,%rbx
+      a1:	66 66 66 66 66 66 2e 	data16 data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+      a8:	0f 1f 84 00 00 00 00 
+      af:	00 
+      b0:	c5 e5 76 db          	vpcmpeqd %ymm3,%ymm3,%ymm3
+      b4:	c5 d8 57 e4          	vxorps %xmm4,%xmm4,%xmm4
+      b8:	c4 c2 65 92 24 93    	vgatherdps %ymm3,(%r11,%ymm2,4),%ymm4
+      be:	c5 e5 76 db          	vpcmpeqd %ymm3,%ymm3,%ymm3
+      c2:	c5 d0 57 ed          	vxorps %xmm5,%xmm5,%xmm5
+      c6:	c4 e2 65 92 2c 93    	vgatherdps %ymm3,(%rbx,%ymm2,4),%ymm5
+      cc:	c5 dc 59 d9          	vmulps %ymm1,%ymm4,%ymm3
+      d0:	c5 e4 58 dd          	vaddps %ymm5,%ymm3,%ymm3
+      d4:	c5 fa 11 1b          	vmovss %xmm3,(%rbx)
+      d8:	c4 e3 79 17 1c 8b 01 	vextractps $0x1,%xmm3,(%rbx,%rcx,4)
+      df:	4e 8d 34 03          	lea    (%rbx,%r8,1),%r14
+      e3:	c4 e3 79 17 1c cb 02 	vextractps $0x2,%xmm3,(%rbx,%rcx,8)
+      ea:	4d 01 c6             	add    %r8,%r14
+      ed:	c4 c3 79 17 1c 8e 03 	vextractps $0x3,%xmm3,(%r14,%rcx,4)
+      f4:	c4 e3 7d 19 db 01    	vextractf128 $0x1,%ymm3,%xmm3
+      fa:	c4 c1 7a 11 1c ce    	vmovss %xmm3,(%r14,%rcx,8)
+     100:	4d 01 d6             	add    %r10,%r14
+     103:	4d 8d 3c 8e          	lea    (%r14,%rcx,4),%r15
+     107:	c4 c3 79 17 1c 8e 01 	vextractps $0x1,%xmm3,(%r14,%rcx,4)
+     10e:	c4 83 79 17 1c 38 02 	vextractps $0x2,%xmm3,(%r8,%r15,1)
+     115:	4d 01 c7             	add    %r8,%r15
+     118:	c4 83 79 17 1c 38 03 	vextractps $0x3,%xmm3,(%r8,%r15,1)
+     11f:	4c 01 cb             	add    %r9,%rbx
+     122:	4d 01 cb             	add    %r9,%r11
+     125:	4c 8d 34 02          	lea    (%rdx,%rax,1),%r14
+     129:	49 83 c6 f8          	add    $0xfffffffffffffff8,%r14
+     12d:	48 83 c0 f8          	add    $0xfffffffffffffff8,%rax
+     131:	49 83 fe 07          	cmp    $0x7,%r14
+     135:	0f 87 75 ff ff ff    	ja     b0 <evidence::axpy_simd_f32(float, float const*, float*, unsigned long, unsigned long)+0xb0>
+     13b:	48 f7 d8             	neg    %rax
+     13e:	eb 54                	jmp    194 <evidence::axpy_simd_f32(float, float const*, float*, unsigned long, unsigned long)+0x194>
+     140:	4d 89 c1             	mov    %r8,%r9
+     143:	49 c1 e9 03          	shr    $0x3,%r9
+     147:	49 ff c1             	inc    %r9
+     14a:	49 83 e1 fe          	and    $0xfffffffffffffffe,%r9
+     14e:	31 c0                	xor    %eax,%eax
+     150:	c5 f4 59 14 87       	vmulps (%rdi,%rax,4),%ymm1,%ymm2
+     155:	c5 ec 58 14 86       	vaddps (%rsi,%rax,4),%ymm2,%ymm2
+     15a:	c5 fc 11 14 86       	vmovups %ymm2,(%rsi,%rax,4)
+     15f:	c5 f4 59 54 87 20    	vmulps 0x20(%rdi,%rax,4),%ymm1,%ymm2
+     165:	c5 ec 58 54 86 20    	vaddps 0x20(%rsi,%rax,4),%ymm2,%ymm2
+     16b:	c5 fc 11 54 86 20    	vmovups %ymm2,0x20(%rsi,%rax,4)
+     171:	48 83 c0 10          	add    $0x10,%rax
+     175:	49 83 c1 fe          	add    $0xfffffffffffffffe,%r9
+     179:	75 d5                	jne    150 <evidence::axpy_simd_f32(float, float const*, float*, unsigned long, unsigned long)+0x150>
+     17b:	41 f6 c0 08          	test   $0x8,%r8b
+     17f:	75 13                	jne    194 <evidence::axpy_simd_f32(float, float const*, float*, unsigned long, unsigned long)+0x194>
+     181:	c5 f4 59 14 87       	vmulps (%rdi,%rax,4),%ymm1,%ymm2
+     186:	c5 ec 58 14 86       	vaddps (%rsi,%rax,4),%ymm2,%ymm2
+     18b:	c5 fc 11 14 86       	vmovups %ymm2,(%rsi,%rax,4)
+     190:	48 83 c0 08          	add    $0x8,%rax
+     194:	49 89 d1             	mov    %rdx,%r9
+     197:	49 29 c1             	sub    %rax,%r9
+     19a:	0f 86 3b 01 00 00    	jbe    2db <evidence::axpy_simd_f32(float, float const*, float*, unsigned long, unsigned long)+0x2db>
+     1a0:	49 83 f9 20          	cmp    $0x20,%r9
+     1a4:	72 28                	jb     1ce <evidence::axpy_simd_f32(float, float const*, float*, unsigned long, unsigned long)+0x1ce>
+     1a6:	48 83 f9 01          	cmp    $0x1,%rcx
+     1aa:	75 22                	jne    1ce <evidence::axpy_simd_f32(float, float const*, float*, unsigned long, unsigned long)+0x1ce>
+     1ac:	4c 8d 04 86          	lea    (%rsi,%rax,4),%r8
+     1b0:	4c 8d 14 97          	lea    (%rdi,%rdx,4),%r10
+     1b4:	4d 39 d0             	cmp    %r10,%r8
+     1b7:	0f 83 a2 00 00 00    	jae    25f <evidence::axpy_simd_f32(float, float const*, float*, unsigned long, unsigned long)+0x25f>
+     1bd:	4c 8d 04 96          	lea    (%rsi,%rdx,4),%r8
+     1c1:	4c 8d 14 87          	lea    (%rdi,%rax,4),%r10
+     1c5:	4d 39 c2             	cmp    %r8,%r10
+     1c8:	0f 83 91 00 00 00    	jae    25f <evidence::axpy_simd_f32(float, float const*, float*, unsigned long, unsigned long)+0x25f>
+     1ce:	49 89 c0             	mov    %rax,%r8
+     1d1:	89 d0                	mov    %edx,%eax
+     1d3:	44 29 c0             	sub    %r8d,%eax
+     1d6:	4d 89 c1             	mov    %r8,%r9
+     1d9:	a8 01                	test   $0x1,%al
+     1db:	74 1a                	je     1f7 <evidence::axpy_simd_f32(float, float const*, float*, unsigned long, unsigned long)+0x1f7>
+     1dd:	4c 89 c0             	mov    %r8,%rax
+     1e0:	48 0f af c1          	imul   %rcx,%rax
+     1e4:	c5 fa 59 0c 87       	vmulss (%rdi,%rax,4),%xmm0,%xmm1
+     1e9:	c5 f2 58 0c 86       	vaddss (%rsi,%rax,4),%xmm1,%xmm1
+     1ee:	c5 fa 11 0c 86       	vmovss %xmm1,(%rsi,%rax,4)
+     1f3:	4d 8d 48 01          	lea    0x1(%r8),%r9
+     1f7:	48 8d 42 ff          	lea    -0x1(%rdx),%rax
+     1fb:	49 39 c0             	cmp    %rax,%r8
+     1fe:	0f 84 d7 00 00 00    	je     2db <evidence::axpy_simd_f32(float, float const*, float*, unsigned long, unsigned long)+0x2db>
+     204:	4c 29 ca             	sub    %r9,%rdx
+     207:	4d 8d 41 01          	lea    0x1(%r9),%r8
+     20b:	4c 0f af c1          	imul   %rcx,%r8
+     20f:	4a 8d 04 86          	lea    (%rsi,%r8,4),%rax
+     213:	4e 8d 04 87          	lea    (%rdi,%r8,4),%r8
+     217:	4c 0f af c9          	imul   %rcx,%r9
+     21b:	48 c1 e1 03          	shl    $0x3,%rcx
+     21f:	4a 8d 3c 8f          	lea    (%rdi,%r9,4),%rdi
+     223:	4a 8d 34 8e          	lea    (%rsi,%r9,4),%rsi
+     227:	45 31 c9             	xor    %r9d,%r9d
+     22a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+     230:	c4 a1 7a 59 0c 0f    	vmulss (%rdi,%r9,1),%xmm0,%xmm1
+     236:	c4 a1 72 58 0c 0e    	vaddss (%rsi,%r9,1),%xmm1,%xmm1
+     23c:	c4 a1 7a 11 0c 0e    	vmovss %xmm1,(%rsi,%r9,1)
+     242:	c4 81 7a 59 0c 08    	vmulss (%r8,%r9,1),%xmm0,%xmm1
+     248:	c4 a1 72 58 0c 08    	vaddss (%rax,%r9,1),%xmm1,%xmm1
+     24e:	c4 a1 7a 11 0c 08    	vmovss %xmm1,(%rax,%r9,1)
+     254:	49 01 c9             	add    %rcx,%r9
+     257:	48 83 c2 fe          	add    $0xfffffffffffffffe,%rdx
+     25b:	75 d3                	jne    230 <evidence::axpy_simd_f32(float, float const*, float*, unsigned long, unsigned long)+0x230>
+     25d:	eb 7c                	jmp    2db <evidence::axpy_simd_f32(float, float const*, float*, unsigned long, unsigned long)+0x2db>
+     25f:	4d 89 ca             	mov    %r9,%r10
+     262:	49 83 e2 e0          	and    $0xffffffffffffffe0,%r10
+     266:	4e 8d 04 10          	lea    (%rax,%r10,1),%r8
+     26a:	4c 8d 1c 87          	lea    (%rdi,%rax,4),%r11
+     26e:	49 83 c3 60          	add    $0x60,%r11
+     272:	48 8d 04 86          	lea    (%rsi,%rax,4),%rax
+     276:	48 83 c0 60          	add    $0x60,%rax
+     27a:	31 db                	xor    %ebx,%ebx
+     27c:	0f 1f 40 00          	nopl   0x0(%rax)
+     280:	c4 c1 74 59 54 9b a0 	vmulps -0x60(%r11,%rbx,4),%ymm1,%ymm2
+     287:	c4 c1 74 59 5c 9b c0 	vmulps -0x40(%r11,%rbx,4),%ymm1,%ymm3
+     28e:	c4 c1 74 59 64 9b e0 	vmulps -0x20(%r11,%rbx,4),%ymm1,%ymm4
+     295:	c4 c1 74 59 2c 9b    	vmulps (%r11,%rbx,4),%ymm1,%ymm5
+     29b:	c5 ec 58 54 98 a0    	vaddps -0x60(%rax,%rbx,4),%ymm2,%ymm2
+     2a1:	c5 e4 58 5c 98 c0    	vaddps -0x40(%rax,%rbx,4),%ymm3,%ymm3
+     2a7:	c5 dc 58 64 98 e0    	vaddps -0x20(%rax,%rbx,4),%ymm4,%ymm4
+     2ad:	c5 d4 58 2c 98       	vaddps (%rax,%rbx,4),%ymm5,%ymm5
+     2b2:	c5 fc 11 54 98 a0    	vmovups %ymm2,-0x60(%rax,%rbx,4)
+     2b8:	c5 fc 11 5c 98 c0    	vmovups %ymm3,-0x40(%rax,%rbx,4)
+     2be:	c5 fc 11 64 98 e0    	vmovups %ymm4,-0x20(%rax,%rbx,4)
+     2c4:	c5 fc 11 2c 98       	vmovups %ymm5,(%rax,%rbx,4)
+     2c9:	48 83 c3 20          	add    $0x20,%rbx
+     2cd:	49 39 da             	cmp    %rbx,%r10
+     2d0:	75 ae                	jne    280 <evidence::axpy_simd_f32(float, float const*, float*, unsigned long, unsigned long)+0x280>
+     2d2:	4d 39 d1             	cmp    %r10,%r9
+     2d5:	0f 85 f6 fe ff ff    	jne    1d1 <evidence::axpy_simd_f32(float, float const*, float*, unsigned long, unsigned long)+0x1d1>
+     2db:	5b                   	pop    %rbx
+     2dc:	41 5e                	pop    %r14
+     2de:	41 5f                	pop    %r15
+     2e0:	5d                   	pop    %rbp
+     2e1:	c5 f8 77             	vzeroupper
+     2e4:	c3                   	ret
+     2e5:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+     2ec:	00 00 00 00 
+
+00000000000002f0 <evidence::dot_simd_f32(float const*, float const*, unsigned long, unsigned long)>:
+     2f0:	41 57                	push   %r15
+     2f2:	41 56                	push   %r14
+     2f4:	53                   	push   %rbx
+     2f5:	48 83 fa 08          	cmp    $0x8,%rdx
+     2f9:	72 30                	jb     32b <evidence::dot_simd_f32(float const*, float const*, unsigned long, unsigned long)+0x3b>
+     2fb:	48 83 f9 01          	cmp    $0x1,%rcx
+     2ff:	75 35                	jne    336 <evidence::dot_simd_f32(float const*, float const*, unsigned long, unsigned long)+0x46>
+     301:	48 8d 42 f8          	lea    -0x8(%rdx),%rax
+     305:	49 89 c1             	mov    %rax,%r9
+     308:	49 c1 e9 03          	shr    $0x3,%r9
+     30c:	49 ff c1             	inc    %r9
+     30f:	45 89 c8             	mov    %r9d,%r8d
+     312:	41 83 e0 03          	and    $0x3,%r8d
+     316:	48 83 f8 18          	cmp    $0x18,%rax
+     31a:	0f 83 83 00 00 00    	jae    3a3 <evidence::dot_simd_f32(float const*, float const*, unsigned long, unsigned long)+0xb3>
+     320:	c5 f8 57 c0          	vxorps %xmm0,%xmm0,%xmm0
+     324:	31 c0                	xor    %eax,%eax
+     326:	e9 cd 00 00 00       	jmp    3f8 <evidence::dot_simd_f32(float const*, float const*, unsigned long, unsigned long)+0x108>
+     32b:	c5 f8 57 c0          	vxorps %xmm0,%xmm0,%xmm0
+     32f:	31 c0                	xor    %eax,%eax
+     331:	e9 d7 01 00 00       	jmp    50d <evidence::dot_simd_f32(float const*, float const*, unsigned long, unsigned long)+0x21d>
+     336:	8d 04 09             	lea    (%rcx,%rcx,1),%eax
+     339:	44 8d 04 8d 00 00 00 	lea    0x0(,%rcx,4),%r8d
+     340:	00 
+     341:	44 8d 0c cd 00 00 00 	lea    0x0(,%rcx,8),%r9d
+     348:	00 
+     349:	41 29 c9             	sub    %ecx,%r9d
+     34c:	44 8d 14 49          	lea    (%rcx,%rcx,2),%r10d
+     350:	44 8d 1c 89          	lea    (%rcx,%rcx,4),%r11d
+     354:	8d 1c 40             	lea    (%rax,%rax,2),%ebx
+     357:	c4 c1 79 6e c0       	vmovd  %r8d,%xmm0
+     35c:	c4 c3 79 22 c3 01    	vpinsrd $0x1,%r11d,%xmm0,%xmm0
+     362:	c4 e3 79 22 c3 02    	vpinsrd $0x2,%ebx,%xmm0,%xmm0
+     368:	c4 c3 79 22 c1 03    	vpinsrd $0x3,%r9d,%xmm0,%xmm0
+     36e:	c4 c1 79 6e ca       	vmovd  %r10d,%xmm1
+     373:	c5 f9 6e d0          	vmovd  %eax,%xmm2
+     377:	c5 e9 62 c9          	vpunpckldq %xmm1,%xmm2,%xmm1
+     37b:	c5 f9 6e d1          	vmovd  %ecx,%xmm2
+     37f:	c5 e8 c6 c9 41       	vshufps $0x41,%xmm1,%xmm2,%xmm1
+     384:	c4 e3 75 18 c8 01    	vinsertf128 $0x1,%xmm0,%ymm1,%ymm1
+     38a:	4c 8d 42 f8          	lea    -0x8(%rdx),%r8
+     38e:	49 83 f8 08          	cmp    $0x8,%r8
+     392:	0f 83 94 00 00 00    	jae    42c <evidence::dot_simd_f32(float const*, float const*, unsigned long, unsigned long)+0x13c>
+     398:	c5 f8 57 c0          	vxorps %xmm0,%xmm0,%xmm0
+     39c:	31 c0                	xor    %eax,%eax
+     39e:	e9 2d 01 00 00       	jmp    4d0 <evidence::dot_simd_f32(float const*, float const*, unsigned long, unsigned long)+0x1e0>
+     3a3:	49 83 e1 fc          	and    $0xfffffffffffffffc,%r9
+     3a7:	c5 f8 57 c0          	vxorps %xmm0,%xmm0,%xmm0
+     3ab:	31 c0                	xor    %eax,%eax
+     3ad:	0f 1f 00             	nopl   (%rax)
+     3b0:	c5 fc 10 0c 86       	vmovups (%rsi,%rax,4),%ymm1
+     3b5:	c5 fc 10 54 86 20    	vmovups 0x20(%rsi,%rax,4),%ymm2
+     3bb:	c5 fc 10 5c 86 40    	vmovups 0x40(%rsi,%rax,4),%ymm3
+     3c1:	c5 fc 10 64 86 60    	vmovups 0x60(%rsi,%rax,4),%ymm4
+     3c7:	c5 f4 59 0c 87       	vmulps (%rdi,%rax,4),%ymm1,%ymm1
+     3cc:	c5 ec 59 54 87 20    	vmulps 0x20(%rdi,%rax,4),%ymm2,%ymm2
+     3d2:	c5 e4 59 5c 87 40    	vmulps 0x40(%rdi,%rax,4),%ymm3,%ymm3
+     3d8:	c5 f4 58 c0          	vaddps %ymm0,%ymm1,%ymm0
+     3dc:	c5 e4 58 ca          	vaddps %ymm2,%ymm3,%ymm1
+     3e0:	c5 dc 59 54 87 60    	vmulps 0x60(%rdi,%rax,4),%ymm4,%ymm2
+     3e6:	c5 f4 58 c0          	vaddps %ymm0,%ymm1,%ymm0
+     3ea:	c5 ec 58 c0          	vaddps %ymm0,%ymm2,%ymm0
+     3ee:	48 83 c0 20          	add    $0x20,%rax
+     3f2:	49 83 c1 fc          	add    $0xfffffffffffffffc,%r9
+     3f6:	75 b8                	jne    3b0 <evidence::dot_simd_f32(float const*, float const*, unsigned long, unsigned long)+0xc0>
+     3f8:	4d 85 c0             	test   %r8,%r8
+     3fb:	0f 84 0c 01 00 00    	je     50d <evidence::dot_simd_f32(float const*, float const*, unsigned long, unsigned long)+0x21d>
+     401:	66 66 66 66 66 66 2e 	data16 data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+     408:	0f 1f 84 00 00 00 00 
+     40f:	00 
+     410:	c5 fc 10 0c 86       	vmovups (%rsi,%rax,4),%ymm1
+     415:	c5 f4 59 0c 87       	vmulps (%rdi,%rax,4),%ymm1,%ymm1
+     41a:	c5 f4 58 c0          	vaddps %ymm0,%ymm1,%ymm0
+     41e:	48 83 c0 08          	add    $0x8,%rax
+     422:	49 ff c8             	dec    %r8
+     425:	75 e9                	jne    410 <evidence::dot_simd_f32(float const*, float const*, unsigned long, unsigned long)+0x120>
+     427:	e9 e1 00 00 00       	jmp    50d <evidence::dot_simd_f32(float const*, float const*, unsigned long, unsigned long)+0x21d>
+     42c:	4c 89 c0             	mov    %r8,%rax
+     42f:	48 c1 e8 03          	shr    $0x3,%rax
+     433:	48 ff c0             	inc    %rax
+     436:	49 b9 fc ff ff ff ff 	movabs $0x3ffffffffffffffc,%r9
+     43d:	ff ff 3f 
+     440:	49 83 c9 02          	or     $0x2,%r9
+     444:	49 21 c1             	and    %rax,%r9
+     447:	49 89 ca             	mov    %rcx,%r10
+     44a:	49 c1 e2 05          	shl    $0x5,%r10
+     44e:	49 89 cb             	mov    %rcx,%r11
+     451:	49 c1 e3 06          	shl    $0x6,%r11
+     455:	c5 f8 57 c0          	vxorps %xmm0,%xmm0,%xmm0
+     459:	31 c0                	xor    %eax,%eax
+     45b:	48 89 fb             	mov    %rdi,%rbx
+     45e:	49 89 f6             	mov    %rsi,%r14
+     461:	66 66 66 66 66 66 2e 	data16 data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+     468:	0f 1f 84 00 00 00 00 
+     46f:	00 
+     470:	c5 ed 76 d2          	vpcmpeqd %ymm2,%ymm2,%ymm2
+     474:	c5 e0 57 db          	vxorps %xmm3,%xmm3,%xmm3
+     478:	c4 e2 6d 92 1c 8b    	vgatherdps %ymm2,(%rbx,%ymm1,4),%ymm3
+     47e:	c5 ed 76 d2          	vpcmpeqd %ymm2,%ymm2,%ymm2
+     482:	c5 d8 57 e4          	vxorps %xmm4,%xmm4,%xmm4
+     486:	c4 c2 6d 92 24 8e    	vgatherdps %ymm2,(%r14,%ymm1,4),%ymm4
+     48c:	c5 dc 59 d3          	vmulps %ymm3,%ymm4,%ymm2
+     490:	c5 ec 58 c0          	vaddps %ymm0,%ymm2,%ymm0
+     494:	4e 8d 3c 13          	lea    (%rbx,%r10,1),%r15
+     498:	c5 ed 76 d2          	vpcmpeqd %ymm2,%ymm2,%ymm2
+     49c:	c5 e0 57 db          	vxorps %xmm3,%xmm3,%xmm3
+     4a0:	c4 c2 6d 92 1c 8f    	vgatherdps %ymm2,(%r15,%ymm1,4),%ymm3
+     4a6:	4f 8d 3c 16          	lea    (%r14,%r10,1),%r15
+     4aa:	c5 ed 76 d2          	vpcmpeqd %ymm2,%ymm2,%ymm2
+     4ae:	c5 d8 57 e4          	vxorps %xmm4,%xmm4,%xmm4
+     4b2:	c4 c2 6d 92 24 8f    	vgatherdps %ymm2,(%r15,%ymm1,4),%ymm4
+     4b8:	c5 dc 59 d3          	vmulps %ymm3,%ymm4,%ymm2
+     4bc:	c5 ec 58 c0          	vaddps %ymm0,%ymm2,%ymm0
+     4c0:	48 83 c0 10          	add    $0x10,%rax
+     4c4:	4d 01 de             	add    %r11,%r14
+     4c7:	4c 01 db             	add    %r11,%rbx
+     4ca:	49 83 c1 fe          	add    $0xfffffffffffffffe,%r9
+     4ce:	75 a0                	jne    470 <evidence::dot_simd_f32(float const*, float const*, unsigned long, unsigned long)+0x180>
+     4d0:	41 f6 c0 08          	test   $0x8,%r8b
+     4d4:	75 37                	jne    50d <evidence::dot_simd_f32(float const*, float const*, unsigned long, unsigned long)+0x21d>
+     4d6:	49 89 c0             	mov    %rax,%r8
+     4d9:	4c 0f af c1          	imul   %rcx,%r8
+     4dd:	4e 8d 0c 87          	lea    (%rdi,%r8,4),%r9
+     4e1:	c5 ed 76 d2          	vpcmpeqd %ymm2,%ymm2,%ymm2
+     4e5:	c5 e0 57 db          	vxorps %xmm3,%xmm3,%xmm3
+     4e9:	c5 dd 76 e4          	vpcmpeqd %ymm4,%ymm4,%ymm4
+     4ed:	c5 d0 57 ed          	vxorps %xmm5,%xmm5,%xmm5
+     4f1:	c4 c2 5d 92 2c 89    	vgatherdps %ymm4,(%r9,%ymm1,4),%ymm5
+     4f7:	4e 8d 04 86          	lea    (%rsi,%r8,4),%r8
+     4fb:	c4 c2 6d 92 1c 88    	vgatherdps %ymm2,(%r8,%ymm1,4),%ymm3
+     501:	c5 e4 59 cd          	vmulps %ymm5,%ymm3,%ymm1
+     505:	c5 f4 58 c0          	vaddps %ymm0,%ymm1,%ymm0
+     509:	48 83 c0 08          	add    $0x8,%rax
+     50d:	c4 e3 7d 19 c1 01    	vextractf128 $0x1,%ymm0,%xmm1
+     513:	c5 f8 58 c1          	vaddps %xmm1,%xmm0,%xmm0
+     517:	c5 f9 c6 c8 01       	vshufpd $0x1,%xmm0,%xmm0,%xmm1
+     51c:	c5 f8 58 c1          	vaddps %xmm1,%xmm0,%xmm0
+     520:	c5 fa 16 c8          	vmovshdup %xmm0,%xmm1
+     524:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+     528:	49 89 d1             	mov    %rdx,%r9
+     52b:	49 29 c1             	sub    %rax,%r9
+     52e:	0f 86 e2 01 00 00    	jbe    716 <evidence::dot_simd_f32(float const*, float const*, unsigned long, unsigned long)+0x426>
+     534:	49 83 f9 20          	cmp    $0x20,%r9
+     538:	0f 82 21 01 00 00    	jb     65f <evidence::dot_simd_f32(float const*, float const*, unsigned long, unsigned long)+0x36f>
+     53e:	48 83 f9 01          	cmp    $0x1,%rcx
+     542:	0f 85 b4 00 00 00    	jne    5fc <evidence::dot_simd_f32(float const*, float const*, unsigned long, unsigned long)+0x30c>
+     548:	4d 89 ca             	mov    %r9,%r10
+     54b:	49 83 e2 e0          	and    $0xffffffffffffffe0,%r10
+     54f:	4e 8d 04 10          	lea    (%rax,%r10,1),%r8
+     553:	c5 f0 57 c9          	vxorps %xmm1,%xmm1,%xmm1
+     557:	c4 e3 71 0c c0 01    	vblendps $0x1,%xmm0,%xmm1,%xmm0
+     55d:	4c 8d 1c 87          	lea    (%rdi,%rax,4),%r11
+     561:	49 83 c3 60          	add    $0x60,%r11
+     565:	48 8d 04 86          	lea    (%rsi,%rax,4),%rax
+     569:	48 83 c0 60          	add    $0x60,%rax
+     56d:	c5 f0 57 c9          	vxorps %xmm1,%xmm1,%xmm1
+     571:	31 db                	xor    %ebx,%ebx
+     573:	c5 e8 57 d2          	vxorps %xmm2,%xmm2,%xmm2
+     577:	c5 e0 57 db          	vxorps %xmm3,%xmm3,%xmm3
+     57b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+     580:	c5 fc 10 64 98 a0    	vmovups -0x60(%rax,%rbx,4),%ymm4
+     586:	c5 fc 10 6c 98 c0    	vmovups -0x40(%rax,%rbx,4),%ymm5
+     58c:	c5 fc 10 74 98 e0    	vmovups -0x20(%rax,%rbx,4),%ymm6
+     592:	c5 fc 10 3c 98       	vmovups (%rax,%rbx,4),%ymm7
+     597:	c4 c1 5c 59 64 9b a0 	vmulps -0x60(%r11,%rbx,4),%ymm4,%ymm4
+     59e:	c5 dc 58 c0          	vaddps %ymm0,%ymm4,%ymm0
+     5a2:	c4 c1 54 59 64 9b c0 	vmulps -0x40(%r11,%rbx,4),%ymm5,%ymm4
+     5a9:	c5 dc 58 c9          	vaddps %ymm1,%ymm4,%ymm1
+     5ad:	c4 c1 4c 59 64 9b e0 	vmulps -0x20(%r11,%rbx,4),%ymm6,%ymm4
+     5b4:	c4 c1 44 59 2c 9b    	vmulps (%r11,%rbx,4),%ymm7,%ymm5
+     5ba:	c5 dc 58 d2          	vaddps %ymm2,%ymm4,%ymm2
+     5be:	c5 d4 58 db          	vaddps %ymm3,%ymm5,%ymm3
+     5c2:	48 83 c3 20          	add    $0x20,%rbx
+     5c6:	49 39 da             	cmp    %rbx,%r10
+     5c9:	75 b5                	jne    580 <evidence::dot_simd_f32(float const*, float const*, unsigned long, unsigned long)+0x290>
+     5cb:	c5 f4 58 c0          	vaddps %ymm0,%ymm1,%ymm0
+     5cf:	c5 ec 58 c0          	vaddps %ymm0,%ymm2,%ymm0
+     5d3:	c5 e4 58 c0          	vaddps %ymm0,%ymm3,%ymm0
+     5d7:	c4 e3 7d 19 c1 01    	vextractf128 $0x1,%ymm0,%xmm1
+     5dd:	c5 f8 58 c1          	vaddps %xmm1,%xmm0,%xmm0
+     5e1:	c5 f9 c6 c8 01       	vshufpd $0x1,%xmm0,%xmm0,%xmm1
+     5e6:	c5 f8 58 c1          	vaddps %xmm1,%xmm0,%xmm0
+     5ea:	c5 fa 16 c8          	vmovshdup %xmm0,%xmm1
+     5ee:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+     5f2:	4d 39 d1             	cmp    %r10,%r9
+     5f5:	75 08                	jne    5ff <evidence::dot_simd_f32(float const*, float const*, unsigned long, unsigned long)+0x30f>
+     5f7:	e9 1a 01 00 00       	jmp    716 <evidence::dot_simd_f32(float const*, float const*, unsigned long, unsigned long)+0x426>
+     5fc:	49 89 c0             	mov    %rax,%r8
+     5ff:	89 d0                	mov    %edx,%eax
+     601:	44 29 c0             	sub    %r8d,%eax
+     604:	83 e0 03             	and    $0x3,%eax
+     607:	74 63                	je     66c <evidence::dot_simd_f32(float const*, float const*, unsigned long, unsigned long)+0x37c>
+     609:	4d 89 c1             	mov    %r8,%r9
+     60c:	4c 0f af c9          	imul   %rcx,%r9
+     610:	49 c1 e1 02          	shl    $0x2,%r9
+     614:	4c 8d 14 8d 00 00 00 	lea    0x0(,%rcx,4),%r10
+     61b:	00 
+     61c:	48 f7 d8             	neg    %rax
+     61f:	45 31 db             	xor    %r11d,%r11d
+     622:	66 66 66 66 66 2e 0f 	data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+     629:	1f 84 00 00 00 00 00 
+     630:	c4 a1 7a 10 0c 0e    	vmovss (%rsi,%r9,1),%xmm1
+     636:	c4 a1 72 59 0c 0f    	vmulss (%rdi,%r9,1),%xmm1,%xmm1
+     63c:	c5 f2 58 c0          	vaddss %xmm0,%xmm1,%xmm0
+     640:	49 ff cb             	dec    %r11
+     643:	4d 01 d1             	add    %r10,%r9
+     646:	4c 39 d8             	cmp    %r11,%rax
+     649:	75 e5                	jne    630 <evidence::dot_simd_f32(float const*, float const*, unsigned long, unsigned long)+0x340>
+     64b:	4c 89 c3             	mov    %r8,%rbx
+     64e:	4c 29 db             	sub    %r11,%rbx
+     651:	49 29 d0             	sub    %rdx,%r8
+     654:	49 83 f8 fc          	cmp    $0xfffffffffffffffc,%r8
+     658:	76 22                	jbe    67c <evidence::dot_simd_f32(float const*, float const*, unsigned long, unsigned long)+0x38c>
+     65a:	e9 b7 00 00 00       	jmp    716 <evidence::dot_simd_f32(float const*, float const*, unsigned long, unsigned long)+0x426>
+     65f:	49 89 c0             	mov    %rax,%r8
+     662:	89 d0                	mov    %edx,%eax
+     664:	44 29 c0             	sub    %r8d,%eax
+     667:	83 e0 03             	and    $0x3,%eax
+     66a:	75 9d                	jne    609 <evidence::dot_simd_f32(float const*, float const*, unsigned long, unsigned long)+0x319>
+     66c:	4c 89 c3             	mov    %r8,%rbx
+     66f:	49 29 d0             	sub    %rdx,%r8
+     672:	49 83 f8 fc          	cmp    $0xfffffffffffffffc,%r8
+     676:	0f 87 9a 00 00 00    	ja     716 <evidence::dot_simd_f32(float const*, float const*, unsigned long, unsigned long)+0x426>
+     67c:	48 29 da             	sub    %rbx,%rdx
+     67f:	4c 8d 4b 03          	lea    0x3(%rbx),%r9
+     683:	4c 0f af c9          	imul   %rcx,%r9
+     687:	4a 8d 04 8e          	lea    (%rsi,%r9,4),%rax
+     68b:	49 89 c8             	mov    %rcx,%r8
+     68e:	49 c1 e0 04          	shl    $0x4,%r8
+     692:	4e 8d 0c 8f          	lea    (%rdi,%r9,4),%r9
+     696:	4c 8d 5b 02          	lea    0x2(%rbx),%r11
+     69a:	4c 0f af d9          	imul   %rcx,%r11
+     69e:	4e 8d 14 9e          	lea    (%rsi,%r11,4),%r10
+     6a2:	4e 8d 1c 9f          	lea    (%rdi,%r11,4),%r11
+     6a6:	4c 8d 7b 01          	lea    0x1(%rbx),%r15
+     6aa:	4c 0f af f9          	imul   %rcx,%r15
+     6ae:	4e 8d 34 be          	lea    (%rsi,%r15,4),%r14
+     6b2:	4e 8d 3c bf          	lea    (%rdi,%r15,4),%r15
+     6b6:	48 0f af d9          	imul   %rcx,%rbx
+     6ba:	48 8d 0c 9e          	lea    (%rsi,%rbx,4),%rcx
+     6be:	48 8d 34 9f          	lea    (%rdi,%rbx,4),%rsi
+     6c2:	31 ff                	xor    %edi,%edi
+     6c4:	66 66 66 2e 0f 1f 84 	data16 data16 cs nopw 0x0(%rax,%rax,1)
+     6cb:	00 00 00 00 00 
+     6d0:	c5 fa 10 0c 39       	vmovss (%rcx,%rdi,1),%xmm1
+     6d5:	c5 f2 59 0c 3e       	vmulss (%rsi,%rdi,1),%xmm1,%xmm1
+     6da:	c4 c1 7a 10 14 3e    	vmovss (%r14,%rdi,1),%xmm2
+     6e0:	c4 c1 6a 59 14 3f    	vmulss (%r15,%rdi,1),%xmm2,%xmm2
+     6e6:	c5 f2 58 c0          	vaddss %xmm0,%xmm1,%xmm0
+     6ea:	c4 c1 7a 10 0c 3a    	vmovss (%r10,%rdi,1),%xmm1
+     6f0:	c4 c1 72 59 0c 3b    	vmulss (%r11,%rdi,1),%xmm1,%xmm1
+     6f6:	c5 f2 58 ca          	vaddss %xmm2,%xmm1,%xmm1
+     6fa:	c5 fa 10 14 38       	vmovss (%rax,%rdi,1),%xmm2
+     6ff:	c4 c1 6a 59 14 39    	vmulss (%r9,%rdi,1),%xmm2,%xmm2
+     705:	c5 f2 58 c0          	vaddss %xmm0,%xmm1,%xmm0
+     709:	c5 ea 58 c0          	vaddss %xmm0,%xmm2,%xmm0
+     70d:	4c 01 c7             	add    %r8,%rdi
+     710:	48 83 c2 fc          	add    $0xfffffffffffffffc,%rdx
+     714:	75 ba                	jne    6d0 <evidence::dot_simd_f32(float const*, float const*, unsigned long, unsigned long)+0x3e0>
+     716:	5b                   	pop    %rbx
+     717:	41 5e                	pop    %r14
+     719:	41 5f                	pop    %r15
+     71b:	c5 f8 77             	vzeroupper
+     71e:	c3                   	ret
+     71f:	90                   	nop
+
+0000000000000720 <evidence::multiply_simd_f32(float const*, float const*, float*, unsigned long, unsigned long)>:
+     720:	55                   	push   %rbp
+     721:	41 57                	push   %r15
+     723:	41 56                	push   %r14
+     725:	53                   	push   %rbx
+     726:	48 83 f9 08          	cmp    $0x8,%rcx
+     72a:	72 1b                	jb     747 <evidence::multiply_simd_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x27>
+     72c:	49 83 f8 01          	cmp    $0x1,%r8
+     730:	75 1c                	jne    74e <evidence::multiply_simd_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x2e>
+     732:	4c 8d 49 f8          	lea    -0x8(%rcx),%r9
+     736:	49 83 f9 08          	cmp    $0x8,%r9
+     73a:	0f 83 16 01 00 00    	jae    856 <evidence::multiply_simd_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x136>
+     740:	31 c0                	xor    %eax,%eax
+     742:	e9 54 01 00 00       	jmp    89b <evidence::multiply_simd_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x17b>
+     747:	31 c0                	xor    %eax,%eax
+     749:	e9 66 01 00 00       	jmp    8b4 <evidence::multiply_simd_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x194>
+     74e:	43 8d 04 00          	lea    (%r8,%r8,1),%eax
+     752:	46 8d 14 85 00 00 00 	lea    0x0(,%r8,4),%r10d
+     759:	00 
+     75a:	46 8d 1c c5 00 00 00 	lea    0x0(,%r8,8),%r11d
+     761:	00 
+     762:	45 29 c3             	sub    %r8d,%r11d
+     765:	4e 8d 0c 85 00 00 00 	lea    0x0(,%r8,4),%r9
+     76c:	00 
+     76d:	43 8d 1c 80          	lea    (%r8,%r8,4),%ebx
+     771:	8d 2c 40             	lea    (%rax,%rax,2),%ebp
+     774:	c4 c1 79 6e c2       	vmovd  %r10d,%xmm0
+     779:	c4 e3 79 22 c3 01    	vpinsrd $0x1,%ebx,%xmm0,%xmm0
+     77f:	c4 e3 79 22 c5 02    	vpinsrd $0x2,%ebp,%xmm0,%xmm0
+     785:	c4 c3 79 22 c3 03    	vpinsrd $0x3,%r11d,%xmm0,%xmm0
+     78b:	47 8d 14 40          	lea    (%r8,%r8,2),%r10d
+     78f:	c4 c1 79 6e ca       	vmovd  %r10d,%xmm1
+     794:	c5 f9 6e d0          	vmovd  %eax,%xmm2
+     798:	c5 e9 62 c9          	vpunpckldq %xmm1,%xmm2,%xmm1
+     79c:	c4 c1 79 6e d0       	vmovd  %r8d,%xmm2
+     7a1:	c5 e8 c6 c9 41       	vshufps $0x41,%xmm1,%xmm2,%xmm1
+     7a6:	c4 e3 75 18 c0 01    	vinsertf128 $0x1,%xmm0,%ymm1,%ymm0
+     7ac:	4d 89 c2             	mov    %r8,%r10
+     7af:	49 c1 e2 05          	shl    $0x5,%r10
+     7b3:	31 c0                	xor    %eax,%eax
+     7b5:	4f 8d 1c 09          	lea    (%r9,%r9,1),%r11
+     7b9:	31 db                	xor    %ebx,%ebx
+     7bb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+     7c0:	4c 8d 34 1f          	lea    (%rdi,%rbx,1),%r14
+     7c4:	c5 f5 76 c9          	vpcmpeqd %ymm1,%ymm1,%ymm1
+     7c8:	c5 e8 57 d2          	vxorps %xmm2,%xmm2,%xmm2
+     7cc:	c4 c2 75 92 14 86    	vgatherdps %ymm1,(%r14,%ymm0,4),%ymm2
+     7d2:	4c 8d 34 1e          	lea    (%rsi,%rbx,1),%r14
+     7d6:	c5 f5 76 c9          	vpcmpeqd %ymm1,%ymm1,%ymm1
+     7da:	c5 e0 57 db          	vxorps %xmm3,%xmm3,%xmm3
+     7de:	c4 c2 75 92 1c 86    	vgatherdps %ymm1,(%r14,%ymm0,4),%ymm3
+     7e4:	c5 e4 59 ca          	vmulps %ymm2,%ymm3,%ymm1
+     7e8:	4c 8d 34 1a          	lea    (%rdx,%rbx,1),%r14
+     7ec:	c5 fa 11 0c 1a       	vmovss %xmm1,(%rdx,%rbx,1)
+     7f1:	c4 83 79 17 0c 86 01 	vextractps $0x1,%xmm1,(%r14,%r8,4)
+     7f8:	4f 8d 3c 0e          	lea    (%r14,%r9,1),%r15
+     7fc:	c4 83 79 17 0c c6 02 	vextractps $0x2,%xmm1,(%r14,%r8,8)
+     803:	4d 01 cf             	add    %r9,%r15
+     806:	c4 83 79 17 0c 87 03 	vextractps $0x3,%xmm1,(%r15,%r8,4)
+     80d:	c4 e3 7d 19 c9 01    	vextractf128 $0x1,%ymm1,%xmm1
+     813:	c4 81 7a 11 0c c7    	vmovss %xmm1,(%r15,%r8,8)
+     819:	4d 01 df             	add    %r11,%r15
+     81c:	c4 83 79 17 0c 87 01 	vextractps $0x1,%xmm1,(%r15,%r8,4)
+     823:	4f 8d 34 87          	lea    (%r15,%r8,4),%r14
+     827:	c4 83 79 17 0c 31 02 	vextractps $0x2,%xmm1,(%r9,%r14,1)
+     82e:	4d 01 ce             	add    %r9,%r14
+     831:	c4 83 79 17 0c 31 03 	vextractps $0x3,%xmm1,(%r9,%r14,1)
+     838:	4c 01 d3             	add    %r10,%rbx
+     83b:	4c 8d 34 01          	lea    (%rcx,%rax,1),%r14
+     83f:	49 83 c6 f8          	add    $0xfffffffffffffff8,%r14
+     843:	48 83 c0 f8          	add    $0xfffffffffffffff8,%rax
+     847:	49 83 fe 07          	cmp    $0x7,%r14
+     84b:	0f 87 6f ff ff ff    	ja     7c0 <evidence::multiply_simd_f32(float const*, float const*, float*, unsigned long, unsigned long)+0xa0>
+     851:	48 f7 d8             	neg    %rax
+     854:	eb 5e                	jmp    8b4 <evidence::multiply_simd_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x194>
+     856:	4d 89 ca             	mov    %r9,%r10
+     859:	49 c1 ea 03          	shr    $0x3,%r10
+     85d:	49 ff c2             	inc    %r10
+     860:	49 83 e2 fe          	and    $0xfffffffffffffffe,%r10
+     864:	31 c0                	xor    %eax,%eax
+     866:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+     86d:	00 00 00 
+     870:	c5 fc 10 04 86       	vmovups (%rsi,%rax,4),%ymm0
+     875:	c5 fc 59 04 87       	vmulps (%rdi,%rax,4),%ymm0,%ymm0
+     87a:	c5 fc 11 04 82       	vmovups %ymm0,(%rdx,%rax,4)
+     87f:	c5 fc 10 44 86 20    	vmovups 0x20(%rsi,%rax,4),%ymm0
+     885:	c5 fc 59 44 87 20    	vmulps 0x20(%rdi,%rax,4),%ymm0,%ymm0
+     88b:	c5 fc 11 44 82 20    	vmovups %ymm0,0x20(%rdx,%rax,4)
+     891:	48 83 c0 10          	add    $0x10,%rax
+     895:	49 83 c2 fe          	add    $0xfffffffffffffffe,%r10
+     899:	75 d5                	jne    870 <evidence::multiply_simd_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x150>
+     89b:	41 f6 c1 08          	test   $0x8,%r9b
+     89f:	75 13                	jne    8b4 <evidence::multiply_simd_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x194>
+     8a1:	c5 fc 10 04 86       	vmovups (%rsi,%rax,4),%ymm0
+     8a6:	c5 fc 59 04 87       	vmulps (%rdi,%rax,4),%ymm0,%ymm0
+     8ab:	c5 fc 11 04 82       	vmovups %ymm0,(%rdx,%rax,4)
+     8b0:	48 83 c0 08          	add    $0x8,%rax
+     8b4:	49 89 ca             	mov    %rcx,%r10
+     8b7:	49 29 c2             	sub    %rax,%r10
+     8ba:	0f 86 5d 01 00 00    	jbe    a1d <evidence::multiply_simd_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x2fd>
+     8c0:	49 83 fa 20          	cmp    $0x20,%r10
+     8c4:	0f 82 ba 00 00 00    	jb     984 <evidence::multiply_simd_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x264>
+     8ca:	49 83 f8 01          	cmp    $0x1,%r8
+     8ce:	0f 85 b0 00 00 00    	jne    984 <evidence::multiply_simd_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x264>
+     8d4:	49 89 d1             	mov    %rdx,%r9
+     8d7:	49 29 f9             	sub    %rdi,%r9
+     8da:	49 81 f9 80 00 00 00 	cmp    $0x80,%r9
+     8e1:	0f 82 9d 00 00 00    	jb     984 <evidence::multiply_simd_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x264>
+     8e7:	49 89 d1             	mov    %rdx,%r9
+     8ea:	49 29 f1             	sub    %rsi,%r9
+     8ed:	49 81 f9 80 00 00 00 	cmp    $0x80,%r9
+     8f4:	0f 82 8a 00 00 00    	jb     984 <evidence::multiply_simd_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x264>
+     8fa:	4d 89 d3             	mov    %r10,%r11
+     8fd:	49 83 e3 e0          	and    $0xffffffffffffffe0,%r11
+     901:	4e 8d 0c 18          	lea    (%rax,%r11,1),%r9
+     905:	48 8d 1c 87          	lea    (%rdi,%rax,4),%rbx
+     909:	48 83 c3 60          	add    $0x60,%rbx
+     90d:	4c 8d 34 86          	lea    (%rsi,%rax,4),%r14
+     911:	49 83 c6 60          	add    $0x60,%r14
+     915:	48 8d 04 82          	lea    (%rdx,%rax,4),%rax
+     919:	48 83 c0 60          	add    $0x60,%rax
+     91d:	45 31 ff             	xor    %r15d,%r15d
+     920:	c4 81 7c 10 44 be a0 	vmovups -0x60(%r14,%r15,4),%ymm0
+     927:	c4 81 7c 10 4c be c0 	vmovups -0x40(%r14,%r15,4),%ymm1
+     92e:	c4 81 7c 10 54 be e0 	vmovups -0x20(%r14,%r15,4),%ymm2
+     935:	c4 81 7c 10 1c be    	vmovups (%r14,%r15,4),%ymm3
+     93b:	c4 a1 7c 59 44 bb a0 	vmulps -0x60(%rbx,%r15,4),%ymm0,%ymm0
+     942:	c4 a1 74 59 4c bb c0 	vmulps -0x40(%rbx,%r15,4),%ymm1,%ymm1
+     949:	c4 a1 6c 59 54 bb e0 	vmulps -0x20(%rbx,%r15,4),%ymm2,%ymm2
+     950:	c4 a1 64 59 1c bb    	vmulps (%rbx,%r15,4),%ymm3,%ymm3
+     956:	c4 a1 7c 11 44 b8 a0 	vmovups %ymm0,-0x60(%rax,%r15,4)
+     95d:	c4 a1 7c 11 4c b8 c0 	vmovups %ymm1,-0x40(%rax,%r15,4)
+     964:	c4 a1 7c 11 54 b8 e0 	vmovups %ymm2,-0x20(%rax,%r15,4)
+     96b:	c4 a1 7c 11 1c b8    	vmovups %ymm3,(%rax,%r15,4)
+     971:	49 83 c7 20          	add    $0x20,%r15
+     975:	4d 39 fb             	cmp    %r15,%r11
+     978:	75 a6                	jne    920 <evidence::multiply_simd_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x200>
+     97a:	4d 39 da             	cmp    %r11,%r10
+     97d:	75 08                	jne    987 <evidence::multiply_simd_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x267>
+     97f:	e9 99 00 00 00       	jmp    a1d <evidence::multiply_simd_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x2fd>
+     984:	49 89 c1             	mov    %rax,%r9
+     987:	89 c8                	mov    %ecx,%eax
+     989:	44 29 c8             	sub    %r9d,%eax
+     98c:	4d 89 cb             	mov    %r9,%r11
+     98f:	a8 01                	test   $0x1,%al
+     991:	74 1a                	je     9ad <evidence::multiply_simd_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x28d>
+     993:	4c 89 c8             	mov    %r9,%rax
+     996:	49 0f af c0          	imul   %r8,%rax
+     99a:	c5 fa 10 04 86       	vmovss (%rsi,%rax,4),%xmm0
+     99f:	c5 fa 59 04 87       	vmulss (%rdi,%rax,4),%xmm0,%xmm0
+     9a4:	c5 fa 11 04 82       	vmovss %xmm0,(%rdx,%rax,4)
+     9a9:	4d 8d 59 01          	lea    0x1(%r9),%r11
+     9ad:	48 8d 41 ff          	lea    -0x1(%rcx),%rax
+     9b1:	49 39 c1             	cmp    %rax,%r9
+     9b4:	74 67                	je     a1d <evidence::multiply_simd_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x2fd>
+     9b6:	4c 29 d9             	sub    %r11,%rcx
+     9b9:	4d 8d 53 01          	lea    0x1(%r11),%r10
+     9bd:	4d 0f af d0          	imul   %r8,%r10
+     9c1:	4a 8d 04 92          	lea    (%rdx,%r10,4),%rax
+     9c5:	4e 8d 0c 96          	lea    (%rsi,%r10,4),%r9
+     9c9:	4e 8d 14 97          	lea    (%rdi,%r10,4),%r10
+     9cd:	4d 0f af d8          	imul   %r8,%r11
+     9d1:	49 c1 e0 03          	shl    $0x3,%r8
+     9d5:	4a 8d 14 9a          	lea    (%rdx,%r11,4),%rdx
+     9d9:	4a 8d 34 9e          	lea    (%rsi,%r11,4),%rsi
+     9dd:	4a 8d 3c 9f          	lea    (%rdi,%r11,4),%rdi
+     9e1:	45 31 db             	xor    %r11d,%r11d
+     9e4:	66 66 66 2e 0f 1f 84 	data16 data16 cs nopw 0x0(%rax,%rax,1)
+     9eb:	00 00 00 00 00 
+     9f0:	c4 a1 7a 10 04 1e    	vmovss (%rsi,%r11,1),%xmm0
+     9f6:	c4 a1 7a 59 04 1f    	vmulss (%rdi,%r11,1),%xmm0,%xmm0
+     9fc:	c4 a1 7a 11 04 1a    	vmovss %xmm0,(%rdx,%r11,1)
+     a02:	c4 81 7a 10 04 19    	vmovss (%r9,%r11,1),%xmm0
+     a08:	c4 81 7a 59 04 1a    	vmulss (%r10,%r11,1),%xmm0,%xmm0
+     a0e:	c4 a1 7a 11 04 18    	vmovss %xmm0,(%rax,%r11,1)
+     a14:	4d 01 c3             	add    %r8,%r11
+     a17:	48 83 c1 fe          	add    $0xfffffffffffffffe,%rcx
+     a1b:	75 d3                	jne    9f0 <evidence::multiply_simd_f32(float const*, float const*, float*, unsigned long, unsigned long)+0x2d0>
+     a1d:	5b                   	pop    %rbx
+     a1e:	41 5e                	pop    %r14
+     a20:	41 5f                	pop    %r15
+     a22:	5d                   	pop    %rbp
+     a23:	c5 f8 77             	vzeroupper
+     a26:	c3                   	ret
+     a27:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+     a2e:	00 00 
+
+0000000000000a30 <evidence::axpy_simd_f64(double, double const*, double*, unsigned long, unsigned long)>:
+     a30:	41 56                	push   %r14
+     a32:	53                   	push   %rbx
+     a33:	c4 e2 7d 19 c8       	vbroadcastsd %xmm0,%ymm1
+     a38:	48 83 fa 04          	cmp    $0x4,%rdx
+     a3c:	72 1b                	jb     a59 <evidence::axpy_simd_f64(double, double const*, double*, unsigned long, unsigned long)+0x29>
+     a3e:	48 83 f9 01          	cmp    $0x1,%rcx
+     a42:	75 1c                	jne    a60 <evidence::axpy_simd_f64(double, double const*, double*, unsigned long, unsigned long)+0x30>
+     a44:	4c 8d 42 fc          	lea    -0x4(%rdx),%r8
+     a48:	49 83 f8 04          	cmp    $0x4,%r8
+     a4c:	0f 83 ba 00 00 00    	jae    b0c <evidence::axpy_simd_f64(double, double const*, double*, unsigned long, unsigned long)+0xdc>
+     a52:	31 c0                	xor    %eax,%eax
+     a54:	e9 f2 00 00 00       	jmp    b4b <evidence::axpy_simd_f64(double, double const*, double*, unsigned long, unsigned long)+0x11b>
+     a59:	31 c0                	xor    %eax,%eax
+     a5b:	e9 04 01 00 00       	jmp    b64 <evidence::axpy_simd_f64(double, double const*, double*, unsigned long, unsigned long)+0x134>
+     a60:	48 8d 04 09          	lea    (%rcx,%rcx,1),%rax
+     a64:	4c 8d 04 49          	lea    (%rcx,%rcx,2),%r8
+     a68:	c4 c1 f9 6e d0       	vmovq  %r8,%xmm2
+     a6d:	c4 e1 f9 6e d8       	vmovq  %rax,%xmm3
+     a72:	c5 e1 6c d2          	vpunpcklqdq %xmm2,%xmm3,%xmm2
+     a76:	c4 e1 f9 6e d9       	vmovq  %rcx,%xmm3
+     a7b:	c5 e1 73 fb 08       	vpslldq $0x8,%xmm3,%xmm3
+     a80:	c4 e3 65 38 d2 01    	vinserti128 $0x1,%xmm2,%ymm3,%ymm2
+     a86:	49 89 c8             	mov    %rcx,%r8
+     a89:	49 c1 e0 05          	shl    $0x5,%r8
+     a8d:	49 89 c9             	mov    %rcx,%r9
+     a90:	49 c1 e1 04          	shl    $0x4,%r9
+     a94:	48 8d 04 cd 00 00 00 	lea    0x0(,%rcx,8),%rax
+     a9b:	00 
+     a9c:	4c 8d 14 40          	lea    (%rax,%rax,2),%r10
+     aa0:	31 c0                	xor    %eax,%eax
+     aa2:	49 89 fb             	mov    %rdi,%r11
+     aa5:	48 89 f3             	mov    %rsi,%rbx
+     aa8:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+     aaf:	00 
+     ab0:	c5 e5 76 db          	vpcmpeqd %ymm3,%ymm3,%ymm3
+     ab4:	c5 d9 57 e4          	vxorpd %xmm4,%xmm4,%xmm4
+     ab8:	c4 c2 e5 93 24 d3    	vgatherqpd %ymm3,(%r11,%ymm2,8),%ymm4
+     abe:	c5 e5 76 db          	vpcmpeqd %ymm3,%ymm3,%ymm3
+     ac2:	c5 d1 57 ed          	vxorpd %xmm5,%xmm5,%xmm5
+     ac6:	c4 e2 e5 93 2c d3    	vgatherqpd %ymm3,(%rbx,%ymm2,8),%ymm5
+     acc:	c5 dd 59 d9          	vmulpd %ymm1,%ymm4,%ymm3
+     ad0:	c5 e5 58 dd          	vaddpd %ymm5,%ymm3,%ymm3
+     ad4:	c5 f9 13 1b          	vmovlpd %xmm3,(%rbx)
+     ad8:	c5 f9 17 1c cb       	vmovhpd %xmm3,(%rbx,%rcx,8)
+     add:	c4 e3 7d 19 db 01    	vextractf128 $0x1,%ymm3,%xmm3
+     ae3:	c4 a1 79 13 1c 0b    	vmovlpd %xmm3,(%rbx,%r9,1)
+     ae9:	c4 a1 79 17 1c 13    	vmovhpd %xmm3,(%rbx,%r10,1)
+     aef:	4c 01 c3             	add    %r8,%rbx
+     af2:	4d 01 c3             	add    %r8,%r11
+     af5:	4c 8d 34 02          	lea    (%rdx,%rax,1),%r14
+     af9:	49 83 c6 fc          	add    $0xfffffffffffffffc,%r14
+     afd:	48 83 c0 fc          	add    $0xfffffffffffffffc,%rax
+     b01:	49 83 fe 03          	cmp    $0x3,%r14
+     b05:	77 a9                	ja     ab0 <evidence::axpy_simd_f64(double, double const*, double*, unsigned long, unsigned long)+0x80>
+     b07:	48 f7 d8             	neg    %rax
+     b0a:	eb 58                	jmp    b64 <evidence::axpy_simd_f64(double, double const*, double*, unsigned long, unsigned long)+0x134>
+     b0c:	4d 89 c1             	mov    %r8,%r9
+     b0f:	49 c1 e9 02          	shr    $0x2,%r9
+     b13:	49 ff c1             	inc    %r9
+     b16:	49 83 e1 fe          	and    $0xfffffffffffffffe,%r9
+     b1a:	31 c0                	xor    %eax,%eax
+     b1c:	0f 1f 40 00          	nopl   0x0(%rax)
+     b20:	c5 f5 59 14 c7       	vmulpd (%rdi,%rax,8),%ymm1,%ymm2
+     b25:	c5 ed 58 14 c6       	vaddpd (%rsi,%rax,8),%ymm2,%ymm2
+     b2a:	c5 fd 11 14 c6       	vmovupd %ymm2,(%rsi,%rax,8)
+     b2f:	c5 f5 59 54 c7 20    	vmulpd 0x20(%rdi,%rax,8),%ymm1,%ymm2
+     b35:	c5 ed 58 54 c6 20    	vaddpd 0x20(%rsi,%rax,8),%ymm2,%ymm2
+     b3b:	c5 fd 11 54 c6 20    	vmovupd %ymm2,0x20(%rsi,%rax,8)
+     b41:	48 83 c0 08          	add    $0x8,%rax
+     b45:	49 83 c1 fe          	add    $0xfffffffffffffffe,%r9
+     b49:	75 d5                	jne    b20 <evidence::axpy_simd_f64(double, double const*, double*, unsigned long, unsigned long)+0xf0>
+     b4b:	41 f6 c0 04          	test   $0x4,%r8b
+     b4f:	75 13                	jne    b64 <evidence::axpy_simd_f64(double, double const*, double*, unsigned long, unsigned long)+0x134>
+     b51:	c5 f5 59 14 c7       	vmulpd (%rdi,%rax,8),%ymm1,%ymm2
+     b56:	c5 ed 58 14 c6       	vaddpd (%rsi,%rax,8),%ymm2,%ymm2
+     b5b:	c5 fd 11 14 c6       	vmovupd %ymm2,(%rsi,%rax,8)
+     b60:	48 83 c0 04          	add    $0x4,%rax
+     b64:	49 89 d1             	mov    %rdx,%r9
+     b67:	49 29 c1             	sub    %rax,%r9
+     b6a:	0f 86 3b 01 00 00    	jbe    cab <evidence::axpy_simd_f64(double, double const*, double*, unsigned long, unsigned long)+0x27b>
+     b70:	49 83 f9 10          	cmp    $0x10,%r9
+     b74:	72 28                	jb     b9e <evidence::axpy_simd_f64(double, double const*, double*, unsigned long, unsigned long)+0x16e>
+     b76:	48 83 f9 01          	cmp    $0x1,%rcx
+     b7a:	75 22                	jne    b9e <evidence::axpy_simd_f64(double, double const*, double*, unsigned long, unsigned long)+0x16e>
+     b7c:	4c 8d 04 c6          	lea    (%rsi,%rax,8),%r8
+     b80:	4c 8d 14 d7          	lea    (%rdi,%rdx,8),%r10
+     b84:	4d 39 d0             	cmp    %r10,%r8
+     b87:	0f 83 a2 00 00 00    	jae    c2f <evidence::axpy_simd_f64(double, double const*, double*, unsigned long, unsigned long)+0x1ff>
+     b8d:	4c 8d 04 d6          	lea    (%rsi,%rdx,8),%r8
+     b91:	4c 8d 14 c7          	lea    (%rdi,%rax,8),%r10
+     b95:	4d 39 c2             	cmp    %r8,%r10
+     b98:	0f 83 91 00 00 00    	jae    c2f <evidence::axpy_simd_f64(double, double const*, double*, unsigned long, unsigned long)+0x1ff>
+     b9e:	49 89 c0             	mov    %rax,%r8
+     ba1:	89 d0                	mov    %edx,%eax
+     ba3:	44 29 c0             	sub    %r8d,%eax
+     ba6:	4d 89 c1             	mov    %r8,%r9
+     ba9:	a8 01                	test   $0x1,%al
+     bab:	74 1a                	je     bc7 <evidence::axpy_simd_f64(double, double const*, double*, unsigned long, unsigned long)+0x197>
+     bad:	4c 89 c0             	mov    %r8,%rax
+     bb0:	48 0f af c1          	imul   %rcx,%rax
+     bb4:	c5 fb 59 0c c7       	vmulsd (%rdi,%rax,8),%xmm0,%xmm1
+     bb9:	c5 f3 58 0c c6       	vaddsd (%rsi,%rax,8),%xmm1,%xmm1
+     bbe:	c5 fb 11 0c c6       	vmovsd %xmm1,(%rsi,%rax,8)
+     bc3:	4d 8d 48 01          	lea    0x1(%r8),%r9
+     bc7:	48 8d 42 ff          	lea    -0x1(%rdx),%rax
+     bcb:	49 39 c0             	cmp    %rax,%r8
+     bce:	0f 84 d7 00 00 00    	je     cab <evidence::axpy_simd_f64(double, double const*, double*, unsigned long, unsigned long)+0x27b>
+     bd4:	4c 29 ca             	sub    %r9,%rdx
+     bd7:	4d 8d 41 01          	lea    0x1(%r9),%r8
+     bdb:	4c 0f af c1          	imul   %rcx,%r8
+     bdf:	4a 8d 04 c6          	lea    (%rsi,%r8,8),%rax
+     be3:	4e 8d 04 c7          	lea    (%rdi,%r8,8),%r8
+     be7:	4c 0f af c9          	imul   %rcx,%r9
+     beb:	48 c1 e1 04          	shl    $0x4,%rcx
+     bef:	4a 8d 3c cf          	lea    (%rdi,%r9,8),%rdi
+     bf3:	4a 8d 34 ce          	lea    (%rsi,%r9,8),%rsi
+     bf7:	45 31 c9             	xor    %r9d,%r9d
+     bfa:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+     c00:	c4 a1 7b 59 0c 0f    	vmulsd (%rdi,%r9,1),%xmm0,%xmm1
+     c06:	c4 a1 73 58 0c 0e    	vaddsd (%rsi,%r9,1),%xmm1,%xmm1
+     c0c:	c4 a1 7b 11 0c 0e    	vmovsd %xmm1,(%rsi,%r9,1)
+     c12:	c4 81 7b 59 0c 08    	vmulsd (%r8,%r9,1),%xmm0,%xmm1
+     c18:	c4 a1 73 58 0c 08    	vaddsd (%rax,%r9,1),%xmm1,%xmm1
+     c1e:	c4 a1 7b 11 0c 08    	vmovsd %xmm1,(%rax,%r9,1)
+     c24:	49 01 c9             	add    %rcx,%r9
+     c27:	48 83 c2 fe          	add    $0xfffffffffffffffe,%rdx
+     c2b:	75 d3                	jne    c00 <evidence::axpy_simd_f64(double, double const*, double*, unsigned long, unsigned long)+0x1d0>
+     c2d:	eb 7c                	jmp    cab <evidence::axpy_simd_f64(double, double const*, double*, unsigned long, unsigned long)+0x27b>
+     c2f:	4d 89 ca             	mov    %r9,%r10
+     c32:	49 83 e2 f0          	and    $0xfffffffffffffff0,%r10
+     c36:	4e 8d 04 10          	lea    (%rax,%r10,1),%r8
+     c3a:	4c 8d 1c c7          	lea    (%rdi,%rax,8),%r11
+     c3e:	49 83 c3 60          	add    $0x60,%r11
+     c42:	48 8d 04 c6          	lea    (%rsi,%rax,8),%rax
+     c46:	48 83 c0 60          	add    $0x60,%rax
+     c4a:	31 db                	xor    %ebx,%ebx
+     c4c:	0f 1f 40 00          	nopl   0x0(%rax)
+     c50:	c4 c1 75 59 54 db a0 	vmulpd -0x60(%r11,%rbx,8),%ymm1,%ymm2
+     c57:	c4 c1 75 59 5c db c0 	vmulpd -0x40(%r11,%rbx,8),%ymm1,%ymm3
+     c5e:	c4 c1 75 59 64 db e0 	vmulpd -0x20(%r11,%rbx,8),%ymm1,%ymm4
+     c65:	c4 c1 75 59 2c db    	vmulpd (%r11,%rbx,8),%ymm1,%ymm5
+     c6b:	c5 ed 58 54 d8 a0    	vaddpd -0x60(%rax,%rbx,8),%ymm2,%ymm2
+     c71:	c5 e5 58 5c d8 c0    	vaddpd -0x40(%rax,%rbx,8),%ymm3,%ymm3
+     c77:	c5 dd 58 64 d8 e0    	vaddpd -0x20(%rax,%rbx,8),%ymm4,%ymm4
+     c7d:	c5 d5 58 2c d8       	vaddpd (%rax,%rbx,8),%ymm5,%ymm5
+     c82:	c5 fd 11 54 d8 a0    	vmovupd %ymm2,-0x60(%rax,%rbx,8)
+     c88:	c5 fd 11 5c d8 c0    	vmovupd %ymm3,-0x40(%rax,%rbx,8)
+     c8e:	c5 fd 11 64 d8 e0    	vmovupd %ymm4,-0x20(%rax,%rbx,8)
+     c94:	c5 fd 11 2c d8       	vmovupd %ymm5,(%rax,%rbx,8)
+     c99:	48 83 c3 10          	add    $0x10,%rbx
+     c9d:	49 39 da             	cmp    %rbx,%r10
+     ca0:	75 ae                	jne    c50 <evidence::axpy_simd_f64(double, double const*, double*, unsigned long, unsigned long)+0x220>
+     ca2:	4d 39 d1             	cmp    %r10,%r9
+     ca5:	0f 85 f6 fe ff ff    	jne    ba1 <evidence::axpy_simd_f64(double, double const*, double*, unsigned long, unsigned long)+0x171>
+     cab:	5b                   	pop    %rbx
+     cac:	41 5e                	pop    %r14
+     cae:	c5 f8 77             	vzeroupper
+     cb1:	c3                   	ret
+     cb2:	66 66 66 66 66 2e 0f 	data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+     cb9:	1f 84 00 00 00 00 00 
+
+0000000000000cc0 <evidence::dot_simd_f64(double const*, double const*, unsigned long, unsigned long)>:
+     cc0:	41 57                	push   %r15
+     cc2:	41 56                	push   %r14
+     cc4:	53                   	push   %rbx
+     cc5:	48 83 fa 04          	cmp    $0x4,%rdx
+     cc9:	72 2c                	jb     cf7 <evidence::dot_simd_f64(double const*, double const*, unsigned long, unsigned long)+0x37>
+     ccb:	48 83 f9 01          	cmp    $0x1,%rcx
+     ccf:	75 31                	jne    d02 <evidence::dot_simd_f64(double const*, double const*, unsigned long, unsigned long)+0x42>
+     cd1:	48 8d 42 fc          	lea    -0x4(%rdx),%rax
+     cd5:	49 89 c1             	mov    %rax,%r9
+     cd8:	49 c1 e9 02          	shr    $0x2,%r9
+     cdc:	49 ff c1             	inc    %r9
+     cdf:	45 89 c8             	mov    %r9d,%r8d
+     ce2:	41 83 e0 03          	and    $0x3,%r8d
+     ce6:	48 83 f8 0c          	cmp    $0xc,%rax
+     cea:	73 55                	jae    d41 <evidence::dot_simd_f64(double const*, double const*, unsigned long, unsigned long)+0x81>
+     cec:	c5 f9 57 c0          	vxorpd %xmm0,%xmm0,%xmm0
+     cf0:	31 c0                	xor    %eax,%eax
+     cf2:	e9 a1 00 00 00       	jmp    d98 <evidence::dot_simd_f64(double const*, double const*, unsigned long, unsigned long)+0xd8>
+     cf7:	c5 f9 57 c0          	vxorpd %xmm0,%xmm0,%xmm0
+     cfb:	31 c0                	xor    %eax,%eax
+     cfd:	e9 ab 01 00 00       	jmp    ead <evidence::dot_simd_f64(double const*, double const*, unsigned long, unsigned long)+0x1ed>
+     d02:	48 8d 04 09          	lea    (%rcx,%rcx,1),%rax
+     d06:	4c 8d 04 49          	lea    (%rcx,%rcx,2),%r8
+     d0a:	c4 c1 f9 6e c0       	vmovq  %r8,%xmm0
+     d0f:	c4 e1 f9 6e c8       	vmovq  %rax,%xmm1
+     d14:	c5 f1 6c c0          	vpunpcklqdq %xmm0,%xmm1,%xmm0
+     d18:	c4 e1 f9 6e c9       	vmovq  %rcx,%xmm1
+     d1d:	c5 f1 73 f9 08       	vpslldq $0x8,%xmm1,%xmm1
+     d22:	c4 e3 75 38 c8 01    	vinserti128 $0x1,%xmm0,%ymm1,%ymm1
+     d28:	4c 8d 42 fc          	lea    -0x4(%rdx),%r8
+     d2c:	49 83 f8 04          	cmp    $0x4,%r8
+     d30:	0f 83 96 00 00 00    	jae    dcc <evidence::dot_simd_f64(double const*, double const*, unsigned long, unsigned long)+0x10c>
+     d36:	c5 f9 ef c0          	vpxor  %xmm0,%xmm0,%xmm0
+     d3a:	31 c0                	xor    %eax,%eax
+     d3c:	e9 2f 01 00 00       	jmp    e70 <evidence::dot_simd_f64(double const*, double const*, unsigned long, unsigned long)+0x1b0>
+     d41:	49 83 e1 fc          	and    $0xfffffffffffffffc,%r9
+     d45:	c5 f9 57 c0          	vxorpd %xmm0,%xmm0,%xmm0
+     d49:	31 c0                	xor    %eax,%eax
+     d4b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+     d50:	c5 fd 10 0c c6       	vmovupd (%rsi,%rax,8),%ymm1
+     d55:	c5 fd 10 54 c6 20    	vmovupd 0x20(%rsi,%rax,8),%ymm2
+     d5b:	c5 fd 10 5c c6 40    	vmovupd 0x40(%rsi,%rax,8),%ymm3
+     d61:	c5 fd 10 64 c6 60    	vmovupd 0x60(%rsi,%rax,8),%ymm4
+     d67:	c5 f5 59 0c c7       	vmulpd (%rdi,%rax,8),%ymm1,%ymm1
+     d6c:	c5 ed 59 54 c7 20    	vmulpd 0x20(%rdi,%rax,8),%ymm2,%ymm2
+     d72:	c5 e5 59 5c c7 40    	vmulpd 0x40(%rdi,%rax,8),%ymm3,%ymm3
+     d78:	c5 f5 58 c0          	vaddpd %ymm0,%ymm1,%ymm0
+     d7c:	c5 e5 58 ca          	vaddpd %ymm2,%ymm3,%ymm1
+     d80:	c5 dd 59 54 c7 60    	vmulpd 0x60(%rdi,%rax,8),%ymm4,%ymm2
+     d86:	c5 f5 58 c0          	vaddpd %ymm0,%ymm1,%ymm0
+     d8a:	c5 ed 58 c0          	vaddpd %ymm0,%ymm2,%ymm0
+     d8e:	48 83 c0 10          	add    $0x10,%rax
+     d92:	49 83 c1 fc          	add    $0xfffffffffffffffc,%r9
+     d96:	75 b8                	jne    d50 <evidence::dot_simd_f64(double const*, double const*, unsigned long, unsigned long)+0x90>
+     d98:	4d 85 c0             	test   %r8,%r8
+     d9b:	0f 84 0c 01 00 00    	je     ead <evidence::dot_simd_f64(double const*, double const*, unsigned long, unsigned long)+0x1ed>
+     da1:	66 66 66 66 66 66 2e 	data16 data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+     da8:	0f 1f 84 00 00 00 00 
+     daf:	00 
+     db0:	c5 fd 10 0c c6       	vmovupd (%rsi,%rax,8),%ymm1
+     db5:	c5 f5 59 0c c7       	vmulpd (%rdi,%rax,8),%ymm1,%ymm1
+     dba:	c5 f5 58 c0          	vaddpd %ymm0,%ymm1,%ymm0
+     dbe:	48 83 c0 04          	add    $0x4,%rax
+     dc2:	49 ff c8             	dec    %r8
+     dc5:	75 e9                	jne    db0 <evidence::dot_simd_f64(double const*, double const*, unsigned long, unsigned long)+0xf0>
+     dc7:	e9 e1 00 00 00       	jmp    ead <evidence::dot_simd_f64(double const*, double const*, unsigned long, unsigned long)+0x1ed>
+     dcc:	4c 89 c0             	mov    %r8,%rax
+     dcf:	48 c1 e8 02          	shr    $0x2,%rax
+     dd3:	48 ff c0             	inc    %rax
+     dd6:	49 b9 fc ff ff ff ff 	movabs $0x7ffffffffffffffc,%r9
+     ddd:	ff ff 7f 
+     de0:	49 83 c9 02          	or     $0x2,%r9
+     de4:	49 21 c1             	and    %rax,%r9
+     de7:	49 89 ca             	mov    %rcx,%r10
+     dea:	49 c1 e2 05          	shl    $0x5,%r10
+     dee:	49 89 cb             	mov    %rcx,%r11
+     df1:	49 c1 e3 06          	shl    $0x6,%r11
+     df5:	c5 f9 ef c0          	vpxor  %xmm0,%xmm0,%xmm0
+     df9:	31 c0                	xor    %eax,%eax
+     dfb:	48 89 fb             	mov    %rdi,%rbx
+     dfe:	49 89 f6             	mov    %rsi,%r14
+     e01:	66 66 66 66 66 66 2e 	data16 data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+     e08:	0f 1f 84 00 00 00 00 
+     e0f:	00 
+     e10:	c5 ed 76 d2          	vpcmpeqd %ymm2,%ymm2,%ymm2
+     e14:	c5 e1 57 db          	vxorpd %xmm3,%xmm3,%xmm3
+     e18:	c4 e2 ed 93 1c cb    	vgatherqpd %ymm2,(%rbx,%ymm1,8),%ymm3
+     e1e:	c5 ed 76 d2          	vpcmpeqd %ymm2,%ymm2,%ymm2
+     e22:	c5 d9 57 e4          	vxorpd %xmm4,%xmm4,%xmm4
+     e26:	c4 c2 ed 93 24 ce    	vgatherqpd %ymm2,(%r14,%ymm1,8),%ymm4
+     e2c:	c5 dd 59 d3          	vmulpd %ymm3,%ymm4,%ymm2
+     e30:	c5 ed 58 c0          	vaddpd %ymm0,%ymm2,%ymm0
+     e34:	4e 8d 3c 13          	lea    (%rbx,%r10,1),%r15
+     e38:	c5 ed 76 d2          	vpcmpeqd %ymm2,%ymm2,%ymm2
+     e3c:	c5 e1 57 db          	vxorpd %xmm3,%xmm3,%xmm3
+     e40:	c4 c2 ed 93 1c cf    	vgatherqpd %ymm2,(%r15,%ymm1,8),%ymm3
+     e46:	4f 8d 3c 16          	lea    (%r14,%r10,1),%r15
+     e4a:	c5 ed 76 d2          	vpcmpeqd %ymm2,%ymm2,%ymm2
+     e4e:	c5 d9 57 e4          	vxorpd %xmm4,%xmm4,%xmm4
+     e52:	c4 c2 ed 93 24 cf    	vgatherqpd %ymm2,(%r15,%ymm1,8),%ymm4
+     e58:	c5 dd 59 d3          	vmulpd %ymm3,%ymm4,%ymm2
+     e5c:	c5 ed 58 c0          	vaddpd %ymm0,%ymm2,%ymm0
+     e60:	48 83 c0 08          	add    $0x8,%rax
+     e64:	4d 01 de             	add    %r11,%r14
+     e67:	4c 01 db             	add    %r11,%rbx
+     e6a:	49 83 c1 fe          	add    $0xfffffffffffffffe,%r9
+     e6e:	75 a0                	jne    e10 <evidence::dot_simd_f64(double const*, double const*, unsigned long, unsigned long)+0x150>
+     e70:	41 f6 c0 04          	test   $0x4,%r8b
+     e74:	75 37                	jne    ead <evidence::dot_simd_f64(double const*, double const*, unsigned long, unsigned long)+0x1ed>
+     e76:	49 89 c0             	mov    %rax,%r8
+     e79:	4c 0f af c1          	imul   %rcx,%r8
+     e7d:	4e 8d 0c c7          	lea    (%rdi,%r8,8),%r9
+     e81:	c5 ed 76 d2          	vpcmpeqd %ymm2,%ymm2,%ymm2
+     e85:	c5 e1 57 db          	vxorpd %xmm3,%xmm3,%xmm3
+     e89:	c5 dd 76 e4          	vpcmpeqd %ymm4,%ymm4,%ymm4
+     e8d:	c5 d1 57 ed          	vxorpd %xmm5,%xmm5,%xmm5
+     e91:	c4 c2 dd 93 2c c9    	vgatherqpd %ymm4,(%r9,%ymm1,8),%ymm5
+     e97:	4e 8d 04 c6          	lea    (%rsi,%r8,8),%r8
+     e9b:	c4 c2 ed 93 1c c8    	vgatherqpd %ymm2,(%r8,%ymm1,8),%ymm3
+     ea1:	c5 e5 59 cd          	vmulpd %ymm5,%ymm3,%ymm1
+     ea5:	c5 f5 58 c0          	vaddpd %ymm0,%ymm1,%ymm0
+     ea9:	48 83 c0 04          	add    $0x4,%rax
+     ead:	c4 e3 7d 19 c1 01    	vextractf128 $0x1,%ymm0,%xmm1
+     eb3:	c5 f9 58 c1          	vaddpd %xmm1,%xmm0,%xmm0
+     eb7:	c5 f9 c6 c8 01       	vshufpd $0x1,%xmm0,%xmm0,%xmm1
+     ebc:	c5 fb 58 c1          	vaddsd %xmm1,%xmm0,%xmm0
+     ec0:	49 89 d1             	mov    %rdx,%r9
+     ec3:	49 29 c1             	sub    %rax,%r9
+     ec6:	0f 86 ca 01 00 00    	jbe    1096 <evidence::dot_simd_f64(double const*, double const*, unsigned long, unsigned long)+0x3d6>
+     ecc:	49 83 f9 10          	cmp    $0x10,%r9
+     ed0:	0f 82 09 01 00 00    	jb     fdf <evidence::dot_simd_f64(double const*, double const*, unsigned long, unsigned long)+0x31f>
+     ed6:	48 83 f9 01          	cmp    $0x1,%rcx
+     eda:	0f 85 a4 00 00 00    	jne    f84 <evidence::dot_simd_f64(double const*, double const*, unsigned long, unsigned long)+0x2c4>
+     ee0:	4d 89 ca             	mov    %r9,%r10
+     ee3:	49 83 e2 f0          	and    $0xfffffffffffffff0,%r10
+     ee7:	4e 8d 04 10          	lea    (%rax,%r10,1),%r8
+     eeb:	c5 fa 7e c0          	vmovq  %xmm0,%xmm0
+     eef:	4c 8d 1c c7          	lea    (%rdi,%rax,8),%r11
+     ef3:	49 83 c3 60          	add    $0x60,%r11
+     ef7:	48 8d 04 c6          	lea    (%rsi,%rax,8),%rax
+     efb:	48 83 c0 60          	add    $0x60,%rax
+     eff:	c5 f1 57 c9          	vxorpd %xmm1,%xmm1,%xmm1
+     f03:	31 db                	xor    %ebx,%ebx
+     f05:	c5 e9 57 d2          	vxorpd %xmm2,%xmm2,%xmm2
+     f09:	c5 e1 57 db          	vxorpd %xmm3,%xmm3,%xmm3
+     f0d:	0f 1f 00             	nopl   (%rax)
+     f10:	c5 fd 10 64 d8 a0    	vmovupd -0x60(%rax,%rbx,8),%ymm4
+     f16:	c5 fd 10 6c d8 c0    	vmovupd -0x40(%rax,%rbx,8),%ymm5
+     f1c:	c5 fd 10 74 d8 e0    	vmovupd -0x20(%rax,%rbx,8),%ymm6
+     f22:	c5 fd 10 3c d8       	vmovupd (%rax,%rbx,8),%ymm7
+     f27:	c4 c1 5d 59 64 db a0 	vmulpd -0x60(%r11,%rbx,8),%ymm4,%ymm4
+     f2e:	c5 dd 58 c0          	vaddpd %ymm0,%ymm4,%ymm0
+     f32:	c4 c1 55 59 64 db c0 	vmulpd -0x40(%r11,%rbx,8),%ymm5,%ymm4
+     f39:	c5 dd 58 c9          	vaddpd %ymm1,%ymm4,%ymm1
+     f3d:	c4 c1 4d 59 64 db e0 	vmulpd -0x20(%r11,%rbx,8),%ymm6,%ymm4
+     f44:	c4 c1 45 59 2c db    	vmulpd (%r11,%rbx,8),%ymm7,%ymm5
+     f4a:	c5 dd 58 d2          	vaddpd %ymm2,%ymm4,%ymm2
+     f4e:	c5 d5 58 db          	vaddpd %ymm3,%ymm5,%ymm3
+     f52:	48 83 c3 10          	add    $0x10,%rbx
+     f56:	49 39 da             	cmp    %rbx,%r10
+     f59:	75 b5                	jne    f10 <evidence::dot_simd_f64(double const*, double const*, unsigned long, unsigned long)+0x250>
+     f5b:	c5 f5 58 c0          	vaddpd %ymm0,%ymm1,%ymm0
+     f5f:	c5 ed 58 c0          	vaddpd %ymm0,%ymm2,%ymm0
+     f63:	c5 e5 58 c0          	vaddpd %ymm0,%ymm3,%ymm0
+     f67:	c4 e3 7d 19 c1 01    	vextractf128 $0x1,%ymm0,%xmm1
+     f6d:	c5 f9 58 c1          	vaddpd %xmm1,%xmm0,%xmm0
+     f71:	c5 f9 c6 c8 01       	vshufpd $0x1,%xmm0,%xmm0,%xmm1
+     f76:	c5 fb 58 c1          	vaddsd %xmm1,%xmm0,%xmm0
+     f7a:	4d 39 d1             	cmp    %r10,%r9
+     f7d:	75 08                	jne    f87 <evidence::dot_simd_f64(double const*, double const*, unsigned long, unsigned long)+0x2c7>
+     f7f:	e9 12 01 00 00       	jmp    1096 <evidence::dot_simd_f64(double const*, double const*, unsigned long, unsigned long)+0x3d6>
+     f84:	49 89 c0             	mov    %rax,%r8
+     f87:	89 d0                	mov    %edx,%eax
+     f89:	44 29 c0             	sub    %r8d,%eax
+     f8c:	83 e0 03             	and    $0x3,%eax
+     f8f:	74 5b                	je     fec <evidence::dot_simd_f64(double const*, double const*, unsigned long, unsigned long)+0x32c>
+     f91:	4d 89 c1             	mov    %r8,%r9
+     f94:	4c 0f af c9          	imul   %rcx,%r9
+     f98:	49 c1 e1 03          	shl    $0x3,%r9
+     f9c:	4c 8d 14 cd 00 00 00 	lea    0x0(,%rcx,8),%r10
+     fa3:	00 
+     fa4:	48 f7 d8             	neg    %rax
+     fa7:	45 31 db             	xor    %r11d,%r11d
+     faa:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+     fb0:	c4 a1 7b 10 0c 0e    	vmovsd (%rsi,%r9,1),%xmm1
+     fb6:	c4 a1 73 59 0c 0f    	vmulsd (%rdi,%r9,1),%xmm1,%xmm1
+     fbc:	c5 f3 58 c0          	vaddsd %xmm0,%xmm1,%xmm0
+     fc0:	49 ff cb             	dec    %r11
+     fc3:	4d 01 d1             	add    %r10,%r9
+     fc6:	4c 39 d8             	cmp    %r11,%rax
+     fc9:	75 e5                	jne    fb0 <evidence::dot_simd_f64(double const*, double const*, unsigned long, unsigned long)+0x2f0>
+     fcb:	4c 89 c3             	mov    %r8,%rbx
+     fce:	4c 29 db             	sub    %r11,%rbx
+     fd1:	49 29 d0             	sub    %rdx,%r8
+     fd4:	49 83 f8 fc          	cmp    $0xfffffffffffffffc,%r8
+     fd8:	76 22                	jbe    ffc <evidence::dot_simd_f64(double const*, double const*, unsigned long, unsigned long)+0x33c>
+     fda:	e9 b7 00 00 00       	jmp    1096 <evidence::dot_simd_f64(double const*, double const*, unsigned long, unsigned long)+0x3d6>
+     fdf:	49 89 c0             	mov    %rax,%r8
+     fe2:	89 d0                	mov    %edx,%eax
+     fe4:	44 29 c0             	sub    %r8d,%eax
+     fe7:	83 e0 03             	and    $0x3,%eax
+     fea:	75 a5                	jne    f91 <evidence::dot_simd_f64(double const*, double const*, unsigned long, unsigned long)+0x2d1>
+     fec:	4c 89 c3             	mov    %r8,%rbx
+     fef:	49 29 d0             	sub    %rdx,%r8
+     ff2:	49 83 f8 fc          	cmp    $0xfffffffffffffffc,%r8
+     ff6:	0f 87 9a 00 00 00    	ja     1096 <evidence::dot_simd_f64(double const*, double const*, unsigned long, unsigned long)+0x3d6>
+     ffc:	48 29 da             	sub    %rbx,%rdx
+     fff:	4c 8d 4b 03          	lea    0x3(%rbx),%r9
+    1003:	4c 0f af c9          	imul   %rcx,%r9
+    1007:	4a 8d 04 ce          	lea    (%rsi,%r9,8),%rax
+    100b:	49 89 c8             	mov    %rcx,%r8
+    100e:	49 c1 e0 05          	shl    $0x5,%r8
+    1012:	4e 8d 0c cf          	lea    (%rdi,%r9,8),%r9
+    1016:	4c 8d 5b 02          	lea    0x2(%rbx),%r11
+    101a:	4c 0f af d9          	imul   %rcx,%r11
+    101e:	4e 8d 14 de          	lea    (%rsi,%r11,8),%r10
+    1022:	4e 8d 1c df          	lea    (%rdi,%r11,8),%r11
+    1026:	4c 8d 7b 01          	lea    0x1(%rbx),%r15
+    102a:	4c 0f af f9          	imul   %rcx,%r15
+    102e:	4e 8d 34 fe          	lea    (%rsi,%r15,8),%r14
+    1032:	4e 8d 3c ff          	lea    (%rdi,%r15,8),%r15
+    1036:	48 0f af d9          	imul   %rcx,%rbx
+    103a:	48 8d 0c de          	lea    (%rsi,%rbx,8),%rcx
+    103e:	48 8d 34 df          	lea    (%rdi,%rbx,8),%rsi
+    1042:	31 ff                	xor    %edi,%edi
+    1044:	66 66 66 2e 0f 1f 84 	data16 data16 cs nopw 0x0(%rax,%rax,1)
+    104b:	00 00 00 00 00 
+    1050:	c5 fb 10 0c 39       	vmovsd (%rcx,%rdi,1),%xmm1
+    1055:	c5 f3 59 0c 3e       	vmulsd (%rsi,%rdi,1),%xmm1,%xmm1
+    105a:	c4 c1 7b 10 14 3e    	vmovsd (%r14,%rdi,1),%xmm2
+    1060:	c4 c1 6b 59 14 3f    	vmulsd (%r15,%rdi,1),%xmm2,%xmm2
+    1066:	c5 f3 58 c0          	vaddsd %xmm0,%xmm1,%xmm0
+    106a:	c4 c1 7b 10 0c 3a    	vmovsd (%r10,%rdi,1),%xmm1
+    1070:	c4 c1 73 59 0c 3b    	vmulsd (%r11,%rdi,1),%xmm1,%xmm1
+    1076:	c5 f3 58 ca          	vaddsd %xmm2,%xmm1,%xmm1
+    107a:	c5 fb 10 14 38       	vmovsd (%rax,%rdi,1),%xmm2
+    107f:	c4 c1 6b 59 14 39    	vmulsd (%r9,%rdi,1),%xmm2,%xmm2
+    1085:	c5 f3 58 c0          	vaddsd %xmm0,%xmm1,%xmm0
+    1089:	c5 eb 58 c0          	vaddsd %xmm0,%xmm2,%xmm0
+    108d:	4c 01 c7             	add    %r8,%rdi
+    1090:	48 83 c2 fc          	add    $0xfffffffffffffffc,%rdx
+    1094:	75 ba                	jne    1050 <evidence::dot_simd_f64(double const*, double const*, unsigned long, unsigned long)+0x390>
+    1096:	5b                   	pop    %rbx
+    1097:	41 5e                	pop    %r14
+    1099:	41 5f                	pop    %r15
+    109b:	c5 f8 77             	vzeroupper
+    109e:	c3                   	ret
+    109f:	90                   	nop
+
+00000000000010a0 <evidence::multiply_simd_f64(double const*, double const*, double*, unsigned long, unsigned long)>:
+    10a0:	41 57                	push   %r15
+    10a2:	41 56                	push   %r14
+    10a4:	53                   	push   %rbx
+    10a5:	48 83 f9 04          	cmp    $0x4,%rcx
+    10a9:	72 1b                	jb     10c6 <evidence::multiply_simd_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x26>
+    10ab:	49 83 f8 01          	cmp    $0x1,%r8
+    10af:	75 1c                	jne    10cd <evidence::multiply_simd_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x2d>
+    10b1:	4c 8d 49 fc          	lea    -0x4(%rcx),%r9
+    10b5:	49 83 f9 04          	cmp    $0x4,%r9
+    10b9:	0f 83 c1 00 00 00    	jae    1180 <evidence::multiply_simd_f64(double const*, double const*, double*, unsigned long, unsigned long)+0xe0>
+    10bf:	31 c0                	xor    %eax,%eax
+    10c1:	e9 f5 00 00 00       	jmp    11bb <evidence::multiply_simd_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x11b>
+    10c6:	31 c0                	xor    %eax,%eax
+    10c8:	e9 07 01 00 00       	jmp    11d4 <evidence::multiply_simd_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x134>
+    10cd:	4b 8d 04 00          	lea    (%r8,%r8,1),%rax
+    10d1:	4f 8d 0c 40          	lea    (%r8,%r8,2),%r9
+    10d5:	c4 c1 f9 6e c1       	vmovq  %r9,%xmm0
+    10da:	c4 e1 f9 6e c8       	vmovq  %rax,%xmm1
+    10df:	c5 f1 6c c0          	vpunpcklqdq %xmm0,%xmm1,%xmm0
+    10e3:	c4 c1 f9 6e c8       	vmovq  %r8,%xmm1
+    10e8:	c5 f1 73 f9 08       	vpslldq $0x8,%xmm1,%xmm1
+    10ed:	c4 e3 75 38 c0 01    	vinserti128 $0x1,%xmm0,%ymm1,%ymm0
+    10f3:	4e 8d 0c ca          	lea    (%rdx,%r9,8),%r9
+    10f7:	4d 89 c2             	mov    %r8,%r10
+    10fa:	49 c1 e2 05          	shl    $0x5,%r10
+    10fe:	4d 89 c3             	mov    %r8,%r11
+    1101:	49 c1 e3 04          	shl    $0x4,%r11
+    1105:	49 01 d3             	add    %rdx,%r11
+    1108:	4a 8d 1c c2          	lea    (%rdx,%r8,8),%rbx
+    110c:	31 c0                	xor    %eax,%eax
+    110e:	45 31 f6             	xor    %r14d,%r14d
+    1111:	66 66 66 66 66 66 2e 	data16 data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+    1118:	0f 1f 84 00 00 00 00 
+    111f:	00 
+    1120:	4e 8d 3c 37          	lea    (%rdi,%r14,1),%r15
+    1124:	c5 f5 76 c9          	vpcmpeqd %ymm1,%ymm1,%ymm1
+    1128:	c5 e9 57 d2          	vxorpd %xmm2,%xmm2,%xmm2
+    112c:	c4 c2 f5 93 14 c7    	vgatherqpd %ymm1,(%r15,%ymm0,8),%ymm2
+    1132:	4e 8d 3c 36          	lea    (%rsi,%r14,1),%r15
+    1136:	c5 f5 76 c9          	vpcmpeqd %ymm1,%ymm1,%ymm1
+    113a:	c5 e1 57 db          	vxorpd %xmm3,%xmm3,%xmm3
+    113e:	c4 c2 f5 93 1c c7    	vgatherqpd %ymm1,(%r15,%ymm0,8),%ymm3
+    1144:	c5 e5 59 ca          	vmulpd %ymm2,%ymm3,%ymm1
+    1148:	c4 a1 79 13 0c 32    	vmovlpd %xmm1,(%rdx,%r14,1)
+    114e:	c4 a1 79 17 0c 33    	vmovhpd %xmm1,(%rbx,%r14,1)
+    1154:	c4 e3 7d 19 c9 01    	vextractf128 $0x1,%ymm1,%xmm1
+    115a:	c4 81 79 13 0c 33    	vmovlpd %xmm1,(%r11,%r14,1)
+    1160:	c4 81 79 17 0c 31    	vmovhpd %xmm1,(%r9,%r14,1)
+    1166:	4d 01 d6             	add    %r10,%r14
+    1169:	4c 8d 3c 01          	lea    (%rcx,%rax,1),%r15
+    116d:	49 83 c7 fc          	add    $0xfffffffffffffffc,%r15
+    1171:	48 83 c0 fc          	add    $0xfffffffffffffffc,%rax
+    1175:	49 83 ff 03          	cmp    $0x3,%r15
+    1179:	77 a5                	ja     1120 <evidence::multiply_simd_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x80>
+    117b:	48 f7 d8             	neg    %rax
+    117e:	eb 54                	jmp    11d4 <evidence::multiply_simd_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x134>
+    1180:	4d 89 ca             	mov    %r9,%r10
+    1183:	49 c1 ea 02          	shr    $0x2,%r10
+    1187:	49 ff c2             	inc    %r10
+    118a:	49 83 e2 fe          	and    $0xfffffffffffffffe,%r10
+    118e:	31 c0                	xor    %eax,%eax
+    1190:	c5 fd 10 04 c6       	vmovupd (%rsi,%rax,8),%ymm0
+    1195:	c5 fd 59 04 c7       	vmulpd (%rdi,%rax,8),%ymm0,%ymm0
+    119a:	c5 fd 11 04 c2       	vmovupd %ymm0,(%rdx,%rax,8)
+    119f:	c5 fd 10 44 c6 20    	vmovupd 0x20(%rsi,%rax,8),%ymm0
+    11a5:	c5 fd 59 44 c7 20    	vmulpd 0x20(%rdi,%rax,8),%ymm0,%ymm0
+    11ab:	c5 fd 11 44 c2 20    	vmovupd %ymm0,0x20(%rdx,%rax,8)
+    11b1:	48 83 c0 08          	add    $0x8,%rax
+    11b5:	49 83 c2 fe          	add    $0xfffffffffffffffe,%r10
+    11b9:	75 d5                	jne    1190 <evidence::multiply_simd_f64(double const*, double const*, double*, unsigned long, unsigned long)+0xf0>
+    11bb:	41 f6 c1 04          	test   $0x4,%r9b
+    11bf:	75 13                	jne    11d4 <evidence::multiply_simd_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x134>
+    11c1:	c5 fd 10 04 c6       	vmovupd (%rsi,%rax,8),%ymm0
+    11c6:	c5 fd 59 04 c7       	vmulpd (%rdi,%rax,8),%ymm0,%ymm0
+    11cb:	c5 fd 11 04 c2       	vmovupd %ymm0,(%rdx,%rax,8)
+    11d0:	48 83 c0 04          	add    $0x4,%rax
+    11d4:	49 89 ca             	mov    %rcx,%r10
+    11d7:	49 29 c2             	sub    %rax,%r10
+    11da:	0f 86 5d 01 00 00    	jbe    133d <evidence::multiply_simd_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x29d>
+    11e0:	49 83 fa 10          	cmp    $0x10,%r10
+    11e4:	0f 82 ba 00 00 00    	jb     12a4 <evidence::multiply_simd_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x204>
+    11ea:	49 83 f8 01          	cmp    $0x1,%r8
+    11ee:	0f 85 b0 00 00 00    	jne    12a4 <evidence::multiply_simd_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x204>
+    11f4:	49 89 d1             	mov    %rdx,%r9
+    11f7:	49 29 f9             	sub    %rdi,%r9
+    11fa:	49 81 f9 80 00 00 00 	cmp    $0x80,%r9
+    1201:	0f 82 9d 00 00 00    	jb     12a4 <evidence::multiply_simd_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x204>
+    1207:	49 89 d1             	mov    %rdx,%r9
+    120a:	49 29 f1             	sub    %rsi,%r9
+    120d:	49 81 f9 80 00 00 00 	cmp    $0x80,%r9
+    1214:	0f 82 8a 00 00 00    	jb     12a4 <evidence::multiply_simd_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x204>
+    121a:	4d 89 d3             	mov    %r10,%r11
+    121d:	49 83 e3 f0          	and    $0xfffffffffffffff0,%r11
+    1221:	4e 8d 0c 18          	lea    (%rax,%r11,1),%r9
+    1225:	48 8d 1c c7          	lea    (%rdi,%rax,8),%rbx
+    1229:	48 83 c3 60          	add    $0x60,%rbx
+    122d:	4c 8d 34 c6          	lea    (%rsi,%rax,8),%r14
+    1231:	49 83 c6 60          	add    $0x60,%r14
+    1235:	48 8d 04 c2          	lea    (%rdx,%rax,8),%rax
+    1239:	48 83 c0 60          	add    $0x60,%rax
+    123d:	45 31 ff             	xor    %r15d,%r15d
+    1240:	c4 81 7d 10 44 fe a0 	vmovupd -0x60(%r14,%r15,8),%ymm0
+    1247:	c4 81 7d 10 4c fe c0 	vmovupd -0x40(%r14,%r15,8),%ymm1
+    124e:	c4 81 7d 10 54 fe e0 	vmovupd -0x20(%r14,%r15,8),%ymm2
+    1255:	c4 81 7d 10 1c fe    	vmovupd (%r14,%r15,8),%ymm3
+    125b:	c4 a1 7d 59 44 fb a0 	vmulpd -0x60(%rbx,%r15,8),%ymm0,%ymm0
+    1262:	c4 a1 75 59 4c fb c0 	vmulpd -0x40(%rbx,%r15,8),%ymm1,%ymm1
+    1269:	c4 a1 6d 59 54 fb e0 	vmulpd -0x20(%rbx,%r15,8),%ymm2,%ymm2
+    1270:	c4 a1 65 59 1c fb    	vmulpd (%rbx,%r15,8),%ymm3,%ymm3
+    1276:	c4 a1 7d 11 44 f8 a0 	vmovupd %ymm0,-0x60(%rax,%r15,8)
+    127d:	c4 a1 7d 11 4c f8 c0 	vmovupd %ymm1,-0x40(%rax,%r15,8)
+    1284:	c4 a1 7d 11 54 f8 e0 	vmovupd %ymm2,-0x20(%rax,%r15,8)
+    128b:	c4 a1 7d 11 1c f8    	vmovupd %ymm3,(%rax,%r15,8)
+    1291:	49 83 c7 10          	add    $0x10,%r15
+    1295:	4d 39 fb             	cmp    %r15,%r11
+    1298:	75 a6                	jne    1240 <evidence::multiply_simd_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x1a0>
+    129a:	4d 39 da             	cmp    %r11,%r10
+    129d:	75 08                	jne    12a7 <evidence::multiply_simd_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x207>
+    129f:	e9 99 00 00 00       	jmp    133d <evidence::multiply_simd_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x29d>
+    12a4:	49 89 c1             	mov    %rax,%r9
+    12a7:	89 c8                	mov    %ecx,%eax
+    12a9:	44 29 c8             	sub    %r9d,%eax
+    12ac:	4d 89 cb             	mov    %r9,%r11
+    12af:	a8 01                	test   $0x1,%al
+    12b1:	74 1a                	je     12cd <evidence::multiply_simd_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x22d>
+    12b3:	4c 89 c8             	mov    %r9,%rax
+    12b6:	49 0f af c0          	imul   %r8,%rax
+    12ba:	c5 fb 10 04 c6       	vmovsd (%rsi,%rax,8),%xmm0
+    12bf:	c5 fb 59 04 c7       	vmulsd (%rdi,%rax,8),%xmm0,%xmm0
+    12c4:	c5 fb 11 04 c2       	vmovsd %xmm0,(%rdx,%rax,8)
+    12c9:	4d 8d 59 01          	lea    0x1(%r9),%r11
+    12cd:	48 8d 41 ff          	lea    -0x1(%rcx),%rax
+    12d1:	49 39 c1             	cmp    %rax,%r9
+    12d4:	74 67                	je     133d <evidence::multiply_simd_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x29d>
+    12d6:	4c 29 d9             	sub    %r11,%rcx
+    12d9:	4d 8d 53 01          	lea    0x1(%r11),%r10
+    12dd:	4d 0f af d0          	imul   %r8,%r10
+    12e1:	4a 8d 04 d2          	lea    (%rdx,%r10,8),%rax
+    12e5:	4e 8d 0c d6          	lea    (%rsi,%r10,8),%r9
+    12e9:	4e 8d 14 d7          	lea    (%rdi,%r10,8),%r10
+    12ed:	4d 0f af d8          	imul   %r8,%r11
+    12f1:	49 c1 e0 04          	shl    $0x4,%r8
+    12f5:	4a 8d 14 da          	lea    (%rdx,%r11,8),%rdx
+    12f9:	4a 8d 34 de          	lea    (%rsi,%r11,8),%rsi
+    12fd:	4a 8d 3c df          	lea    (%rdi,%r11,8),%rdi
+    1301:	45 31 db             	xor    %r11d,%r11d
+    1304:	66 66 66 2e 0f 1f 84 	data16 data16 cs nopw 0x0(%rax,%rax,1)
+    130b:	00 00 00 00 00 
+    1310:	c4 a1 7b 10 04 1e    	vmovsd (%rsi,%r11,1),%xmm0
+    1316:	c4 a1 7b 59 04 1f    	vmulsd (%rdi,%r11,1),%xmm0,%xmm0
+    131c:	c4 a1 7b 11 04 1a    	vmovsd %xmm0,(%rdx,%r11,1)
+    1322:	c4 81 7b 10 04 19    	vmovsd (%r9,%r11,1),%xmm0
+    1328:	c4 81 7b 59 04 1a    	vmulsd (%r10,%r11,1),%xmm0,%xmm0
+    132e:	c4 a1 7b 11 04 18    	vmovsd %xmm0,(%rax,%r11,1)
+    1334:	4d 01 c3             	add    %r8,%r11
+    1337:	48 83 c1 fe          	add    $0xfffffffffffffffe,%rcx
+    133b:	75 d3                	jne    1310 <evidence::multiply_simd_f64(double const*, double const*, double*, unsigned long, unsigned long)+0x270>
+    133d:	5b                   	pop    %rbx
+    133e:	41 5e                	pop    %r14
+    1340:	41 5f                	pop    %r15
+    1342:	c5 f8 77             	vzeroupper
+    1345:	c3                   	ret
+    1346:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+    134d:	00 00 00 
+
+0000000000001350 <evidence::stream_triad(double const*, double const*, double*, unsigned long)>:
+    1350:	48 85 c9             	test   %rcx,%rcx
+    1353:	0f 84 af 00 00 00    	je     1408 <evidence::stream_triad(double const*, double const*, double*, unsigned long)+0xb8>
+    1359:	4c 8d 41 ff          	lea    -0x1(%rcx),%r8
+    135d:	49 c1 e8 02          	shr    $0x2,%r8
+    1361:	49 ff c0             	inc    %r8
+    1364:	44 89 c0             	mov    %r8d,%eax
+    1367:	83 e0 03             	and    $0x3,%eax
+    136a:	48 83 f9 0d          	cmp    $0xd,%rcx
+    136e:	73 04                	jae    1374 <evidence::stream_triad(double const*, double const*, double*, unsigned long)+0x24>
+    1370:	31 c9                	xor    %ecx,%ecx
+    1372:	eb 5b                	jmp    13cf <evidence::stream_triad(double const*, double const*, double*, unsigned long)+0x7f>
+    1374:	49 83 e0 fc          	and    $0xfffffffffffffffc,%r8
+    1378:	31 c9                	xor    %ecx,%ecx
+    137a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+    1380:	c5 fd 28 04 ce       	vmovapd (%rsi,%rcx,8),%ymm0
+    1385:	c5 fd 58 04 cf       	vaddpd (%rdi,%rcx,8),%ymm0,%ymm0
+    138a:	c5 fd 2b 04 ca       	vmovntpd %ymm0,(%rdx,%rcx,8)
+    138f:	c5 fd 28 44 ce 20    	vmovapd 0x20(%rsi,%rcx,8),%ymm0
+    1395:	c5 fd 58 44 cf 20    	vaddpd 0x20(%rdi,%rcx,8),%ymm0,%ymm0
+    139b:	c5 fd 2b 44 ca 20    	vmovntpd %ymm0,0x20(%rdx,%rcx,8)
+    13a1:	c5 fd 28 44 ce 40    	vmovapd 0x40(%rsi,%rcx,8),%ymm0
+    13a7:	c5 fd 58 44 cf 40    	vaddpd 0x40(%rdi,%rcx,8),%ymm0,%ymm0
+    13ad:	c5 fd 2b 44 ca 40    	vmovntpd %ymm0,0x40(%rdx,%rcx,8)
+    13b3:	c5 fd 28 44 ce 60    	vmovapd 0x60(%rsi,%rcx,8),%ymm0
+    13b9:	c5 fd 58 44 cf 60    	vaddpd 0x60(%rdi,%rcx,8),%ymm0,%ymm0
+    13bf:	c5 fd 2b 44 ca 60    	vmovntpd %ymm0,0x60(%rdx,%rcx,8)
+    13c5:	48 83 c1 10          	add    $0x10,%rcx
+    13c9:	49 83 c0 fc          	add    $0xfffffffffffffffc,%r8
+    13cd:	75 b1                	jne    1380 <evidence::stream_triad(double const*, double const*, double*, unsigned long)+0x30>
+    13cf:	48 85 c0             	test   %rax,%rax
+    13d2:	74 34                	je     1408 <evidence::stream_triad(double const*, double const*, double*, unsigned long)+0xb8>
+    13d4:	48 8d 34 ce          	lea    (%rsi,%rcx,8),%rsi
+    13d8:	48 8d 3c cf          	lea    (%rdi,%rcx,8),%rdi
+    13dc:	48 8d 0c ca          	lea    (%rdx,%rcx,8),%rcx
+    13e0:	c1 e0 05             	shl    $0x5,%eax
+    13e3:	31 d2                	xor    %edx,%edx
+    13e5:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+    13ec:	00 00 00 00 
+    13f0:	c5 fd 28 04 16       	vmovapd (%rsi,%rdx,1),%ymm0
+    13f5:	c5 fd 58 04 17       	vaddpd (%rdi,%rdx,1),%ymm0,%ymm0
+    13fa:	c5 fd 2b 04 11       	vmovntpd %ymm0,(%rcx,%rdx,1)
+    13ff:	48 83 c2 20          	add    $0x20,%rdx
+    1403:	48 39 d0             	cmp    %rdx,%rax
+    1406:	75 e8                	jne    13f0 <evidence::stream_triad(double const*, double const*, double*, unsigned long)+0xa0>
+    1408:	0f ae f8             	sfence
+    140b:	c5 f8 77             	vzeroupper
+    140e:	c3                   	ret
+    140f:	90                   	nop
+
+0000000000001410 <evidence::cached_copy(double const*, double*, unsigned long)>:
+    1410:	48 85 d2             	test   %rdx,%rdx
+    1413:	0f 84 8a 00 00 00    	je     14a3 <evidence::cached_copy(double const*, double*, unsigned long)+0x93>
+    1419:	48 8d 4a ff          	lea    -0x1(%rdx),%rcx
+    141d:	48 c1 e9 02          	shr    $0x2,%rcx
+    1421:	48 ff c1             	inc    %rcx
+    1424:	89 c8                	mov    %ecx,%eax
+    1426:	83 e0 03             	and    $0x3,%eax
+    1429:	48 83 fa 0d          	cmp    $0xd,%rdx
+    142d:	73 04                	jae    1433 <evidence::cached_copy(double const*, double*, unsigned long)+0x23>
+    142f:	31 d2                	xor    %edx,%edx
+    1431:	eb 45                	jmp    1478 <evidence::cached_copy(double const*, double*, unsigned long)+0x68>
+    1433:	48 83 e1 fc          	and    $0xfffffffffffffffc,%rcx
+    1437:	31 d2                	xor    %edx,%edx
+    1439:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    1440:	c5 fc 28 04 d7       	vmovaps (%rdi,%rdx,8),%ymm0
+    1445:	c5 fc 29 04 d6       	vmovaps %ymm0,(%rsi,%rdx,8)
+    144a:	c5 fc 28 44 d7 20    	vmovaps 0x20(%rdi,%rdx,8),%ymm0
+    1450:	c5 fc 29 44 d6 20    	vmovaps %ymm0,0x20(%rsi,%rdx,8)
+    1456:	c5 fc 28 44 d7 40    	vmovaps 0x40(%rdi,%rdx,8),%ymm0
+    145c:	c5 fc 29 44 d6 40    	vmovaps %ymm0,0x40(%rsi,%rdx,8)
+    1462:	c5 fc 28 44 d7 60    	vmovaps 0x60(%rdi,%rdx,8),%ymm0
+    1468:	c5 fc 29 44 d6 60    	vmovaps %ymm0,0x60(%rsi,%rdx,8)
+    146e:	48 83 c2 10          	add    $0x10,%rdx
+    1472:	48 83 c1 fc          	add    $0xfffffffffffffffc,%rcx
+    1476:	75 c8                	jne    1440 <evidence::cached_copy(double const*, double*, unsigned long)+0x30>
+    1478:	48 85 c0             	test   %rax,%rax
+    147b:	74 26                	je     14a3 <evidence::cached_copy(double const*, double*, unsigned long)+0x93>
+    147d:	48 8d 0c d7          	lea    (%rdi,%rdx,8),%rcx
+    1481:	48 8d 14 d6          	lea    (%rsi,%rdx,8),%rdx
+    1485:	c1 e0 05             	shl    $0x5,%eax
+    1488:	31 f6                	xor    %esi,%esi
+    148a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+    1490:	c5 fc 28 04 31       	vmovaps (%rcx,%rsi,1),%ymm0
+    1495:	c5 fc 29 04 32       	vmovaps %ymm0,(%rdx,%rsi,1)
+    149a:	48 83 c6 20          	add    $0x20,%rsi
+    149e:	48 39 f0             	cmp    %rsi,%rax
+    14a1:	75 ed                	jne    1490 <evidence::cached_copy(double const*, double*, unsigned long)+0x80>
+    14a3:	0f ae f8             	sfence
+    14a6:	c5 f8 77             	vzeroupper
+    14a9:	c3                   	ret

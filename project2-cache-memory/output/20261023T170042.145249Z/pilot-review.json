@@ -1,0 +1,164 @@
+{
+  "note": "Pilot results diagnose source bias, threshold sensitivity and perturbation; user requested full acquisition despite failed quality checks.",
+  "sizes": [
+    {
+      "bytes": 16384,
+      "conditions": [
+        {
+          "threshold": 3,
+          "period": 101,
+          "h_ns": 1.0131012242689916,
+          "h_ns_relative_to_default": 1.0,
+          "dram_ns": null,
+          "max_source_fraction_difference": 0.0002544713288985534,
+          "max_source_fraction_difference_relative_to_default": 1.0,
+          "profiled_time_ratio": 1.0676937528960289,
+          "profiled_time_ratio_relative_to_default": 1.0
+        },
+        {
+          "threshold": 3,
+          "period": 503,
+          "h_ns": 1.0063143965152808,
+          "h_ns_relative_to_default": 0.9933009381578747,
+          "dram_ns": null,
+          "max_source_fraction_difference": 0.0002573091276567574,
+          "max_source_fraction_difference_relative_to_default": 1.0111517425970424,
+          "profiled_time_ratio": 1.0304078301839308,
+          "profiled_time_ratio_relative_to_default": 0.9650780735478098
+        },
+        {
+          "threshold": 4,
+          "period": 101,
+          "h_ns": 1.004250123319316,
+          "h_ns_relative_to_default": 0.9912633597338092,
+          "dram_ns": null,
+          "max_source_fraction_difference": 0.12094235742001286,
+          "max_source_fraction_difference_relative_to_default": 475.2690919778522,
+          "profiled_time_ratio": 1.0025026880733465,
+          "profiled_time_ratio_relative_to_default": 0.9389421689076506
+        }
+      ]
+    },
+    {
+      "bytes": 524288,
+      "conditions": [
+        {
+          "threshold": 3,
+          "period": 101,
+          "h_ns": 3.0285132415520466,
+          "h_ns_relative_to_default": 1.0,
+          "dram_ns": 227.40321458609623,
+          "dram_ns_relative_to_default": 1.0,
+          "max_source_fraction_difference": 0.0003786882225727985,
+          "max_source_fraction_difference_relative_to_default": 1.0,
+          "profiled_time_ratio": 1.0298398368031045,
+          "profiled_time_ratio_relative_to_default": 1.0
+        },
+        {
+          "threshold": 3,
+          "period": 503,
+          "h_ns": 3.0228352064991055,
+          "h_ns_relative_to_default": 0.9981251410840682,
+          "dram_ns": null,
+          "max_source_fraction_difference": 0.0004331223548384013,
+          "max_source_fraction_difference_relative_to_default": 1.143743927117085,
+          "profiled_time_ratio": 1.013767336276906,
+          "profiled_time_ratio_relative_to_default": 0.9843932037275894
+        },
+        {
+          "threshold": 4,
+          "period": 101,
+          "h_ns": 3.013273882781232,
+          "h_ns_relative_to_default": 0.9949680395773984,
+          "dram_ns": 153.04993364512353,
+          "dram_ns_relative_to_default": 0.6730332898929972,
+          "max_source_fraction_difference": 0.0007282008321063055,
+          "max_source_fraction_difference_relative_to_default": 1.922956111914247,
+          "profiled_time_ratio": 1.0393223602017405,
+          "profiled_time_ratio_relative_to_default": 1.0092077651881017
+        }
+      ]
+    },
+    {
+      "bytes": 8388608,
+      "conditions": [
+        {
+          "threshold": 3,
+          "period": 101,
+          "h_ns": 12.288735162823773,
+          "h_ns_relative_to_default": 1.0,
+          "dram_ns": 124.81863089131245,
+          "dram_ns_relative_to_default": 1.0,
+          "max_source_fraction_difference": 0.12919934966996988,
+          "max_source_fraction_difference_relative_to_default": 1.0,
+          "profiled_time_ratio": 0.6752252366184766,
+          "profiled_time_ratio_relative_to_default": 1.0
+        },
+        {
+          "threshold": 3,
+          "period": 503,
+          "h_ns": 12.415575192522393,
+          "h_ns_relative_to_default": 1.0103216505212302,
+          "dram_ns": 156.25179918841064,
+          "dram_ns_relative_to_default": 1.2518307409129417,
+          "max_source_fraction_difference": 0.045858202061805395,
+          "max_source_fraction_difference_relative_to_default": 0.35494143104393916,
+          "profiled_time_ratio": 1.2405585063712645,
+          "profiled_time_ratio_relative_to_default": 1.8372513927115242
+        },
+        {
+          "threshold": 4,
+          "period": 101,
+          "h_ns": 12.32395971338866,
+          "h_ns_relative_to_default": 1.0028664097727038,
+          "dram_ns": 137.33847896116492,
+          "dram_ns_relative_to_default": 1.100304321401781,
+          "max_source_fraction_difference": 0.038324527160322565,
+          "max_source_fraction_difference_relative_to_default": 0.29663096028129954,
+          "profiled_time_ratio": 1.0360165190441377,
+          "profiled_time_ratio_relative_to_default": 1.534327307184935
+        }
+      ]
+    },
+    {
+      "bytes": 201326592,
+      "conditions": [
+        {
+          "threshold": 3,
+          "period": 101,
+          "h_ns": 10.600576693186696,
+          "h_ns_relative_to_default": 1.0,
+          "dram_ns": 126.68759527504477,
+          "dram_ns_relative_to_default": 1.0,
+          "max_source_fraction_difference": 0.003580044689303896,
+          "max_source_fraction_difference_relative_to_default": 1.0,
+          "profiled_time_ratio": 1.0843814824481353,
+          "profiled_time_ratio_relative_to_default": 1.0
+        },
+        {
+          "threshold": 3,
+          "period": 503,
+          "h_ns": null,
+          "dram_ns": 124.48634584732508,
+          "dram_ns_relative_to_default": 0.9826245859119777,
+          "max_source_fraction_difference": 0.003098233130670369,
+          "max_source_fraction_difference_relative_to_default": 0.865417445745011,
+          "profiled_time_ratio": 0.8719333661130855,
+          "profiled_time_ratio_relative_to_default": 0.8040835999380772
+        },
+        {
+          "threshold": 4,
+          "period": 101,
+          "h_ns": 6.065972688455206,
+          "h_ns_relative_to_default": 0.5722304421752815,
+          "dram_ns": 116.01602859602372,
+          "dram_ns_relative_to_default": 0.9157647072244716,
+          "max_source_fraction_difference": 0.003138703705495612,
+          "max_source_fraction_difference_relative_to_default": 0.876721934470014,
+          "profiled_time_ratio": 1.0152542437808365,
+          "profiled_time_ratio_relative_to_default": 0.9362519189176536
+        }
+      ]
+    }
+  ]
+}

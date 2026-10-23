@@ -1,0 +1,9 @@
+{
+  "profile": "report-full",
+  "trials": 11205,
+  "configurations": 249,
+  "correctness": "all passed",
+  "hardware_counters": true,
+  "huge_pages_verified": true,
+  "missing_required_evidence": []
+}

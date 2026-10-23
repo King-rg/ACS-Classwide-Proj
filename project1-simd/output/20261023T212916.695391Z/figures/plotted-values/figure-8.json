@@ -1,0 +1,9 @@
+[
+  {
+    "panel": 1,
+    "xlabel": "",
+    "ylabel": "Throughput (GFLOP/s)",
+    "xscale": "linear",
+    "yscale": "linear"
+  }
+]

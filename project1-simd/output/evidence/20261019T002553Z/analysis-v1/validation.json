@@ -1,0 +1,43 @@
+{
+  "raw_rows": 7290,
+  "groups": 1458,
+  "comparisons": 972,
+  "calibration": [
+    {
+      "kind": "nt_triad",
+      "median_rate": 24.32194963544848,
+      "min_process_median": 21.16784737442963,
+      "max_process_median": 24.415907706718908,
+      "unit": "logical GB/s",
+      "trial_count": 21
+    },
+    {
+      "kind": "cached_copy",
+      "median_rate": 16.875072435670397,
+      "min_process_median": 16.59848968747886,
+      "max_process_median": 16.92635197142624,
+      "unit": "logical GB/s",
+      "trial_count": 21
+    },
+    {
+      "kind": "fma_f32",
+      "median_rate": 146.90751081864784,
+      "min_process_median": 145.59343828572827,
+      "max_process_median": 147.9727730097662,
+      "unit": "GFLOP/s",
+      "trial_count": 21
+    },
+    {
+      "kind": "fma_f64",
+      "median_rate": 73.21984257733845,
+      "min_process_median": 71.99189191317328,
+      "max_process_median": 73.88312382465226,
+      "unit": "GFLOP/s",
+      "trial_count": 21
+    }
+  ],
+  "core_cycles_available": true,
+  "perf_running_equals_enabled": true,
+  "process_repeats": 3,
+  "plots": 16
+}

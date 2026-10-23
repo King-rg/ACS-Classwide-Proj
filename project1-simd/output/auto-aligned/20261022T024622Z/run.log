@@ -1,0 +1,7 @@
+PASS: all 12 kernels; 13 lengths, two offsets, guarded and exact-size buffers
+Measuring axpy
+Wrote 3180 rows to /home/dandisk/ACS-Classwide-Proj/output/auto-aligned/20261022T024622Z/axpy.csv
+Measuring dot
+Wrote 3180 rows to /home/dandisk/ACS-Classwide-Proj/output/auto-aligned/20261022T024622Z/dot.csv
+Measuring multiply
+Wrote 3180 rows to /home/dandisk/ACS-Classwide-Proj/output/auto-aligned/20261022T024622Z/multiply.csv

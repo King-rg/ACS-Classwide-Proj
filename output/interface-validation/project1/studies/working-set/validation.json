@@ -1,0 +1,9 @@
+{
+  "measurements": 9540,
+  "sizes": 53,
+  "all_passed": true,
+  "all_lengths_multiple_of_8": true,
+  "all_recorded_array_addresses_AVX_aligned": true,
+  "allocation_alignment_bytes": 64,
+  "single_call": true
+}

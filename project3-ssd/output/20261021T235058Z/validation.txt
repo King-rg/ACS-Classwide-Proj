@@ -1,0 +1,1 @@
+99 timed records validated against FIO JSON; throughput/bytes/latency arithmetic and ordered percentiles passed. Initialization, CRC verification and state jobs returned zero errors. Disposable file removed.

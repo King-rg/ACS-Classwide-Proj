@@ -1,0 +1,18 @@
+{
+  "speedup": {
+    "verified_svg_series": 12,
+    "measured_markers": 408,
+    "png_dimensions": [
+      5400,
+      4050
+    ]
+  },
+  "runtime": {
+    "verified_svg_series": 18,
+    "measured_markers": 612,
+    "png_dimensions": [
+      5400,
+      4050
+    ]
+  }
+}

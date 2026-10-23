@@ -1,0 +1,6 @@
+experiments/ordinary.cpp:16:22: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+experiments/ordinary.cpp:16:22: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+experiments/ordinary.cpp:16:22: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+experiments/ordinary.cpp:16:40: remark: vectorized loop (vectorization width: 4, interleaved count: 4) [-Rpass=loop-vectorize]
+experiments/ordinary.cpp:16:40: remark: vectorized loop (vectorization width: 4, interleaved count: 4) [-Rpass=loop-vectorize]
+experiments/ordinary.cpp:16:40: remark: vectorized loop (vectorization width: 4, interleaved count: 4) [-Rpass=loop-vectorize]

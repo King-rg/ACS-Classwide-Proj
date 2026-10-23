@@ -1,0 +1,23 @@
+[
+  {
+    "panel": 1,
+    "xlabel": "",
+    "ylabel": "Scalar / auto speedup (\u00d7)",
+    "xscale": "log",
+    "yscale": "linear"
+  },
+  {
+    "panel": 2,
+    "xlabel": "",
+    "ylabel": "",
+    "xscale": "log",
+    "yscale": "linear"
+  },
+  {
+    "panel": 3,
+    "xlabel": "",
+    "ylabel": "",
+    "xscale": "log",
+    "yscale": "linear"
+  }
+]

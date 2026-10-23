@@ -1,0 +1,6 @@
+axpy float strict 4096 1 0
+axpy double strict 4096 1 0
+dot float strict 4096 1 0
+dot double strict 4096 1 0
+multiply float strict 4096 1 0
+multiply double strict 4096 1 0

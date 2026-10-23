@@ -1,0 +1,9 @@
+kernel,implementation,datatype,n,stride,offset_elements,x_mod32,y_mod32,output_mod32,coefficient,trial,warmups,calls,elapsed_ns,checksum,correct,seed,build_mode,compiler,study,ns_per_call
+axpy,scalar,float,19,1,0,0,0,0,1.25,0,2,1,107,-0.571750223636627197266,pass,4320,"avx","13.3.0",working_set,107
+axpy,simd,float,19,1,0,0,0,0,1.25,0,2,1,70,-0.571750223636627197266,pass,4320,"avx","13.3.0",working_set,70
+axpy,scalar,double,19,1,0,0,0,0,1.25,0,2,1,39,-0.57174999999999998046,pass,4320,"avx","13.3.0",working_set,39
+axpy,simd,double,19,1,0,0,0,0,1.25,0,2,1,50,-0.57174999999999998046,pass,4320,"avx","13.3.0",working_set,50
+axpy,scalar,float,32,1,0,0,0,0,1.25,0,2,1,39,0.0567498803138732910156,pass,4320,"avx","13.3.0",working_set,39
+axpy,simd,float,32,1,0,0,0,0,1.25,0,2,1,37,0.0567498803138732910156,pass,4320,"avx","13.3.0",working_set,37
+axpy,scalar,double,32,1,0,0,0,0,1.25,0,2,1,47,0.0567499999999997450928,pass,4320,"avx","13.3.0",working_set,47
+axpy,simd,double,32,1,0,0,0,0,1.25,0,2,1,46,0.0567499999999997450928,pass,4320,"avx","13.3.0",working_set,46

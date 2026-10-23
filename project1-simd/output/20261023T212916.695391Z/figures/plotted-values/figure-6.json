@@ -1,0 +1,30 @@
+[
+  {
+    "panel": 1,
+    "xlabel": "",
+    "ylabel": "Useful bandwidth (GiB/s)",
+    "xscale": "linear",
+    "yscale": "linear"
+  },
+  {
+    "panel": 2,
+    "xlabel": "",
+    "ylabel": "",
+    "xscale": "linear",
+    "yscale": "linear"
+  },
+  {
+    "panel": 3,
+    "xlabel": "",
+    "ylabel": "Useful bandwidth (GiB/s)",
+    "xscale": "linear",
+    "yscale": "linear"
+  },
+  {
+    "panel": 4,
+    "xlabel": "",
+    "ylabel": "",
+    "xscale": "linear",
+    "yscale": "linear"
+  }
+]

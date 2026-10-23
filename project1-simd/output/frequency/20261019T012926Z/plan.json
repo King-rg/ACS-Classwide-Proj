@@ -1,0 +1,29 @@
+{
+  "steps_khz": [
+    1500000,
+    2000000,
+    2500000,
+    3000000,
+    3500000,
+    4000000,
+    4500000,
+    5000000
+  ],
+  "stop_temperature_c": 90.0,
+  "interval_s": 0.75,
+  "warmup_intervals": 1,
+  "measured_intervals": 3,
+  "workloads": [
+    "compute",
+    "dot"
+  ],
+  "cooldown_s": 2,
+  "timeout_s": 120,
+  "aperf_meaning": "CPU0 delivered cycles per wall time; includes idle. APERF/MPERF ratio is also recorded; no assumed nominal conversion.",
+  "perf_meaning": "User core cycles / thread CPU time = execution MHz, measured in worker.",
+  "compiler_flags": "-O3 -mavx2 -mfma (compute only); ffp-contract=off; no fast-math",
+  "sources": [
+    "https://www.kernel.org/doc/html/latest/admin-guide/pm/intel_pstate.html",
+    "https://cdn.kernel.org/doc/html/latest/hwmon/coretemp.html"
+  ]
+}

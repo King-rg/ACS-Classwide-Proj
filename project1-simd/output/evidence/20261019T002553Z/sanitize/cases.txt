@@ -1,0 +1,6 @@
+axpy float sanitize 19 8 1
+axpy double sanitize 19 4 1
+dot float sanitize 19 2 1
+dot double sanitize 19 8 1
+multiply float sanitize 19 4 1
+multiply double sanitize 19 8 1

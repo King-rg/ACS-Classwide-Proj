@@ -1,0 +1,4 @@
+{"interval":0,"warmup":true,"calls":2444016,"operations":10010689536,"wall_s":0.750004405,"cpu_s":0.749914817,"cycles":1117863299,"enabled":749953508,"running":749953508,"checksum":443.493225}
+{"interval":1,"warmup":false,"calls":2440832,"operations":9997647872,"wall_s":0.750004287,"cpu_s":0.749416002,"cycles":1116995287,"enabled":1499390964,"running":1499390964,"checksum":443.493225}
+{"interval":2,"warmup":false,"calls":2437552,"operations":9984212992,"wall_s":0.750008532,"cpu_s":0.749731005,"cycles":1117012025,"enabled":2249137034,"running":2249137034,"checksum":443.493225}
+{"interval":3,"warmup":false,"calls":2439488,"operations":9992142848,"wall_s":0.750003292,"cpu_s":0.749753371,"cycles":1117297266,"enabled":2998902522,"running":2998902522,"checksum":443.493225}

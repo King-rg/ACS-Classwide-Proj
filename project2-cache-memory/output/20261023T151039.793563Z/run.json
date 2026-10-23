@@ -1,0 +1,7 @@
+{
+  "project": 2,
+  "started": "20261023T151039.793563Z",
+  "acquisition_complete": false,
+  "plots_complete": false,
+  "error": "L3 isolation failed: none of the 2, 4, or 8 MiB eviction buffers passed all residency/overhead checks. No experimental AMAT parameters published."
+}

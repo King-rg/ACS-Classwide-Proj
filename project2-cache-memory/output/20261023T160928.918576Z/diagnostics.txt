@@ -1,0 +1,6 @@
+Acquisition intentionally stopped before completion to harmonize the working-set
+L3-miss event with the processor-specific retired L3-miss event used in prepared
+conditions. This partial run used the historical generic LLC-read-miss event in
+its working-set subprocesses. No results from this partial acquisition are used
+for the revised AMAT estimates. All attempts and partial raw data are retained.
+The replacement acquisition is 20261023T161208.775528Z.

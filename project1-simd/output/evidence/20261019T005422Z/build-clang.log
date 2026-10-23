@@ -1,0 +1,17 @@
++ clang++ -std=c++17 -Wall -Wextra -Wpedantic -O3 -mavx2 -ffast-math -ffp-contract=off -fno-vectorize -fno-slp-vectorize -DVARIANT=scalar -c experiments/ordinary.cpp -o /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T005422Z/build-clang/scalar.o
++ clang++ -std=c++17 -Wall -Wextra -Wpedantic -O3 -mavx2 -ffast-math -ffp-contract=off -Rpass=loop-vectorize -Rpass-missed=loop-vectorize -Rpass-analysis=loop-vectorize -DVARIANT=auto -c experiments/ordinary.cpp -o /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T005422Z/build-clang/auto.o
++ clang++ -std=c++17 -Wall -Wextra -Wpedantic -O3 -mavx2 -ffast-math -ffp-contract=off -fno-fast-math -Rpass=loop-vectorize -Rpass-missed=loop-vectorize -Rpass-analysis=loop-vectorize -DVARIANT=auto -c experiments/ordinary.cpp -o /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T005422Z/build-clang/auto_strict.o
++ clang++ -std=c++17 -Wall -Wextra -Wpedantic -O3 -mavx2 -ffast-math -ffp-contract=off -c experiments/intrinsics.cpp -o /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T005422Z/build-clang/simd.o
++ clang++ -std=c++17 -Wall -Wextra -Wpedantic -O3 -mavx2 -ffast-math -ffp-contract=off -mfma -c experiments/compute.cpp -o /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T005422Z/build-clang/compute.o
++ clang++ -std=c++17 -Wall -Wextra -Wpedantic -O3 -mavx2 -ffp-contract=off -c experiments/run.cpp -o /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T005422Z/build-clang/run.o
++ clang++ /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T005422Z/build-clang/run.o /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T005422Z/build-clang/scalar.o /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T005422Z/build-clang/auto.o /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T005422Z/build-clang/simd.o /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T005422Z/build-clang/compute.o -o /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T005422Z/build-clang/runner
++ for object in scalar auto auto_strict simd compute
++ objdump -d -C /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T005422Z/build-clang/scalar.o
++ for object in scalar auto auto_strict simd compute
++ objdump -d -C /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T005422Z/build-clang/auto.o
++ for object in scalar auto auto_strict simd compute
++ objdump -d -C /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T005422Z/build-clang/auto_strict.o
++ for object in scalar auto auto_strict simd compute
++ objdump -d -C /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T005422Z/build-clang/simd.o
++ for object in scalar auto auto_strict simd compute
++ objdump -d -C /home/dandisk/ACS-Classwide-Proj/output/evidence/20261019T005422Z/build-clang/compute.o

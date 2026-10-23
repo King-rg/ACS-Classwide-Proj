@@ -1,0 +1,12 @@
+experiments/ordinary.cpp:16:22: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+   16 | namespace evidence { DEFINE(float,f32) DEFINE(double,f64) }
+      |                      ^
+experiments/ordinary.cpp:16:22: remark: loop not vectorized: cannot prove it is safe to reorder floating-point operations; allow reordering by specifying '#pragma clang loop vectorize(enable)' before the loop or by providing the compiler option '-ffast-math'. [-Rpass-analysis=loop-vectorize]
+experiments/ordinary.cpp:16:22: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+experiments/ordinary.cpp:16:22: remark: vectorized loop (vectorization width: 8, interleaved count: 4) [-Rpass=loop-vectorize]
+experiments/ordinary.cpp:16:40: remark: vectorized loop (vectorization width: 4, interleaved count: 4) [-Rpass=loop-vectorize]
+   16 | namespace evidence { DEFINE(float,f32) DEFINE(double,f64) }
+      |                                        ^
+experiments/ordinary.cpp:16:40: remark: loop not vectorized: cannot prove it is safe to reorder floating-point operations; allow reordering by specifying '#pragma clang loop vectorize(enable)' before the loop or by providing the compiler option '-ffast-math'. [-Rpass-analysis=loop-vectorize]
+experiments/ordinary.cpp:16:40: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+experiments/ordinary.cpp:16:40: remark: vectorized loop (vectorization width: 4, interleaved count: 4) [-Rpass=loop-vectorize]

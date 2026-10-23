@@ -1,0 +1,733 @@
+{
+  "sources": [
+    {
+      "path": "studies/working-set/axpy.csv",
+      "sha256": "965a684132d8633831a246f2130ca17b1befd4490d6ef82f6f2cc2e78bba8227"
+    },
+    {
+      "path": "studies/working-set/dot.csv",
+      "sha256": "6419417a249c91e2c9b2ce72aef98dfe73ec1bdfc68403905e3c62c0b2b43d71"
+    },
+    {
+      "path": "studies/working-set/multiply.csv",
+      "sha256": "d7d127dfc96aa392bc739f01483f652a5946ef5bba66b0318bd51d62157d7623"
+    },
+    {
+      "path": "studies/alignment/raw.csv",
+      "sha256": "b97cc8e4301182315408f4770d34e8a7ed140f1dab57775058ed65ae57f94f6a"
+    },
+    {
+      "path": "studies/supplemental/raw.csv",
+      "sha256": "92d68e15652321fa689cb87a729abcb912c5a39bf06abd0bde54da2ba7dae38d"
+    },
+    {
+      "path": "studies/native/axpy.csv",
+      "sha256": "1f1c1d9059e499955bef19f790ce5d95dfe9569c9e124295724cc23d7986d55c"
+    },
+    {
+      "path": "studies/native/dot.csv",
+      "sha256": "4dae244251835c4663a93e5b00d6654992306e999f503df718ace1135b055c35"
+    },
+    {
+      "path": "studies/native/multiply.csv",
+      "sha256": "84b59f444be74efb374231b9226b647fd9c67b7b021c0081e89c3221cef5ec5f"
+    },
+    {
+      "path": "studies/cycles/axpy.csv",
+      "sha256": "a17adba8bfb63d1a47ec486c3c3d911f7033b77fdfa3bd90f7c73baaa8418616"
+    },
+    {
+      "path": "studies/cycles/dot.csv",
+      "sha256": "a0abd3503d4fd75a1a93d198d76680cfd63b37a987d7c849d6503300c242cfe3"
+    },
+    {
+      "path": "studies/cycles/dot-cycles.csv",
+      "sha256": "4a7356df7d5c722dd7a0ebd645800b18236030566802f60e60a7e1ccec32003b"
+    },
+    {
+      "path": "studies/cycles/axpy-cycles.csv",
+      "sha256": "0249cb5d89c69e7ba449d95edaa48197820b161dcfc47cf168042a8bf782987c"
+    },
+    {
+      "path": "studies/cycles/multiply-cycles.csv",
+      "sha256": "603938481f70996966f3904f7013f06a5ea9a0e00874c8715c3babf17415c672"
+    },
+    {
+      "path": "studies/cycles/multiply.csv",
+      "sha256": "8c4480b8e19586f8ddc1f6610f5d3f70e7f0d509f037b5cd6f5e058873e7327f"
+    },
+    {
+      "path": "studies/supplemental/metadata.json",
+      "sha256": "d81abeafa315fd21b2d7f169c54fa9aae4d8891c5bbfd626c8b073cd1afcbc8e"
+    },
+    {
+      "path": "studies/working-set/metadata.json",
+      "sha256": "cf74f5f09c30f212fdb68cbc5b094e9fed752f2d78beacf6ad335c6c476f998e"
+    },
+    {
+      "path": "studies/working-set/cache_metadata.json",
+      "sha256": "1f9298625ab73d80497c0fac6ad82a2d9bc710842281c296f11096585f50a76a"
+    },
+    {
+      "path": "studies/alignment/metadata.json",
+      "sha256": "3937d2ff8cd865d4b0c9a367a2d48b513d30bda679b4215537a9188928e9ad27"
+    },
+    {
+      "path": "studies/cycles/metadata.json",
+      "sha256": "60385ffce26552345ca1da282f944c158342252c06bb8b30732d224c3a5d3469"
+    },
+    {
+      "path": "studies/native/metadata.json",
+      "sha256": "8c86a25fb2432a967c463b8057608cb11c22c4e068ce982a94e16c4baa0a4b98"
+    }
+  ],
+  "figures": [
+    {
+      "name": "02_throughput_axpy_float",
+      "png": "plots/02_throughput_axpy_float.png",
+      "svg": "plots/02_throughput_axpy_float.svg",
+      "csv": "tables/02_throughput_axpy_float.csv",
+      "caption": "axpy, float: scalar and auto-vectorized loops; nominal cache capacities, not measured residency boundaries.",
+      "settings": {
+        "source_metadata": [
+          "studies/supplemental/metadata.json",
+          "studies/working-set/metadata.json",
+          "studies/working-set/cache_metadata.json",
+          "studies/alignment/metadata.json",
+          "studies/cycles/metadata.json",
+          "studies/native/metadata.json"
+        ]
+      },
+      "x_label": "Kernel working set (bytes)",
+      "y_label": "Achieved throughput (GFLOP/s)"
+    },
+    {
+      "name": "02_throughput_axpy_double",
+      "png": "plots/02_throughput_axpy_double.png",
+      "svg": "plots/02_throughput_axpy_double.svg",
+      "csv": "tables/02_throughput_axpy_double.csv",
+      "caption": "axpy, double: scalar and auto-vectorized loops; nominal cache capacities, not measured residency boundaries.",
+      "settings": {
+        "source_metadata": [
+          "studies/supplemental/metadata.json",
+          "studies/working-set/metadata.json",
+          "studies/working-set/cache_metadata.json",
+          "studies/alignment/metadata.json",
+          "studies/cycles/metadata.json",
+          "studies/native/metadata.json"
+        ]
+      },
+      "x_label": "Kernel working set (bytes)",
+      "y_label": "Achieved throughput (GFLOP/s)"
+    },
+    {
+      "name": "01_speedup_axpy",
+      "png": "plots/01_speedup_axpy.png",
+      "svg": "plots/01_speedup_axpy.svg",
+      "csv": "tables/01_speedup_axpy.csv",
+      "caption": "axpy: matched trial ratios, float32 and float64. SIMD gains may compress beyond nominal cache capacities.",
+      "settings": {
+        "source_metadata": [
+          "studies/supplemental/metadata.json",
+          "studies/working-set/metadata.json",
+          "studies/working-set/cache_metadata.json",
+          "studies/alignment/metadata.json",
+          "studies/cycles/metadata.json",
+          "studies/native/metadata.json"
+        ]
+      },
+      "x_label": "Kernel working set (bytes)",
+      "y_label": "Scalar / auto-vectorized time (\u00d7)"
+    },
+    {
+      "name": "02_throughput_dot_float",
+      "png": "plots/02_throughput_dot_float.png",
+      "svg": "plots/02_throughput_dot_float.svg",
+      "csv": "tables/02_throughput_dot_float.csv",
+      "caption": "dot, float: scalar and auto-vectorized loops; nominal cache capacities, not measured residency boundaries.",
+      "settings": {
+        "source_metadata": [
+          "studies/supplemental/metadata.json",
+          "studies/working-set/metadata.json",
+          "studies/working-set/cache_metadata.json",
+          "studies/alignment/metadata.json",
+          "studies/cycles/metadata.json",
+          "studies/native/metadata.json"
+        ]
+      },
+      "x_label": "Kernel working set (bytes)",
+      "y_label": "Achieved throughput (GFLOP/s)"
+    },
+    {
+      "name": "02_throughput_dot_double",
+      "png": "plots/02_throughput_dot_double.png",
+      "svg": "plots/02_throughput_dot_double.svg",
+      "csv": "tables/02_throughput_dot_double.csv",
+      "caption": "dot, double: scalar and auto-vectorized loops; nominal cache capacities, not measured residency boundaries.",
+      "settings": {
+        "source_metadata": [
+          "studies/supplemental/metadata.json",
+          "studies/working-set/metadata.json",
+          "studies/working-set/cache_metadata.json",
+          "studies/alignment/metadata.json",
+          "studies/cycles/metadata.json",
+          "studies/native/metadata.json"
+        ]
+      },
+      "x_label": "Kernel working set (bytes)",
+      "y_label": "Achieved throughput (GFLOP/s)"
+    },
+    {
+      "name": "01_speedup_dot",
+      "png": "plots/01_speedup_dot.png",
+      "svg": "plots/01_speedup_dot.svg",
+      "csv": "tables/01_speedup_dot.csv",
+      "caption": "dot: matched trial ratios, float32 and float64. SIMD gains may compress beyond nominal cache capacities.",
+      "settings": {
+        "source_metadata": [
+          "studies/supplemental/metadata.json",
+          "studies/working-set/metadata.json",
+          "studies/working-set/cache_metadata.json",
+          "studies/alignment/metadata.json",
+          "studies/cycles/metadata.json",
+          "studies/native/metadata.json"
+        ]
+      },
+      "x_label": "Kernel working set (bytes)",
+      "y_label": "Scalar / auto-vectorized time (\u00d7)"
+    },
+    {
+      "name": "02_throughput_multiply_float",
+      "png": "plots/02_throughput_multiply_float.png",
+      "svg": "plots/02_throughput_multiply_float.svg",
+      "csv": "tables/02_throughput_multiply_float.csv",
+      "caption": "multiply, float: scalar and auto-vectorized loops; nominal cache capacities, not measured residency boundaries.",
+      "settings": {
+        "source_metadata": [
+          "studies/supplemental/metadata.json",
+          "studies/working-set/metadata.json",
+          "studies/working-set/cache_metadata.json",
+          "studies/alignment/metadata.json",
+          "studies/cycles/metadata.json",
+          "studies/native/metadata.json"
+        ]
+      },
+      "x_label": "Kernel working set (bytes)",
+      "y_label": "Achieved throughput (GFLOP/s)"
+    },
+    {
+      "name": "02_throughput_multiply_double",
+      "png": "plots/02_throughput_multiply_double.png",
+      "svg": "plots/02_throughput_multiply_double.svg",
+      "csv": "tables/02_throughput_multiply_double.csv",
+      "caption": "multiply, double: scalar and auto-vectorized loops; nominal cache capacities, not measured residency boundaries.",
+      "settings": {
+        "source_metadata": [
+          "studies/supplemental/metadata.json",
+          "studies/working-set/metadata.json",
+          "studies/working-set/cache_metadata.json",
+          "studies/alignment/metadata.json",
+          "studies/cycles/metadata.json",
+          "studies/native/metadata.json"
+        ]
+      },
+      "x_label": "Kernel working set (bytes)",
+      "y_label": "Achieved throughput (GFLOP/s)"
+    },
+    {
+      "name": "01_speedup_multiply",
+      "png": "plots/01_speedup_multiply.png",
+      "svg": "plots/01_speedup_multiply.svg",
+      "csv": "tables/01_speedup_multiply.csv",
+      "caption": "multiply: matched trial ratios, float32 and float64. SIMD gains may compress beyond nominal cache capacities.",
+      "settings": {
+        "source_metadata": [
+          "studies/supplemental/metadata.json",
+          "studies/working-set/metadata.json",
+          "studies/working-set/cache_metadata.json",
+          "studies/alignment/metadata.json",
+          "studies/cycles/metadata.json",
+          "studies/native/metadata.json"
+        ]
+      },
+      "x_label": "Kernel working set (bytes)",
+      "y_label": "Scalar / auto-vectorized time (\u00d7)"
+    },
+    {
+      "name": "03_alignment_float",
+      "png": "plots/03_alignment_float.png",
+      "svg": "plots/03_alignment_float.svg",
+      "csv": "tables/03_alignment_float.csv",
+      "caption": "float: equal-kernel geometric mean of per-kernel ratios of median runtimes. No aggregate uncertainty interval is asserted.",
+      "settings": {
+        "source_metadata": [
+          "studies/supplemental/metadata.json",
+          "studies/working-set/metadata.json",
+          "studies/working-set/cache_metadata.json",
+          "studies/alignment/metadata.json",
+          "studies/cycles/metadata.json",
+          "studies/native/metadata.json"
+        ]
+      },
+      "x_label": "Base array length (elements)",
+      "y_label": "Scalar / auto-vectorized time (\u00d7)"
+    },
+    {
+      "name": "04_alignment_representative_float",
+      "png": "plots/04_alignment_representative_float.png",
+      "svg": "plots/04_alignment_representative_float.svg",
+      "csv": "tables/04_alignment_representative_float.csv",
+      "caption": "float, base N=32,768; equal-kernel geometric mean; tails add seven elements, shifts add one element. No uncertainty interval is asserted.",
+      "settings": {
+        "source_metadata": [
+          "studies/supplemental/metadata.json",
+          "studies/working-set/metadata.json",
+          "studies/working-set/cache_metadata.json",
+          "studies/alignment/metadata.json",
+          "studies/cycles/metadata.json",
+          "studies/native/metadata.json"
+        ]
+      },
+      "x_label": "",
+      "y_label": "Scalar / auto-vectorized time (\u00d7)"
+    },
+    {
+      "name": "03_alignment_double",
+      "png": "plots/03_alignment_double.png",
+      "svg": "plots/03_alignment_double.svg",
+      "csv": "tables/03_alignment_double.csv",
+      "caption": "double: equal-kernel geometric mean of per-kernel ratios of median runtimes. No aggregate uncertainty interval is asserted.",
+      "settings": {
+        "source_metadata": [
+          "studies/supplemental/metadata.json",
+          "studies/working-set/metadata.json",
+          "studies/working-set/cache_metadata.json",
+          "studies/alignment/metadata.json",
+          "studies/cycles/metadata.json",
+          "studies/native/metadata.json"
+        ]
+      },
+      "x_label": "Base array length (elements)",
+      "y_label": "Scalar / auto-vectorized time (\u00d7)"
+    },
+    {
+      "name": "04_alignment_representative_double",
+      "png": "plots/04_alignment_representative_double.png",
+      "svg": "plots/04_alignment_representative_double.svg",
+      "csv": "tables/04_alignment_representative_double.csv",
+      "caption": "double, base N=32,768; equal-kernel geometric mean; tails add seven elements, shifts add one element. No uncertainty interval is asserted.",
+      "settings": {
+        "source_metadata": [
+          "studies/supplemental/metadata.json",
+          "studies/working-set/metadata.json",
+          "studies/working-set/cache_metadata.json",
+          "studies/alignment/metadata.json",
+          "studies/cycles/metadata.json",
+          "studies/native/metadata.json"
+        ]
+      },
+      "x_label": "",
+      "y_label": "Scalar / auto-vectorized time (\u00d7)"
+    },
+    {
+      "name": "05_stride_bandwidth_262144_float",
+      "png": "plots/05_stride_bandwidth_262144_float.png",
+      "svg": "plots/05_stride_bandwidth_262144_float.svg",
+      "csv": "tables/05_stride_bandwidth_262144_float.csv",
+      "caption": "AXPY float, 262144 byte footprint. Useful payload excludes unused cache-line bytes.",
+      "settings": {
+        "source_metadata": [
+          "studies/supplemental/metadata.json",
+          "studies/working-set/metadata.json",
+          "studies/working-set/cache_metadata.json",
+          "studies/alignment/metadata.json",
+          "studies/cycles/metadata.json",
+          "studies/native/metadata.json"
+        ]
+      },
+      "x_label": "Stride (elements)",
+      "y_label": "Useful bandwidth (GiB/s)"
+    },
+    {
+      "name": "05_stride_bandwidth_262144_double",
+      "png": "plots/05_stride_bandwidth_262144_double.png",
+      "svg": "plots/05_stride_bandwidth_262144_double.svg",
+      "csv": "tables/05_stride_bandwidth_262144_double.csv",
+      "caption": "AXPY double, 262144 byte footprint. Useful payload excludes unused cache-line bytes.",
+      "settings": {
+        "source_metadata": [
+          "studies/supplemental/metadata.json",
+          "studies/working-set/metadata.json",
+          "studies/working-set/cache_metadata.json",
+          "studies/alignment/metadata.json",
+          "studies/cycles/metadata.json",
+          "studies/native/metadata.json"
+        ]
+      },
+      "x_label": "Stride (elements)",
+      "y_label": "Useful bandwidth (GiB/s)"
+    },
+    {
+      "name": "05_stride_speedup_262144",
+      "png": "plots/05_stride_speedup_262144.png",
+      "svg": "plots/05_stride_speedup_262144.svg",
+      "csv": "tables/05_stride_speedup_262144.csv",
+      "caption": "AXPY, 262144 byte footprint; matched scalar/auto trials.",
+      "settings": {
+        "source_metadata": [
+          "studies/supplemental/metadata.json",
+          "studies/working-set/metadata.json",
+          "studies/working-set/cache_metadata.json",
+          "studies/alignment/metadata.json",
+          "studies/cycles/metadata.json",
+          "studies/native/metadata.json"
+        ]
+      },
+      "x_label": "Stride (elements)",
+      "y_label": "Scalar / auto-vectorized time (\u00d7)"
+    },
+    {
+      "name": "05_stride_bandwidth_201326592_float",
+      "png": "plots/05_stride_bandwidth_201326592_float.png",
+      "svg": "plots/05_stride_bandwidth_201326592_float.svg",
+      "csv": "tables/05_stride_bandwidth_201326592_float.csv",
+      "caption": "AXPY float, 201326592 byte footprint. Useful payload excludes unused cache-line bytes.",
+      "settings": {
+        "source_metadata": [
+          "studies/supplemental/metadata.json",
+          "studies/working-set/metadata.json",
+          "studies/working-set/cache_metadata.json",
+          "studies/alignment/metadata.json",
+          "studies/cycles/metadata.json",
+          "studies/native/metadata.json"
+        ]
+      },
+      "x_label": "Stride (elements)",
+      "y_label": "Useful bandwidth (GiB/s)"
+    },
+    {
+      "name": "05_stride_bandwidth_201326592_double",
+      "png": "plots/05_stride_bandwidth_201326592_double.png",
+      "svg": "plots/05_stride_bandwidth_201326592_double.svg",
+      "csv": "tables/05_stride_bandwidth_201326592_double.csv",
+      "caption": "AXPY double, 201326592 byte footprint. Useful payload excludes unused cache-line bytes.",
+      "settings": {
+        "source_metadata": [
+          "studies/supplemental/metadata.json",
+          "studies/working-set/metadata.json",
+          "studies/working-set/cache_metadata.json",
+          "studies/alignment/metadata.json",
+          "studies/cycles/metadata.json",
+          "studies/native/metadata.json"
+        ]
+      },
+      "x_label": "Stride (elements)",
+      "y_label": "Useful bandwidth (GiB/s)"
+    },
+    {
+      "name": "05_stride_speedup_201326592",
+      "png": "plots/05_stride_speedup_201326592.png",
+      "svg": "plots/05_stride_speedup_201326592.svg",
+      "csv": "tables/05_stride_speedup_201326592.csv",
+      "caption": "AXPY, 201326592 byte footprint; matched scalar/auto trials.",
+      "settings": {
+        "source_metadata": [
+          "studies/supplemental/metadata.json",
+          "studies/working-set/metadata.json",
+          "studies/working-set/cache_metadata.json",
+          "studies/alignment/metadata.json",
+          "studies/cycles/metadata.json",
+          "studies/native/metadata.json"
+        ]
+      },
+      "x_label": "Stride (elements)",
+      "y_label": "Scalar / auto-vectorized time (\u00d7)"
+    },
+    {
+      "name": "04_tail_cost_float_32",
+      "png": "plots/04_tail_cost_float_32.png",
+      "svg": "plots/04_tail_cost_float_32.svg",
+      "csv": "tables/04_tail_cost_float_32.csv",
+      "caption": "AXPY float, base N=32; batched calls, aligned versus shifted one element.",
+      "settings": {
+        "source_metadata": [
+          "studies/supplemental/metadata.json",
+          "studies/working-set/metadata.json",
+          "studies/working-set/cache_metadata.json",
+          "studies/alignment/metadata.json",
+          "studies/cycles/metadata.json",
+          "studies/native/metadata.json"
+        ]
+      },
+      "x_label": "Added elements",
+      "y_label": "Time per element (ns)"
+    },
+    {
+      "name": "04_tail_cost_float_4096",
+      "png": "plots/04_tail_cost_float_4096.png",
+      "svg": "plots/04_tail_cost_float_4096.svg",
+      "csv": "tables/04_tail_cost_float_4096.csv",
+      "caption": "AXPY float, base N=4096; batched calls, aligned versus shifted one element.",
+      "settings": {
+        "source_metadata": [
+          "studies/supplemental/metadata.json",
+          "studies/working-set/metadata.json",
+          "studies/working-set/cache_metadata.json",
+          "studies/alignment/metadata.json",
+          "studies/cycles/metadata.json",
+          "studies/native/metadata.json"
+        ]
+      },
+      "x_label": "Added elements",
+      "y_label": "Time per element (ns)"
+    },
+    {
+      "name": "06_strict_dot_float",
+      "png": "plots/06_strict_dot_float.png",
+      "svg": "plots/06_strict_dot_float.svg",
+      "csv": "tables/06_strict_dot_float.csv",
+      "caption": "float dot product: strict versus relaxed floating-point reassociation; compiler/disassembly evidence retained.",
+      "settings": {
+        "source_metadata": [
+          "studies/supplemental/metadata.json",
+          "studies/working-set/metadata.json",
+          "studies/working-set/cache_metadata.json",
+          "studies/alignment/metadata.json",
+          "studies/cycles/metadata.json",
+          "studies/native/metadata.json"
+        ]
+      },
+      "x_label": "",
+      "y_label": "Time per element (ns)"
+    },
+    {
+      "name": "04_tail_cost_double_32",
+      "png": "plots/04_tail_cost_double_32.png",
+      "svg": "plots/04_tail_cost_double_32.svg",
+      "csv": "tables/04_tail_cost_double_32.csv",
+      "caption": "AXPY double, base N=32; batched calls, aligned versus shifted one element.",
+      "settings": {
+        "source_metadata": [
+          "studies/supplemental/metadata.json",
+          "studies/working-set/metadata.json",
+          "studies/working-set/cache_metadata.json",
+          "studies/alignment/metadata.json",
+          "studies/cycles/metadata.json",
+          "studies/native/metadata.json"
+        ]
+      },
+      "x_label": "Added elements",
+      "y_label": "Time per element (ns)"
+    },
+    {
+      "name": "04_tail_cost_double_4096",
+      "png": "plots/04_tail_cost_double_4096.png",
+      "svg": "plots/04_tail_cost_double_4096.svg",
+      "csv": "tables/04_tail_cost_double_4096.csv",
+      "caption": "AXPY double, base N=4096; batched calls, aligned versus shifted one element.",
+      "settings": {
+        "source_metadata": [
+          "studies/supplemental/metadata.json",
+          "studies/working-set/metadata.json",
+          "studies/working-set/cache_metadata.json",
+          "studies/alignment/metadata.json",
+          "studies/cycles/metadata.json",
+          "studies/native/metadata.json"
+        ]
+      },
+      "x_label": "Added elements",
+      "y_label": "Time per element (ns)"
+    },
+    {
+      "name": "06_strict_dot_double",
+      "png": "plots/06_strict_dot_double.png",
+      "svg": "plots/06_strict_dot_double.svg",
+      "csv": "tables/06_strict_dot_double.csv",
+      "caption": "double dot product: strict versus relaxed floating-point reassociation; compiler/disassembly evidence retained.",
+      "settings": {
+        "source_metadata": [
+          "studies/supplemental/metadata.json",
+          "studies/working-set/metadata.json",
+          "studies/working-set/cache_metadata.json",
+          "studies/alignment/metadata.json",
+          "studies/cycles/metadata.json",
+          "studies/native/metadata.json"
+        ]
+      },
+      "x_label": "",
+      "y_label": "Time per element (ns)"
+    },
+    {
+      "name": "07_roofline",
+      "png": "plots/07_roofline.png",
+      "svg": "plots/07_roofline.svg",
+      "csv": "tables/07_roofline.csv",
+      "caption": "Measured bandwidth with a write-allocation model and an empirical register-FMA peak; AXPY float32. Calibration IQR bands are not confidence intervals.",
+      "settings": {
+        "source_metadata": [
+          "studies/supplemental/metadata.json",
+          "studies/working-set/metadata.json",
+          "studies/working-set/cache_metadata.json",
+          "studies/alignment/metadata.json",
+          "studies/cycles/metadata.json",
+          "studies/native/metadata.json"
+        ]
+      },
+      "x_label": "Estimated arithmetic intensity (FLOP/byte)",
+      "y_label": "Achieved throughput (GFLOP/s)"
+    },
+    {
+      "name": "08_cycles_axpy_float",
+      "png": "plots/08_cycles_axpy_float.png",
+      "svg": "plots/08_cycles_axpy_float.svg",
+      "csv": "tables/08_cycles_axpy_float.csv",
+      "caption": "axpy, float: measured user-space cycles, continuously scheduled counter; timer/dispatch overhead included.",
+      "settings": {
+        "source_metadata": [
+          "studies/supplemental/metadata.json",
+          "studies/working-set/metadata.json",
+          "studies/working-set/cache_metadata.json",
+          "studies/alignment/metadata.json",
+          "studies/cycles/metadata.json",
+          "studies/native/metadata.json"
+        ]
+      },
+      "x_label": "Array length (elements)",
+      "y_label": "Core cycles per element"
+    },
+    {
+      "name": "08_cycles_axpy_double",
+      "png": "plots/08_cycles_axpy_double.png",
+      "svg": "plots/08_cycles_axpy_double.svg",
+      "csv": "tables/08_cycles_axpy_double.csv",
+      "caption": "axpy, double: measured user-space cycles, continuously scheduled counter; timer/dispatch overhead included.",
+      "settings": {
+        "source_metadata": [
+          "studies/supplemental/metadata.json",
+          "studies/working-set/metadata.json",
+          "studies/working-set/cache_metadata.json",
+          "studies/alignment/metadata.json",
+          "studies/cycles/metadata.json",
+          "studies/native/metadata.json"
+        ]
+      },
+      "x_label": "Array length (elements)",
+      "y_label": "Core cycles per element"
+    },
+    {
+      "name": "08_cycles_dot_float",
+      "png": "plots/08_cycles_dot_float.png",
+      "svg": "plots/08_cycles_dot_float.svg",
+      "csv": "tables/08_cycles_dot_float.csv",
+      "caption": "dot, float: measured user-space cycles, continuously scheduled counter; timer/dispatch overhead included.",
+      "settings": {
+        "source_metadata": [
+          "studies/supplemental/metadata.json",
+          "studies/working-set/metadata.json",
+          "studies/working-set/cache_metadata.json",
+          "studies/alignment/metadata.json",
+          "studies/cycles/metadata.json",
+          "studies/native/metadata.json"
+        ]
+      },
+      "x_label": "Array length (elements)",
+      "y_label": "Core cycles per element"
+    },
+    {
+      "name": "08_cycles_dot_double",
+      "png": "plots/08_cycles_dot_double.png",
+      "svg": "plots/08_cycles_dot_double.svg",
+      "csv": "tables/08_cycles_dot_double.csv",
+      "caption": "dot, double: measured user-space cycles, continuously scheduled counter; timer/dispatch overhead included.",
+      "settings": {
+        "source_metadata": [
+          "studies/supplemental/metadata.json",
+          "studies/working-set/metadata.json",
+          "studies/working-set/cache_metadata.json",
+          "studies/alignment/metadata.json",
+          "studies/cycles/metadata.json",
+          "studies/native/metadata.json"
+        ]
+      },
+      "x_label": "Array length (elements)",
+      "y_label": "Core cycles per element"
+    },
+    {
+      "name": "08_cycles_multiply_float",
+      "png": "plots/08_cycles_multiply_float.png",
+      "svg": "plots/08_cycles_multiply_float.svg",
+      "csv": "tables/08_cycles_multiply_float.csv",
+      "caption": "multiply, float: measured user-space cycles, continuously scheduled counter; timer/dispatch overhead included.",
+      "settings": {
+        "source_metadata": [
+          "studies/supplemental/metadata.json",
+          "studies/working-set/metadata.json",
+          "studies/working-set/cache_metadata.json",
+          "studies/alignment/metadata.json",
+          "studies/cycles/metadata.json",
+          "studies/native/metadata.json"
+        ]
+      },
+      "x_label": "Array length (elements)",
+      "y_label": "Core cycles per element"
+    },
+    {
+      "name": "08_cycles_multiply_double",
+      "png": "plots/08_cycles_multiply_double.png",
+      "svg": "plots/08_cycles_multiply_double.svg",
+      "csv": "tables/08_cycles_multiply_double.csv",
+      "caption": "multiply, double: measured user-space cycles, continuously scheduled counter; timer/dispatch overhead included.",
+      "settings": {
+        "source_metadata": [
+          "studies/supplemental/metadata.json",
+          "studies/working-set/metadata.json",
+          "studies/working-set/cache_metadata.json",
+          "studies/alignment/metadata.json",
+          "studies/cycles/metadata.json",
+          "studies/native/metadata.json"
+        ]
+      },
+      "x_label": "Array length (elements)",
+      "y_label": "Core cycles per element"
+    }
+  ],
+  "tables": [
+    "tables/01_speedup_axpy.csv",
+    "tables/01_speedup_dot.csv",
+    "tables/01_speedup_multiply.csv",
+    "tables/02_throughput_axpy_double.csv",
+    "tables/02_throughput_axpy_float.csv",
+    "tables/02_throughput_dot_double.csv",
+    "tables/02_throughput_dot_float.csv",
+    "tables/02_throughput_multiply_double.csv",
+    "tables/02_throughput_multiply_float.csv",
+    "tables/03_alignment_double.csv",
+    "tables/03_alignment_float.csv",
+    "tables/04_alignment_representative_double.csv",
+    "tables/04_alignment_representative_float.csv",
+    "tables/04_tail_cost_double_32.csv",
+    "tables/04_tail_cost_double_4096.csv",
+    "tables/04_tail_cost_float_32.csv",
+    "tables/04_tail_cost_float_4096.csv",
+    "tables/05_stride_bandwidth_201326592_double.csv",
+    "tables/05_stride_bandwidth_201326592_float.csv",
+    "tables/05_stride_bandwidth_262144_double.csv",
+    "tables/05_stride_bandwidth_262144_float.csv",
+    "tables/05_stride_speedup_201326592.csv",
+    "tables/05_stride_speedup_262144.csv",
+    "tables/06_strict_dot_double.csv",
+    "tables/06_strict_dot_float.csv",
+    "tables/07_roofline.csv",
+    "tables/08_cycles_axpy_double.csv",
+    "tables/08_cycles_axpy_float.csv",
+    "tables/08_cycles_dot_double.csv",
+    "tables/08_cycles_dot_float.csv",
+    "tables/08_cycles_multiply_double.csv",
+    "tables/08_cycles_multiply_float.csv",
+    "tables/alignment_summary.csv",
+    "tables/native_comparison.csv",
+    "tables/roofline_calibration.csv",
+    "tables/working_set_summary.csv"
+  ],
+  "uncertainty": "Median and interquartile range across trials unless caption states otherwise."
+}

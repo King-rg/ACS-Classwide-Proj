@@ -1,0 +1,31 @@
+perf stat -e cycles:u,instructions:u taskset -c 0 true
+exit=0
+
+ Performance counter stats for 'taskset -c 0 true':
+
+           1758762      cpu_atom/cycles:u/                                                      (45.36%)
+            912952      cpu_core/cycles:u/                                                      (54.64%)
+            839115      cpu_atom/instructions:u/         #    0.48  insn per cycle              (45.36%)
+            334203      cpu_core/instructions:u/         #    0.37  insn per cycle              (54.64%)
+
+       0.001920152 seconds time elapsed
+
+       0.000000000 seconds user
+       0.001982000 seconds sys
+
+
+
+perf stat -e task-clock taskset -c 0 true
+exit=0
+
+ Performance counter stats for 'taskset -c 0 true':
+
+              0.82 msec task-clock:u                     #    0.601 CPUs utilized             
+
+       0.001358320 seconds time elapsed
+
+       0.000000000 seconds user
+       0.001344000 seconds sys
+
+
+

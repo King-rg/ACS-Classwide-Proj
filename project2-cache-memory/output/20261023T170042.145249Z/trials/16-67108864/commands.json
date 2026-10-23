@@ -1,0 +1,40 @@
+[
+  {
+    "command": [
+      "/home/dandisk/ACS-Classwide-Proj/project2-cache-memory/build/memory_bench",
+      "hierarchy",
+      "67108864",
+      "1000",
+      "0"
+    ],
+    "returncode": 0,
+    "started_unix": 1792776096.723275,
+    "elapsed_seconds": 1.1705539226531982
+  },
+  {
+    "command": [
+      "perf",
+      "mem",
+      "record",
+      "-t",
+      "load",
+      "--ldlat=3",
+      "-U",
+      "-k",
+      "mono",
+      "-o",
+      "/home/dandisk/ACS-Classwide-Proj/project2-cache-memory/output/20261023T170042.145249Z/trials/16-67108864/sampled.data",
+      "-c",
+      "101",
+      "--",
+      "/home/dandisk/ACS-Classwide-Proj/project2-cache-memory/build/memory_bench",
+      "hierarchy",
+      "67108864",
+      "1000",
+      "0"
+    ],
+    "returncode": 0,
+    "started_unix": 1792776097.8939064,
+    "elapsed_seconds": 1.1891884803771973
+  }
+]

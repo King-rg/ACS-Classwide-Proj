@@ -1,0 +1,18 @@
+series,x,y,y_q25,y_q75
+Independent chains on one core,1,112.749807,110.491683,116.744137
+Independent chains on one core,2,113.330507,109.877435,130.017324
+Independent chains on one core,3,111.616212,108.541022,121.920187
+Independent chains on one core,4,138.519354,135.308263,146.125551
+Independent chains on one core,6,139.478077,135.830289,147.377621
+Independent chains on one core,8,144.002895,139.042948,168.643033
+Independent chains on one core,10,141.040357,139.51877,156.016979
+Independent chains on one core,12,148.961398,142.973795,175.794435
+Independent chains on one core,16,162.622918,154.366342,196.616016
+Independent chains on one core,20,177.115494,173.044191,196.273834
+Independent chains on one core,24,199.336038,196.819016,212.933894
+Independent chains on one core,28,233.717343,225.926081,247.361598
+Independent chains on one core,32,262.902432,257.025091,299.935165
+Independent chains on one core,40,331.113704,319.236982,353.579951
+Independent chains on one core,48,397.644366,386.48356,476.957739
+Independent chains on one core,56,462.953828,448.908817,509.630261
+Independent chains on one core,64,530.099467,514.695012,617.23586

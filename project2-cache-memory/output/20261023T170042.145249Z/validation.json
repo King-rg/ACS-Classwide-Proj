@@ -1,0 +1,10 @@
+{
+  "structural_errors": [],
+  "quality_flags": {
+    "paired_timing_difference_above_10pct": 90,
+    "sampling_counter_disagreement_above_5pp": 56
+  },
+  "pairs": 960,
+  "complete": true,
+  "policy": "Quality failures do not discard trials or terminate acquisition. Exploratory points remain labeled."
+}

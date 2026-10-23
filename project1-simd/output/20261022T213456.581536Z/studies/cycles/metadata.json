@@ -1,0 +1,59 @@
+{
+  "sizes": [
+    1024,
+    32768,
+    262144,
+    1048576,
+    16777216
+  ],
+  "trials": 15,
+  "warmups": 5,
+  "cpu": 0,
+  "alignment": 64,
+  "event": "PERF_COUNT_HW_CPU_CYCLES; user only; pinned; no multiplexing",
+  "notes": "Separate single-call run. Counter brackets encompass the timer and dispatch as well as the kernel. Setup, warmups, reset and validation excluded. No overhead subtraction. No inferred cycles from nominal frequency.",
+  "commands": [
+    [
+      "taskset",
+      "-c",
+      "0",
+      "/home/dandisk/ACS-Classwide-Proj/project1-simd/output/20261022T213456.581536Z/studies/cycles/build/axpy",
+      "--sizes",
+      "262144,32768,1024,1048576,16777216",
+      "--trials",
+      "15",
+      "--warmups",
+      "5",
+      "--csv",
+      "/home/dandisk/ACS-Classwide-Proj/project1-simd/output/20261022T213456.581536Z/studies/cycles/axpy.csv"
+    ],
+    [
+      "taskset",
+      "-c",
+      "0",
+      "/home/dandisk/ACS-Classwide-Proj/project1-simd/output/20261022T213456.581536Z/studies/cycles/build/dot",
+      "--sizes",
+      "262144,32768,1024,1048576,16777216",
+      "--trials",
+      "15",
+      "--warmups",
+      "5",
+      "--csv",
+      "/home/dandisk/ACS-Classwide-Proj/project1-simd/output/20261022T213456.581536Z/studies/cycles/dot.csv"
+    ],
+    [
+      "taskset",
+      "-c",
+      "0",
+      "/home/dandisk/ACS-Classwide-Proj/project1-simd/output/20261022T213456.581536Z/studies/cycles/build/multiply",
+      "--sizes",
+      "262144,32768,1024,1048576,16777216",
+      "--trials",
+      "15",
+      "--warmups",
+      "5",
+      "--csv",
+      "/home/dandisk/ACS-Classwide-Proj/project1-simd/output/20261022T213456.581536Z/studies/cycles/multiply.csv"
+    ]
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "sources": [
+    {
+      "path": "raw.csv",
+      "sha256": "6e83fce42eb6a0c358feb32880430783267d07b5c75de8dddb01fa7b42903b8e"
+    },
+    {
+      "path": "metadata.json",
+      "sha256": "3c993319be207accc13a9ddde2c3fdfb386f879908cb2bdad2cd13ebfe4faab4"
+    },
+    {
+      "path": "state_bw.1.log",
+      "sha256": "73e2753608904916a6a42b593673178af8b8ab2753f758185ce2c6eef7a405ab"
+    },
+    {
+      "path": "state_lat.1.log",
+      "sha256": "993133a6de16d11138c5c1c5a2d24f12c842587da884b924322c1cbda9b85979"
+    }
+  ],
+  "figures": [
+    {
+      "name": "01_baselines",
+      "png": "plots/01_baselines.png",
+      "svg": "plots/01_baselines.svg",
+      "csv": "tables/01_baselines.csv",
+      "caption": "QD=1 baselines. Medians and trial IQR; p95/p99 are per-trial request percentiles.",
+      "settings": {
+        "source_metadata": [
+          "metadata.json"
+        ]
+      },
+      "x_label": "",
+      "y_label": "Total I/O latency (\u00b5s)"
+    },
+    {
+      "name": "02_block_iops",
+      "png": "plots/02_block_iops.png",
+      "svg": "plots/02_block_iops.svg",
+      "csv": "tables/02_block_iops.csv",
+      "caption": "Block-size comparison from the same trials; QD 16, one job, 1 GiB file range.",
+      "settings": {
+        "source_metadata": [
+          "metadata.json"
+        ]
+      },
+      "x_label": "Block size (KiB)",
+      "y_label": "IOPS"
+    },
+    {
+      "name": "02_block_mib_s",
+      "png": "plots/02_block_mib_s.png",
+      "svg": "plots/02_block_mib_s.svg",
+      "csv": "tables/02_block_mib_s.csv",
+      "caption": "Block-size comparison from the same trials; QD 16, one job, 1 GiB file range.",
+      "settings": {
+        "source_metadata": [
+          "metadata.json"
+        ]
+      },
+      "x_label": "Block size (KiB)",
+      "y_label": "Throughput (MiB/s)"
+    },
+    {
+      "name": "02_block_lat_us",
+      "png": "plots/02_block_lat_us.png",
+      "svg": "plots/02_block_lat_us.svg",
+      "csv": "tables/02_block_lat_us.csv",
+      "caption": "Block-size comparison from the same trials; QD 16, one job, 1 GiB file range.",
+      "settings": {
+        "source_metadata": [
+          "metadata.json"
+        ]
+      },
+      "x_label": "Block size (KiB)",
+      "y_label": "Mean total I/O latency (\u00b5s)"
+    },
+    {
+      "name": "03_mix_iops",
+      "png": "plots/03_mix_iops.png",
+      "svg": "plots/03_mix_iops.svg",
+      "csv": "tables/03_mix_iops.csv",
+      "caption": "Read/write mixes 100/0, 70/30, 50/50, 0/100; QD 16. Mixed mean latency is weighted by completed I/O counts.",
+      "settings": {
+        "source_metadata": [
+          "metadata.json"
+        ]
+      },
+      "x_label": "Writes (%)",
+      "y_label": "IOPS"
+    },
+    {
+      "name": "03_mix_lat_us",
+      "png": "plots/03_mix_lat_us.png",
+      "svg": "plots/03_mix_lat_us.svg",
+      "csv": "tables/03_mix_lat_us.csv",
+      "caption": "Read/write mixes 100/0, 70/30, 50/50, 0/100; QD 16. Mixed mean latency is weighted by completed I/O counts.",
+      "settings": {
+        "source_metadata": [
+          "metadata.json"
+        ]
+      },
+      "x_label": "Writes (%)",
+      "y_label": "Mean total I/O latency (\u00b5s)"
+    },
+    {
+      "name": "04_queue_throughput_latency",
+      "png": "plots/04_queue_throughput_latency.png",
+      "svg": "plots/04_queue_throughput_latency.svg",
+      "csv": "tables/04_queue_throughput_latency.csv",
+      "caption": "* marks the first QD reaching 90% of observed peak IOPS, an operational near-knee estimate, not proof of saturation. 4 KiB random reads; one job.",
+      "settings": {
+        "source_metadata": [
+          "metadata.json"
+        ]
+      },
+      "x_label": "Mean total I/O latency (\u00b5s)",
+      "y_label": "Throughput (thousand IOPS)"
+    },
+    {
+      "name": "05_tail_latency",
+      "png": "plots/05_tail_latency.png",
+      "svg": "plots/05_tail_latency.svg",
+      "csv": "tables/05_tail_latency.csv",
+      "caption": "Median and trial IQR of per-trial percentiles, not pooled request quantiles. 4 KiB random reads.",
+      "settings": {
+        "source_metadata": [
+          "metadata.json"
+        ]
+      },
+      "x_label": "Request percentile",
+      "y_label": "Total I/O latency (\u00b5s)"
+    },
+    {
+      "name": "06_range_latency",
+      "png": "plots/06_range_latency.png",
+      "svg": "plots/06_range_latency.svg",
+      "csv": "tables/06_range_latency.csv",
+      "caption": "4 KiB random reads at QD 16. File offset ranges do not establish physical LBA placement.",
+      "settings": {
+        "source_metadata": [
+          "metadata.json"
+        ]
+      },
+      "x_label": "File-offset range (MiB)",
+      "y_label": "Mean total I/O latency (\u00b5s)"
+    },
+    {
+      "name": "07_state_throughput",
+      "png": "plots/07_state_throughput.png",
+      "svg": "plots/07_state_throughput.svg",
+      "csv": "tables/07_state_throughput.csv",
+      "caption": "Single bounded 128 KiB sequential-write burst at QD 16; nominal one-second windows, with any short final window labeled. No repeatability interval or steady-state claim.",
+      "settings": {
+        "source_metadata": [
+          "metadata.json"
+        ],
+        "source": "state_bw.1.log",
+        "samples": "1 second, with possible partial final window"
+      },
+      "x_label": "Time in write burst (s)",
+      "y_label": "Throughput (MiB/s)"
+    },
+    {
+      "name": "07_state_latency",
+      "png": "plots/07_state_latency.png",
+      "svg": "plots/07_state_latency.svg",
+      "csv": "tables/07_state_latency.csv",
+      "caption": "Single bounded 128 KiB sequential-write burst at QD 16; nominal one-second windows, with any short final window labeled. No repeatability interval or steady-state claim.",
+      "settings": {
+        "source_metadata": [
+          "metadata.json"
+        ],
+        "source": "state_lat.1.log",
+        "samples": "1 second, with possible partial final window"
+      },
+      "x_label": "Time in write burst (s)",
+      "y_label": "Mean total I/O latency (\u00b5s)"
+    },
+    {
+      "name": "08_page_cache_pitfall",
+      "png": "plots/08_page_cache_pitfall.png",
+      "svg": "plots/08_page_cache_pitfall.svg",
+      "csv": "tables/08_page_cache_pitfall.csv",
+      "caption": "Repeated 16 MiB reads, 128 KiB blocks, QD 1. Direct I/O bypasses the OS page cache, not SSD controller caches.",
+      "settings": {
+        "source_metadata": [
+          "metadata.json"
+        ]
+      },
+      "x_label": "",
+      "y_label": "Throughput (MiB/s)"
+    }
+  ],
+  "tables": [
+    "tables/01_baselines.csv",
+    "tables/02_block_iops.csv",
+    "tables/02_block_lat_us.csv",
+    "tables/02_block_mib_s.csv",
+    "tables/03_mix_iops.csv",
+    "tables/03_mix_lat_us.csv",
+    "tables/04_queue_throughput_latency.csv",
+    "tables/05_tail_latency.csv",
+    "tables/06_range_latency.csv",
+    "tables/07_state_latency.csv",
+    "tables/07_state_throughput.csv",
+    "tables/08_page_cache_pitfall.csv"
+  ],
+  "uncertainty": "Median and interquartile range across trials unless caption states otherwise."
+}
