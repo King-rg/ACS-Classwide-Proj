@@ -1,42 +1,43 @@
 # Advanced Computer Systems projects
 
-All three reports are saved as `report.pdf` in each project's top-level directory. Each project README links its report, experiments, and saved evidence.
-
-| Project | Guide | Report PDF |
+| Project | Guide | Report |
 |---|---|---|
-| 1: SIMD | [README](project1-simd/README.md) | [Report (13 pages)](project1-simd/report.pdf) |
-| 2: Cache and memory | [README](project2-cache-memory/README.md) | [Report (17 pages)](project2-cache-memory/report.pdf) |
-| 3: SSD | [README](project3-ssd/README.md) | [Report (12 pages)](project3-ssd/report.pdf) |
+| SIMD | [Setup and experiments](project1-simd/README.md) | [PDF](project1-simd/report.pdf) |
+| Cache and memory | [Setup and experiments](project2-cache-memory/README.md) | [PDF](project2-cache-memory/report.pdf) |
+| SSD | [Setup and experiments](project3-ssd/README.md) | [PDF](project3-ssd/report.pdf) |
 
 ## Setup
 
-Use Linux and Python 3 with NumPy and Matplotlib. Project-specific compiler, counter, huge-page, and FIO requirements are listed in each guide. The existing `.venv-analysis` is retained; to recreate it from the workspace root:
+- Linux, Python 3, NumPy, Matplotlib.
+- Hardware and compiler requirements: project guides.
 
 ```sh
 python3 -m venv .venv-analysis
 .venv-analysis/bin/python -m pip install -r project1-simd/requirements.txt
 ```
 
-## Reproduction
+## Run
 
-Run projects sequentially, from the workspace root:
+- Run benchmarks sequentially, from the workspace root.
+- Replace `<project>` with a project directory.
+- Override Python with `PYTHON=/path/to/python`.
 
-```sh
-make -C project1-simd all
-make -C project2-cache-memory all
-make -C project3-ssd all
-```
+| Command | Result |
+|---|---|
+| `make -C <project> all` | Build, validate, benchmark, and plot |
+| `make -C <project> reproduce` | Replot pinned data without benchmarking |
+| `make -C <project> benchmark` | Collect fresh measurements |
+| `make -C <project> plots RUN_DIR=/absolute/path/to/run` | Replot a saved run |
 
-These commands collect fresh measurements for every figure in the reports: 9 SIMD, 11 cache/memory, and 9 SSD figures. Cache/memory includes the 30-trial hierarchy study; SSD includes all four follow-ups. These are long campaigns. Bare `make` means `make all`; `make benchmark` collects measurements without plotting. To reproduce the recorded report figures without benchmarking, run `make -C <project> reproduce`. This uses pinned local datasets. To regenerate a completed fresh campaign, use `make -C <project> plots RUN_DIR=/absolute/path/to/run`. `PYTHON=/path/to/python` overrides the default environment. Do not benchmark projects concurrently.
+## Evidence and checks
 
-Only a completed full acquisition updates its `output/LATEST`; failed runs retain evidence and exit nonzero. Optional studies use separate markers and explicit `RUN_DIR` replays are labeled partial. A legacy `LATEST` without a full campaign manifest cannot claim full figure coverage; use `make reproduce` for the historical report. Saved runs retain raw and processed data, environment metadata, commands, and source snapshots. `figures/figure-<id>.png` and `.svg`, per-panel CSVs under `figures/plotted-values/`, and `coverage.json` identify the complete report figure set. Derived analysis remains under `analysis-inputs/`; original data is not modified. `shared/report-coverage.json` pins the inspected report revisions, captions, dataset paths, and hashes. Historical snapshots are not active source code.
-
-## Review and validation
-
-The assignment PDF is retained in this directory. Each project guide maps its experiments to the requirements and links hypothesis, correctness, AI-use, and failure-case evidence. Check these against the report before submission; do not treat historical claims as new validation. The PDFs were checked for successful rendering; this rendering check does not rerun the experiments or validate their conclusions.
+- Figures: 9 SIMD, 11 cache/memory, 9 SSD.
+- [Dataset paths and hashes](shared/report-coverage.json).
+- Run outputs: raw data, metadata, source snapshots, figures, and plotted-value CSVs.
+- `output/LATEST`: updated only after complete acquisition.
+- Historical source snapshots: reference only.
+- PDF rendering checks do not validate experimental conclusions.
 
 ```sh
 .venv-analysis/bin/python -m unittest discover -s shared/tests -v
 ```
-
-Shared orchestration and regression tests live in `shared/`. The repository includes the report PDFs, source code, and saved experiment evidence. Local environments, build artifacts, and duplicated reproduction outputs are excluded from version control.

@@ -1,7 +1,4 @@
-# AVX vs native auto-vectorization
+# AVX/native snapshot
 
-Run `python3 experiments/native-comparison/run.py`, then `../.venv-analysis/bin/python experiments/native-comparison/analyze.py output/native-comparison/<timestamp>`.
-
-This comparison reuses the main harness but places two auto-vectorized implementations in its scalar/simd symbol slots: AVX (`-mavx`) and CPU-native (`-march=native`). CSV labels explicitly identify `avx` and `native`; neither is a scalar baseline. Both use `-O3 -ffast-math -ffp-contract=off`. The strict harness uses neither fast-math nor native ISA flags. Calls alternate each trial in the same process, on the same 64-byte-aligned buffers, pinned to CPU 0. Sizes are 32,768, 1,048,576, and 8,388,608 elements, all vector multiples; 15 trials and five warmups per variant, type and kernel. Single-call timings exclude allocation, initialization, output reset and reference/guard checks.
-
-Raw timings, metadata, generated source, compiler reports and disassembly are retained per run. The summary is median matched AVX/native timing ratio with quartiles, not a confidence interval. Larger than one favors native. The 540 observations passed validation; both builds passed the 12-function correctness suite at 13 lengths and two offsets. All float/double loops reported 32-byte vectorization; no FMA or ZMM instructions were found. Frequency and background activity are uncontrolled; wide ranges preclude a reliable universal target advantage.
+- Historical study files; see adjacent data and metadata.
+- [Current commands and study notes](../../../../../experiments/native-comparison/README.md).

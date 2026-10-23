@@ -1,13 +1,21 @@
-# AVX vs native auto-vectorization
+# AVX versus native
 
-For the current full campaign, use `make all` from `project1-simd/`; use `make plots RUN_DIR=/absolute/path/to/run` to replot it. See the [project guide](../../README.md).
+- Run commands from `project1-simd/`.
+- Full campaign: `make all`; saved figures: `make reproduce`.
+- [Project guide](../../README.md).
 
-## Standalone historical study
+## Standalone study
 
-The commands and recorded results below describe the standalone study. Run these commands from `project1-simd/`; they are not required in addition to the current full campaign.
+```sh
+python3 experiments/native-comparison/run.py
+../.venv-analysis/bin/python experiments/native-comparison/analyze.py output/native-comparison/<timestamp>
+```
 
-Run `python3 experiments/native-comparison/run.py`, then `../.venv-analysis/bin/python experiments/native-comparison/analyze.py output/native-comparison/<timestamp>`.
-
-This comparison reuses the main harness but places two auto-vectorized implementations in its scalar/simd symbol slots: AVX (`-mavx`) and CPU-native (`-march=native`). CSV labels explicitly identify `avx` and `native`; neither is a scalar baseline. Both use `-O3 -ffast-math -ffp-contract=off`. The strict harness uses neither fast-math nor native ISA flags. Calls alternate each trial in the same process, on the same 64-byte-aligned buffers, pinned to CPU 0. Sizes are 32,768, 1,048,576, and 8,388,608 elements, all vector multiples; 15 trials and five warmups per variant, type and kernel. Single-call timings exclude allocation, initialization, output reset and reference/guard checks.
-
-Raw timings, metadata, generated source, compiler reports and disassembly are retained per run. The summary is median matched AVX/native timing ratio with quartiles, not a confidence interval. Larger than one favors native. The 540 observations passed validation; both builds passed the 12-function correctness suite at 13 lengths and two offsets. All float/double loops reported 32-byte vectorization; no FMA or ZMM instructions were found. Frequency and background activity are uncontrolled; wide ranges preclude a reliable universal target advantage.
+- Two auto-vectorized builds: `-mavx` and `-march=native`; no scalar baseline.
+- Shared flags: `-O3 -ffast-math -ffp-contract=off`; strict validation harness.
+- CPU 0; alternating calls; aligned buffers; 15 trials and five warmups.
+- Lengths: 32,768; 1,048,576; 8,388,608.
+- Metric: matched AVX/native timing ratio; above 1 favors native.
+- Recorded checks: 540 observations; 12 functions; 13 lengths; two offsets.
+- Recorded assembly: 32-byte vectors; no FMA or ZMM instructions.
+- Limits: IQRs are not confidence intervals; uncontrolled frequency/background work.

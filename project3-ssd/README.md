@@ -1,43 +1,40 @@
-# Project 3: SSD Performance Profiling
+# Project 3: SSD
 
-FIO measures a newly created disposable regular file, using aligned direct I/O except for the labeled page-cache comparison.
+- [Report PDF](report.pdf) — 12 pages, 9 figures.
+- FIO with temporary files and direct I/O; buffered reads only for the page-cache comparison.
 
-## Prerequisites
+## Requirements
 
-Linux, FIO with libaio, NumPy, Matplotlib, and more than 24 GiB free for the complete suite. The base and block/mix studies use 1 GiB disposable files; range and burst use 16 GiB files, sequentially. A valid system FIO is preferred, then the retained `tools/local` installation; `FIO=/path/to/fio` overrides discovery. Hardware performance counters and huge pages are not required.
+- Linux, FIO with libaio, NumPy, Matplotlib.
+- More than 24 GiB free; 1 GiB base/block/mix files and 16 GiB range/burst files.
+- System FIO preferred; override with `FIO=/path/to/fio`.
+- No hardware counters or huge pages required.
 
-## Report
+## Commands
 
-The [report PDF](report.pdf) contains 12 pages.
-
-## Reproduction
-
-Run from this project directory:
+- Run from this project directory; benchmark projects sequentially.
+- [Workspace setup](../README.md); override Python with `PYTHON=/path/to/python`.
 
 | Command | Result |
 |---|---|
-| `make all` (or `make`) | Build, validate, acquire every report study, and generate plots/tables. |
-| `make reproduce` | Recreate every recorded report figure from pinned historical datasets, without acquisition. |
-| `make benchmark` | Build, validate, and acquire measurements only. |
-| `make plots` | Render the latest completed full campaign without acquisition. |
-| `make plots RUN_DIR=/absolute/path/to/run` | Render a selected full campaign, or an explicitly partial legacy study. |
+| `make all` | Build, validate, benchmark, and plot |
+| `make reproduce` | Replot pinned report data |
+| `make benchmark` | Collect measurements only |
+| `make plots` | Plot the latest complete campaign |
+| `make plots RUN_DIR=/absolute/path/to/run` | Plot a selected run |
 
-`PYTHON=/path/to/python` overrides `../.venv-analysis/bin/python`. See the [workspace setup](../README.md). Run acquisitions sequentially. Failed acquisitions retain partial evidence without replacing the successful-run marker. Plotting failures can be retried using saved data. Every rendering writes a new output directory; `figures/` contains numbered PNG/SVG exports and per-panel plotted values, and `coverage.json` checks the complete figure list. Original historical inputs remain unchanged. A legacy `LATEST` is not a complete multi-study campaign; use `make reproduce` for the recorded report.
+- Outputs: `figures/`, plotted-value CSVs, and `coverage.json`.
+- Failed runs retain partial evidence; `LATEST` stays on the previous complete acquisition.
+- Legacy partial runs: use `make reproduce` for full report coverage.
 
-## Experiments and evidence
+## Studies and evidence
 
-| Requirement | Base campaign output |
-|---|---|
-| QD=1 baselines | 4 KiB random and 128 KiB sequential read/write, mean/p95/p99. |
-| Block size and read/write mix | Throughput and latency from matched runs. |
-| Queue depth and Little's Law | Throughput/latency curve, achieved-depth evidence, operational knee. |
-| Tail latency | p50/p95/p99/p99.9 at QD 8 and near-knee QD. |
-| Range and device state | File-range sweep and bounded write burst. |
-| Misleading setup | Buffered/direct repeated-read page-cache comparison. |
-
-The [base campaign](output/20261022T215132.687552Z/) uses five ten-second trials per configuration, with initialization and CRC32C validation outside timing. The [figure coverage manifest](../shared/report-coverage.json) identifies the saved datasets. See the [validation implementation](../shared/project3.py) and [report PDF](report.pdf) for hypotheses, correctness, AI-use disclosure, and limitations.
-
-Replot the report's saved follow-ups from this project directory:
+- [Base campaign](output/20261022T215132.687552Z/): five 10-second trials per configuration.
+- [Dataset manifest](../shared/report-coverage.json); [validation code](../shared/project3.py).
+- Baselines, block size, read/write mix, queue depth, tail latency, file range, write bursts, page cache.
+- Full suite includes all four follow-up studies.
+- Standalone replay commands below modify derived files in the selected run.
+- Omitting `--plot` collects new measurements.
 
 ```sh
 ../.venv-analysis/bin/python scripts/block_repeat.py --plot output/block-repeat/20261023T193248.684097Z --first-trials 5
@@ -46,10 +43,11 @@ Replot the report's saved follow-ups from this project directory:
 ../.venv-analysis/bin/python scripts/burst_repeat.py --plot output/burst-repeat/20261023T203649.085439Z
 ```
 
-The complete `make all` command now acquires these four follow-ups automatically and renders all nine report figures. The standalone commands above remain available; they write derived files in their selected run. Prefer `make reproduce` for isolated, read-only reproduction of historical inputs. Omitting `--plot` acquires a fresh follow-up. The block report uses the first five paired trials; all acquired trials remain retained. Range uses eight rounds over eleven spans; burst averages five 60-second writes after 30-second idle intervals. Idle time does not reset SSD state.
+## Limits and safeguards
 
-## Limitations and safety
-
-The runner refuses raw disks and existing target files, and removes only its own disposable file. No cache dropping, trim, or system-policy changes are performed. An uncatchable termination may leave the disposable file for manual removal.
-
-Requested QD is a cap; the first depth reaching 90% of observed peak IOPS is an operational knee, not proof of saturation. Tail summaries are medians of trial percentiles, not pooled quantiles. File-offset range is not physical LBA placement. Bursts do not establish steady state or SLC exhaustion, and writes do not imply power-loss durability without per-I/O fsync.
+- Raw disks and existing target files refused; only created test files removed.
+- No cache dropping, trim, or machine-policy changes.
+- Forced termination may leave a temporary file.
+- Queue-depth knee does not prove saturation; file ranges are not physical LBAs.
+- Tail values summarize trial percentiles, not pooled requests.
+- Short bursts do not establish steady state or power-loss durability.
