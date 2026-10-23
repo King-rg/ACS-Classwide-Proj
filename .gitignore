@@ -14,6 +14,9 @@ __pycache__/
 **/output/reproduce-*/
 **/output/plots-*/
 
+# In-progress SSD campaign; retain locally until acquisition completes.
+/project3-ssd/output/20261023T221501.529126Z/
+
 # Saved compiled binaries; sources remain tracked.
 /project1-simd/output/evidence/20261019T002427Z/build-clang/runner
 /project1-simd/output/evidence/20261019T002427Z/build-gcc/runner
